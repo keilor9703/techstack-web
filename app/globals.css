@@ -2,10 +2,35 @@
 @tailwind components;
 @tailwind utilities;
 
-html { scroll-behavior: smooth; }
-body { font-family: 'Sora', sans-serif; background-color: #FBFBFD; color: #16181F; }
-::-webkit-scrollbar { width: 8px; }
-::-webkit-scrollbar-track { background: #16181F; }
-::-webkit-scrollbar-thumb { background: #2E68E6; border-radius: 4px; }
-::-webkit-scrollbar-thumb:hover { background: #4a7ef0; }
-* { scrollbar-width: thin; scrollbar-color: #2E68E6 #16181F; }
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Sora', sans-serif;
+  background-color: #FBFBFD;
+  color: #16181F;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #16181F;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #2E68E6;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #4a7ef0;
+}
+
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #2E68E6 #16181F;
+}
