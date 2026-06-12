@@ -16,7 +16,9 @@ function handleScrollTo(e, href) {
     window.scrollTo({ top: 0, behavior: 'smooth' });
     return;
   }
-  document.querySelector(href)?.scrollIntoView({ behavior: 'smooth' });
+  setTimeout(() => {
+    document.querySelector(href)?.scrollIntoView({ behavior: 'smooth' });
+  }, 50);
 }
 
 export default function Footer() {
