@@ -38,14 +38,18 @@ export default function Footer() {
             <a
               href="#"
               onClick={(e) => handleScrollTo(e, '#')}
-              className="inline-flex flex-col leading-none mb-4"
+              className="inline-flex items-center gap-3 mb-4"
             >
-              <span className="font-sora font-bold text-xl text-white tracking-tight">
-                Tech Stack
-              </span>
-              <span className="font-sora text-xs font-medium text-white/50 mt-0.5">
-                Colombia S.A.S.
-              </span>
+              <svg width="36" height="36" viewBox="0 0 100 100" fill="none" className="flex-shrink-0">
+                <rect width="100" height="100" rx="22" fill="#2E68E6"/>
+                <rect x="20" y="22" width="60" height="14" rx="7" fill="white"/>
+                <rect x="20" y="43" width="47" height="14" rx="7" fill="rgba(255,255,255,0.75)"/>
+                <rect x="20" y="64" width="34" height="14" rx="7" fill="rgba(255,255,255,0.5)"/>
+              </svg>
+              <div className="flex flex-col leading-none">
+                <span className="font-sora font-bold text-lg text-white tracking-tight">Tech Stack</span>
+                <span className="font-sora text-[10px] font-medium text-white/50 mt-0.5">Colombia S.A.S.</span>
+              </div>
             </a>
             <p className="text-white/50 text-sm font-sora leading-relaxed max-w-xs">
               Transformamos operaciones empresariales en ventajas competitivas a través

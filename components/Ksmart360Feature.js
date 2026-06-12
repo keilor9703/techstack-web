@@ -2,6 +2,7 @@
 
 import { useRef } from 'react';
 import { motion, useInView } from 'framer-motion';
+import Link from 'next/link';
 
 const features = [
   { text: 'Punto de Venta (POS) táctil y rápido' },
@@ -27,7 +28,7 @@ const itemVariants = {
 };
 
 const statsData = [
-  { label: 'Módulos activos', value: '12+' },
+  { label: 'Módulos activos', value: '18+' },
   { label: 'Empresas usando', value: '30+' },
   { label: 'Uptime garantizado', value: '99.9%' },
 ];
@@ -52,9 +53,15 @@ export default function Ksmart360Feature() {
               animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 24 }}
               transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
             >
-              <span className="text-xs font-mono font-medium text-azul tracking-widest uppercase mb-4 block">
-                Producto estrella
-              </span>
+              <div className="flex items-center gap-4 mb-5">
+                {/* K logo mark */}
+                <div className="w-14 h-14 rounded-2xl bg-azul flex items-center justify-center flex-shrink-0 shadow-lg shadow-azul/30">
+                  <span className="font-sora font-black text-white text-2xl tracking-tighter select-none">K</span>
+                </div>
+                <span className="text-xs font-mono font-medium text-azul tracking-widest uppercase">
+                  Producto estrella · v2.2.0
+                </span>
+              </div>
               <h2 className="font-sora font-bold text-3xl lg:text-4xl xl:text-5xl text-white leading-tight mb-4">
                 Ksmart360
               </h2>
@@ -78,6 +85,15 @@ export default function Ksmart360Feature() {
                   <path strokeLinecap="round" strokeLinejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
                 </svg>
               </a>
+              <Link
+                href="/ksmart360"
+                className="inline-flex items-center gap-1.5 text-sm font-medium text-white/50 hover:text-white transition-colors duration-200 font-sora ml-4"
+              >
+                Ver todos los módulos
+                <svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                </svg>
+              </Link>
             </motion.div>
 
             {/* Feature list */}
