@@ -74,7 +74,7 @@ const industries = [
   },
   {
     icon: '💰',
-    name: 'Prestamista',
+    name: 'Prestamos',
     subtitle: 'Microfinanzas · Crédito informal · Cooperativas',
     modules: [
       'Simulador de amortización automático',
