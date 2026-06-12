@@ -297,20 +297,21 @@ export default function Ksmart360Page() {
             </motion.p>
 
             <motion.div variants={fadeUp} className="flex flex-wrap items-center justify-center gap-4 mb-16">
-              <a
-                href="https://www.appjeylor.com/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 px-7 py-4 bg-azul text-white font-semibold text-sm rounded-xl hover:bg-blue-600 transition-colors duration-200 font-sora shadow-lg shadow-azul/30"
+              <button
+                onClick={() => window.open('https://www.appjeylor.com/', '_blank', 'noopener,noreferrer')}
+                className="inline-flex items-center gap-2 px-7 py-4 bg-azul text-white font-semibold text-sm rounded-xl hover:bg-blue-600 transition-colors duration-200 font-sora shadow-lg shadow-azul/30 cursor-pointer"
               >
                 Probar gratis 14 días
                 <svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
                   <path strokeLinecap="round" strokeLinejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
                 </svg>
-              </a>
-              <a href="#modulos" className="inline-flex items-center gap-2 px-7 py-4 border border-white/20 text-white font-semibold text-sm rounded-xl hover:border-white/40 hover:bg-white/5 transition-all duration-200 font-sora">
+              </button>
+              <button
+                onClick={() => document.getElementById('modulos')?.scrollIntoView({ behavior: 'smooth' })}
+                className="inline-flex items-center gap-2 px-7 py-4 border border-white/20 text-white font-semibold text-sm rounded-xl hover:border-white/40 hover:bg-white/5 transition-all duration-200 font-sora cursor-pointer"
+              >
                 Ver módulos
-              </a>
+              </button>
             </motion.div>
 
             {/* Stats */}
