@@ -43,6 +43,7 @@ export default function Contact() {
   });
   const [submitted, setSubmitted] = useState(false);
   const [loading, setLoading] = useState(false);
+  const [error, setError] = useState('');
 
   const handleChange = (field) => (e) => {
     setForm((prev) => ({ ...prev, [field]: e.target.value }));
@@ -51,10 +52,20 @@ export default function Contact() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setLoading(true);
-    // Simulate form submission
-    await new Promise((r) => setTimeout(r, 1200));
-    setLoading(false);
-    setSubmitted(true);
+    setError('');
+    try {
+      const res = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(form),
+      });
+      if (!res.ok) throw new Error();
+      setSubmitted(true);
+    } catch {
+      setError('Hubo un problema al enviar el mensaje. Por favor intenta de nuevo o escríbenos directamente a contacto@techstackcol.com');
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
@@ -300,6 +311,9 @@ export default function Contact() {
                   )}
                 </button>
 
+                {error && (
+                  <p className="text-xs text-red-500 text-center font-sora">{error}</p>
+                )}
                 <p className="text-xs text-acero text-center font-sora">
                   Al enviar este formulario, aceptas que nos pongamos en contacto contigo.
                 </p>
