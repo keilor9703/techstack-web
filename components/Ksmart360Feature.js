@@ -37,7 +37,7 @@ export default function Ksmart360Feature() {
   const isInView = useInView(ref, { once: true, margin: '-80px' });
 
   return (
-    <section id="ksmart360" className="bg-grafito py-24 lg:py-32 overflow-hidden">
+    <section id="ksmart360" className="relative bg-grafito py-24 lg:py-32 overflow-hidden">
       {/* Subtle background glow */}
       <div className="absolute left-0 right-0 top-1/2 -translate-y-1/2 h-[600px] w-full pointer-events-none overflow-hidden">
         <div className="absolute left-1/4 top-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-azul/8 rounded-full blur-3xl" />
