@@ -246,9 +246,7 @@ export default function Ksmart360Page() {
             </Link>
             <div className="w-px h-4 bg-white/10" />
             <div className="flex items-center gap-2.5">
-              <div className="w-7 h-7 rounded-lg bg-azul flex items-center justify-center">
-                <span className="font-sora font-black text-white text-sm select-none">K</span>
-              </div>
+              <img src="/ksmart360-logo.svg" alt="Ksmart360" className="w-8 h-8" />
               <span className="font-sora font-bold text-white text-sm">Ksmart360</span>
               <span className="font-mono text-[10px] text-white/30">v2.2.0</span>
             </div>
@@ -277,9 +275,7 @@ export default function Ksmart360Page() {
 
             {/* K mark */}
             <motion.div variants={fadeUp} className="mb-8">
-              <div className="w-20 h-20 rounded-3xl bg-azul mx-auto flex items-center justify-center shadow-2xl shadow-azul/40">
-                <span className="font-sora font-black text-white text-4xl tracking-tighter select-none">K</span>
-              </div>
+              <img src="/ksmart360-logo.svg" alt="Ksmart360" className="w-24 h-24 mx-auto drop-shadow-2xl" />
             </motion.div>
 
             <motion.div variants={fadeUp}>
@@ -582,8 +578,8 @@ export default function Ksmart360Page() {
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-azul/10 rounded-full blur-3xl pointer-events-none" />
         <div className="relative max-w-3xl mx-auto px-6 text-center">
           <Section>
-            <motion.div variants={fadeUp} className="w-16 h-16 rounded-2xl bg-azul mx-auto flex items-center justify-center mb-6 shadow-xl shadow-azul/30">
-              <span className="font-sora font-black text-white text-3xl select-none">K</span>
+            <motion.div variants={fadeUp} className="mb-6">
+              <img src="/ksmart360-logo.svg" alt="Ksmart360" className="w-16 h-16 mx-auto drop-shadow-xl" />
             </motion.div>
             <motion.h2 variants={fadeUp} className="font-sora font-bold text-3xl lg:text-5xl text-white leading-tight tracking-tight mb-5">
               Empieza hoy.<br />

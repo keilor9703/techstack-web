@@ -7,7 +7,7 @@ const codeLines = [
   { tokens: [{ type: 'plain', text: '  backend: ' }, { type: 'string', text: '"FastAPI + PostgreSQL"' }, { type: 'plain', text: ',' }] },
   { tokens: [{ type: 'plain', text: '  frontend: ' }, { type: 'string', text: '"React + Next.js"' }, { type: 'plain', text: ',' }] },
   { tokens: [{ type: 'plain', text: '  cloud: ' }, { type: 'string', text: '"Oracle Cloud (OCI)"' }, { type: 'plain', text: ',' }] },
-  { tokens: [{ type: 'plain', text: '  product: ' }, { type: 'amber', text: '"Ksmart360 v2.0"' }] },
+  { tokens: [{ type: 'plain', text: '  product: ' }, { type: 'amber', text: '"Ksmart360 v2.2.0"' }] },
   { tokens: [{ type: 'plain', text: '};' }] },
 ];
 

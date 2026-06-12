@@ -55,9 +55,7 @@ export default function Ksmart360Feature() {
             >
               <div className="flex items-center gap-4 mb-5">
                 {/* K logo mark */}
-                <div className="w-14 h-14 rounded-2xl bg-azul flex items-center justify-center flex-shrink-0 shadow-lg shadow-azul/30">
-                  <span className="font-sora font-black text-white text-2xl tracking-tighter select-none">K</span>
-                </div>
+                <img src="/ksmart360-logo.svg" alt="Ksmart360" className="w-14 h-14 flex-shrink-0" />
                 <span className="text-xs font-mono font-medium text-azul tracking-widest uppercase">
                   Producto estrella · v2.2.0
                 </span>
@@ -135,7 +133,7 @@ export default function Ksmart360Feature() {
                   <div className="flex items-center gap-2">
                     <span className="w-2.5 h-2.5 bg-azul rounded-full" />
                     <span className="font-sora font-bold text-white text-sm">Ksmart360</span>
-                    <span className="text-white/30 text-xs font-mono ml-1">v2.0</span>
+                    <span className="text-white/30 text-xs font-mono ml-1">v2.2.0</span>
                   </div>
                   <span className="flex items-center gap-1.5 text-xs text-green-400 font-mono">
                     <span className="w-1.5 h-1.5 bg-green-400 rounded-full animate-pulse" />
