@@ -118,6 +118,12 @@ const pymeDifferentials = [
     desc: 'Olvídate de contraseñas que se olvidan. Registra tu huella o tu rostro una sola vez y a partir de ese momento entras al sistema con un toque. Tecnología FIDO2 WebAuthn — la misma que usan los bancos.',
     tag: 'Seguro',
   },
+  {
+    icon: '📒',
+    title: 'Contabilidad automática — sin ser contador',
+    desc: 'Cada venta, compra, gasto o cobro genera automáticamente el asiento contable en partida doble, siguiendo el PUC colombiano. Diferencia caja de bancos sola, separa el IVA, y descompone capital e intereses en préstamos. El sistema lleva tu contabilidad en segundo plano mientras tú operas.',
+    tag: 'Contabilidad',
+  },
 ];
 
 const pymeDeepFeatures = [
@@ -147,6 +153,15 @@ const pymeDeepFeatures = [
       'Cada venta descuenta. Cada compra suma. Cada producción consume insumos y genera producto terminado. Cada ajuste queda registrado con quién lo hizo, cuándo y por qué. El inventario siempre refleja la realidad.',
       'Recibes alertas automáticas cuando un producto cae por debajo del stock mínimo que tú configuraste. No más "se nos acabó el producto" en medio de la venta.',
       'El historial completo de cada producto — su kardex — está siempre disponible. Puedes saber exactamente cuántas unidades se vendieron, cuándo entró cada lote, quién hizo cada ajuste. Trazabilidad total, sin trabajo manual.',
+    ],
+  },
+  {
+    icon: '📒',
+    title: 'La contabilidad de tu negocio, en orden — sin ser contador',
+    body: [
+      'Cada vez que registras una venta, una compra, un gasto o el cobro de una cuota, Ksmart360 genera automáticamente el asiento contable en partida doble correspondiente, siguiendo el Plan Único de Cuentas (PUC) colombiano. No ingresas nada manualmente — el sistema trabaja en segundo plano mientras tú operas.',
+      '**Diferencia caja y bancos sin que toques nada:** si el pago fue en efectivo, registra en Caja. Si fue por Nequi, Daviplata, transferencia o tarjeta, registra en Bancos. El IVA de cada venta se contabiliza en su cuenta separada (IVA por pagar), igual que el IVA descontable de tus compras. En los préstamos, cada cuota cobrada se descompone automáticamente entre recuperación de capital e ingresos por intereses.',
+      '**¿Llevas tiempo operando y activaste el módulo tarde?** Sin problema. El sistema puede generar retroactivamente todos los asientos contables de tus transacciones anteriores con un solo clic — sin duplicados, sin trabajo manual. Tu contabilidad completa, al día, desde el primer día que registraste en el sistema.',
     ],
   },
 ];
