@@ -26,9 +26,15 @@ export default function Navbar() {
   const handleNavClick = (e, href) => {
     e.preventDefault();
     setMenuOpen(false);
+    if (!href || href === '#') {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+      return;
+    }
     const target = document.querySelector(href);
     if (target) {
-      target.scrollIntoView({ behavior: 'smooth' });
+      setTimeout(() => {
+        target.scrollIntoView({ behavior: 'smooth' });
+      }, 50);
     }
   };
 
