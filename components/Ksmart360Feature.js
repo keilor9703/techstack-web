@@ -72,23 +72,12 @@ export default function Ksmart360Feature() {
                 y en tiempo real.
               </p>
 
-              <a
-                href="https://www.appjeylor.com/"
-                target="_blank"
-                rel="noopener noreferrer"
+              <Link
+                href="/ksmart360"
                 className="inline-flex items-center gap-2 px-6 py-3.5 bg-azul text-white font-semibold text-sm rounded-xl hover:bg-blue-600 transition-colors duration-200 font-sora mb-10"
               >
                 Probar gratis
                 <svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                </svg>
-              </a>
-              <Link
-                href="/ksmart360"
-                className="inline-flex items-center gap-1.5 text-sm font-medium text-white/50 hover:text-white transition-colors duration-200 font-sora ml-4"
-              >
-                Ver todos los módulos
-                <svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
                   <path strokeLinecap="round" strokeLinejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
                 </svg>
               </Link>
