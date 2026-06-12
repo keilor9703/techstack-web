@@ -89,11 +89,12 @@ export default function Navbar() {
           {/* CTA + Hamburger */}
           <div className="flex items-center gap-4">
             <a
-              href="#contacto"
-              onClick={(e) => handleNavClick(e, '#contacto')}
+              href="https://www.appjeylor.com/"
+              target="_blank"
+              rel="noopener noreferrer"
               className="hidden lg:inline-flex items-center px-5 py-2.5 bg-azul text-white text-sm font-semibold rounded-lg hover:bg-blue-600 transition-colors duration-200 font-sora"
             >
-              Solicitar demo
+              Probar Ksmart360
             </a>
 
             {/* Hamburger */}
@@ -147,11 +148,12 @@ export default function Navbar() {
                 </motion.a>
               ))}
               <a
-                href="#contacto"
-                onClick={(e) => handleNavClick(e, '#contacto')}
+                href="https://www.appjeylor.com/"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="mt-3 inline-flex justify-center items-center px-5 py-3 bg-azul text-white text-sm font-semibold rounded-lg hover:bg-blue-600 transition-colors font-sora"
               >
-                Solicitar demo
+                Probar Ksmart360
               </a>
             </nav>
           </motion.div>
