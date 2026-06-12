@@ -634,42 +634,38 @@ export default function Ksmart360Page() {
 
       {/* ── Nav ── */}
       <header className="fixed top-0 left-0 right-0 z-50 bg-grafito/80 backdrop-blur-md border-b border-white/5">
-        <div className="max-w-7xl mx-auto px-4 lg:px-8 h-16 flex items-center justify-between gap-4">
-
+        {/* Main row */}
+        <div className="max-w-7xl mx-auto px-4 lg:px-8 h-14 flex items-center justify-between gap-3">
           {/* Left: back + logo */}
-          <div className="flex items-center gap-4 min-w-0">
-            <Link href="/" className="flex items-center gap-2 text-white/50 hover:text-white transition-colors text-sm font-sora font-medium flex-shrink-0">
-              <svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+          <div className="flex items-center gap-3 min-w-0">
+            <Link href="/" className="flex items-center gap-1.5 text-white/50 hover:text-white transition-colors text-sm font-sora font-medium flex-shrink-0">
+              <svg width="15" height="15" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
                 <path strokeLinecap="round" strokeLinejoin="round" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
               </svg>
               <span className="hidden sm:inline">Inicio</span>
             </Link>
             <div className="w-px h-4 bg-white/10 flex-shrink-0" />
             <div className="flex items-center gap-2 min-w-0">
-              <img src="/ksmart360-logo.svg" alt="Ksmart360" className="w-7 h-7 flex-shrink-0" />
+              <img src="/ksmart360-logo.svg" alt="Ksmart360" className="w-6 h-6 flex-shrink-0" />
               <span className="font-sora font-bold text-white text-sm flex-shrink-0">Ksmart360</span>
-              <span className="font-mono text-[10px] text-white/30 hidden sm:inline flex-shrink-0">v2.2.0</span>
+              <span className="font-mono text-[10px] text-white/30 hidden md:inline flex-shrink-0">v2.2.0</span>
             </div>
           </div>
 
-          {/* Center: toggle */}
-          <div className="flex items-center gap-1 bg-white/8 border border-white/10 rounded-xl p-1 flex-shrink-0">
+          {/* Center toggle — desktop only */}
+          <div className="hidden sm:flex items-center gap-1 bg-white/8 border border-white/10 rounded-xl p-1">
             <button
               onClick={() => setView('pymes')}
-              className={`px-3 py-1.5 rounded-lg text-xs font-semibold font-sora transition-all duration-200 whitespace-nowrap ${
-                view === 'pymes'
-                  ? 'bg-white text-grafito shadow-sm'
-                  : 'text-white/50 hover:text-white/80'
+              className={`px-3 py-1.5 rounded-lg text-xs font-semibold font-sora transition-all duration-200 whitespace-nowrap cursor-pointer ${
+                view === 'pymes' ? 'bg-white text-grafito shadow-sm' : 'text-white/50 hover:text-white/80'
               }`}
             >
               Para mi negocio
             </button>
             <button
               onClick={() => setView('tech')}
-              className={`px-3 py-1.5 rounded-lg text-xs font-semibold font-sora transition-all duration-200 whitespace-nowrap ${
-                view === 'tech'
-                  ? 'bg-white text-grafito shadow-sm'
-                  : 'text-white/50 hover:text-white/80'
+              className={`px-3 py-1.5 rounded-lg text-xs font-semibold font-sora transition-all duration-200 whitespace-nowrap cursor-pointer ${
+                view === 'tech' ? 'bg-white text-grafito shadow-sm' : 'text-white/50 hover:text-white/80'
               }`}
             >
               Técnico
@@ -679,18 +675,40 @@ export default function Ksmart360Page() {
           {/* Right: CTA */}
           <button
             onClick={() => window.open('https://www.appjeylor.com/', '_blank', 'noopener,noreferrer')}
-            className="hidden sm:inline-flex items-center gap-2 px-4 py-2 bg-azul text-white text-sm font-semibold rounded-lg hover:bg-blue-600 transition-colors font-sora flex-shrink-0 cursor-pointer"
+            className="inline-flex items-center gap-1.5 px-3 py-2 bg-azul text-white text-xs font-semibold rounded-lg hover:bg-blue-600 transition-colors font-sora flex-shrink-0 cursor-pointer"
           >
             Probar gratis
-            <svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
+            <svg width="12" height="12" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
               <path strokeLinecap="round" strokeLinejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
             </svg>
           </button>
         </div>
+
+        {/* Toggle row — mobile only */}
+        <div className="sm:hidden px-4 pb-2">
+          <div className="flex items-center gap-1 bg-white/8 border border-white/10 rounded-xl p-1 w-full">
+            <button
+              onClick={() => setView('pymes')}
+              className={`flex-1 py-1.5 rounded-lg text-xs font-semibold font-sora transition-all duration-200 cursor-pointer ${
+                view === 'pymes' ? 'bg-white text-grafito shadow-sm' : 'text-white/50'
+              }`}
+            >
+              Para mi negocio
+            </button>
+            <button
+              onClick={() => setView('tech')}
+              className={`flex-1 py-1.5 rounded-lg text-xs font-semibold font-sora transition-all duration-200 cursor-pointer ${
+                view === 'tech' ? 'bg-white text-grafito shadow-sm' : 'text-white/50'
+              }`}
+            >
+              Técnico
+            </button>
+          </div>
+        </div>
       </header>
 
       {/* ── Hero ── */}
-      <section className="relative bg-grafito pt-32 pb-24 lg:pt-40 lg:pb-32 overflow-hidden">
+      <section className="relative bg-grafito pt-36 pb-24 sm:pt-32 lg:pt-40 lg:pb-32 overflow-hidden">
         <div className="absolute inset-0 opacity-20 pointer-events-none" style={{ backgroundImage: 'radial-gradient(circle, #6A6F7E 1px, transparent 1px)', backgroundSize: '32px 32px' }} />
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[700px] bg-azul/10 rounded-full blur-3xl pointer-events-none" />
 
