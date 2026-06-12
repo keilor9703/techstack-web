@@ -9,6 +9,9 @@ const projects = [
     tags: ['SaaS', 'FastAPI', 'React', 'Oracle Cloud'],
     gradient: 'from-azul to-blue-400',
     accentColor: '#2E68E6',
+    ctaLabel: 'Probar gratis',
+    ctaHref: 'https://www.appjeylor.com/',
+    ctaExternal: true,
   },
   {
     title: 'Sistema de Lavadero',
@@ -16,6 +19,9 @@ const projects = [
     tags: ['React', 'FastAPI', 'PostgreSQL'],
     gradient: 'from-indigo-500 to-azul',
     accentColor: '#6366F1',
+    ctaLabel: 'Solicitar información',
+    ctaHref: '#contacto',
+    ctaExternal: false,
   },
   {
     title: 'POS Restaurante',
@@ -23,6 +29,9 @@ const projects = [
     tags: ['React', 'WebSocket', 'FastAPI'],
     gradient: 'from-blue-500 to-cyan-400',
     accentColor: '#3B82F6',
+    ctaLabel: 'Solicitar información',
+    ctaHref: '#contacto',
+    ctaExternal: false,
   },
   {
     title: 'Facturación Electrónica DIAN',
@@ -30,6 +39,9 @@ const projects = [
     tags: ['DIAN API', 'Python', 'XML'],
     gradient: 'from-sky-500 to-azul',
     accentColor: '#0EA5E9',
+    ctaLabel: 'Solicitar información',
+    ctaHref: '#contacto',
+    ctaExternal: false,
   },
 ];
 
@@ -111,11 +123,14 @@ export default function Portfolio() {
                   ))}
                 </div>
                 <a
-                  href="#contacto"
-                  onClick={(e) => { e.preventDefault(); setTimeout(() => document.querySelector('#contacto')?.scrollIntoView({ behavior: 'smooth' }), 50); }}
+                  href={project.ctaHref}
+                  {...(project.ctaExternal
+                    ? { target: '_blank', rel: 'noopener noreferrer' }
+                    : { onClick: (e) => { e.preventDefault(); setTimeout(() => document.querySelector(project.ctaHref)?.scrollIntoView({ behavior: 'smooth' }), 50); } }
+                  )}
                   className="mt-auto inline-flex items-center gap-1.5 text-sm font-semibold text-azulStack font-sora hover:gap-3 transition-all duration-200"
                 >
-                  Solicitar demo
+                  {project.ctaLabel}
                   <svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
                     <path strokeLinecap="round" strokeLinejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
                   </svg>

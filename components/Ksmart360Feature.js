@@ -68,14 +68,12 @@ export default function Ksmart360Feature() {
               </p>
 
               <a
-                href="#contacto"
-                onClick={(e) => {
-                  e.preventDefault();
-                  document.querySelector('#contacto')?.scrollIntoView({ behavior: 'smooth' });
-                }}
+                href="https://www.appjeylor.com/"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 px-6 py-3.5 bg-azul text-white font-semibold text-sm rounded-xl hover:bg-blue-600 transition-colors duration-200 font-sora mb-10"
               >
-                Solicitar demo gratuita
+                Probar gratis
                 <svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
                   <path strokeLinecap="round" strokeLinejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
                 </svg>
