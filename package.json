@@ -1,0 +1,21 @@
+{
+  "name": "techstack-web",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start"
+  },
+  "dependencies": {
+    "next": "14.2.3",
+    "react": "^18",
+    "react-dom": "^18",
+    "framer-motion": "^11"
+  },
+  "devDependencies": {
+    "tailwindcss": "^3",
+    "autoprefixer": "^10",
+    "postcss": "^8"
+  }
+}
