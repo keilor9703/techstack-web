@@ -178,7 +178,7 @@ export default function Footer() {
         {/* Divider */}
         <div className="border-t border-white/10 pt-8 flex flex-col sm:flex-row items-center justify-between gap-4">
           <p className="text-white/30 text-xs font-sora text-center sm:text-left">
-            © 2024 Tech Stack Colombia S.A.S. Todos los derechos reservados.
+            © 2026 Tech Stack Colombia S.A.S. Todos los derechos reservados.
           </p>
           <p className="text-white/20 text-xs font-mono">
             Construido con Next.js · Oracle Cloud · ❤️ desde Colombia
