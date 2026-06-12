@@ -71,40 +71,83 @@ const plans = [
 
 const pymeDifferentials = [
   {
-    icon: '📱',
-    title: 'Sin escáner de barras',
-    desc: 'Usa la cámara de tu celular para escanear productos. Sin comprar hardware adicional.',
-    tag: 'Diferencial',
+    icon: '📷',
+    title: 'Escanea con cámara o con lector — tú decides',
+    desc: 'El POS funciona con lector de barras USB para cajas con computador, y también con la cámara del celular o tablet para quienes no tienen hardware. Sin obligaciones. Tú eliges cómo operar.',
+    tag: 'Flexible',
   },
   {
-    icon: '💬',
-    title: 'Cobra por WhatsApp',
-    desc: 'Envía cobros, recibos y recordatorios de pago directo al celular de tu cliente. En un clic.',
-    tag: 'Integrado',
+    icon: '🌍',
+    title: 'Registra productos en segundos con auto-completado global',
+    desc: 'Escanea el código de barras de cualquier producto y Ksmart360 lo busca automáticamente en bases de datos mundiales como OpenFoodFacts y UPCitemdb. El nombre, la descripción y la imagen aparecen solos — tú solo pones el precio.',
+    tag: 'Inteligente',
+  },
+  {
+    icon: '🎨',
+    title: 'Un producto, todas sus variantes',
+    desc: 'Maneja un mismo producto en múltiples presentaciones: talla, color, capacidad, sabor. Cada variante tiene su propio stock, precio y código de barras — todo bajo el mismo producto, sin duplicados.',
+    tag: 'Versátil',
+  },
+  {
+    icon: '🛍️',
+    title: 'Tu catálogo virtual recibe pedidos en WhatsApp y en el sistema',
+    desc: 'Crea tu tienda online con un enlace único. Tus clientes exploran los productos, arman el carrito y hacen el pedido — que llega simultáneamente a tu WhatsApp y al sistema para que lo gestiones desde el mismo lugar. El stock siempre sincronizado.',
+    tag: 'Digital',
+  },
+  {
+    icon: '⭐',
+    title: 'Fidelización con puntos: clientes que vuelven solos',
+    desc: 'Programa de puntos integrado al POS. Define cuánto vale cada punto, cómo se acumulan con las compras y cómo el cliente los puede redimir. Todo configurable por el administrador. En cada venta el cliente acumula automáticamente.',
+    tag: 'Fidelización',
+  },
+  {
+    icon: '🖨️',
+    title: 'Comprobantes donde el cliente quiera recibirlos',
+    desc: 'Envía el recibo por WhatsApp al número del cliente con un clic, imprime en impresoras térmicas de 58mm o 80mm, o en papel carta tamaño estándar. Cada formato exacto para cada situación.',
+    tag: 'Multi-formato',
+  },
+  {
+    icon: '🏭',
+    title: 'Producción y recetas integradas al inventario',
+    desc: 'Define la receta de lo que produces — ingredientes, cantidades, merma. Al registrar una producción, el sistema descuenta automáticamente los insumos del inventario y suma el producto terminado al stock. Sin cálculos manuales, sin descuadres.',
+    tag: 'Producción',
   },
   {
     icon: '👆',
-    title: 'Entra con tu huella',
-    desc: 'Olvídate de las contraseñas. Abre el sistema con huella dactilar o reconocimiento facial.',
+    title: 'Acceso con huella dactilar o rostro',
+    desc: 'Olvídate de contraseñas que se olvidan. Registra tu huella o tu rostro una sola vez y a partir de ese momento entras al sistema con un toque. Tecnología FIDO2 WebAuthn — la misma que usan los bancos.',
     tag: 'Seguro',
   },
+];
+
+const pymeDeepFeatures = [
   {
-    icon: '🆓',
-    title: '14 días completamente gratis',
-    desc: 'Todos los módulos desde el primer día. Sin tarjeta de crédito. Sin letra pequeña.',
-    tag: 'Sin riesgo',
+    icon: '🛒',
+    title: 'Un POS diseñado para cómo realmente vendes',
+    body: [
+      'Hay negocios que venden con báscula — mercados, tiendas de granos, fruterías. Hay negocios que venden con escáner de barras en caja registradora. Y hay tiendas de variedades donde el vendedor prefiere tocar en pantalla. Ksmart360 tiene un modo para cada uno.',
+      '**Modo clásico con teclado y escáner:** conecta tu lector USB y vende a la velocidad que tus manos se muevan. Escáner, cantidad, pago — en segundos.',
+      '**Modo touch táctil:** los productos aparecen como tarjetas por categoría. Toca, agrega al carrito, cobra. Ideal para tablet o pantalla táctil.',
+      'En ambos modos puedes combinar hasta cuatro métodos de pago en una sola venta: efectivo + Nequi + tarjeta + saldo a favor. El sistema calcula el cambio, registra la referencia y genera el comprobante.',
+    ],
   },
   {
-    icon: '📍',
-    title: 'Gestiona desde el celular',
-    desc: 'Diseño 100% responsivo. Vende, cobra y consulta tu negocio desde donde estés.',
-    tag: 'Móvil',
+    icon: '🍽️',
+    title: 'El restaurante digital que opera como el tuyo de verdad',
+    body: [
+      'Primero diseñas el plano de tu local: ubicas cada mesa exactamente como está físicamente en tu salón, con su número y su zona. Lo que ves en pantalla es lo que tienes en el piso.',
+      'El mesero toma el pedido desde su celular o tablet y lo confirma. En ese instante, la comanda aparece en la pantalla de cocina (KDS) y se imprime automáticamente en la impresora térmica de la cocina. Sin gritos, sin papeles volando, sin pedidos perdidos.',
+      'Cada plato tiene un estado en cocina: pendiente, en preparación, listo. El administrador configura si el mesero puede cobrar directamente en la mesa o si todo pasa por caja centralizada. El sistema se adapta a cómo tú quieres operar, no al revés.',
+    ],
   },
   {
-    icon: '🔐',
-    title: 'Datos siempre seguros',
-    desc: 'Respaldos diarios automáticos en la nube. Tu información protegida y siempre disponible.',
-    tag: 'Confiable',
+    icon: '📦',
+    title: 'Inventario que se gestiona solo con cada movimiento',
+    body: [
+      'Cada venta descuenta. Cada compra suma. Cada producción consume insumos y genera producto terminado. Cada ajuste queda registrado con quién lo hizo, cuándo y por qué. El inventario siempre refleja la realidad.',
+      'Recibes alertas automáticas cuando un producto cae por debajo del stock mínimo que tú configuraste. No más "se nos acabó el producto" en medio de la venta.',
+      'El historial completo de cada producto — su kardex — está siempre disponible. Puedes saber exactamente cuántas unidades se vendieron, cuándo entró cada lote, quién hizo cada ajuste. Trazabilidad total, sin trabajo manual.',
+    ],
   },
 ];
 
@@ -112,20 +155,20 @@ const pymeSteps = [
   {
     step: '01',
     title: 'Regístrate en 2 minutos',
-    desc: 'Elige tu tipo de negocio — tienda, parqueadero, lavadero, restaurante o prestamista. El sistema activa automáticamente los módulos que necesitas.',
-    detail: 'Sin instalaciones · Sin configuración técnica',
+    desc: 'Elige tu tipo de negocio — tienda, parqueadero, lavadero, restaurante o prestamista. El sistema activa automáticamente los módulos que necesitas. Sin configuración técnica.',
+    detail: 'Sin instalaciones · Wizard de inicio guiado',
   },
   {
     step: '02',
-    title: 'Agrega tus productos',
-    desc: 'Escanea el código de barras con la cámara del celular y el sistema completa el nombre automáticamente. O carga tu catálogo por Excel.',
-    detail: 'Carga individual o masiva · Auto-completado',
+    title: 'Carga tu catálogo con la cámara',
+    desc: 'Escanea el código de barras de cada producto con tu celular y el sistema lo completa automáticamente desde bases de datos globales. O importa todo tu inventario por Excel en un solo paso.',
+    detail: 'Auto-completado mundial · Carga masiva por Excel',
   },
   {
     step: '03',
-    title: 'Empieza a operar hoy',
-    desc: 'Registra ventas, cobra, controla inventario y envía recibos por WhatsApp desde el primer día. Sin capacitación técnica requerida.',
-    detail: 'Soporte incluido · Wizard de inicio guiado',
+    title: 'Empieza a operar desde hoy',
+    desc: 'Vende con POS, registra producción, controla inventario, fideliza clientes y envía recibos por WhatsApp desde el primer día. Sin capacitación técnica. Soporte incluido.',
+    detail: 'Soporte incluido · Acceso completo 14 días gratis',
   },
 ];
 
@@ -133,15 +176,21 @@ const pymeIndustries = [
   {
     icon: '🏪',
     name: 'Tienda / ERP',
-    subtitle: 'Tiendas · Ferreterías · Distribuidoras · Talleres',
-    headline: 'Vende más, pierde menos, cobra mejor.',
+    subtitle: 'Tiendas · Mercados · Ferreterías · Distribuidoras · Talleres',
+    headline: 'Vende más, pierde menos, fideliza mejor.',
     benefits: [
-      { icon: '🛒', text: 'Cobra en segundos con el POS táctil o desde teclado' },
-      { icon: '📦', text: 'Tu inventario se actualiza solo con cada venta' },
-      { icon: '💳', text: 'Acepta efectivo, Nequi, transferencia y tarjeta en una sola venta' },
-      { icon: '📄', text: 'Cotizaciones que se convierten en factura con un clic' },
-      { icon: '💬', text: 'Tu catálogo online disponible por WhatsApp 24/7' },
-      { icon: '🔔', text: 'Alerta cuando un producto está por agotarse' },
+      { icon: '⌨️', text: 'POS clásico con teclado y lector de barras USB para cajas con computador' },
+      { icon: '👆', text: 'POS táctil para tablet: toca el producto, agrega al carrito, cobra' },
+      { icon: '⚖️', text: 'Compatible con báscula digital para negocios que venden por peso' },
+      { icon: '🌍', text: 'Registro de productos con auto-completado desde bases de datos globales al escanear' },
+      { icon: '🎨', text: 'Variantes por talla, color o capacidad — cada una con stock y precio propio' },
+      { icon: '🏭', text: 'Módulo de recetas y producción integrado: los insumos se descuentan solos' },
+      { icon: '⭐', text: 'Fidelización por puntos: el cliente acumula en cada compra, configurable por el admin' },
+      { icon: '🛍️', text: 'Catálogo virtual con pedidos que llegan a WhatsApp y al sistema simultáneamente' },
+      { icon: '📄', text: 'Cotizaciones que se convierten en venta con un solo clic' },
+      { icon: '🖨️', text: 'Comprobantes por WhatsApp, impresoras 58mm/80mm o papel carta' },
+      { icon: '📦', text: 'Inventario actualizado en tiempo real en cada movimiento — sin trabajo manual' },
+      { icon: '🔔', text: 'Alerta automática cuando un producto cae por debajo del stock mínimo' },
     ],
   },
   {
@@ -150,12 +199,12 @@ const pymeIndustries = [
     subtitle: 'Préstamos · Microcrédito · Cooperativas',
     headline: 'Tu cartera bajo control. Sin excusas ni olvidos.',
     benefits: [
-      { icon: '🧮', text: 'El simulador calcula la cuota antes de aprobar el préstamo' },
-      { icon: '📅', text: 'La mora se calcula automáticamente cada día' },
-      { icon: '📍', text: 'Tus cobradores registran GPS y foto en cada visita' },
-      { icon: '💬', text: 'Recibo de pago al cliente por WhatsApp al instante' },
-      { icon: '💵', text: 'Abonos a capital que redistribuyen el saldo solos' },
-      { icon: '📊', text: 'Ve quién te debe y hace cuántos días en un solo reporte' },
+      { icon: '🧮', text: 'Simulador integrado: calcula la cuota exacta antes de aprobar el préstamo' },
+      { icon: '📅', text: 'La mora se calcula y acumula automáticamente cada día sin intervención' },
+      { icon: '📍', text: 'Cobradores registran GPS y foto en cada visita desde su celular' },
+      { icon: '💵', text: 'Abonos a capital que redistribuyen el saldo entre cuotas pendientes solos' },
+      { icon: '🖨️', text: 'Recibo de pago generado al instante y enviado por WhatsApp al cliente' },
+      { icon: '📊', text: 'Cartera con aging: ve quién te debe y cuántos días llevan sin pagar' },
     ],
   },
   {
@@ -164,12 +213,12 @@ const pymeIndustries = [
     subtitle: 'Motos · Carros · Bicicletas · Mix',
     headline: 'Nada entra ni sale sin registro. Control total.',
     benefits: [
-      { icon: '⏱️', text: 'El cobro se calcula solo según el tiempo de estadía' },
-      { icon: '🔴', text: 'Ves los cupos ocupados y disponibles en tiempo real' },
-      { icon: '📅', text: 'Mensualidades con alerta automática por WhatsApp al vencer' },
-      { icon: '💳', text: 'Cobra en efectivo, Nequi o transferencia' },
+      { icon: '⏱️', text: 'El cobro se calcula automáticamente según el tiempo exacto de estadía' },
+      { icon: '🔴', text: 'Cupos ocupados y disponibles en tiempo real en pantalla' },
+      { icon: '📅', text: 'Mensualidades con alerta automática por WhatsApp cuando vencen' },
+      { icon: '🔔', text: 'Al escanear una placa con suscripción vencida aparece alerta roja inmediata' },
+      { icon: '💳', text: 'Cobra en efectivo, Nequi, transferencia o tarjeta' },
       { icon: '📊', text: 'Cierre de turno con ingresos del día por método de pago' },
-      { icon: '🔔', text: 'Placa con suscripción vencida: alerta roja inmediata' },
     ],
   },
   {
@@ -178,11 +227,11 @@ const pymeIndustries = [
     subtitle: 'Autolavado · Detailing · Car wash',
     headline: 'Sabe exactamente cuánto produce cada operario.',
     benefits: [
-      { icon: '🚗', text: 'Registra la placa, el servicio y el operario en segundos' },
-      { icon: '👷', text: 'Cada servicio queda asignado a un operario específico' },
-      { icon: '💰', text: 'Las comisiones se calculan al cierre del día automáticamente' },
-      { icon: '📊', text: 'Reporte de productividad por trabajador y por período' },
-      { icon: '🕐', text: 'Historial completo por placa de vehículo' },
+      { icon: '🚗', text: 'Registra placa, tipo de vehículo, servicios y operario en segundos' },
+      { icon: '👷', text: 'Cada servicio queda asignado a un operario específico con hora de inicio' },
+      { icon: '💰', text: 'Comisiones de operarios calculadas automáticamente al cierre del día' },
+      { icon: '📊', text: 'Reporte de productividad por trabajador: vehículos atendidos e ingresos generados' },
+      { icon: '🕐', text: 'Historial completo de servicios por placa de vehículo' },
       { icon: '💳', text: 'Múltiples métodos de pago en el mismo servicio' },
     ],
   },
@@ -190,14 +239,14 @@ const pymeIndustries = [
     icon: '🍽️',
     name: 'Restaurante',
     subtitle: 'Cafetería · Comidas rápidas · Restaurante',
-    headline: 'De la mesa a la cocina sin papel ni confusiones.',
+    headline: 'Tu restaurante, digitalizado tal como opera en la vida real.',
     benefits: [
-      { icon: '🗺️', text: 'Mapa de mesas en tiempo real — ves qué mesa está ocupada' },
-      { icon: '📱', text: 'El mesero toma el pedido desde la tablet y llega a cocina al instante' },
-      { icon: '👨‍🍳', text: 'Pantalla de cocina (KDS) con el estado de cada plato' },
-      { icon: '🖨️', text: 'Impresión automática de comandas en la impresora térmica' },
-      { icon: '💳', text: 'Caja integrada — el cajero cobra sin depender del mesero' },
-      { icon: '📊', text: 'Cierre del día con ventas por mesa, mesero y método de pago' },
+      { icon: '🗺️', text: 'Diseña el plano de tu local: ubica cada mesa exactamente como está en tu salón' },
+      { icon: '📱', text: 'El mesero toma el pedido desde celular o tablet — llega a cocina en segundos, sin papel' },
+      { icon: '👨‍🍳', text: 'Pantalla de cocina (KDS): cada plato con su estado — pendiente, en preparación, listo' },
+      { icon: '🖨️', text: 'La comanda se imprime automáticamente en la impresora de cocina al confirmar el pedido' },
+      { icon: '💳', text: 'El admin configura si el mesero cobra en mesa o si todo pasa por caja centralizada' },
+      { icon: '📊', text: 'Cierre del día con ventas por mesa, mesero, producto y método de pago' },
     ],
   },
 ];
@@ -306,11 +355,11 @@ function PymeView() {
               Por qué Ksmart360
             </motion.span>
             <motion.h2 variants={fadeUp} className="font-sora font-bold text-3xl lg:text-5xl text-grafito leading-tight tracking-tight">
-              Pensado para tu negocio.<br className="hidden lg:block" />
-              <span className="text-azulStack"> No para ingenieros.</span>
+              Funcionalidades que<br className="hidden lg:block" />
+              <span className="text-azulStack"> realmente importan.</span>
             </motion.h2>
             <motion.p variants={fadeUp} className="font-sora text-base text-acero mt-4 max-w-xl mx-auto leading-relaxed">
-              Sin manuales técnicos. Sin instalaciones. Diseñado para que lo use el dueño, el cajero y el cobrador desde el primer día.
+              Cada detalle fue pensado para el día a día de un negocio colombiano real. Sin funciones de relleno, sin configuraciones innecesarias.
             </motion.p>
           </Section>
 
@@ -329,6 +378,49 @@ function PymeView() {
                 </div>
                 <h3 className="font-sora font-bold text-base text-grafito mb-2 tracking-tight">{d.title}</h3>
                 <p className="font-sora text-sm text-acero leading-relaxed">{d.desc}</p>
+              </motion.div>
+            ))}
+          </Section>
+        </div>
+      </section>
+
+      {/* ── Deep features ── */}
+      <section className="py-24 lg:py-32 bg-grafito overflow-hidden relative">
+        <div className="absolute inset-0 opacity-10 pointer-events-none" style={{ backgroundImage: 'radial-gradient(circle, #6A6F7E 1px, transparent 1px)', backgroundSize: '40px 40px' }} />
+        <div className="relative max-w-5xl mx-auto px-6 lg:px-8">
+          <Section className="text-center mb-16">
+            <motion.span variants={fadeUp} className="inline-block text-xs font-mono font-medium text-azul bg-azul/10 border border-azul/20 px-3 py-1.5 rounded-full mb-4 tracking-wider uppercase">
+              En detalle
+            </motion.span>
+            <motion.h2 variants={fadeUp} className="font-sora font-bold text-3xl lg:text-5xl text-white leading-tight tracking-tight">
+              Diseñado para el mundo real.<br className="hidden lg:block" />
+              <span className="text-azul"> No para un manual.</span>
+            </motion.h2>
+          </Section>
+
+          <Section className="flex flex-col gap-10">
+            {pymeDeepFeatures.map((f, i) => (
+              <motion.div
+                key={i}
+                variants={fadeUp}
+                className="bg-white/5 border border-white/10 rounded-2xl p-8 lg:p-10"
+              >
+                <div className="flex items-center gap-4 mb-6">
+                  <span className="text-4xl">{f.icon}</span>
+                  <h3 className="font-sora font-bold text-xl lg:text-2xl text-white tracking-tight leading-snug">{f.title}</h3>
+                </div>
+                <div className="flex flex-col gap-4">
+                  {f.body.map((paragraph, j) => {
+                    const formatted = paragraph.replace(/\*\*(.*?)\*\*/g, '<strong class="text-white font-semibold">$1</strong>');
+                    return (
+                      <p
+                        key={j}
+                        className="font-sora text-sm lg:text-base text-white/55 leading-relaxed"
+                        dangerouslySetInnerHTML={{ __html: formatted }}
+                      />
+                    );
+                  })}
+                </div>
               </motion.div>
             ))}
           </Section>
