@@ -40,7 +40,7 @@ export default function Hero() {
   return (
     <section
       id="hero"
-      className="relative min-h-screen bg-grafito flex items-center overflow-hidden"
+      className="relative min-h-screen bg-grafito flex items-center overflow-x-hidden"
     >
       {/* Dot grid background */}
       <div
@@ -73,7 +73,7 @@ export default function Hero() {
 
             <motion.h1
               variants={itemVariants}
-              className="font-sora font-bold text-4xl lg:text-5xl xl:text-6xl text-white leading-tight tracking-tight mb-6"
+              className="font-sora font-bold text-3xl sm:text-4xl lg:text-5xl xl:text-6xl text-white leading-tight tracking-tight mb-6"
             >
               Construimos el software que{' '}
               <span className="text-azul">impulsa tu negocio</span>
