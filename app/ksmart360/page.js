@@ -164,6 +164,23 @@ const pymeDeepFeatures = [
       '**¿Llevas tiempo operando y activaste el módulo tarde?** Sin problema. El sistema puede generar retroactivamente todos los asientos contables de tus transacciones anteriores con un solo clic — sin duplicados, sin trabajo manual. Tu contabilidad completa, al día, desde el primer día que registraste en el sistema.',
     ],
   },
+  {
+    icon: '📊',
+    title: 'Tu negocio en números — en tiempo real, sin abrir un reporte',
+    body: [
+      'El dashboard de Ksmart360 es lo primero que ves al abrir el sistema. Sin hacer nada, sin generar reportes: las ventas del día, la cartera total en calle, los productos bajo stock mínimo y el recaudo de préstamos del día. La radiografía completa de tu negocio en un solo vistazo.',
+      'Cuando necesitas más detalle, tienes 9 tipos de reporte: resumen de ventas, productos más vendidos, rentabilidad por producto, clientes compradores, cuentas por cobrar con aging, IVA neto, productividad por operador, kardex de inventario y estado de resultados. Todos con filtros por fecha, producto, cliente, categoría o vendedor. Todos exportables a Excel o PDF con un clic.',
+      '**La diferencia entre un negocio que crece y uno que sobrevive está en conocer sus números.** Ksmart360 te los da — sin hojas de cálculo, sin cuentas manuales, sin esperar al contador a fin de mes.',
+    ],
+  },
+  {
+    icon: '📄',
+    title: 'Cotizaciones que se convierten en venta con un clic',
+    body: [
+      'Crea una cotización profesional en segundos: agrega los productos, selecciona el cliente, define la vigencia y guarda. El sistema genera un número único de cotización que puedes compartir con el cliente. Cuando apruebe, tú haces clic en "Facturar" — y listo. La venta queda registrada, el stock descontado y el comprobante generado. Sin volver a ingresar nada.',
+      '**Ideal para ferreterías, distribuidoras, talleres y cualquier negocio que cotice antes de vender.** El historial de cotizaciones por cliente siempre disponible — sabes qué le cotizaste, cuándo y si terminó comprando. Cero trabajo duplicado.',
+    ],
+  },
 ];
 
 const pymeSteps = [
@@ -262,6 +279,105 @@ const pymeIndustries = [
       { icon: '🖨️', text: 'La comanda se imprime automáticamente en la impresora de cocina al confirmar el pedido' },
       { icon: '💳', text: 'El admin configura si el mesero cobra en mesa o si todo pasa por caja centralizada' },
       { icon: '📊', text: 'Cierre del día con ventas por mesa, mesero, producto y método de pago' },
+    ],
+  },
+];
+
+const pymeCapabilities = [
+  {
+    category: 'Ventas y POS',
+    color: 'blue',
+    items: [
+      'POS táctil (touch screen)',
+      'POS clásico con teclado y lector',
+      'Escáner por cámara del celular',
+      'Hasta 4 métodos de pago en una venta',
+      'Ventas a crédito con control de cupo',
+      'Devoluciones con nota crédito',
+      'Cotizaciones → Factura en un clic',
+      'Fidelización con puntos',
+      'Facturación electrónica DIAN',
+      'Comprobante por WhatsApp',
+    ],
+  },
+  {
+    category: 'Inventario',
+    color: 'green',
+    items: [
+      'Auto-completado global al escanear',
+      'Productos con variantes',
+      'Lotes y vencimientos (FEFO)',
+      'Kardex con trazabilidad total',
+      'Alertas de stock mínimo',
+      'Carga masiva por Excel',
+      'Precios con centavos',
+      'Categorías con color',
+      'Ajustes de inventario',
+      'Costo promedio ponderado',
+    ],
+  },
+  {
+    category: 'Gestión operativa',
+    color: 'purple',
+    items: [
+      'Órdenes de trabajo con estados',
+      'Panel del operador en campo',
+      'Evidencia fotográfica antes/después',
+      'Producción BOM con recetas',
+      'Compras con desglose completo',
+      'Ítems libres en compras',
+      'Cuentas por pagar a proveedores',
+      'Corte de caja diario',
+      'Registro de gastos por categoría',
+      'Historial de arqueos',
+    ],
+  },
+  {
+    category: 'Clientes y cobros',
+    color: 'orange',
+    items: [
+      'Perfil completo por cliente',
+      'Historial de transacciones',
+      'Cartera con aging (30/60/90 días)',
+      'Cobro por WhatsApp en un clic',
+      'Préstamos con simulador',
+      'Mora automática diaria',
+      'Ruta de cobro en campo',
+      'Abono a capital',
+      'GPS + foto por visita',
+      'Recibo PDF por WhatsApp',
+    ],
+  },
+  {
+    category: 'Análisis y finanzas',
+    color: 'teal',
+    items: [
+      'Dashboard en tiempo real',
+      '9 tipos de reporte',
+      'Export a Excel y PDF',
+      'Estado de resultados',
+      'Contabilidad automática PUC',
+      'Partida doble sin intervención',
+      'IVA separado automático',
+      'Caja vs. Bancos automático',
+      'Backfill histórico contable',
+      'IVA neto ventas vs. compras',
+    ],
+  },
+  {
+    category: 'Sectores y digitalización',
+    color: 'pink',
+    items: [
+      'Catálogo virtual con URL propia',
+      'Pedidos a WhatsApp y al sistema',
+      'Parqueadero con tarifas y cupos',
+      'Mensualidades con alertas',
+      'Lavadero con operadores',
+      'Restaurante con KDS',
+      'Comandas digitales a cocina',
+      'Diseño de mapa de mesas',
+      'Acceso biométrico FIDO2',
+      'Roles y permisos por módulo',
     ],
   },
 ];
@@ -501,6 +617,56 @@ function PymeView() {
               </div>
             </motion.div>
           </AnimatePresence>
+        </div>
+      </section>
+
+      {/* ── Capacidades completas ── */}
+      <section className="py-24 lg:py-32 bg-papel">
+        <div className="max-w-7xl mx-auto px-6 lg:px-8">
+          <Section className="text-center mb-16">
+            <motion.span variants={fadeUp} className="inline-block text-xs font-mono font-medium text-azulStack bg-azulTinte px-3 py-1.5 rounded-full mb-4 tracking-wider uppercase">
+              Todo incluido
+            </motion.span>
+            <motion.h2 variants={fadeUp} className="font-sora font-bold text-3xl lg:text-5xl text-grafito leading-tight tracking-tight">
+              60+ funcionalidades.<br className="hidden lg:block" />
+              <span className="text-azulStack"> Un solo sistema.</span>
+            </motion.h2>
+            <motion.p variants={fadeUp} className="font-sora text-base text-acero mt-4 max-w-xl mx-auto leading-relaxed">
+              Nada de módulos por separado. Nada de integraciones costosas. Todo lo que tu negocio necesita, desde el primer día.
+            </motion.p>
+          </Section>
+
+          <Section className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
+            {pymeCapabilities.map((cat, i) => {
+              const colors = {
+                blue:   { bg: 'bg-blue-50',   border: 'border-blue-100',   tag: 'bg-blue-100 text-blue-700',   dot: 'bg-blue-400' },
+                green:  { bg: 'bg-green-50',  border: 'border-green-100',  tag: 'bg-green-100 text-green-700', dot: 'bg-green-400' },
+                purple: { bg: 'bg-purple-50', border: 'border-purple-100', tag: 'bg-purple-100 text-purple-700', dot: 'bg-purple-400' },
+                orange: { bg: 'bg-orange-50', border: 'border-orange-100', tag: 'bg-orange-100 text-orange-700', dot: 'bg-orange-400' },
+                teal:   { bg: 'bg-teal-50',   border: 'border-teal-100',   tag: 'bg-teal-100 text-teal-700',   dot: 'bg-teal-400' },
+                pink:   { bg: 'bg-pink-50',   border: 'border-pink-100',   tag: 'bg-pink-100 text-pink-700',   dot: 'bg-pink-400' },
+              };
+              const c = colors[cat.color];
+              return (
+                <motion.div key={i} variants={fadeUp} className={`rounded-2xl border p-6 ${c.bg} ${c.border}`}>
+                  <div className="flex items-center gap-2 mb-4">
+                    <span className={`w-2 h-2 rounded-full ${c.dot}`} />
+                    <h3 className="font-sora font-bold text-sm text-grafito tracking-tight">{cat.category}</h3>
+                  </div>
+                  <ul className="flex flex-col gap-2">
+                    {cat.items.map((item, j) => (
+                      <li key={j} className="flex items-center gap-2">
+                        <svg width="12" height="12" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5} className="text-grafito/30 flex-shrink-0">
+                          <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 12.75l6 6 9-13.5" />
+                        </svg>
+                        <span className="font-sora text-sm text-grafito/70 leading-snug">{item}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </motion.div>
+              );
+            })}
+          </Section>
         </div>
       </section>
 
