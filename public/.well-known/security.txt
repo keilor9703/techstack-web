@@ -1,0 +1,4 @@
+Contact: mailto:keilor9703@gmail.com
+Expires: 2027-06-13T00:00:00.000Z
+Preferred-Languages: es, en
+Canonical: https://www.techstackcol.com/.well-known/security.txt
