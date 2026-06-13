@@ -60,7 +60,7 @@ export default function Footer() {
             <div className="flex items-center gap-3 mt-6">
               {/* LinkedIn */}
               <a
-                href="https://linkedin.com/company/techstackcolombia"
+                href="https://www.linkedin.com/company/tech-stack-colombia-s-a-s"
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="LinkedIn"
