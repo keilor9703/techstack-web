@@ -723,6 +723,33 @@ function PymeView() {
   );
 }
 
+const techIntegrations = [
+  { name: 'DIAN', icon: '🏛️', desc: 'Facturación electrónica UBL 2.1 vía proveedor habilitado. CUFE, QR y firma digital en cada factura.' },
+  { name: 'Wompi', icon: '💳', desc: 'Pasarela de pagos colombiana. Tarjeta, débito y PSE. Activación de plan automática vía webhook.' },
+  { name: 'WhatsApp', icon: '💬', desc: 'Cobros, recibos, recordatorios y catálogo virtual. Sin apps adicionales ni APIs de terceros.' },
+  { name: 'Bases globales', icon: '🌍', desc: 'Auto-completado de productos desde OpenFoodFacts y UPCitemdb al escanear cualquier código.' },
+  { name: 'WebAuthn / FIDO2', icon: '👆', desc: 'Estándar internacional de autenticación biométrica — el mismo que usan Google, Apple y los bancos.' },
+  { name: 'OpenAPI / Swagger', icon: '📖', desc: 'Documentación automática de todos los endpoints. Siempre actualizada, siempre consistente con el código.' },
+];
+
+const techApiMetrics = [
+  { label: '200+', desc: 'Endpoints REST' },
+  { label: '< 200ms', desc: 'Respuesta promedio' },
+  { label: 'Pydantic v2', desc: 'Validación estricta' },
+  { label: 'OpenAPI', desc: 'Docs automáticas' },
+  { label: 'REST v1', desc: 'Versionado desde día 1' },
+  { label: 'Rate limiting', desc: 'Anti-abuso integrado' },
+];
+
+const techCompliance = [
+  { icon: '🧾', title: 'Facturación DIAN', desc: 'Resolución, prefijo, rango, CUFE y QR según normativa vigente UBL 2.1.' },
+  { icon: '📒', title: 'PUC colombiano', desc: 'Contabilidad automática alineada al Plan Único de Cuentas para pequeñas empresas.' },
+  { icon: '💰', title: 'IVA colombiano', desc: 'Tarifas 0%, 5% y 19% con separación automática de IVA generado y descontable.' },
+  { icon: '🔢', title: 'Formato moneda', desc: 'Pesos con punto como separador de miles y coma para decimales ($1.250.000,50).' },
+  { icon: '🪪', title: 'NIT y documentos', desc: 'Validación de dígito verificador y todos los tipos de ID colombianos.' },
+  { icon: '📋', title: 'Retención en la fuente', desc: 'Cuentas contables disponibles en el PUC predefinido del sistema.' },
+];
+
 // ─── Tech View ────────────────────────────────────────────────────────────────
 
 function TechView() {
@@ -827,44 +854,113 @@ function TechView() {
         </div>
       </section>
 
-      {/* ── Architecture ── */}
+      {/* ── Cloud + multi-device ── */}
       <section className="py-24 lg:py-32 bg-grafito overflow-hidden relative">
-        <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[400px] bg-azul/8 rounded-full blur-3xl pointer-events-none" />
-        <div className="relative max-w-7xl mx-auto px-6 lg:px-8">
-          <Section className="text-center mb-16">
+        <div className="absolute inset-0 opacity-10 pointer-events-none" style={{ backgroundImage: 'radial-gradient(circle, #6A6F7E 1px, transparent 1px)', backgroundSize: '40px 40px' }} />
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[500px] bg-azul/8 rounded-full blur-3xl pointer-events-none" />
+        <div className="relative max-w-5xl mx-auto px-6 lg:px-8">
+          <Section className="text-center mb-12">
             <motion.span variants={fadeUp} className="inline-block text-xs font-mono font-medium text-azul bg-azul/10 border border-azul/20 px-3 py-1.5 rounded-full mb-4 tracking-wider uppercase">
-              Tecnología
+              SaaS · En la nube
             </motion.span>
             <motion.h2 variants={fadeUp} className="font-sora font-bold text-3xl lg:text-5xl text-white leading-tight tracking-tight">
-              Ingeniería de <span className="text-azul">nivel enterprise</span>
+              Sin servidores propios.<br className="hidden lg:block" />
+              <span className="text-azul"> Sin instalaciones. Sin límites.</span>
             </motion.h2>
-            <motion.p variants={fadeUp} className="font-sora text-base text-white/50 mt-4 max-w-xl mx-auto leading-relaxed">
-              Multi-tenant SaaS sobre Oracle Cloud ARM. Un solo backend atiende N empresas simultáneamente con datos completamente aislados.
+            <motion.p variants={fadeUp} className="font-sora text-base text-white/50 mt-4 max-w-2xl mx-auto leading-relaxed">
+              Ksmart360 corre 100% en la nube. No hay software que instalar, no hay versiones que actualizar, no hay servidor que mantener. Tu equipo accede desde cualquier dispositivo con un navegador — y obtiene exactamente las mismas funcionalidades, en la misma cuenta, en tiempo real.
             </motion.p>
           </Section>
 
-          <div className="grid lg:grid-cols-2 gap-12 mb-16">
+          {/* Device diagram */}
+          <Section>
+            <motion.div variants={fadeUp} className="flex justify-center mb-10">
+              <svg viewBox="0 0 560 220" fill="none" className="w-full max-w-2xl" xmlns="http://www.w3.org/2000/svg">
+                {/* Center cloud */}
+                <rect x="200" y="30" width="160" height="80" rx="18" fill="#2E68E6" fillOpacity="0.12" stroke="#2E68E6" strokeWidth="1.5" strokeOpacity="0.5"/>
+                <text x="280" y="62" textAnchor="middle" fontSize="22" fill="#1ec8e0">☁</text>
+                <text x="280" y="82" textAnchor="middle" fontSize="11" fontWeight="700" fill="white" fontFamily="sans-serif">Ksmart360</text>
+                <text x="280" y="97" textAnchor="middle" fontSize="9" fill="#6A6F7E" fontFamily="monospace">Cloud · Oracle OCI</text>
+
+                {/* Lines */}
+                <line x1="200" y1="70" x2="118" y2="120" stroke="#2E68E6" strokeWidth="1" strokeDasharray="5 4" strokeOpacity="0.4"/>
+                <line x1="280" y1="110" x2="280" y2="145" stroke="#2E68E6" strokeWidth="1" strokeDasharray="5 4" strokeOpacity="0.4"/>
+                <line x1="360" y1="70" x2="442" y2="120" stroke="#2E68E6" strokeWidth="1" strokeDasharray="5 4" strokeOpacity="0.4"/>
+
+                {/* Phone */}
+                <rect x="78" y="120" width="40" height="68" rx="7" fill="#0D0F16" stroke="#6A6F7E" strokeWidth="1.2"/>
+                <rect x="84" y="128" width="28" height="44" rx="3" fill="#2E68E6" fillOpacity="0.15"/>
+                <rect x="90" y="192" width="16" height="3" rx="1.5" fill="#6A6F7E" fillOpacity="0.5"/>
+                <text x="98" y="215" textAnchor="middle" fontSize="10" fill="#6A6F7E" fontFamily="sans-serif">Celular</text>
+
+                {/* Tablet */}
+                <rect x="230" y="145" width="100" height="68" rx="8" fill="#0D0F16" stroke="#6A6F7E" strokeWidth="1.2"/>
+                <rect x="238" y="152" width="84" height="48" rx="3" fill="#2E68E6" fillOpacity="0.15"/>
+                <circle cx="280" cy="207" r="3" fill="#6A6F7E" fillOpacity="0.5"/>
+                <text x="280" y="225" textAnchor="middle" fontSize="10" fill="#6A6F7E" fontFamily="sans-serif">Tablet</text>
+
+                {/* Laptop */}
+                <rect x="402" y="120" width="100" height="64" rx="6" fill="#0D0F16" stroke="#6A6F7E" strokeWidth="1.2"/>
+                <rect x="410" y="127" width="84" height="44" rx="3" fill="#2E68E6" fillOpacity="0.15"/>
+                <rect x="388" y="184" width="128" height="6" rx="3" fill="#6A6F7E" fillOpacity="0.4"/>
+                <text x="452" y="207" textAnchor="middle" fontSize="10" fill="#6A6F7E" fontFamily="sans-serif">Computador</text>
+              </svg>
+            </motion.div>
+
+            <motion.div variants={fadeUp} className="grid sm:grid-cols-3 gap-4">
+              {[
+                { icon: '📱', title: 'Celular y tablet', desc: 'POS táctil, catálogo, cobros, ruta de cobro GPS. 100% funcional desde cualquier smartphone Android o iOS.' },
+                { icon: '💻', title: 'Computador', desc: 'POS clásico con teclado y lector USB, reportes, configuración, administración. Mismo sistema, pantalla mayor.' },
+                { icon: '🔄', title: 'Sincronización inmediata', desc: 'Un cajero vende desde el celular y el administrador ve el reporte actualizado en su computador al instante.' },
+              ].map((d, i) => (
+                <div key={i} className="bg-white/5 border border-white/8 rounded-2xl p-5">
+                  <div className="text-3xl mb-3">{d.icon}</div>
+                  <h3 className="font-sora font-semibold text-white text-sm mb-1.5">{d.title}</h3>
+                  <p className="font-sora text-xs text-white/45 leading-relaxed">{d.desc}</p>
+                </div>
+              ))}
+            </motion.div>
+          </Section>
+        </div>
+      </section>
+
+      {/* ── Architecture ── */}
+      <section className="py-24 lg:py-32 bg-papel">
+        <div className="max-w-7xl mx-auto px-6 lg:px-8">
+          <Section className="text-center mb-16">
+            <motion.span variants={fadeUp} className="inline-block text-xs font-mono font-medium text-azulStack bg-azulTinte px-3 py-1.5 rounded-full mb-4 tracking-wider uppercase">
+              Stack técnico
+            </motion.span>
+            <motion.h2 variants={fadeUp} className="font-sora font-bold text-3xl lg:text-5xl text-grafito leading-tight tracking-tight">
+              Ingeniería de <span className="text-azulStack">nivel enterprise</span>
+            </motion.h2>
+            <motion.p variants={fadeUp} className="font-sora text-base text-acero mt-4 max-w-xl mx-auto leading-relaxed">
+              Multi-tenant SaaS sobre Oracle Cloud ARM. Un solo backend atiende N empresas simultáneamente con datos completamente aislados a nivel lógico.
+            </motion.p>
+          </Section>
+
+          <div className="grid lg:grid-cols-2 gap-12 mb-12">
             <Section>
-              <motion.h3 variants={fadeUp} className="font-sora font-semibold text-white text-lg mb-6">Stack tecnológico</motion.h3>
+              <motion.h3 variants={fadeUp} className="font-sora font-semibold text-grafito text-lg mb-6">Stack tecnológico</motion.h3>
               <motion.div variants={stagger} className="grid grid-cols-2 sm:grid-cols-3 gap-3">
                 {techStack.map((t, i) => (
-                  <motion.div key={i} variants={fadeUp} className="bg-white/5 border border-white/8 rounded-xl px-4 py-3">
-                    <div className="font-sora font-semibold text-white text-sm">{t.label}</div>
-                    <div className="font-sora text-xs text-white/35 mt-0.5">{t.desc}</div>
+                  <motion.div key={i} variants={fadeUp} className="bg-white border border-gray-100 rounded-xl px-4 py-3 hover:border-azulStack/30 transition-colors">
+                    <div className="font-sora font-semibold text-grafito text-sm">{t.label}</div>
+                    <div className="font-sora text-xs text-acero mt-0.5">{t.desc}</div>
                   </motion.div>
                 ))}
               </motion.div>
             </Section>
 
             <Section>
-              <motion.h3 variants={fadeUp} className="font-sora font-semibold text-white text-lg mb-6">Seguridad en capas</motion.h3>
+              <motion.h3 variants={fadeUp} className="font-sora font-semibold text-grafito text-lg mb-6">Seguridad en capas</motion.h3>
               <motion.div variants={stagger} className="flex flex-col gap-3">
                 {security.map((s, i) => (
-                  <motion.div key={i} variants={fadeUp} className="flex items-start gap-4 bg-white/5 border border-white/8 rounded-xl px-4 py-3">
+                  <motion.div key={i} variants={fadeUp} className="flex items-start gap-4 bg-white border border-gray-100 rounded-xl px-4 py-3">
                     <span className="text-xl flex-shrink-0">{s.icon}</span>
                     <div>
-                      <div className="font-sora font-semibold text-white text-sm">{s.title}</div>
-                      <div className="font-sora text-xs text-white/40 leading-relaxed mt-0.5">{s.desc}</div>
+                      <div className="font-sora font-semibold text-grafito text-sm">{s.title}</div>
+                      <div className="font-sora text-xs text-acero leading-relaxed mt-0.5">{s.desc}</div>
                     </div>
                   </motion.div>
                 ))}
@@ -872,8 +968,9 @@ function TechView() {
             </Section>
           </div>
 
+          {/* Oracle Cloud */}
           <Section>
-            <motion.div variants={fadeUp} className="bg-azul/10 border border-azul/25 rounded-2xl p-8 lg:p-10">
+            <motion.div variants={fadeUp} className="bg-grafito rounded-2xl p-8 lg:p-10 mb-12">
               <div className="flex flex-col lg:flex-row items-start lg:items-center justify-between gap-6">
                 <div>
                   <div className="flex items-center gap-3 mb-3">
@@ -881,12 +978,119 @@ function TechView() {
                     <span className="font-sora font-bold text-white text-xl">Oracle Cloud VM.Standard.A1.Flex</span>
                   </div>
                   <p className="font-sora text-sm text-white/50 leading-relaxed max-w-2xl">
-                    La misma infraestructura que usan bancos y corporaciones Fortune 500. Servidor ARM Ampere con <strong className="text-white">4 OCPU · 24 GB RAM · 96 GB SSD</strong>, PostgreSQL 17 auto-hospedado, Nginx con SSL y CI/CD automático en cada push a GitHub.
+                    La misma infraestructura que usan bancos y corporaciones Fortune 500. Servidor ARM Ampere con <strong className="text-white">4 OCPU · 24 GB RAM · 96 GB SSD</strong>. PostgreSQL 17 auto-hospedado con backups comprimidos diarios (15 días de retención). Nginx con SSL Let's Encrypt, CI/CD automático en cada push a GitHub. Monitoreo activo 24/7 con reinicio automático ante cualquier interrupción.
                   </p>
                 </div>
                 <div className="flex items-center gap-2 flex-shrink-0 bg-green-500/10 border border-green-500/25 rounded-xl px-4 py-3">
                   <span className="w-2 h-2 bg-green-400 rounded-full animate-pulse" />
                   <span className="font-mono text-xs text-green-400">Sistema activo · 99.9% uptime</span>
+                </div>
+              </div>
+            </motion.div>
+          </Section>
+        </div>
+      </section>
+
+      {/* ── Integraciones nativas ── */}
+      <section className="py-24 lg:py-32 bg-white">
+        <div className="max-w-7xl mx-auto px-6 lg:px-8">
+          <Section className="text-center mb-16">
+            <motion.span variants={fadeUp} className="inline-block text-xs font-mono font-medium text-azulStack bg-azulTinte px-3 py-1.5 rounded-full mb-4 tracking-wider uppercase">
+              Integraciones
+            </motion.span>
+            <motion.h2 variants={fadeUp} className="font-sora font-bold text-3xl lg:text-5xl text-grafito leading-tight tracking-tight">
+              Conectado con el<br className="hidden lg:block" />
+              <span className="text-azulStack"> ecosistema colombiano.</span>
+            </motion.h2>
+            <motion.p variants={fadeUp} className="font-sora text-base text-acero mt-4 max-w-xl mx-auto leading-relaxed">
+              Ksmart360 no vive en una burbuja. Está integrado de forma nativa con los servicios que ya usa tu negocio y con las entidades que lo regulan.
+            </motion.p>
+          </Section>
+
+          <Section className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5 mb-16">
+            {techIntegrations.map((t, i) => (
+              <motion.div key={i} variants={fadeUp} className="bg-papel border border-gray-100 rounded-2xl p-6 hover:border-azulStack/30 hover:shadow-lg hover:shadow-azulStack/5 transition-all duration-300">
+                <div className="text-3xl mb-3">{t.icon}</div>
+                <h3 className="font-sora font-bold text-sm text-grafito mb-2">{t.name}</h3>
+                <p className="font-sora text-xs text-acero leading-relaxed">{t.desc}</p>
+              </motion.div>
+            ))}
+          </Section>
+
+          {/* API metrics */}
+          <Section>
+            <motion.div variants={fadeUp} className="bg-grafito rounded-2xl p-8 lg:p-10">
+              <div className="mb-6">
+                <h3 className="font-sora font-bold text-white text-xl mb-2">Una API robusta detrás de cada acción</h3>
+                <p className="font-sora text-sm text-white/50 leading-relaxed max-w-2xl">
+                  Cada función que ves en pantalla es el resultado de una API RESTful versionada, documentada automáticamente y diseñada para responder en milisegundos. Más de 200 endpoints organizados por dominio de negocio, con esquemas de validación estrictos y respuestas predecibles.
+                </p>
+              </div>
+              <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3">
+                {techApiMetrics.map((m, i) => (
+                  <div key={i} className="bg-white/5 border border-white/10 rounded-xl px-3 py-4 text-center">
+                    <div className="font-mono font-bold text-azul text-sm mb-1">{m.label}</div>
+                    <div className="font-sora text-xs text-white/35 leading-tight">{m.desc}</div>
+                  </div>
+                ))}
+              </div>
+            </motion.div>
+          </Section>
+        </div>
+      </section>
+
+      {/* ── Cumplimiento normativo ── */}
+      <section className="py-24 lg:py-32 bg-grafito overflow-hidden relative">
+        <div className="absolute left-1/2 top-0 -translate-x-1/2 w-[500px] h-[300px] bg-azul/8 rounded-full blur-3xl pointer-events-none" />
+        <div className="relative max-w-7xl mx-auto px-6 lg:px-8">
+          <Section className="text-center mb-16">
+            <motion.span variants={fadeUp} className="inline-block text-xs font-mono font-medium text-azul bg-azul/10 border border-azul/20 px-3 py-1.5 rounded-full mb-4 tracking-wider uppercase">
+              Normativa
+            </motion.span>
+            <motion.h2 variants={fadeUp} className="font-sora font-bold text-3xl lg:text-5xl text-white leading-tight tracking-tight">
+              Construido para<br className="hidden lg:block" />
+              <span className="text-azul"> el mercado colombiano.</span>
+            </motion.h2>
+            <motion.p variants={fadeUp} className="font-sora text-base text-white/50 mt-4 max-w-xl mx-auto leading-relaxed">
+              Ksmart360 no es un sistema extranjero adaptado — fue diseñado desde cero para la realidad tributaria, comercial y operativa de Colombia.
+            </motion.p>
+          </Section>
+
+          <Section className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 mb-16">
+            {techCompliance.map((c, i) => (
+              <motion.div key={i} variants={fadeUp} className="flex items-start gap-4 bg-white/5 border border-white/8 rounded-2xl p-5">
+                <span className="text-2xl flex-shrink-0">{c.icon}</span>
+                <div>
+                  <h3 className="font-sora font-semibold text-white text-sm mb-1">{c.title}</h3>
+                  <p className="font-sora text-xs text-white/45 leading-relaxed">{c.desc}</p>
+                </div>
+              </motion.div>
+            ))}
+          </Section>
+
+          {/* CI/CD y escala */}
+          <Section>
+            <motion.div variants={fadeUp} className="grid lg:grid-cols-2 gap-6">
+              <div className="bg-white/5 border border-white/8 rounded-2xl p-7">
+                <h3 className="font-sora font-bold text-white text-lg mb-3">El sistema mejora solo</h3>
+                <p className="font-sora text-sm text-white/50 leading-relaxed mb-4">
+                  Con Ksmart360 no compras una versión que envejece — accedes a un sistema que se actualiza continuamente. Cada mejora llega automáticamente a tu cuenta sin que hagas nada: sin descargas, sin instalaciones, sin ventanas de mantenimiento, sin costos adicionales por actualizaciones.
+                </p>
+                <div className="flex flex-wrap gap-2">
+                  {['CI/CD automático', 'Migraciones sin downtime', 'Sin reinstalaciones', 'Sin costos de upgrade'].map((t, i) => (
+                    <span key={i} className="font-mono text-[10px] text-azul bg-azul/10 border border-azul/20 px-2 py-1 rounded-lg">{t}</span>
+                  ))}
+                </div>
+              </div>
+              <div className="bg-white/5 border border-white/8 rounded-2xl p-7">
+                <h3 className="font-sora font-bold text-white text-lg mb-3">Diseñado para crecer contigo</h3>
+                <p className="font-sora text-sm text-white/50 leading-relaxed mb-4">
+                  Sin estado en el servidor — cada request es independiente. Multi-tenant eficiente: una instancia atiende N empresas sin que una afecte a otra. PostgreSQL 17 con soporte para millones de transacciones. Frontend en CDN global — la UI carga desde el servidor más cercano al usuario.
+                </p>
+                <div className="flex flex-wrap gap-2">
+                  {['Stateless backend', 'Multi-tenant nativo', 'CDN global', 'PostgreSQL 17'].map((t, i) => (
+                    <span key={i} className="font-mono text-[10px] text-azul bg-azul/10 border border-azul/20 px-2 py-1 rounded-lg">{t}</span>
+                  ))}
                 </div>
               </div>
             </motion.div>
