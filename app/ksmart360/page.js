@@ -21,33 +21,52 @@ const plans = [
     period: '14 días',
     description: 'Empieza sin compromiso. Sin tarjeta de crédito.',
     features: [
-      'Acceso completo a todos los módulos',
-      'Sin tarjeta de crédito requerida',
-      'Expira automáticamente a los 14 días',
-      'Wizard de configuración guiado',
-      'Soporte incluido',
+      { text: 'Acceso completo a todos los módulos', ok: true },
+      { text: 'Sin tarjeta de crédito requerida', ok: true },
+      { text: 'Expira automáticamente a los 14 días', ok: true },
+      { text: 'Wizard de configuración guiado', ok: true },
+      { text: 'Soporte incluido', ok: true },
     ],
     cta: 'Empezar gratis',
     highlight: false,
     ctaHref: 'https://www.appjeylor.com/',
   },
   {
-    name: 'Premium',
-    icon: '✨',
-    price: 'A consultar',
-    period: 'mensual o anual',
-    description: 'Para empresas que necesitan operar sin interrupciones.',
+    name: 'Básico',
+    icon: '🚀',
+    price: '$29.900',
+    period: '/mes',
+    priceNote: 'Hasta −20% pagando anual',
+    description: 'Todo el sistema. Sin restricciones de módulos.',
     features: [
-      'Todos los módulos del plan Trial',
-      'Sin límite de usuarios ni transacciones',
-      'Activación automática vía Wompi',
-      'Multi-sede y multi-empresa',
-      'Reportes avanzados + export Excel/PDF',
-      'Soporte prioritario',
+      { text: 'Todos los módulos habilitados según tu negocio', ok: true },
+      { text: 'POS clásico y touch, inventario, compras', ok: true },
+      { text: 'Contabilidad automática en partida doble', ok: true },
+      { text: 'Programa de puntos y fidelización', ok: true },
+      { text: 'Usuarios ilimitados — celular, tablet y PC', ok: true },
+      { text: 'Exportación Excel y PDF', ok: true },
+      { text: 'Facturación electrónica DIAN', ok: false },
     ],
-    cta: 'Contactar ventas',
+    cta: 'Empezar con Básico',
+    highlight: false,
+    ctaHref: 'https://www.appjeylor.com/',
+  },
+  {
+    name: 'Pro',
+    icon: '✨',
+    price: '$49.900',
+    period: '/mes',
+    priceNote: 'Hasta −20% pagando anual',
+    description: 'Para el negocio que ya factura electrónicamente.',
+    features: [
+      { text: 'Todo lo del plan Básico incluido', ok: true },
+      { text: 'Facturación electrónica DIAN (UBL 2.1, CUFE, QR)', ok: true },
+      { text: 'Gestión de resoluciones con alertas de vencimiento', ok: true },
+      { text: 'Soporte prioritario', ok: true },
+    ],
+    cta: 'Empezar con Pro',
     highlight: true,
-    ctaHref: '/#contacto',
+    ctaHref: 'https://www.appjeylor.com/',
   },
   {
     name: 'Vitalicio',
@@ -56,10 +75,10 @@ const plans = [
     period: 'sin vencimiento',
     description: 'Para alianzas estratégicas y casos especiales.',
     features: [
-      'Todos los beneficios Premium',
-      'Sin pagos recurrentes',
-      'Asignación por SuperAdmin',
-      'Ideal para integradores o aliados',
+      { text: 'Todos los beneficios del plan Pro', ok: true },
+      { text: 'Sin pagos recurrentes', ok: true },
+      { text: 'Asignación por SuperAdmin', ok: true },
+      { text: 'Ideal para integradores o aliados', ok: true },
     ],
     cta: 'Hablar con nosotros',
     highlight: false,
@@ -1306,7 +1325,7 @@ export default function Ksmart360Page() {
       {/* ── Plans (shared) ── */}
       <section id="diferenciales" className="py-24 lg:py-32 bg-papel">
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
-          <Section className="text-center mb-16">
+          <Section className="text-center mb-12">
             <motion.span variants={fadeUp} className="inline-block text-xs font-mono font-medium text-azulStack bg-azulTinte px-3 py-1.5 rounded-full mb-4 tracking-wider uppercase">
               Planes
             </motion.span>
@@ -1318,38 +1337,83 @@ export default function Ksmart360Page() {
             </motion.p>
           </Section>
 
-          <Section className="grid lg:grid-cols-3 gap-6 lg:gap-8">
+          {/* Filosofía + tabla de precios */}
+          <Section className="mb-12">
+            <motion.div variants={fadeUp} className="max-w-3xl mx-auto">
+              <div className="bg-azulTinte border border-azulStack/20 rounded-2xl p-6 mb-6 text-center">
+                <p className="font-sora text-sm text-grafito leading-relaxed">
+                  <span className="font-bold text-azulStack">Filosofía:</span> todas las funcionalidades del sistema están disponibles en ambos planes. La diferencia es el volumen de operación y la <strong>facturación electrónica DIAN</strong>.
+                </p>
+              </div>
+              <div className="bg-white border border-gray-100 rounded-2xl overflow-hidden shadow-sm">
+                <div className="grid grid-cols-3 text-center text-xs font-sora font-semibold bg-gray-50 border-b border-gray-100">
+                  <div className="py-3 px-4 text-left text-acero">Período</div>
+                  <div className="py-3 px-4 text-azulStack">Básico</div>
+                  <div className="py-3 px-4 text-azulStack">Pro</div>
+                </div>
+                <div className="grid grid-cols-3 text-center text-sm font-sora border-b border-gray-50">
+                  <div className="py-3 px-4 text-left text-acero text-xs">Mensual</div>
+                  <div className="py-3 px-4 font-semibold text-grafito">$29.900<span className="text-acero font-normal text-xs">/mes</span></div>
+                  <div className="py-3 px-4 font-semibold text-grafito">$49.900<span className="text-acero font-normal text-xs">/mes</span></div>
+                </div>
+                <div className="grid grid-cols-3 text-center text-sm font-sora border-b border-gray-50 bg-gray-50/50">
+                  <div className="py-3 px-4 text-left text-acero text-xs">Trimestral <span className="text-green-600 font-medium">−10%</span></div>
+                  <div className="py-3 px-4 font-semibold text-grafito">$26.910<span className="text-acero font-normal text-xs">/mes</span></div>
+                  <div className="py-3 px-4 font-semibold text-grafito">$44.910<span className="text-acero font-normal text-xs">/mes</span></div>
+                </div>
+                <div className="grid grid-cols-3 text-center text-sm font-sora">
+                  <div className="py-3 px-4 text-left text-acero text-xs">Anual <span className="text-green-600 font-medium">−20%</span></div>
+                  <div className="py-3 px-4 font-semibold text-grafito">$23.920<span className="text-acero font-normal text-xs">/mes</span></div>
+                  <div className="py-3 px-4 font-semibold text-grafito">$39.920<span className="text-acero font-normal text-xs">/mes</span></div>
+                </div>
+              </div>
+            </motion.div>
+          </Section>
+
+          <Section className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5 lg:gap-6">
             {plans.map((plan, i) => (
               <motion.div
                 key={i}
                 variants={fadeUp}
-                className={`relative rounded-2xl p-8 flex flex-col ${
+                className={`relative rounded-2xl p-7 flex flex-col ${
                   plan.highlight
-                    ? 'bg-azulStack text-white shadow-2xl shadow-azulStack/25 scale-105'
+                    ? 'bg-azulStack text-white shadow-2xl shadow-azulStack/25 lg:scale-105'
                     : 'bg-white border border-gray-100'
                 }`}
               >
                 {plan.highlight && (
                   <div className="absolute -top-3 left-1/2 -translate-x-1/2">
-                    <span className="bg-grafito text-white text-xs font-semibold font-sora px-4 py-1.5 rounded-full">
+                    <span className="bg-grafito text-white text-xs font-semibold font-sora px-4 py-1.5 rounded-full whitespace-nowrap">
                       Más elegido
                     </span>
                   </div>
                 )}
-                <div className="text-3xl mb-4">{plan.icon}</div>
-                <h3 className={`font-sora font-bold text-xl mb-1 ${plan.highlight ? 'text-white' : 'text-grafito'}`}>{plan.name}</h3>
-                <div className={`font-sora font-black text-3xl mb-1 ${plan.highlight ? 'text-white' : 'text-grafito'}`}>{plan.price}</div>
-                <div className={`font-sora text-xs font-medium mb-3 ${plan.highlight ? 'text-white/60' : 'text-acero'}`}>{plan.period}</div>
-                <p className={`font-sora text-sm leading-relaxed mb-6 ${plan.highlight ? 'text-white/70' : 'text-acero'}`}>{plan.description}</p>
-                <ul className="flex flex-col gap-2.5 mb-8 flex-1">
+                <div className="text-3xl mb-3">{plan.icon}</div>
+                <h3 className={`font-sora font-bold text-lg mb-1 ${plan.highlight ? 'text-white' : 'text-grafito'}`}>{plan.name}</h3>
+                <div className={`font-sora font-black text-2xl mb-0.5 ${plan.highlight ? 'text-white' : 'text-grafito'}`}>{plan.price}</div>
+                <div className={`font-sora text-xs font-medium mb-1 ${plan.highlight ? 'text-white/60' : 'text-acero'}`}>{plan.period}</div>
+                {plan.priceNote && (
+                  <div className={`font-sora text-[10px] mb-3 ${plan.highlight ? 'text-white/50' : 'text-green-600'}`}>{plan.priceNote}</div>
+                )}
+                {!plan.priceNote && <div className="mb-3" />}
+                <p className={`font-sora text-xs leading-relaxed mb-5 ${plan.highlight ? 'text-white/70' : 'text-acero'}`}>{plan.description}</p>
+                <ul className="flex flex-col gap-2 mb-7 flex-1">
                   {plan.features.map((f, j) => (
-                    <li key={j} className="flex items-start gap-2.5">
-                      <span className={`w-4 h-4 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5 ${plan.highlight ? 'bg-white/20' : 'bg-azulTinte'}`}>
-                        <svg width="8" height="8" fill="none" viewBox="0 0 24 24" stroke={plan.highlight ? 'white' : '#2E68E6'} strokeWidth={3}>
-                          <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 12.75l6 6 9-13.5" />
-                        </svg>
-                      </span>
-                      <span className={`font-sora text-sm leading-tight ${plan.highlight ? 'text-white/80' : 'text-grafito'}`}>{f}</span>
+                    <li key={j} className="flex items-start gap-2">
+                      {f.ok ? (
+                        <span className={`w-4 h-4 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5 ${plan.highlight ? 'bg-white/20' : 'bg-azulTinte'}`}>
+                          <svg width="8" height="8" fill="none" viewBox="0 0 24 24" stroke={plan.highlight ? 'white' : '#2E68E6'} strokeWidth={3}>
+                            <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 12.75l6 6 9-13.5" />
+                          </svg>
+                        </span>
+                      ) : (
+                        <span className="w-4 h-4 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5 bg-red-50">
+                          <svg width="8" height="8" fill="none" viewBox="0 0 24 24" stroke="#ef4444" strokeWidth={3}>
+                            <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
+                          </svg>
+                        </span>
+                      )}
+                      <span className={`font-sora text-xs leading-tight ${f.ok ? (plan.highlight ? 'text-white/80' : 'text-grafito') : 'text-acero line-through'}`}>{f.text}</span>
                     </li>
                   ))}
                 </ul>
@@ -1361,7 +1425,7 @@ export default function Ksmart360Page() {
                       window.location.href = plan.ctaHref;
                     }
                   }}
-                  className={`w-full text-center py-3.5 rounded-xl font-sora font-semibold text-sm transition-all duration-200 cursor-pointer ${
+                  className={`w-full text-center py-3 rounded-xl font-sora font-semibold text-sm transition-all duration-200 cursor-pointer ${
                     plan.highlight
                       ? 'bg-white text-azulStack hover:bg-gray-50'
                       : 'bg-azulStack text-white hover:bg-blue-600'
@@ -1373,7 +1437,17 @@ export default function Ksmart360Page() {
             ))}
           </Section>
 
+          {/* ¿Por qué Pro? */}
           <Section className="mt-10">
+            <motion.div variants={fadeUp} className="max-w-2xl mx-auto bg-white border border-gray-100 rounded-2xl p-6 text-center shadow-sm">
+              <p className="font-sora text-sm text-grafito leading-relaxed">
+                <span className="font-bold">¿Por qué Pro?</span> Solo si tu negocio está obligado a emitir factura electrónica ante la DIAN. Si no, el plan Básico tiene <strong>todo lo que necesitas</strong> — sin restricciones.{' '}
+                <span className="text-azulStack font-medium">¿Facturas electrónicamente? Sí → Pro. No → Básico.</span>
+              </p>
+            </motion.div>
+          </Section>
+
+          <Section className="mt-6">
             <motion.p variants={fadeUp} className="text-center font-sora text-xs text-acero">
               Pagos procesados por <strong>Wompi (Bancolombia)</strong> — Tarjeta de crédito/débito, Nequi, PSE y QR.
             </motion.p>
