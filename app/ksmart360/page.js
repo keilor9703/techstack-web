@@ -691,12 +691,12 @@ function PymeView() {
                 {i < pymeSteps.length - 1 && (
                   <div className="hidden lg:block absolute top-8 left-full w-8 h-px bg-white/10 z-10" style={{ left: 'calc(100% + 1px)', width: 'calc(2rem - 2px)' }} />
                 )}
-                <div className="bg-white/5 border border-white/8 rounded-2xl p-7 h-full flex flex-col">
-                  <div className="font-mono text-5xl font-bold text-white/10 mb-4 leading-none">{s.step}</div>
+                <div className="bg-white/5 border border-white/10 rounded-2xl p-7 h-full flex flex-col hover:border-azul/30 hover:bg-white/8 transition-all duration-300">
+                  <div className="font-mono text-5xl font-bold text-azul/70 mb-4 leading-none">{s.step}</div>
                   <h3 className="font-sora font-bold text-white text-lg mb-3 tracking-tight">{s.title}</h3>
-                  <p className="font-sora text-sm text-white/50 leading-relaxed flex-1">{s.desc}</p>
-                  <div className="mt-5 pt-4 border-t border-white/8">
-                    <span className="font-mono text-[10px] text-white/30 tracking-wider">{s.detail}</span>
+                  <p className="font-sora text-sm text-white/70 leading-relaxed flex-1">{s.desc}</p>
+                  <div className="mt-5 pt-4 border-t border-white/10">
+                    <span className="font-mono text-[11px] text-azul/80 tracking-wider">{s.detail}</span>
                   </div>
                 </div>
               </motion.div>
