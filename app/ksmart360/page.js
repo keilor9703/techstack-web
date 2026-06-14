@@ -1054,10 +1054,10 @@ function TechView() {
                 <div>
                   <div className="flex items-center gap-3 mb-3">
                     <span className="text-2xl">🏛️</span>
-                    <span className="font-sora font-bold text-white text-xl">Oracle Cloud VM.Standard.A1.Flex</span>
+                    <span className="font-sora font-bold text-white text-xl">Oracle Cloud Infrastructure</span>
                   </div>
                   <p className="font-sora text-sm text-white/50 leading-relaxed max-w-2xl">
-                    La misma infraestructura que usan bancos y corporaciones Fortune 500. Servidor ARM Ampere con <strong className="text-white">4 OCPU · 24 GB RAM · 96 GB SSD</strong>. PostgreSQL 17 auto-hospedado con backups comprimidos diarios (15 días de retención). Nginx con SSL Let's Encrypt, CI/CD automático en cada push a GitHub. Monitoreo activo 24/7 con reinicio automático ante cualquier interrupción.
+                    La misma infraestructura que usan bancos, gobiernos y corporaciones Fortune 500. Oracle Cloud es el proveedor elegido por empresas que no pueden permitirse fallas — con SLAs de disponibilidad entre los más altos de la industria. Ksmart360 opera sobre esta plataforma para garantizar continuidad total del negocio: monitoreo activo 24/7, reinicio automático ante cualquier interrupción y backups automáticos diarios con retención de múltiples puntos de restauración. Tu operación no se detiene.
                   </p>
                 </div>
                 <div className="flex items-center gap-2 flex-shrink-0 bg-green-500/10 border border-green-500/25 rounded-xl px-4 py-3">
