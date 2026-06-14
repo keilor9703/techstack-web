@@ -831,7 +831,7 @@ function PymeView() {
       </section>
 
       {/* ── Link de Pago & QR ── */}
-      <section className="py-24 lg:py-32 bg-papel">
+      <section className="pt-24 lg:pt-32 pb-12 lg:pb-16 bg-papel">
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
           <Section className="text-center mb-14">
             <motion.span variants={fadeUp} className="inline-block text-xs font-mono font-medium text-azulStack bg-azulTinte px-3 py-1.5 rounded-full mb-4 tracking-wider uppercase">
@@ -963,7 +963,7 @@ function PymeView() {
       </section>
 
       {/* ── Capacidades completas ── */}
-      <section className="py-24 lg:py-32 bg-papel">
+      <section className="pt-12 lg:pt-16 pb-24 lg:pb-32 bg-papel">
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
           <Section className="text-center mb-16">
             <motion.span variants={fadeUp} className="inline-block text-xs font-mono font-medium text-azulStack bg-azulTinte px-3 py-1.5 rounded-full mb-4 tracking-wider uppercase">
