@@ -682,7 +682,6 @@ function PymeView() {
                 </div>
                 <a
                   href="/#contacto"
-                  onClick={(e) => { e.preventDefault(); document.querySelector('#contacto')?.scrollIntoView({ behavior: 'smooth' }); }}
                   className="inline-flex items-center gap-2 px-6 py-3 bg-azul text-white font-semibold text-sm rounded-xl hover:bg-blue-600 transition-colors font-sora cursor-pointer w-full justify-center"
                 >
                   Hablemos de tu negocio
