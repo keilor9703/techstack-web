@@ -3,8 +3,22 @@
 import { useState, useRef } from 'react';
 import { motion, useInView, AnimatePresence } from 'framer-motion';
 import Link from 'next/link';
+import * as SiIcons from 'react-icons/si';
+import * as MdIcons from 'react-icons/md';
 
 // ─── Shared data ──────────────────────────────────────────────────────────────
+
+
+
+// 1. Componente auxiliar para renderizar los iconos dinámicamente
+const TechIcon = ({ name }) => {
+  // Intentamos obtener el icono de Si (SimpleIcons) o Md (MaterialDesign)
+  const IconComponent = SiIcons[name] || MdIcons[name];
+  
+  if (!IconComponent) return <span className="text-xl">⚙️</span>; // Fallback si no existe
+  return <IconComponent className="w-6 h-6 text-azulStack" />;
+};
+
 
 const stats = [
   { value: '18+', label: 'Módulos activos' },
@@ -447,19 +461,35 @@ const techIndustries = [
   },
 ];
 
+// const techStack = [
+//   { label: 'React 18', desc: 'Frontend SPA' },
+//   { label: 'FastAPI', desc: 'Backend Python 3.11' },
+//   { label: 'PostgreSQL 17', desc: 'Base de datos' },
+//   { label: 'Oracle Cloud', desc: 'Infraestructura ARM' },
+//   { label: 'Pydantic v2', desc: 'Validación' },
+//   { label: 'SQLAlchemy', desc: 'ORM' },
+//   { label: 'Vercel CDN', desc: 'Frontend global' },
+//   { label: 'Nginx + SSL', desc: 'Proxy inverso' },
+//   { label: 'Wompi', desc: 'Pagos Colombia' },
+//   { label: 'DIAN / Matias', desc: 'Facturación electrónica' },
+//   { label: 'WebAuthn FIDO2', desc: 'Biométrico' },
+//   { label: 'WhatsApp API', desc: 'Notificaciones' },
+// ];
+
+
 const techStack = [
-  { label: 'React 18', desc: 'Frontend SPA' },
-  { label: 'FastAPI', desc: 'Backend Python 3.11' },
-  { label: 'PostgreSQL 17', desc: 'Base de datos' },
-  { label: 'Oracle Cloud', desc: 'Infraestructura ARM' },
-  { label: 'Pydantic v2', desc: 'Validación' },
-  { label: 'SQLAlchemy', desc: 'ORM' },
-  { label: 'Vercel CDN', desc: 'Frontend global' },
-  { label: 'Nginx + SSL', desc: 'Proxy inverso' },
-  { label: 'Wompi', desc: 'Pagos Colombia' },
-  { label: 'DIAN / Matias', desc: 'Facturación electrónica' },
-  { label: 'WebAuthn FIDO2', desc: 'Biométrico' },
-  { label: 'WhatsApp API', desc: 'Notificaciones' },
+  { label: 'React 18', desc: 'Frontend SPA', icon: 'SiReact' },
+  { label: 'FastAPI', desc: 'Backend Python 3.11', icon: 'SiFastapi' },
+  { label: 'PostgreSQL 17', desc: 'Base de datos', icon: 'SiPostgresql' },
+  { label: 'Oracle Cloud', desc: 'Infraestructura ARM', icon: 'SiOracle' },
+  { label: 'Pydantic v2', desc: 'Validación', icon: 'SiPydantic' },
+  { label: 'SQLAlchemy', desc: 'ORM', icon: 'SiSqlalchemy' },
+  { label: 'Vercel CDN', desc: 'Frontend global', icon: 'SiVercel' },
+  { label: 'Nginx + SSL', desc: 'Proxy inverso', icon: 'SiNginx' },
+  { label: 'Wompi', desc: 'Pagos Colombia', icon: 'SiWompi' }, // Nota: Considera usar un ícono genérico de pagos si no está disponible
+  { label: 'DIAN / Matias', desc: 'Facturación electrónica', icon: 'SiDian' }, // Usar ícono de documento o estado
+  { label: 'WebAuthn FIDO2', desc: 'Biométrico', icon: 'MdFingerprint' },
+  { label: 'WhatsApp API', desc: 'Notificaciones', icon: 'SiWhatsapp' },
 ];
 
 const security = [
@@ -959,13 +989,32 @@ function TechView() {
           </Section>
 
           <div className="grid lg:grid-cols-2 gap-12 mb-12">
-            <Section>
+            {/* <Section>
               <motion.h3 variants={fadeUp} className="font-sora font-semibold text-grafito text-lg mb-6">Stack tecnológico</motion.h3>
               <motion.div variants={stagger} className="grid grid-cols-2 sm:grid-cols-3 gap-3">
                 {techStack.map((t, i) => (
                   <motion.div key={i} variants={fadeUp} className="bg-white border border-gray-100 rounded-xl px-4 py-3 hover:border-azulStack/30 transition-colors">
                     <div className="font-sora font-semibold text-grafito text-sm">{t.label}</div>
                     <div className="font-sora text-xs text-acero mt-0.5">{t.desc}</div>
+                  </motion.div>
+                ))}
+              </motion.div>
+            </Section> */}
+
+            <Section>
+              <motion.h3 variants={fadeUp} className="font-sora font-semibold text-grafito text-lg mb-6">Stack tecnológico</motion.h3>
+              <motion.div variants={stagger} className="grid grid-cols-2 sm:grid-cols-3 gap-3">
+                {techStack.map((t, i) => (
+                  <motion.div 
+                    key={i} 
+                    variants={fadeUp} 
+                    className="bg-white border border-gray-100 rounded-xl px-4 py-3 hover:border-azulStack/30 hover:shadow-lg transition-all duration-300 flex items-center gap-3"
+                  >
+                    <TechIcon name={t.icon} />
+                    <div>
+                      <div className="font-sora font-semibold text-grafito text-sm">{t.label}</div>
+                      <div className="font-sora text-xs text-acero mt-0.5">{t.desc}</div>
+                    </div>
                   </motion.div>
                 ))}
               </motion.div>
