@@ -3,21 +3,7 @@
 import { useState, useRef } from 'react';
 import { motion, useInView, AnimatePresence } from 'framer-motion';
 import Link from 'next/link';
-import * as SiIcons from 'react-icons/si';
-import * as MdIcons from 'react-icons/md';
-
 // ─── Shared data ──────────────────────────────────────────────────────────────
-
-
-
-// 1. Componente auxiliar para renderizar los iconos dinámicamente
-const TechIcon = ({ name }) => {
-  // Intentamos obtener el icono de Si (SimpleIcons) o Md (MaterialDesign)
-  const IconComponent = SiIcons[name] || MdIcons[name];
-  
-  if (!IconComponent) return <span className="text-xl">⚙️</span>; // Fallback si no existe
-  return <IconComponent className="w-6 h-6 text-azulStack" />;
-};
 
 
 const stats = [
@@ -461,35 +447,55 @@ const techIndustries = [
   },
 ];
 
-// const techStack = [
-//   { label: 'React 18', desc: 'Frontend SPA' },
-//   { label: 'FastAPI', desc: 'Backend Python 3.11' },
-//   { label: 'PostgreSQL 17', desc: 'Base de datos' },
-//   { label: 'Oracle Cloud', desc: 'Infraestructura ARM' },
-//   { label: 'Pydantic v2', desc: 'Validación' },
-//   { label: 'SQLAlchemy', desc: 'ORM' },
-//   { label: 'Vercel CDN', desc: 'Frontend global' },
-//   { label: 'Nginx + SSL', desc: 'Proxy inverso' },
-//   { label: 'Wompi', desc: 'Pagos Colombia' },
-//   { label: 'DIAN / Matias', desc: 'Facturación electrónica' },
-//   { label: 'WebAuthn FIDO2', desc: 'Biométrico' },
-//   { label: 'WhatsApp API', desc: 'Notificaciones' },
-// ];
-
-
 const techStack = [
-  { label: 'React 18', desc: 'Frontend SPA', icon: 'SiReact' },
-  { label: 'FastAPI', desc: 'Backend Python 3.11', icon: 'SiFastapi' },
-  { label: 'PostgreSQL 17', desc: 'Base de datos', icon: 'SiPostgresql' },
-  { label: 'Oracle Cloud', desc: 'Infraestructura ARM', icon: 'SiOracle' },
-  { label: 'Pydantic v2', desc: 'Validación', icon: 'SiPydantic' },
-  { label: 'SQLAlchemy', desc: 'ORM', icon: 'SiSqlalchemy' },
-  { label: 'Vercel CDN', desc: 'Frontend global', icon: 'SiVercel' },
-  { label: 'Nginx + SSL', desc: 'Proxy inverso', icon: 'SiNginx' },
-  { label: 'Wompi', desc: 'Pagos Colombia', icon: 'SiWompi' }, // Nota: Considera usar un ícono genérico de pagos si no está disponible
-  { label: 'DIAN / Matias', desc: 'Facturación electrónica', icon: 'SiDian' }, // Usar ícono de documento o estado
-  { label: 'WebAuthn FIDO2', desc: 'Biométrico', icon: 'MdFingerprint' },
-  { label: 'WhatsApp API', desc: 'Notificaciones', icon: 'SiWhatsapp' },
+  {
+    label: 'React 18', desc: 'Frontend SPA', color: '#61DAFB',
+    svg: <svg viewBox="0 0 24 24" fill="#61DAFB" className="w-5 h-5"><path d="M12 9.861A2.139 2.139 0 1 0 12 14.139 2.139 2.139 0 1 0 12 9.861zM6.008 16.255l-.472-.12C2.018 15.246 0 13.737 0 11.996s2.018-3.25 5.536-4.139l.472-.12.133.468a23.53 23.53 0 0 0 1.363 3.578l.101.213-.101.213a23.307 23.307 0 0 0-1.363 3.578l-.133.468zM5.317 8.95c-2.674.751-4.315 1.9-4.315 3.046 0 1.145 1.641 2.294 4.315 3.046a24.95 24.95 0 0 1 1.182-3.046A24.752 24.752 0 0 1 5.317 8.95zM17.992 16.255l-.133-.468a23.307 23.307 0 0 0-1.363-3.578l-.101-.213.101-.213a23.53 23.53 0 0 0 1.363-3.578l.133-.468.472.12c3.518.889 5.536 2.398 5.536 4.139s-2.018 3.25-5.536 4.139l-.472.12zm.753-7.305a24.753 24.753 0 0 1-1.182 3.046 24.95 24.95 0 0 1 1.182 3.046c2.675-.752 4.315-1.901 4.315-3.046 0-1.146-1.641-2.294-4.315-3.046z"/></svg>,
+  },
+  {
+    label: 'FastAPI', desc: 'Backend Python 3.11', color: '#009688',
+    svg: <svg viewBox="0 0 24 24" fill="#009688" className="w-5 h-5"><path d="M12 0C5.376 0 0 5.376 0 12c0 6.624 5.376 12 12 12 6.624 0 12-5.376 12-12C24 5.376 18.624 0 12 0zm-.624 21.504v-7.248H6.48L13.2 2.496v7.248h4.896l-6.72 11.76z"/></svg>,
+  },
+  {
+    label: 'PostgreSQL 17', desc: 'Base de datos', color: '#336791',
+    svg: <svg viewBox="0 0 24 24" className="w-5 h-5"><ellipse cx="12" cy="6" rx="9" ry="3.5" fill="#336791"/><path d="M3 6v4c0 1.933 4.03 3.5 9 3.5s9-1.567 9-3.5V6" fill="none" stroke="#336791" strokeWidth="1.5"/><path d="M3 10v4c0 1.933 4.03 3.5 9 3.5s9-1.567 9-3.5v-4" fill="none" stroke="#336791" strokeWidth="1.5"/><path d="M3 14v4c0 1.933 4.03 3.5 9 3.5s9-1.567 9-3.5v-4" fill="none" stroke="#336791" strokeWidth="1.5"/></svg>,
+  },
+  {
+    label: 'Oracle Cloud', desc: 'Infraestructura ARM', color: '#F80000',
+    svg: <svg viewBox="0 0 24 24" fill="#F80000" className="w-5 h-5"><path d="M16.412 4.412a7.589 7.589 0 0 1 0 15.176H7.588a7.589 7.589 0 0 1 0-15.176h8.824zm0 2.87H7.588a4.719 4.719 0 0 0 0 9.436h8.824a4.719 4.719 0 0 0 0-9.436z"/></svg>,
+  },
+  {
+    label: 'Pydantic v2', desc: 'Validación', color: '#e92063',
+    svg: <svg viewBox="0 0 24 24" fill="#e92063" className="w-5 h-5"><path d="M12 0L1.608 6v12L12 24l10.392-6V6zm0 2.4l8.004 4.62v9.24L12 21l-8.004-4.74V6.96zm-.5 2.6v5.5l4.775 2.757-.5.866L10 11.25V5z"/></svg>,
+  },
+  {
+    label: 'SQLAlchemy', desc: 'ORM', color: '#D71F00',
+    svg: <svg viewBox="0 0 24 24" className="w-5 h-5"><ellipse cx="12" cy="6" rx="9" ry="3.5" fill="none" stroke="#D71F00" strokeWidth="1.5"/><path d="M3 6v4c0 1.933 4.03 3.5 9 3.5s9-1.567 9-3.5V6" fill="none" stroke="#D71F00" strokeWidth="1.5"/><path d="M3 10v4c0 1.933 4.03 3.5 9 3.5s9-1.567 9-3.5v-4" fill="none" stroke="#D71F00" strokeWidth="1.5"/><path d="M3 14v4c0 1.933 4.03 3.5 9 3.5s9-1.567 9-3.5v-4" fill="none" stroke="#D71F00" strokeWidth="1.5"/></svg>,
+  },
+  {
+    label: 'Vercel CDN', desc: 'Frontend global', color: '#000000',
+    svg: <svg viewBox="0 0 24 24" fill="#000" className="w-5 h-5"><path d="M24 22.525H0l12-21.05 12 21.05z"/></svg>,
+  },
+  {
+    label: 'Nginx + SSL', desc: 'Proxy inverso', color: '#009900',
+    svg: <svg viewBox="0 0 24 24" fill="#009900" className="w-5 h-5"><path d="M12 0L1.605 6.2v11.6L12 24l10.395-6.2V6.2zm0 4.1l6.962 11.8H5.038z"/></svg>,
+  },
+  {
+    label: 'Wompi', desc: 'Pagos Colombia', color: '#6B2DE3',
+    svg: <svg viewBox="0 0 24 24" className="w-5 h-5"><rect x="2" y="5" width="20" height="14" rx="3" fill="none" stroke="#6B2DE3" strokeWidth="1.5"/><path d="M2 9h20" stroke="#6B2DE3" strokeWidth="1.5"/><circle cx="7" cy="15" r="1.5" fill="#6B2DE3"/><circle cx="12" cy="15" r="1.5" fill="#6B2DE3" opacity=".5"/></svg>,
+  },
+  {
+    label: 'DIAN / Matias', desc: 'Facturación electrónica', color: '#003DA6',
+    svg: <svg viewBox="0 0 24 24" className="w-5 h-5"><path d="M6 2h12a2 2 0 0 1 2 2v16a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2z" fill="none" stroke="#003DA6" strokeWidth="1.5"/><path d="M8 7h8M8 11h8M8 15h5" stroke="#003DA6" strokeWidth="1.5" strokeLinecap="round"/></svg>,
+  },
+  {
+    label: 'WebAuthn FIDO2', desc: 'Biométrico', color: '#0066CC',
+    svg: <svg viewBox="0 0 24 24" className="w-5 h-5"><rect x="3" y="11" width="18" height="12" rx="2" fill="none" stroke="#0066CC" strokeWidth="1.5"/><path d="M7 11V7a5 5 0 0 1 10 0v4" fill="none" stroke="#0066CC" strokeWidth="1.5"/><circle cx="12" cy="17" r="1.5" fill="#0066CC"/></svg>,
+  },
+  {
+    label: 'WhatsApp API', desc: 'Notificaciones', color: '#25D366',
+    svg: <svg viewBox="0 0 24 24" fill="#25D366" className="w-5 h-5"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413z"/></svg>,
+  },
 ];
 
 const security = [
@@ -1005,14 +1011,19 @@ function TechView() {
               <motion.h3 variants={fadeUp} className="font-sora font-semibold text-grafito text-lg mb-6">Stack tecnológico</motion.h3>
               <motion.div variants={stagger} className="grid grid-cols-2 sm:grid-cols-3 gap-3">
                 {techStack.map((t, i) => (
-                  <motion.div 
-                    key={i} 
-                    variants={fadeUp} 
-                    className="bg-white border border-gray-100 rounded-xl px-4 py-3 hover:border-azulStack/30 hover:shadow-lg transition-all duration-300 flex items-center gap-3"
+                  <motion.div
+                    key={i}
+                    variants={fadeUp}
+                    className="bg-white border border-gray-100 rounded-xl px-4 py-3 hover:border-azulStack/30 hover:shadow-sm transition-all duration-300 flex items-center gap-3"
                   >
-                    <TechIcon name={t.icon} />
+                    <div
+                      className="w-9 h-9 rounded-lg flex-shrink-0 flex items-center justify-center"
+                      style={{ backgroundColor: t.color + '18', border: `1px solid ${t.color}35` }}
+                    >
+                      {t.svg}
+                    </div>
                     <div>
-                      <div className="font-sora font-semibold text-grafito text-sm">{t.label}</div>
+                      <div className="font-sora font-semibold text-grafito text-sm leading-tight">{t.label}</div>
                       <div className="font-sora text-xs text-acero mt-0.5">{t.desc}</div>
                     </div>
                   </motion.div>
