@@ -1405,6 +1405,124 @@ function TechView() {
         </div>
       </section>
 
+      {/* ── Seguridad ── */}
+      <section className="py-24 lg:py-32 bg-papel overflow-hidden relative">
+        <div className="pointer-events-none absolute -top-32 -right-32 w-96 h-96 bg-azulStack/5 rounded-full blur-3xl" />
+        <div className="relative max-w-7xl mx-auto px-6 lg:px-8">
+          <Section className="text-center mb-16">
+            <motion.span variants={fadeUp} className="inline-block text-xs font-mono font-medium text-azulStack bg-azulTinte px-3 py-1.5 rounded-full mb-4 tracking-wider uppercase">
+              Seguridad
+            </motion.span>
+            <motion.h2 variants={fadeUp} className="font-sora font-bold text-3xl lg:text-5xl text-grafito leading-tight tracking-tight">
+              7 capas de seguridad.<br className="hidden lg:block" />
+              <span className="text-azulStack"> Ningún punto único de fallo.</span>
+            </motion.h2>
+            <motion.p variants={fadeUp} className="font-sora text-base text-acero mt-4 max-w-2xl mx-auto leading-relaxed">
+              La seguridad de Ksmart360 no es un módulo que se activa — es la arquitectura desde la que fue construido.
+              Cada petición atraviesa múltiples barreras independientes antes de llegar a los datos de tu negocio.
+            </motion.p>
+          </Section>
+
+          {/* Layer stack */}
+          <Section>
+            <motion.div variants={fadeUp} className="grid lg:grid-cols-2 gap-6 mb-10">
+              {/* Left: layers visual */}
+              <div className="bg-grafito rounded-2xl p-6 lg:p-8 flex flex-col gap-3">
+                <p className="font-mono text-[10px] text-white/30 tracking-widest uppercase mb-1">Cliente → Datos</p>
+                {[
+                  { n: '01', label: 'Cloudflare', role: 'DDoS · WAF · Proxy perimetral', color: '#F6821F' },
+                  { n: '02', label: 'CDN Global', role: 'HTTPS forzado · Sin exposición del backend', color: '#2E68E6' },
+                  { n: '03', label: 'Firewall de red', role: 'Solo puertos estrictamente necesarios', color: '#10B981' },
+                  { n: '04', label: 'Firewall del SO', role: 'Segunda barrera independiente de red', color: '#10B981' },
+                  { n: '05', label: 'Proxy inverso + SSL', role: 'HTTPS · Certificado automático · CORS', color: '#8B5CF6' },
+                  { n: '06', label: 'API con autenticación', role: 'JWT · Rate limiting · Validación estricta', color: '#2E68E6' },
+                  { n: '07', label: 'Base de datos aislada', role: 'Sin acceso externo — solo localhost', color: '#EF4444' },
+                ].map((layer, i) => (
+                  <div key={i} className="flex items-center gap-4 bg-white/5 border border-white/8 rounded-xl px-4 py-3 group hover:border-white/15 transition-colors duration-200">
+                    <span className="font-mono text-[10px] text-white/25 w-5 flex-shrink-0">{layer.n}</span>
+                    <div className="w-2 h-2 rounded-full flex-shrink-0" style={{ backgroundColor: layer.color }} />
+                    <div className="flex-1 min-w-0">
+                      <span className="font-sora font-semibold text-xs text-white">{layer.label}</span>
+                      <span className="font-sora text-[11px] text-white/35 ml-2">{layer.role}</span>
+                    </div>
+                  </div>
+                ))}
+                <div className="mt-2 flex items-center gap-2 px-4 py-2 rounded-xl bg-azulStack/10 border border-azulStack/20">
+                  <svg className="w-3.5 h-3.5 text-azulStack flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.955 11.955 0 003 12c0 6.627 5.373 12 12 12s12-5.373 12-12c0-2.172-.576-4.208-1.586-5.963" />
+                  </svg>
+                  <span className="font-mono text-[10px] text-azulStack">Es estructuralmente imposible acceder a los datos sin cruzar las 7 capas</span>
+                </div>
+              </div>
+
+              {/* Right: three auth pillars */}
+              <div className="flex flex-col gap-5">
+                <div className="bg-white border border-gray-100 rounded-2xl p-6 hover:border-azulStack/30 hover:shadow-lg hover:shadow-azulStack/5 transition-all duration-300">
+                  <div className="flex items-center gap-3 mb-3">
+                    <div className="w-9 h-9 rounded-xl bg-azulTinte flex items-center justify-center text-azulStack flex-shrink-0">
+                      <svg width="18" height="18" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.8}>
+                        <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 5.25a3 3 0 013 3m3 0a6 6 0 01-7.029 5.912c-.563-.097-1.159.026-1.563.43L10.5 17.25H8.25v2.25H6v2.25H2.25v-2.818c0-.597.237-1.17.659-1.591l6.499-6.499c.404-.404.527-1 .43-1.563A6 6 0 1121.75 8.25z" />
+                      </svg>
+                    </div>
+                    <h3 className="font-sora font-bold text-sm text-grafito">Autenticación JWT</h3>
+                  </div>
+                  <p className="font-sora text-xs text-acero leading-relaxed">
+                    Cada sesión usa un token de acceso firmado criptográficamente con HMAC-SHA256 y expiración configurable.
+                    Sin token válido, ningún endpoint de negocio responde.
+                  </p>
+                </div>
+
+                <div className="bg-white border border-gray-100 rounded-2xl p-6 hover:border-azulStack/30 hover:shadow-lg hover:shadow-azulStack/5 transition-all duration-300">
+                  <div className="flex items-center gap-3 mb-3">
+                    <div className="w-9 h-9 rounded-xl bg-azulTinte flex items-center justify-center text-azulStack flex-shrink-0">
+                      <svg width="18" height="18" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.8}>
+                        <path strokeLinecap="round" strokeLinejoin="round" d="M7.864 4.243A7.5 7.5 0 0119.5 10.5c0 2.92-.556 5.709-1.568 8.268M5.742 6.364A7.465 7.465 0 004.5 10.5a7.464 7.464 0 01-1.15 3.993m1.989 3.559A11.209 11.209 0 008.25 10.5a3.75 3.75 0 117.5 0c0 .527-.021 1.049-.064 1.565M12 10.5a14.94 14.94 0 01-3.6 9.75m6.633-4.596a18.666 18.666 0 01-2.485 5.33" />
+                      </svg>
+                    </div>
+                    <h3 className="font-sora font-bold text-sm text-grafito">WebAuthn / FIDO2</h3>
+                  </div>
+                  <p className="font-sora text-xs text-acero leading-relaxed">
+                    Acceso biométrico disponible con estándar WebAuthn / FIDO2. El dato biométrico <strong className="text-grafito font-semibold">nunca sale del dispositivo</strong> del usuario —
+                    solo se transmite una firma criptográfica verificable.
+                  </p>
+                </div>
+
+                <div className="bg-white border border-gray-100 rounded-2xl p-6 hover:border-azulStack/30 hover:shadow-lg hover:shadow-azulStack/5 transition-all duration-300">
+                  <div className="flex items-center gap-3 mb-3">
+                    <div className="w-9 h-9 rounded-xl bg-azulTinte flex items-center justify-center text-azulStack flex-shrink-0">
+                      <svg width="18" height="18" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.8}>
+                        <path strokeLinecap="round" strokeLinejoin="round" d="M18 18.72a9.094 9.094 0 003.741-.479 3 3 0 00-4.682-2.72m.94 3.198l.001.031c0 .225-.012.447-.037.666A11.944 11.944 0 0112 21c-2.17 0-4.207-.576-5.963-1.584A6.062 6.062 0 016 18.719m12 0a5.971 5.971 0 00-.941-3.197m0 0A5.995 5.995 0 0012 12.75a5.995 5.995 0 00-5.058 2.772m0 0a3 3 0 00-4.681 2.72 8.986 8.986 0 003.74.477m.94-3.197a5.971 5.971 0 00-.94 3.197M15 6.75a3 3 0 11-6 0 3 3 0 016 0zm6 3a2.25 2.25 0 11-4.5 0 2.25 2.25 0 014.5 0zm-13.5 0a2.25 2.25 0 11-4.5 0 2.25 2.25 0 014.5 0z" />
+                      </svg>
+                    </div>
+                    <h3 className="font-sora font-bold text-sm text-grafito">Aislamiento multi-tenant</h3>
+                  </div>
+                  <p className="font-sora text-xs text-acero leading-relaxed">
+                    Cada empresa opera en un contexto de datos completamente aislado. El aislamiento es por diseño de arquitectura,
+                    no por configuración — ningún usuario puede ver datos de otra empresa, ni por error.
+                  </p>
+                </div>
+              </div>
+            </motion.div>
+
+            {/* Bottom stat bar */}
+            <motion.div variants={fadeUp} className="grid grid-cols-2 sm:grid-cols-4 gap-4">
+              {[
+                { label: 'Cloudflare WAF', desc: 'Red de seguridad #1 del mundo', icon: '🛡️' },
+                { label: 'HTTPS obligatorio', desc: 'Sin versión HTTP — siempre cifrado', icon: '🔒' },
+                { label: 'Rate limiting', desc: 'Protección contra fuerza bruta', icon: '⚡' },
+                { label: 'Zero trust DB', desc: 'Base de datos sin acceso externo', icon: '🗄️' },
+              ].map((s, i) => (
+                <div key={i} className="bg-white border border-gray-100 rounded-xl px-4 py-4 flex flex-col gap-1.5">
+                  <span className="text-xl">{s.icon}</span>
+                  <span className="font-sora font-semibold text-xs text-grafito">{s.label}</span>
+                  <span className="font-sora text-[11px] text-acero leading-snug">{s.desc}</span>
+                </div>
+              ))}
+            </motion.div>
+          </Section>
+        </div>
+      </section>
+
       {/* ── Cumplimiento normativo ── */}
       <section className="py-24 lg:py-32 bg-grafito overflow-hidden relative">
         <div className="absolute left-1/2 top-0 -translate-x-1/2 w-[500px] h-[300px] bg-azul/8 rounded-full blur-3xl pointer-events-none" />
