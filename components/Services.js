@@ -129,6 +129,55 @@ export default function Services() {
             </motion.div>
           ))}
         </motion.div>
+
+        {/* Web design marketing banner */}
+        <motion.div
+          initial={{ opacity: 0, y: 32 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: '-60px' }}
+          transition={{ duration: 0.65, ease: [0.22, 1, 0.36, 1] }}
+          className="mt-8 lg:mt-10 relative overflow-hidden rounded-2xl bg-grafito px-8 py-10 lg:px-14 lg:py-12 flex flex-col lg:flex-row items-center lg:items-center gap-8"
+        >
+          {/* decorative glow */}
+          <div className="pointer-events-none absolute -top-20 -left-20 w-72 h-72 rounded-full bg-azulStack/20 blur-3xl" />
+          <div className="pointer-events-none absolute -bottom-20 -right-20 w-64 h-64 rounded-full bg-azulStack/10 blur-3xl" />
+
+          {/* icon */}
+          <div className="relative flex-shrink-0 w-16 h-16 rounded-2xl bg-azulStack/15 border border-azulStack/30 flex items-center justify-center text-azulStack">
+            <svg width="30" height="30" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+              <path strokeLinecap="round" strokeLinejoin="round" d="M12 21a9.004 9.004 0 008.716-6.747M12 21a9.004 9.004 0 01-8.716-6.747M12 21c2.485 0 4.5-4.03 4.5-9S14.485 3 12 3m0 18c-2.485 0-4.5-4.03-4.5-9S9.515 3 12 3m0 0a8.997 8.997 0 017.843 4.582M12 3a8.997 8.997 0 00-7.843 4.582m15.686 0A11.953 11.953 0 0112 10.5c-2.998 0-5.74-1.1-7.843-2.918m15.686 0A8.959 8.959 0 0121 12c0 .778-.099 1.533-.284 2.253m0 0A17.919 17.919 0 0112 16.5c-3.162 0-6.133-.815-8.716-2.247m0 0A9.015 9.015 0 013 12c0-1.605.42-3.113 1.157-4.418" />
+            </svg>
+          </div>
+
+          {/* copy */}
+          <div className="relative flex-1 text-center lg:text-left">
+            <p className="text-xs font-mono font-medium text-azulStack tracking-widest uppercase mb-2">
+              Diseño &amp; Construcción Web
+            </p>
+            <h3 className="font-sora font-bold text-2xl lg:text-3xl text-white leading-snug tracking-tight mb-3">
+              ¿Tu empresa todavía no tiene página web?
+            </h3>
+            <p className="font-sora text-sm text-white/55 leading-relaxed max-w-xl">
+              Una presencia digital profesional no es un lujo — es la primera impresión que tus clientes tienen de ti.
+              Diseñamos y construimos sitios web modernos, rápidos y optimizados para posicionamiento, adaptados
+              a la identidad de tu marca.
+            </p>
+          </div>
+
+          {/* CTA */}
+          <div className="relative flex-shrink-0">
+            <a
+              href="#contacto"
+              onClick={(e) => { e.preventDefault(); setTimeout(() => document.querySelector('#contacto')?.scrollIntoView({ behavior: 'smooth' }), 50); }}
+              className="inline-flex items-center gap-2 bg-azulStack hover:bg-azulStack/90 text-white font-sora font-semibold text-sm px-6 py-3.5 rounded-xl transition-all duration-200 shadow-lg shadow-azulStack/30 hover:shadow-azulStack/50 whitespace-nowrap"
+            >
+              Quiero mi página web
+              <svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
+                <path strokeLinecap="round" strokeLinejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+              </svg>
+            </a>
+          </div>
+        </motion.div>
       </div>
     </section>
   );
