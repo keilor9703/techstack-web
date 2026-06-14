@@ -140,7 +140,7 @@ const pymeDifferentials = [
   {
     icon: '📒',
     title: 'Contabilidad automática — sin ser contador',
-    desc: 'Cada venta, compra, gasto o cobro genera automáticamente el asiento contable en partida doble, siguiendo el PUC colombiano. Diferencia caja de bancos sola, separa el IVA, y descompone capital e intereses en préstamos. El sistema lleva tu contabilidad en segundo plano mientras tú operas.',
+    desc: 'Cada venta, compra, gasto o cobro genera automáticamente el asiento contable en partida doble, siguiendo el PUC colombiano. Diferencia caja de bancos sola y separa el IVA automáticamente. El sistema lleva tu contabilidad en segundo plano mientras tú operas.',
     tag: 'Contabilidad',
   },
 ];
@@ -179,7 +179,7 @@ const pymeDeepFeatures = [
     title: 'La contabilidad de tu negocio, en orden — sin ser contador',
     body: [
       'Cada vez que registras una venta, una compra, un gasto o el cobro de una cuota, Ksmart360 genera automáticamente el asiento contable en partida doble correspondiente, siguiendo el Plan Único de Cuentas (PUC) colombiano. No ingresas nada manualmente — el sistema trabaja en segundo plano mientras tú operas.',
-      '**Diferencia caja y bancos sin que toques nada:** si el pago fue en efectivo, registra en Caja. Si fue por Nequi, Daviplata, transferencia o tarjeta, registra en Bancos. El IVA de cada venta se contabiliza en su cuenta separada (IVA por pagar), igual que el IVA descontable de tus compras. En los préstamos, cada cuota cobrada se descompone automáticamente entre recuperación de capital e ingresos por intereses.',
+      '**Diferencia caja y bancos sin que toques nada:** si el pago fue en efectivo, registra en Caja. Si fue por Nequi, Daviplata, transferencia o tarjeta, registra en Bancos. El IVA de cada venta se contabiliza en su cuenta separada (IVA por pagar), igual que el IVA descontable de tus compras.',
       '**¿Llevas tiempo operando y activaste el módulo tarde?** Sin problema. El sistema puede generar retroactivamente todos los asientos contables de tus transacciones anteriores con un solo clic — sin duplicados, sin trabajo manual. Tu contabilidad completa, al día, desde el primer día que registraste en el sistema.',
     ],
   },
@@ -187,7 +187,7 @@ const pymeDeepFeatures = [
     icon: '📊',
     title: 'Tu negocio en números — en tiempo real, sin abrir un reporte',
     body: [
-      'El dashboard de Ksmart360 es lo primero que ves al abrir el sistema. Sin hacer nada, sin generar reportes: las ventas del día, la cartera total en calle, los productos bajo stock mínimo y el recaudo de préstamos del día. La radiografía completa de tu negocio en un solo vistazo.',
+      'El dashboard de Ksmart360 es lo primero que ves al abrir el sistema. Sin hacer nada, sin generar reportes: las ventas del día, los productos bajo stock mínimo, el flujo de caja y el estado de tu operación en tiempo real. La radiografía completa de tu negocio en un solo vistazo.',
       'Cuando necesitas más detalle, tienes 9 tipos de reporte: resumen de ventas, productos más vendidos, rentabilidad por producto, clientes compradores, cuentas por cobrar con aging, IVA neto, productividad por operador, kardex de inventario y estado de resultados. Todos con filtros por fecha, producto, cliente, categoría o vendedor. Todos exportables a Excel o PDF con un clic.',
       '**La diferencia entre un negocio que crece y uno que sobrevive está en conocer sus números.** Ksmart360 te los da — sin hojas de cálculo, sin cuentas manuales, sin esperar al contador a fin de mes.',
     ],
@@ -206,7 +206,7 @@ const pymeSteps = [
   {
     step: '01',
     title: 'Regístrate en 2 minutos',
-    desc: 'Elige tu tipo de negocio — tienda, parqueadero, lavadero, restaurante o prestamista. El sistema activa automáticamente los módulos que necesitas. Sin configuración técnica.',
+    desc: 'Elige tu tipo de negocio — tienda, parqueadero, lavadero o restaurante. El sistema activa automáticamente los módulos que necesitas. Sin configuración técnica.',
     detail: 'Sin instalaciones · Wizard de inicio guiado',
   },
   {
@@ -244,20 +244,8 @@ const pymeIndustries = [
       { icon: '🔔', text: 'Alerta automática cuando un producto cae por debajo del stock mínimo' },
     ],
   },
-  {
-    icon: '💰',
-    name: 'Prestamista',
-    subtitle: 'Préstamos · Microcrédito · Cooperativas',
-    headline: 'Tu cartera bajo control. Sin excusas ni olvidos.',
-    benefits: [
-      { icon: '🧮', text: 'Simulador integrado: calcula la cuota exacta antes de aprobar el préstamo' },
-      { icon: '📅', text: 'La mora se calcula y acumula automáticamente cada día sin intervención' },
-      { icon: '📍', text: 'Cobradores registran GPS y foto en cada visita desde su celular' },
-      { icon: '💵', text: 'Abonos a capital que redistribuyen el saldo entre cuotas pendientes solos' },
-      { icon: '🖨️', text: 'Recibo de pago generado al instante y enviado por WhatsApp al cliente' },
-      { icon: '📊', text: 'Cartera con aging: ve quién te debe y cuántos días llevan sin pagar' },
-    ],
-  },
+  // Prestamista removido de la vista pública por consideraciones legales y regulatorias
+  // { icon: '💰', name: 'Prestamista', subtitle: 'Préstamos · Microcrédito · Cooperativas', ... }
   {
     icon: '🚗',
     name: 'Parqueadero',
@@ -359,12 +347,12 @@ const pymeCapabilities = [
       'Historial de transacciones',
       'Cartera con aging (30/60/90 días)',
       'Cobro por WhatsApp en un clic',
-      'Préstamos con simulador',
-      'Mora automática diaria',
-      'Ruta de cobro en campo',
-      'Abono a capital',
-      'GPS + foto por visita',
+      'Cuentas por cobrar con seguimiento',
+      'Alertas de vencimiento automáticas',
       'Recibo PDF por WhatsApp',
+      'Programa de puntos y fidelización',
+      'Notas y observaciones por cliente',
+      'Segmentación por comportamiento',
     ],
   },
   {
@@ -408,9 +396,9 @@ const techFeatures = [
   { emoji: '📦', title: 'Inventario FEFO', description: 'Kardex por costo promedio ponderado. Lotes con fecha de vencimiento. Alertas automáticas de stock mínimo. Variantes por talla, color o capacidad.' },
   { emoji: '🏭', title: 'Producción BOM', description: 'Recetas con ingredientes, rendimiento y merma. Lotes de producción: materia prima → producto terminado. Rollup de costos automático.' },
   { emoji: '🛍️', title: 'Compras Inteligentes', description: 'Ítems libres sin catálogo para gastos ocasionales. Orden de ingreso preservado. OC en PDF automático. Soporte de centavos para evitar descuadres contables.' },
-  { emoji: '💰', title: 'Cartera & Préstamos', description: 'Amortización automática. Interés de mora diario. Ruta de cobro con GPS y evidencia fotográfica. Aging de cuentas por cobrar.' },
+  { emoji: '💰', title: 'Cartera & Cobros', description: 'Cuentas por cobrar con aging (30/60/90 días). Alertas automáticas de vencimiento. Seguimiento de clientes. Recibos PDF por WhatsApp.' },
   { emoji: '🧾', title: 'Facturación DIAN', description: 'Resoluciones, numeración automática, CUFE, XML/PDF. Integración Matias API. Campos tributarios completos. Modo pruebas y producción.' },
-  { emoji: '📊', title: '9 Tipos de Reporte', description: 'Ventas, rentabilidad, IVA neto, P&L simplificado, kardex, CxC aging, productividad, préstamos y producción. Export a Excel y PDF.' },
+  { emoji: '📊', title: '9 Tipos de Reporte', description: 'Ventas, rentabilidad, IVA neto, P&L simplificado, kardex, CxC aging, productividad, producción y más. Export a Excel y PDF.' },
   { emoji: '🌐', title: 'Catálogo Virtual', description: 'Tienda pública con URL única por empresa. Sincronización de stock automática. Pedidos directamente desde WhatsApp.' },
 ];
 
@@ -421,12 +409,8 @@ const techIndustries = [
     subtitle: 'Retail · Mayorista · Ferretería · Distribuidora · Taller',
     modules: ['POS dual mode + escáner de barras', 'Inventario FEFO con lotes y alertas', 'Compras con ítems libres', 'Facturación electrónica DIAN', 'Producción BOM + transformación', 'Cartera CxC + fidelización', 'Catálogo virtual online', 'Cotizaciones → Factura'],
   },
-  {
-    icon: '💰',
-    name: 'Prestamos',
-    subtitle: 'Microfinanzas · Crédito informal · Cooperativas',
-    modules: ['Simulador de amortización automático', 'Interés de mora calculado diariamente', 'Ruta de cobro con GPS y cámara', 'Evidencia fotográfica por cuota', 'Abono a capital y cuotas', 'PDF recibos por WhatsApp', 'Análisis de cartera aging'],
-  },
+  // Prestamos removido de la vista pública por consideraciones legales y regulatorias
+  // { icon: '💰', name: 'Prestamos', subtitle: 'Microfinanzas · Crédito informal · Cooperativas', ... }
   {
     icon: '🚗',
     name: 'Parqueadero',
@@ -672,6 +656,41 @@ function PymeView() {
               </div>
             </motion.div>
           </AnimatePresence>
+
+          {/* ¿Tu negocio no está aquí? */}
+          <Section className="mt-8">
+            <motion.div
+              variants={fadeUp}
+              className="bg-grafito rounded-2xl p-8 lg:p-10 flex flex-col lg:flex-row items-center gap-8"
+            >
+              <div className="flex-1 text-center lg:text-left">
+                <span className="inline-block text-xs font-mono font-medium text-azul bg-azul/15 border border-azul/25 px-3 py-1.5 rounded-full mb-4 tracking-wider uppercase">
+                  Sin límites
+                </span>
+                <h3 className="font-sora font-bold text-2xl lg:text-3xl text-white leading-tight mb-3">
+                  ¿Tu modelo de negocio no está aquí?
+                </h3>
+                <p className="font-sora text-sm text-white/60 leading-relaxed max-w-xl">
+                  Ksmart360 es una plataforma viva, no un producto cerrado. Con la experiencia, el rigor técnico y el profesionalismo de <strong className="text-white">Tech Stack Colombia</strong>, construimos y adaptamos el sistema a cualquier tipo de negocio — si tu operación tiene lógica, nosotros la digitalizamos. Escríbenos y lo evaluamos juntos.
+                </p>
+              </div>
+              <div className="flex-shrink-0 flex flex-col items-center gap-3 w-full lg:w-auto">
+                <div className="grid grid-cols-2 gap-2 mb-2 w-full">
+                  {['🏪 Tienda', '🚗 Parqueadero', '🧼 Lavadero', '🍽️ Restaurante', '🏭 Manufactura', '💼 Servicios', '🏥 Salud', '✨ Tu idea'].map((item, i) => (
+                    <span key={i} className={`font-sora text-xs px-3 py-1.5 rounded-lg text-center ${i < 4 ? 'bg-azul/20 text-azul border border-azul/30' : 'bg-white/5 text-white/35 border border-white/10 border-dashed'}`}>{item}</span>
+                  ))}
+                </div>
+                <a
+                  href="/#contacto"
+                  onClick={(e) => { e.preventDefault(); document.querySelector('#contacto')?.scrollIntoView({ behavior: 'smooth' }); }}
+                  className="inline-flex items-center gap-2 px-6 py-3 bg-azul text-white font-semibold text-sm rounded-xl hover:bg-blue-600 transition-colors font-sora cursor-pointer w-full justify-center"
+                >
+                  Hablemos de tu negocio
+                  <svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}><path strokeLinecap="round" strokeLinejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg>
+                </a>
+              </div>
+            </motion.div>
+          </Section>
         </div>
       </section>
 
@@ -1316,7 +1335,7 @@ export default function Ksmart360Page() {
                     La plataforma de gestión empresarial más completa para PYMEs colombianas.
                   </p>
                   <p className="font-sora text-sm text-white/35 max-w-xl leading-relaxed mb-10">
-                    Ventas POS, inventario FEFO, producción BOM, cartera, parqueadero, lavadero, restaurante y facturación electrónica DIAN — todo en un solo sistema SaaS.
+                    Ventas POS, inventario FEFO, producción BOM, parqueadero, lavadero, restaurante y facturación electrónica DIAN — todo en un solo sistema SaaS.
                   </p>
                 </motion.div>
               )}
