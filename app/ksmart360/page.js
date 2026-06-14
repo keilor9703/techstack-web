@@ -693,6 +693,143 @@ function PymeView() {
         </div>
       </section>
 
+      {/* ── Catálogo Virtual ── */}
+      <section className="py-24 lg:py-32 bg-grafito overflow-hidden relative">
+        <div className="absolute inset-0 opacity-20 pointer-events-none" style={{ backgroundImage: 'radial-gradient(circle, #6A6F7E 1px, transparent 1px)', backgroundSize: '32px 32px' }} />
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[700px] bg-azul/8 rounded-full blur-3xl pointer-events-none" />
+        <div className="relative max-w-7xl mx-auto px-6 lg:px-8">
+          <Section className="text-center mb-14">
+            <motion.span variants={fadeUp} className="inline-block text-xs font-mono font-medium text-azul bg-azul/15 border border-azul/25 px-3 py-1.5 rounded-full mb-4 tracking-wider uppercase">
+              Catálogo Virtual · Diferencial exclusivo
+            </motion.span>
+            <motion.h2 variants={fadeUp} className="font-sora font-bold text-3xl lg:text-5xl text-white leading-tight tracking-tight">
+              Tu tienda online.<br />
+              <span className="text-azul">Incluida en todos los planes.</span>
+            </motion.h2>
+            <motion.p variants={fadeUp} className="font-sora text-base text-white/55 mt-4 max-w-2xl mx-auto leading-relaxed">
+              Ksmart360 genera automáticamente una tienda virtual con URL propia y código QR descargable. Tus clientes ordenan desde el celular — sin apps, sin intermediarios. El sistema la adapta inteligentemente según el tipo de negocio.
+            </motion.p>
+          </Section>
+
+          {/* URL y QR */}
+          <Section className="mb-12">
+            <motion.div variants={fadeUp} className="bg-white/5 border border-white/10 rounded-2xl p-6 flex flex-col sm:flex-row items-center gap-6 max-w-2xl mx-auto">
+              <div className="flex-1 text-center sm:text-left">
+                <p className="font-sora text-xs text-white/40 uppercase tracking-wider mb-2 font-medium">Tu URL personalizada</p>
+                <div className="font-mono text-sm text-white bg-white/8 border border-white/10 rounded-xl px-4 py-3 flex items-center gap-2">
+                  <span className="text-white/40">appjeylor.com/</span>
+                  <span className="text-azul font-bold">tunegocio</span>
+                  <span className="ml-auto text-[10px] text-azul bg-azul/15 border border-azul/25 px-2 py-0.5 rounded-md">editable</span>
+                </div>
+                <p className="font-sora text-xs text-white/40 mt-3 leading-relaxed">El slug es configurable en cualquier momento desde el sistema. Comparte el enlace o el QR — los clientes entran directo.</p>
+              </div>
+              <div className="flex-shrink-0 w-20 h-20 bg-white rounded-xl flex items-center justify-center">
+                <svg viewBox="0 0 80 80" className="w-16 h-16">
+                  <rect x="4" y="4" width="30" height="30" rx="3" fill="none" stroke="#1a1a1a" strokeWidth="4"/>
+                  <rect x="12" y="12" width="14" height="14" rx="1" fill="#1a1a1a"/>
+                  <rect x="46" y="4" width="30" height="30" rx="3" fill="none" stroke="#1a1a1a" strokeWidth="4"/>
+                  <rect x="54" y="12" width="14" height="14" rx="1" fill="#1a1a1a"/>
+                  <rect x="4" y="46" width="30" height="30" rx="3" fill="none" stroke="#1a1a1a" strokeWidth="4"/>
+                  <rect x="12" y="54" width="14" height="14" rx="1" fill="#1a1a1a"/>
+                  <rect x="46" y="46" width="8" height="8" rx="1" fill="#1a1a1a"/>
+                  <rect x="58" y="46" width="8" height="8" rx="1" fill="#1a1a1a"/>
+                  <rect x="70" y="46" width="6" height="8" rx="1" fill="#1a1a1a"/>
+                  <rect x="46" y="58" width="8" height="8" rx="1" fill="#1a1a1a"/>
+                  <rect x="58" y="62" width="18" height="6" rx="1" fill="#1a1a1a"/>
+                </svg>
+              </div>
+            </motion.div>
+          </Section>
+
+          {/* Dos modos */}
+          <Section className="grid lg:grid-cols-2 gap-6 mb-12">
+            {/* Modo Tienda */}
+            <motion.div variants={fadeUp} className="bg-white/5 border border-white/10 rounded-2xl p-7 flex flex-col">
+              <div className="flex items-center gap-3 mb-5">
+                <div className="w-10 h-10 rounded-xl bg-azul/20 border border-azul/30 flex items-center justify-center text-xl">🏪</div>
+                <div>
+                  <h3 className="font-sora font-bold text-white text-lg leading-tight">Tienda / Comercio</h3>
+                  <p className="font-sora text-xs text-white/40">Pedidos con opción de recogida o domicilio</p>
+                </div>
+              </div>
+              <div className="flex flex-col gap-3 flex-1">
+                {[
+                  { n: '1', text: 'El cliente abre tu URL o escanea el QR desde el celular' },
+                  { n: '2', text: 'Explora el catálogo, agrega productos al carrito con todos los detalles' },
+                  { n: '3', text: 'Elige recoger en tienda o pedir domicilio e ingresa sus datos básicos' },
+                  { n: '4', text: 'El pedido llega simultáneamente a tu WhatsApp y al módulo Pedidos Virtuales' },
+                  { n: '5', text: 'Gestionas el pedido: validas stock, generas el movimiento de inventario y envías notificaciones de estado al cliente' },
+                ].map((step, i) => (
+                  <div key={i} className="flex items-start gap-3">
+                    <span className="w-6 h-6 rounded-full bg-azul/25 text-azul text-xs font-bold font-mono flex items-center justify-center flex-shrink-0 mt-0.5">{step.n}</span>
+                    <p className="font-sora text-sm text-white/65 leading-snug">{step.text}</p>
+                  </div>
+                ))}
+              </div>
+              <div className="mt-6 pt-5 border-t border-white/8 flex flex-wrap gap-2">
+                {['Recogida en tienda', 'Domicilio', 'Notificaciones WhatsApp', 'Pedidos Virtuales', 'Stock validado'].map((t, i) => (
+                  <span key={i} className="font-mono text-[10px] text-azul bg-azul/10 border border-azul/20 px-2 py-1 rounded-lg">{t}</span>
+                ))}
+              </div>
+            </motion.div>
+
+            {/* Modo Restaurante */}
+            <motion.div variants={fadeUp} className="bg-white/5 border border-green-500/20 rounded-2xl p-7 flex flex-col">
+              <div className="flex items-center gap-3 mb-5">
+                <div className="w-10 h-10 rounded-xl bg-green-500/15 border border-green-500/30 flex items-center justify-center text-xl">🍽️</div>
+                <div>
+                  <h3 className="font-sora font-bold text-white text-lg leading-tight">Restaurante · Autoservicio</h3>
+                  <p className="font-sora text-xs text-white/40">La carta digital en el celular del comensal</p>
+                </div>
+              </div>
+              <div className="flex flex-col gap-3 flex-1">
+                {[
+                  { n: '1', text: 'El cliente escanea el QR de su mesa con el celular — sin descargar nada' },
+                  { n: '2', text: 'Ve la carta con fotos, descripción y precio de cada plato y preparación' },
+                  { n: '3', text: 'Arma su pedido y presiona "Enviar a cocina" o "Enviar pedido"' },
+                  { n: '4', text: 'El sistema le pide el número de mesa (visible en la mesa) para identificar la orden' },
+                  { n: '5', text: 'El pedido llega al módulo de cocina (KDS) o se imprime la comanda automáticamente, según configuración del admin' },
+                ].map((step, i) => (
+                  <div key={i} className="flex items-start gap-3">
+                    <span className="w-6 h-6 rounded-full bg-green-500/20 text-green-400 text-xs font-bold font-mono flex items-center justify-center flex-shrink-0 mt-0.5">{step.n}</span>
+                    <p className="font-sora text-sm text-white/65 leading-snug">{step.text}</p>
+                  </div>
+                ))}
+              </div>
+              <div className="mt-6 pt-5 border-t border-white/8 flex flex-wrap gap-2">
+                {['Sin meseros', 'QR por mesa', 'KDS cocina', 'Comanda automática', 'Autoservicio'].map((t, i) => (
+                  <span key={i} className="font-mono text-[10px] text-green-400 bg-green-500/10 border border-green-500/20 px-2 py-1 rounded-lg">{t}</span>
+                ))}
+              </div>
+            </motion.div>
+          </Section>
+
+          {/* Features comunes */}
+          <Section>
+            <motion.div variants={fadeUp} className="bg-white/4 border border-white/8 rounded-2xl p-6">
+              <p className="font-sora text-xs text-white/40 uppercase tracking-wider font-medium mb-4 text-center">Funcionalidades comunes a ambos modos</p>
+              <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
+                {[
+                  { icon: '📦', title: 'Stock siempre sincronizado', desc: 'Solo aparecen productos con inventario disponible. Sin ventas de lo que no tienes.' },
+                  { icon: '🎛️', title: 'Control total del admin', desc: 'Decides qué productos o platos aparecen en el catálogo desde el módulo de productos.' },
+                  { icon: '📱', title: 'QR descargable', desc: 'El sistema genera el QR de tu catálogo listo para imprimir o compartir en redes.' },
+                  { icon: '🔔', title: 'Notificaciones de estado', desc: 'Envía updates al WhatsApp del cliente en cualquier momento: confirmado, en preparación, listo.' },
+                ].map((f, i) => (
+                  <div key={i} className="bg-white/5 border border-white/8 rounded-xl p-4">
+                    <div className="text-2xl mb-2">{f.icon}</div>
+                    <h4 className="font-sora font-semibold text-white text-sm mb-1 leading-tight">{f.title}</h4>
+                    <p className="font-sora text-xs text-white/45 leading-relaxed">{f.desc}</p>
+                  </div>
+                ))}
+              </div>
+              <div className="mt-5 pt-4 border-t border-white/8 text-center">
+                <span className="font-sora text-xs text-azul font-semibold">✓ Incluido en el plan Trial gratuito y en todos los planes de pago — sin costo adicional.</span>
+              </div>
+            </motion.div>
+          </Section>
+        </div>
+      </section>
+
       {/* ── Capacidades completas ── */}
       <section className="py-24 lg:py-32 bg-papel">
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
