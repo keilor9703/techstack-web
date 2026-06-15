@@ -57,8 +57,12 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="es" className={`${sora.variable} ${jetbrainsMono.variable}`}>
-      <body className="font-sora antialiased bg-papel text-grafito">{children}</body>
+    <html lang="es" className={`${sora.variable} ${jetbrainsMono.variable}`} suppressHydrationWarning>
+      <head>
+        {/* Anti-flash: apply dark class before first paint */}
+        <script dangerouslySetInnerHTML={{ __html: `try{var t=localStorage.getItem('theme');if(t==='dark'||(t===null&&window.matchMedia('(prefers-color-scheme: dark)').matches))document.documentElement.classList.add('dark')}catch(e){}` }} />
+      </head>
+      <body className="font-sora antialiased bg-papel text-grafito dark:text-white">{children}</body>
     </html>
   );
 }

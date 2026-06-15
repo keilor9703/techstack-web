@@ -2,14 +2,36 @@
 @tailwind components;
 @tailwind utilities;
 
+/* ── Light mode tokens ── */
+:root {
+  --surface-base: #FBFBFD;
+  --surface-elevated: #FFFFFF;
+  --surface-tinte: #EAF0FE;
+  --text-muted: #6A6F7E;
+  --border-subtle: #f3f4f6;
+}
+
+/* ── Dark mode tokens ── */
+.dark {
+  --surface-base: #0C0E15;
+  --surface-elevated: #13161F;
+  --surface-tinte: rgba(46,104,230,0.14);
+  --text-muted: #8B909E;
+  --border-subtle: rgba(255,255,255,0.08);
+}
+
 html {
   scroll-behavior: smooth;
 }
 
 body {
   font-family: 'Sora', sans-serif;
-  background-color: #FBFBFD;
+  background-color: var(--surface-base);
   color: #16181F;
+}
+
+.dark body {
+  color: #F0F2F8;
 }
 
 /* Custom scrollbar */

@@ -26,9 +26,9 @@ const track = [...clients, ...clients, ...clients, ...clients];
 
 function ClientCard({ client }) {
   return (
-    <div className="group flex-shrink-0 flex items-center gap-5 mx-4 px-8 py-6 bg-white border border-gray-100 rounded-2xl hover:border-azulStack/30 hover:shadow-xl hover:shadow-azulStack/8 transition-all duration-300 cursor-default select-none">
+    <div className="group flex-shrink-0 flex items-center gap-5 mx-4 px-8 py-6 bg-white dark:bg-[#13161F] border border-gray-100 dark:border-white/10 rounded-2xl hover:border-azulStack/30 hover:shadow-xl hover:shadow-azulStack/8 transition-all duration-300 cursor-default select-none">
       {client.logo ? (
-        <div className="w-24 h-24 rounded-2xl overflow-hidden flex-shrink-0 bg-gray-50 flex items-center justify-center">
+        <div className="w-24 h-24 rounded-2xl overflow-hidden flex-shrink-0 bg-gray-50 dark:bg-white/5 flex items-center justify-center">
           <img
             src={client.logo}
             alt={client.name}
@@ -43,7 +43,7 @@ function ClientCard({ client }) {
         </div>
       )}
       <div className="flex flex-col leading-tight">
-        <span className="font-sora font-bold text-base text-grafito whitespace-nowrap">
+        <span className="font-sora font-bold text-base text-grafito dark:text-white whitespace-nowrap">
           {client.name}
         </span>
         <span className="font-sora text-sm text-acero/70 whitespace-nowrap mt-0.5">
@@ -56,7 +56,7 @@ function ClientCard({ client }) {
 
 export default function Clients({ label = 'Empresas que confían en Tech Stack Colombia' }) {
   return (
-    <section className="py-14 bg-papel border-y border-gray-100/80 overflow-hidden">
+    <section className="py-14 bg-papel border-y border-gray-100/80 dark:border-white/10 overflow-hidden">
       <div className="max-w-7xl mx-auto px-6 lg:px-8 mb-8 text-center">
         <motion.span
           initial={{ opacity: 0, y: 12 }}

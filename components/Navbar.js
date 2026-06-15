@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import ThemeToggle from '@/components/ThemeToggle';
 
 const navLinks = [
   { label: 'Nosotros', href: '#nosotros' },
@@ -43,7 +44,7 @@ export default function Navbar() {
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         scrolled
-          ? 'bg-white/90 backdrop-blur-md shadow-sm border-b border-gray-100'
+          ? 'bg-white/90 backdrop-blur-md shadow-sm border-b border-gray-100 dark:bg-[#0C0E15]/90 dark:border-white/5'
           : 'bg-transparent'
       }`}
     >
@@ -63,10 +64,10 @@ export default function Navbar() {
               <rect x="20" y="64" width="34" height="14" rx="7" fill={scrolled ? 'rgba(255,255,255,0.5)' : 'rgba(255,255,255,0.5)'}/>
             </svg>
             <div className="flex flex-col leading-none">
-              <span className={`font-sora font-bold text-base tracking-tight transition-colors duration-300 ${scrolled ? 'text-grafito' : 'text-white'}`}>
+              <span className={`font-sora font-bold text-base tracking-tight transition-colors duration-300 ${scrolled ? 'text-grafito dark:text-white' : 'text-white'}`}>
                 Tech Stack
               </span>
-              <span className={`font-sora text-[10px] font-medium transition-colors duration-300 ${scrolled ? 'text-acero' : 'text-white/60'}`}>
+              <span className={`font-sora text-[10px] font-medium transition-colors duration-300 ${scrolled ? 'text-acero dark:text-white/70' : 'text-white/60'}`}>
                 Colombia S.A.S.
               </span>
             </div>
@@ -80,7 +81,7 @@ export default function Navbar() {
                 href={link.href}
                 onClick={(e) => handleNavClick(e, link.href)}
                 className={`font-sora text-sm font-medium transition-colors duration-200 hover:text-azul ${
-                  scrolled ? 'text-grafito' : 'text-white/80'
+                  scrolled ? 'text-grafito dark:text-white' : 'text-white/80'
                 }`}
               >
                 {link.label}
@@ -90,6 +91,7 @@ export default function Navbar() {
 
           {/* CTA + Hamburger */}
           <div className="flex items-center gap-4">
+            <ThemeToggle className={scrolled ? 'text-grafito hover:bg-gray-100 dark:text-white dark:hover:bg-white/10' : 'text-white hover:bg-white/10'} />
             <a
               href="https://www.appjeylor.com/"
               target="_blank"
@@ -133,7 +135,7 @@ export default function Navbar() {
             animate={{ opacity: 1, height: 'auto' }}
             exit={{ opacity: 0, height: 0 }}
             transition={{ duration: 0.25, ease: 'easeInOut' }}
-            className="lg:hidden overflow-hidden bg-white border-b border-gray-100"
+            className="lg:hidden overflow-hidden bg-white border-b border-gray-100 dark:bg-[#13161F] dark:border-white/5"
           >
             <nav className="flex flex-col px-6 py-4 gap-1">
               {navLinks.map((link, i) => (
@@ -144,7 +146,7 @@ export default function Navbar() {
                   initial={{ opacity: 0, x: -12 }}
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ delay: i * 0.05 }}
-                  className="font-sora text-grafito text-sm font-medium py-3 border-b border-gray-50 last:border-0 hover:text-azul transition-colors"
+                  className="font-sora text-grafito dark:text-white text-sm font-medium py-3 border-b border-gray-50 dark:border-white/5 last:border-0 hover:text-azul transition-colors"
                 >
                   {link.label}
                 </motion.a>

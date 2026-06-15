@@ -42,7 +42,7 @@ export default function FAQ() {
   const [open, setOpen] = useState(null);
 
   return (
-    <section id="faq" className="py-24 lg:py-32 bg-white">
+    <section id="faq" className="py-24 lg:py-32 bg-white dark:bg-[#0C0E15]">
       <div className="max-w-3xl mx-auto px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 24 }}
@@ -54,7 +54,7 @@ export default function FAQ() {
           <span className="inline-block text-xs font-mono font-medium text-azulStack bg-azulTinte px-3 py-1.5 rounded-full mb-4 tracking-wider uppercase">
             Preguntas frecuentes
           </span>
-          <h2 className="font-sora font-bold text-3xl lg:text-4xl xl:text-5xl text-grafito leading-tight tracking-tight">
+          <h2 className="font-sora font-bold text-3xl lg:text-4xl xl:text-5xl text-grafito dark:text-white leading-tight tracking-tight">
             Resolvemos tus dudas
           </h2>
           <p className="font-sora text-base text-acero mt-4 leading-relaxed">
@@ -67,7 +67,7 @@ export default function FAQ() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: '-60px' }}
           transition={{ duration: 0.5, delay: 0.1 }}
-          className="divide-y divide-gray-100 border border-gray-100 rounded-2xl overflow-hidden"
+          className="divide-y divide-gray-100 dark:divide-white/10 border border-gray-100 dark:border-white/10 rounded-2xl overflow-hidden"
         >
           {faqs.map((faq, i) => (
             <div key={i} className="bg-papel">
@@ -75,10 +75,10 @@ export default function FAQ() {
                 onClick={() => setOpen(open === i ? null : i)}
                 className="w-full flex items-center justify-between px-6 py-5 text-left hover:bg-azulTinte/30 transition-colors duration-200 gap-4"
               >
-                <span className="font-sora font-semibold text-sm text-grafito leading-snug">
+                <span className="font-sora font-semibold text-sm text-grafito dark:text-white leading-snug">
                   {faq.q}
                 </span>
-                <span className={`flex-shrink-0 w-6 h-6 rounded-full flex items-center justify-center transition-all duration-300 ${open === i ? 'bg-azulStack text-white' : 'bg-gray-100 text-acero'}`}>
+                <span className={`flex-shrink-0 w-6 h-6 rounded-full flex items-center justify-center transition-all duration-300 ${open === i ? 'bg-azulStack text-white' : 'bg-gray-100 dark:bg-white/10 text-acero dark:text-white/60'}`}>
                   <svg width="12" height="12" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
                     <path strokeLinecap="round" strokeLinejoin="round" d={open === i ? 'M18 12H6' : 'M12 6v12M6 12h12'} />
                   </svg>

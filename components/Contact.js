@@ -16,7 +16,7 @@ const itemVariants = {
 function InputField({ label, id, type = 'text', placeholder, value, onChange, required }) {
   return (
     <div>
-      <label htmlFor={id} className="block text-sm font-medium text-grafito mb-1.5 font-sora">
+      <label htmlFor={id} className="block text-sm font-medium text-grafito dark:text-white mb-1.5 font-sora">
         {label}
         {required && <span className="text-azulStack ml-1">*</span>}
       </label>
@@ -27,7 +27,7 @@ function InputField({ label, id, type = 'text', placeholder, value, onChange, re
         value={value}
         onChange={onChange}
         required={required}
-        className="w-full px-4 py-3 rounded-xl border border-gray-200 bg-white text-grafito font-sora text-sm placeholder-gray-400 outline-none focus:border-azulStack focus:ring-2 focus:ring-azulStack/20 transition-all duration-200"
+        className="w-full px-4 py-3 rounded-xl border border-gray-200 bg-white text-grafito font-sora text-sm placeholder-gray-400 outline-none focus:border-azulStack focus:ring-2 focus:ring-azulStack/20 transition-all duration-200 dark:bg-[#0C0E15] dark:border-white/10 dark:text-white dark:placeholder-white/30"
       />
     </div>
   );
@@ -70,7 +70,7 @@ export default function Contact() {
   };
 
   return (
-    <section id="contacto" className="py-24 lg:py-32 bg-white">
+    <section id="contacto" className="py-24 lg:py-32 bg-white dark:bg-[#0C0E15]">
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
         <div className="grid lg:grid-cols-2 gap-16 lg:gap-20 items-start">
           {/* Left column */}
@@ -88,7 +88,7 @@ export default function Contact() {
             </motion.span>
             <motion.h2
               variants={itemVariants}
-              className="font-sora font-bold text-3xl lg:text-4xl xl:text-5xl text-grafito leading-tight tracking-tight mb-5"
+              className="font-sora font-bold text-3xl lg:text-4xl xl:text-5xl text-grafito dark:text-white leading-tight tracking-tight mb-5"
             >
               ¿Listo para transformar tu negocio con tecnología?
             </motion.h2>
@@ -125,7 +125,7 @@ export default function Contact() {
                 </div>
                 <div>
                   <p className="text-xs text-acero font-mono mb-0.5">Email</p>
-                  <p className="text-grafito font-sora font-medium text-sm group-hover:text-azulStack transition-colors duration-200">
+                  <p className="text-grafito dark:text-white font-sora font-medium text-sm group-hover:text-azulStack transition-colors duration-200">
                     contacto@techstackcol.com
                   </p>
                 </div>
@@ -150,7 +150,7 @@ export default function Contact() {
                 </div>
                 <div>
                   <p className="text-xs text-acero font-mono mb-0.5">WhatsApp</p>
-                  <p className="text-grafito font-sora font-medium text-sm group-hover:text-green-600 transition-colors duration-200">
+                  <p className="text-grafito dark:text-white font-sora font-medium text-sm group-hover:text-green-600 transition-colors duration-200">
                     Escríbenos por WhatsApp
                   </p>
                 </div>
@@ -158,7 +158,7 @@ export default function Contact() {
 
               {/* Location */}
               <motion.div variants={itemVariants} className="flex items-center gap-4">
-                <div className="w-11 h-11 rounded-xl bg-gray-50 flex items-center justify-center flex-shrink-0">
+                <div className="w-11 h-11 rounded-xl bg-gray-50 dark:bg-white/5 flex items-center justify-center flex-shrink-0">
                   <svg
                     className="w-5 h-5 text-acero"
                     fill="none"
@@ -181,7 +181,7 @@ export default function Contact() {
                 </div>
                 <div>
                   <p className="text-xs text-acero font-mono mb-0.5">Ubicación</p>
-                  <p className="text-grafito font-sora font-medium text-sm">Cali, Colombia</p>
+                  <p className="text-grafito dark:text-white font-sora font-medium text-sm">Cali, Colombia</p>
                 </div>
               </motion.div>
             </motion.div>
@@ -196,7 +196,7 @@ export default function Contact() {
           >
             <div className="flex items-center gap-2 mb-5">
               <span className="w-2 h-2 bg-green-400 rounded-full animate-pulse flex-shrink-0" />
-              <span className="font-sora text-xs text-acero">Respondemos en menos de <strong className="text-grafito">24 horas</strong> · Lunes a sábado</span>
+              <span className="font-sora text-xs text-acero">Respondemos en menos de <strong className="text-grafito dark:text-white">24 horas</strong> · Lunes a sábado</span>
             </div>
             {submitted ? (
               <div className="bg-azulTinte border border-azulStack/20 rounded-2xl p-10 text-center">
@@ -215,7 +215,7 @@ export default function Contact() {
                     />
                   </svg>
                 </div>
-                <h3 className="font-sora font-bold text-xl text-grafito mb-2">
+                <h3 className="font-sora font-bold text-xl text-grafito dark:text-white mb-2">
                   ¡Mensaje enviado!
                 </h3>
                 <p className="text-acero text-sm leading-relaxed">
@@ -226,10 +226,10 @@ export default function Contact() {
             ) : (
               <form
                 onSubmit={handleSubmit}
-                className="bg-white border border-gray-100 rounded-2xl p-8 shadow-sm space-y-5"
+                className="bg-white dark:bg-[#13161F] border border-gray-100 dark:border-white/10 rounded-2xl p-8 shadow-sm dark:shadow-none space-y-5"
               >
                 <div>
-                  <label htmlFor="servicio" className="block text-sm font-medium text-grafito mb-1.5 font-sora">
+                  <label htmlFor="servicio" className="block text-sm font-medium text-grafito dark:text-white mb-1.5 font-sora">
                     ¿Qué necesitas? <span className="text-azulStack">*</span>
                   </label>
                   <select
@@ -237,7 +237,7 @@ export default function Contact() {
                     value={form.servicio}
                     onChange={handleChange('servicio')}
                     required
-                    className="w-full px-4 py-3 rounded-xl border border-gray-200 bg-white text-grafito font-sora text-sm outline-none focus:border-azulStack focus:ring-2 focus:ring-azulStack/20 transition-all duration-200"
+                    className="w-full px-4 py-3 rounded-xl border border-gray-200 bg-white text-grafito font-sora text-sm outline-none focus:border-azulStack focus:ring-2 focus:ring-azulStack/20 transition-all duration-200 dark:bg-[#0C0E15] dark:border-white/10 dark:text-white dark:placeholder-white/30"
                   >
                     <option value="">Selecciona una opción...</option>
                     <option value="ksmart360">Ksmart360 — ERP & POS</option>
@@ -287,7 +287,7 @@ export default function Contact() {
                 <div>
                   <label
                     htmlFor="mensaje"
-                    className="block text-sm font-medium text-grafito mb-1.5 font-sora"
+                    className="block text-sm font-medium text-grafito dark:text-white mb-1.5 font-sora"
                   >
                     Mensaje <span className="text-azulStack">*</span>
                   </label>
@@ -298,7 +298,7 @@ export default function Contact() {
                     value={form.mensaje}
                     onChange={handleChange('mensaje')}
                     required
-                    className="w-full px-4 py-3 rounded-xl border border-gray-200 bg-white text-grafito font-sora text-sm placeholder-gray-400 outline-none focus:border-azulStack focus:ring-2 focus:ring-azulStack/20 transition-all duration-200 resize-none"
+                    className="w-full px-4 py-3 rounded-xl border border-gray-200 bg-white text-grafito font-sora text-sm placeholder-gray-400 outline-none focus:border-azulStack focus:ring-2 focus:ring-azulStack/20 transition-all duration-200 resize-none dark:bg-[#0C0E15] dark:border-white/10 dark:text-white dark:placeholder-white/30"
                   />
                 </div>
 

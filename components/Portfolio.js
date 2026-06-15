@@ -78,7 +78,7 @@ export default function Portfolio() {
           </motion.span>
           <motion.h2
             variants={itemVariants}
-            className="font-sora font-bold text-3xl lg:text-4xl xl:text-5xl text-grafito leading-tight tracking-tight"
+            className="font-sora font-bold text-3xl lg:text-4xl xl:text-5xl text-grafito dark:text-white leading-tight tracking-tight"
           >
             Ksmart360 y sus capacidades
           </motion.h2>
@@ -97,14 +97,14 @@ export default function Portfolio() {
               key={i}
               variants={itemVariants}
               whileHover={{ y: -6, transition: { duration: 0.25 } }}
-              className="group bg-white border border-gray-100 rounded-2xl overflow-hidden hover:border-gray-200 hover:shadow-xl hover:shadow-gray-200/60 transition-all duration-300 cursor-default flex flex-col"
+              className="group bg-white dark:bg-[#13161F] border border-gray-100 dark:border-white/10 rounded-2xl overflow-hidden hover:border-gray-200 hover:shadow-xl hover:shadow-gray-200/60 transition-all duration-300 cursor-default flex flex-col"
             >
               {/* Gradient accent bar */}
               <div className={`h-1.5 w-full bg-gradient-to-r ${project.gradient}`} />
 
               <div className="p-8 flex flex-col flex-1">
                 <div className="flex items-start justify-between mb-4">
-                  <h3 className="font-sora font-bold text-xl text-grafito tracking-tight">
+                  <h3 className="font-sora font-bold text-xl text-grafito dark:text-white tracking-tight">
                     {project.title}
                   </h3>
                   {project.badge.style === 'azul' ? (
@@ -112,7 +112,7 @@ export default function Portfolio() {
                       {project.badge.text}
                     </span>
                   ) : (
-                    <span className="flex items-center gap-1.5 text-xs font-mono text-acero bg-gray-50 border border-gray-200 px-2.5 py-1 rounded-full ml-3 flex-shrink-0">
+                    <span className="flex items-center gap-1.5 text-xs font-mono text-acero bg-gray-50 dark:bg-white/5 border border-gray-200 dark:border-white/10 px-2.5 py-1 rounded-full ml-3 flex-shrink-0">
                       {project.badge.text}
                     </span>
                   )}
@@ -126,7 +126,7 @@ export default function Portfolio() {
                   {project.tags.map((tag) => (
                     <span
                       key={tag}
-                      className="text-xs font-mono text-acero bg-gray-100 px-2.5 py-1 rounded-md"
+                      className="text-xs font-mono text-acero bg-gray-100 dark:bg-white/10 px-2.5 py-1 rounded-md"
                     >
                       {tag}
                     </span>

@@ -53,7 +53,7 @@ const itemVariants = {
 
 export default function Services() {
   return (
-    <section id="servicios" className="py-24 lg:py-32 bg-white">
+    <section id="servicios" className="py-24 lg:py-32 bg-white dark:bg-[#0C0E15]">
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
         <motion.div
           variants={containerVariants}
@@ -70,7 +70,7 @@ export default function Services() {
           </motion.span>
           <motion.h2
             variants={itemVariants}
-            className="font-sora font-bold text-3xl lg:text-4xl xl:text-5xl text-grafito leading-tight tracking-tight"
+            className="font-sora font-bold text-3xl lg:text-4xl xl:text-5xl text-grafito dark:text-white leading-tight tracking-tight"
           >
             Nuestros Servicios
           </motion.h2>
@@ -88,7 +88,7 @@ export default function Services() {
               key={i}
               variants={itemVariants}
               whileHover={{ y: -6, transition: { duration: 0.25 } }}
-              className="group relative bg-papel border border-gray-100 rounded-2xl p-8 hover:border-azulStack/40 hover:shadow-xl hover:shadow-azulStack/8 transition-all duration-300 cursor-default flex flex-col"
+              className="group relative bg-papel border border-gray-100 dark:border-white/10 rounded-2xl p-8 hover:border-azulStack/40 hover:shadow-xl hover:shadow-azulStack/8 transition-all duration-300 cursor-default flex flex-col"
             >
               {service.badge && (
                 <span className="absolute top-6 right-6 text-xs font-semibold font-sora text-azulStack bg-azulTinte px-2.5 py-1 rounded-full">
@@ -98,7 +98,7 @@ export default function Services() {
               <div className="w-12 h-12 bg-azulTinte rounded-xl flex items-center justify-center text-azulStack mb-6 group-hover:bg-azulStack group-hover:text-white transition-all duration-300">
                 {service.icon}
               </div>
-              <h3 className="font-sora font-semibold text-xl text-grafito mb-3 tracking-tight">
+              <h3 className="font-sora font-semibold text-xl text-grafito dark:text-white mb-3 tracking-tight">
                 {service.title}
               </h3>
               <p className="font-sora text-sm text-acero leading-relaxed mb-6 flex-1">
@@ -109,7 +109,7 @@ export default function Services() {
                   {service.tags.map((tag) => (
                     <span
                       key={tag}
-                      className="text-xs font-mono text-acero bg-gray-100 px-2.5 py-1 rounded-md"
+                      className="text-xs font-mono text-acero bg-gray-100 dark:bg-white/10 px-2.5 py-1 rounded-md"
                     >
                       {tag}
                     </span>

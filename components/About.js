@@ -64,7 +64,7 @@ export default function About() {
           </motion.span>
           <motion.h2
             variants={itemVariants}
-            className="font-sora font-bold text-3xl lg:text-4xl xl:text-5xl text-grafito leading-tight tracking-tight mb-6"
+            className="font-sora font-bold text-3xl lg:text-4xl xl:text-5xl text-grafito dark:text-white leading-tight tracking-tight mb-6"
           >
             Construimos. No consultamos.
           </motion.h2>
@@ -90,12 +90,12 @@ export default function About() {
             <motion.div
               key={i}
               variants={itemVariants}
-              className="group bg-white border border-gray-100 rounded-2xl p-8 hover:border-azulStack/30 hover:shadow-lg hover:shadow-azulStack/5 transition-all duration-300"
+              className="group bg-white dark:bg-[#13161F] border border-gray-100 dark:border-white/10 rounded-2xl p-8 hover:border-azulStack/30 hover:shadow-lg hover:shadow-azulStack/5 transition-all duration-300"
             >
               <div className="w-12 h-12 bg-azulTinte rounded-xl flex items-center justify-center text-azulStack mb-6 group-hover:bg-azulStack group-hover:text-white transition-all duration-300">
                 {pillar.icon}
               </div>
-              <h3 className="font-sora font-semibold text-lg text-grafito mb-3 tracking-tight">
+              <h3 className="font-sora font-semibold text-lg text-grafito dark:text-white mb-3 tracking-tight">
                 {pillar.title}
               </h3>
               <p className="font-sora text-sm text-acero leading-relaxed">
