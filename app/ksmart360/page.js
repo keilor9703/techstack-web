@@ -1884,78 +1884,26 @@ export default function Ksmart360Page() {
               ))}
             </motion.div>
 
-            {/* ── Hero device mockups ── */}
+            {/* ── Hero screenshot showcase ── */}
             <motion.div
-              initial={{ opacity: 0, y: 32 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.3, ease: [0.22, 1, 0.36, 1] }}
-              className="relative w-full max-w-5xl mx-auto mt-16 flex justify-center items-end"
-              style={{ minHeight: '460px' }}
+              initial={{ opacity: 0, y: 24 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
+              className="w-full max-w-5xl mx-auto mt-16"
             >
-              {/* Glow behind devices */}
-              <div className="absolute inset-0 bg-azul/15 rounded-full blur-3xl pointer-events-none scale-75" />
-
-              {/* MacBook Pro */}
-              <div className="relative z-10 w-full max-w-3xl">
-                {/* Lid / screen */}
-                <div className="relative">
-                  {/* Outer aluminum frame */}
-                  <div className="rounded-t-[18px] overflow-hidden bg-[#1d1d1f]" style={{ padding: '10px 10px 0 10px' }}>
-                    {/* Inner screen bezel */}
-                    <div className="rounded-t-[10px] overflow-hidden bg-black relative">
-                      {/* Camera */}
-                      <div className="absolute top-2 left-1/2 -translate-x-1/2 w-1.5 h-1.5 rounded-full bg-[#2a2a2c] z-10" />
-                      {/* Screen content */}
-                      <div className="overflow-hidden" style={{ maxHeight: '380px' }}>
-                        <img
-                          src="/screenshots/pos-ventas.png"
-                          alt="Ksmart360 POS en MacBook Pro"
-                          className="w-full block"
-                          style={{ objectFit: 'cover', objectPosition: 'top center' }}
-                        />
-                      </div>
-                    </div>
+              <div className="relative">
+                <div className="absolute -inset-4 bg-azul/20 rounded-3xl blur-2xl pointer-events-none" />
+                <div className="relative rounded-2xl overflow-hidden shadow-2xl shadow-black/60 border border-white/10">
+                  <div className="flex items-center gap-1.5 px-4 py-3 bg-[#0A0C12] border-b border-white/5">
+                    <span className="w-3 h-3 rounded-full bg-red-500" />
+                    <span className="w-3 h-3 rounded-full bg-yellow-400" />
+                    <span className="w-3 h-3 rounded-full bg-green-500" />
+                    <span className="ml-3 text-white/30 text-xs font-mono">appjeylor.com · Módulo POS — Punto de Venta</span>
                   </div>
-                  {/* Hinge line */}
-                  <div className="h-[3px] bg-[#2a2a2c] w-full" />
-                  {/* Base / keyboard */}
-                  <div className="bg-[#1d1d1f] rounded-b-xl" style={{ height: '20px' }}>
-                    <div className="mx-auto w-24 h-1.5 bg-[#2a2a2c] rounded-full mt-2" />
-                  </div>
+                  <img src="/screenshots/pos-ventas.png" alt="Ksmart360 — Módulo POS Punto de Venta" className="w-full block" />
                 </div>
-                <p className="text-center font-sora text-xs text-white/25 mt-3 tracking-wide">MacBook Pro · POS táctil y clásico</p>
               </div>
-
-              {/* iPhone 17 — floating bottom-right */}
-              <motion.div
-                initial={{ opacity: 0, x: 20, y: 16 }}
-                animate={{ opacity: 1, x: 0, y: 0 }}
-                transition={{ duration: 0.7, delay: 0.55, ease: [0.22, 1, 0.36, 1] }}
-                className="absolute right-0 sm:right-4 lg:-right-6 bottom-10 z-20 w-28 sm:w-36 lg:w-44"
-              >
-                {/* iPhone outer frame */}
-                <div className="rounded-[2.5rem] overflow-hidden shadow-2xl shadow-black/80" style={{ border: '6px solid #1d1d1f', background: '#1d1d1f' }}>
-                  {/* Dynamic Island */}
-                  <div className="bg-black flex justify-center" style={{ paddingTop: '8px', paddingBottom: '4px' }}>
-                    <div className="bg-black border border-[#2a2a2c] rounded-full" style={{ width: '60px', height: '14px' }} />
-                  </div>
-                  {/* Screen */}
-                  <div className="overflow-hidden bg-black" style={{ maxHeight: '240px' }}>
-                    <img
-                      src="/screenshots/pos-ventas.png"
-                      alt="Ksmart360 POS en iPhone"
-                      className="w-full block"
-                      style={{ objectFit: 'cover', objectPosition: 'right top', transform: 'scale(1.5)', transformOrigin: 'right top' }}
-                    />
-                  </div>
-                  {/* Home indicator */}
-                  <div className="bg-black flex justify-center" style={{ paddingTop: '6px', paddingBottom: '8px' }}>
-                    <div className="bg-white/30 rounded-full" style={{ width: '48px', height: '4px' }} />
-                  </div>
-                </div>
-                <p className="text-center font-sora text-xs text-white/25 mt-2 tracking-wide">iPhone · Modo táctil</p>
-              </motion.div>
-
             </motion.div>
           </motion.div>
         </div>
