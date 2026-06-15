@@ -34,3 +34,16 @@ body {
   scrollbar-width: thin;
   scrollbar-color: #2E68E6 #16181F;
 }
+
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+
+.animate-marquee {
+  animation: marquee 28s linear infinite;
+}
+
+.animate-marquee:hover {
+  animation-play-state: paused;
+}

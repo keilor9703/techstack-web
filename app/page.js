@@ -2,6 +2,7 @@ import dynamic from 'next/dynamic';
 
 const Navbar = dynamic(() => import('@/components/Navbar'), { ssr: false });
 const Hero = dynamic(() => import('@/components/Hero'), { ssr: false });
+const Clients = dynamic(() => import('@/components/Clients'), { ssr: false });
 const About = dynamic(() => import('@/components/About'), { ssr: false });
 const Services = dynamic(() => import('@/components/Services'), { ssr: false });
 const Ksmart360Feature = dynamic(() => import('@/components/Ksmart360Feature'), { ssr: false });
@@ -14,6 +15,7 @@ export default function Home() {
     <main>
       <Navbar />
       <Hero />
+      <Clients />
       <About />
       <Services />
       <Ksmart360Feature />
