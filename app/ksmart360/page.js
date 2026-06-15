@@ -3,6 +3,7 @@
 import { useState, useRef } from 'react';
 import { motion, useInView, AnimatePresence } from 'framer-motion';
 import Link from 'next/link';
+import Clients from '@/components/Clients';
 // ─── Shared data ──────────────────────────────────────────────────────────────
 
 
@@ -1061,6 +1062,8 @@ function PymeView() {
           </Section>
         </div>
       </section>
+
+      <Clients label="Empresas que usan Ksmart360" />
     </>
   );
 }
@@ -1581,6 +1584,8 @@ function TechView() {
           </Section>
         </div>
       </section>
+
+      <Clients label="Empresas que usan Ksmart360" />
     </>
   );
 }

@@ -49,7 +49,7 @@ function ClientCard({ client }) {
   );
 }
 
-export default function Clients() {
+export default function Clients({ label = 'Empresas que confían en Tech Stack Colombia' }) {
   return (
     <section className="py-14 bg-papel border-y border-gray-100/80 overflow-hidden">
       <div className="max-w-7xl mx-auto px-6 lg:px-8 mb-8 text-center">
@@ -60,7 +60,7 @@ export default function Clients() {
           transition={{ duration: 0.5 }}
           className="font-mono text-[11px] font-medium text-acero/50 tracking-widest uppercase"
         >
-          Empresas que confían en Tech Stack Colombia
+          {label}
         </motion.p>
       </div>
 
