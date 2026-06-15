@@ -64,7 +64,7 @@ export default function About() {
           </motion.span>
           <motion.h2
             variants={itemVariants}
-            className="font-sora font-bold text-3xl lg:text-4xl xl:text-5xl text-grafito dark:text-white leading-tight tracking-tight mb-6"
+            className="font-sora font-bold text-4xl lg:text-6xl xl:text-7xl text-grafito dark:text-white leading-tight tracking-tighter mb-6"
           >
             Construimos. No consultamos.
           </motion.h2>

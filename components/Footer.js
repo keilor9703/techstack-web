@@ -39,6 +39,7 @@ export default function Footer() {
               href="#"
               onClick={(e) => handleScrollTo(e, '#')}
               className="inline-flex items-center gap-3 mb-4"
+              aria-label="Tech Stack Colombia — Ir al inicio"
             >
               <svg width="36" height="36" viewBox="0 0 100 100" fill="none" className="flex-shrink-0">
                 <rect width="100" height="100" rx="22" fill="#2E68E6"/>

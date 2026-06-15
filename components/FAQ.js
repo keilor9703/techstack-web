@@ -54,7 +54,7 @@ export default function FAQ() {
           <span className="inline-block text-xs font-mono font-medium text-azulStack bg-azulTinte px-3 py-1.5 rounded-full mb-4 tracking-wider uppercase">
             Preguntas frecuentes
           </span>
-          <h2 className="font-sora font-bold text-3xl lg:text-4xl xl:text-5xl text-grafito dark:text-white leading-tight tracking-tight">
+          <h2 className="font-sora font-bold text-3xl lg:text-5xl xl:text-6xl text-grafito dark:text-white leading-tight tracking-tight">
             Resolvemos tus dudas
           </h2>
           <p className="font-sora text-base text-acero mt-4 leading-relaxed">
@@ -74,6 +74,9 @@ export default function FAQ() {
               <button
                 onClick={() => setOpen(open === i ? null : i)}
                 className="w-full flex items-center justify-between px-6 py-5 text-left hover:bg-azulTinte/30 transition-colors duration-200 gap-4"
+                aria-expanded={open === i}
+                id={`faq-question-${i}`}
+                aria-controls={`faq-answer-${i}`}
               >
                 <span className="font-sora font-semibold text-sm text-grafito dark:text-white leading-snug">
                   {faq.q}
@@ -93,6 +96,9 @@ export default function FAQ() {
                     exit={{ height: 0, opacity: 0 }}
                     transition={{ duration: 0.25, ease: 'easeInOut' }}
                     className="overflow-hidden"
+                    id={`faq-answer-${i}`}
+                    role="region"
+                    aria-labelledby={`faq-question-${i}`}
                   >
                     <p className="px-6 pb-5 font-sora text-sm text-acero leading-relaxed">
                       {faq.a}

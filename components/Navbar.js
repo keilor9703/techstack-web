@@ -48,6 +48,12 @@ export default function Navbar() {
           : 'bg-transparent'
       }`}
     >
+      <a
+        href="#main-content"
+        className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-[100] focus:px-4 focus:py-2 focus:bg-azulStack focus:text-white focus:rounded-lg focus:font-sora focus:text-sm focus:font-semibold"
+      >
+        Saltar al contenido
+      </a>
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
         <div className="flex items-center justify-between h-16 lg:h-20">
           {/* Logo */}
@@ -105,7 +111,8 @@ export default function Navbar() {
             <button
               onClick={() => setMenuOpen(!menuOpen)}
               className="lg:hidden flex flex-col gap-1.5 p-2"
-              aria-label="Abrir menú"
+              aria-label={menuOpen ? 'Cerrar menú' : 'Abrir menú'}
+              aria-expanded={menuOpen}
             >
               <span
                 className={`block w-6 h-0.5 transition-all duration-300 ${

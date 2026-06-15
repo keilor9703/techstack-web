@@ -78,7 +78,7 @@ export default function Portfolio() {
           </motion.span>
           <motion.h2
             variants={itemVariants}
-            className="font-sora font-bold text-3xl lg:text-4xl xl:text-5xl text-grafito dark:text-white leading-tight tracking-tight"
+            className="font-sora font-bold text-4xl lg:text-5xl xl:text-6xl text-grafito dark:text-white leading-tight tracking-tight"
           >
             Ksmart360 y sus capacidades
           </motion.h2>

@@ -1,6 +1,7 @@
 'use client';
 
-import { motion } from 'framer-motion';
+import { useRef, useEffect, useState } from 'react';
+import { motion, useInView } from 'framer-motion';
 
 const codeLines = [
   { tokens: [{ type: 'keyword', text: 'const' }, { type: 'plain', text: ' stack = {' }] },
@@ -36,9 +37,47 @@ const floatVariants = {
   },
 };
 
+function CountUp({ target, suffix = '', duration = 1500 }) {
+  const [count, setCount] = useState(0);
+  const ref = useRef(null);
+  const inView = useInView(ref, { once: true });
+
+  useEffect(() => {
+    if (!inView) return;
+    const start = Date.now();
+    const tick = () => {
+      const elapsed = Date.now() - start;
+      const progress = Math.min(elapsed / duration, 1);
+      const eased = 1 - Math.pow(1 - progress, 3);
+      setCount(Math.floor(eased * target));
+      if (progress < 1) requestAnimationFrame(tick);
+    };
+    requestAnimationFrame(tick);
+  }, [inView, target, duration]);
+
+  return <span ref={ref}>{count}{suffix}</span>;
+}
+
 export default function Hero() {
+  const sectionRef = useRef(null);
+  const [mousePos, setMousePos] = useState({ x: 50, y: 35 });
+
+  useEffect(() => {
+    const section = sectionRef.current;
+    if (!section) return;
+    const handleMouseMove = (e) => {
+      const rect = section.getBoundingClientRect();
+      const x = ((e.clientX - rect.left) / rect.width) * 100;
+      const y = ((e.clientY - rect.top) / rect.height) * 100;
+      setMousePos({ x, y });
+    };
+    section.addEventListener('mousemove', handleMouseMove);
+    return () => section.removeEventListener('mousemove', handleMouseMove);
+  }, []);
+
   return (
     <section
+      ref={sectionRef}
       id="hero"
       className="relative min-h-screen bg-grafito flex items-center overflow-x-hidden"
     >
@@ -52,8 +91,16 @@ export default function Hero() {
         }}
       />
 
-      {/* Blue glow */}
-      <div className="absolute top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-azul/10 rounded-full blur-3xl pointer-events-none" />
+      {/* Cursor-reactive gradient blob */}
+      <div
+        className="absolute w-[700px] h-[700px] rounded-full blur-3xl pointer-events-none transition-all duration-700 ease-out"
+        style={{
+          background: 'radial-gradient(circle, rgba(46,104,230,0.15) 0%, transparent 70%)',
+          left: `${mousePos.x}%`,
+          top: `${mousePos.y}%`,
+          transform: 'translate(-50%, -50%)',
+        }}
+      />
 
       <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-8 w-full pt-24 pb-16">
         <div className="grid lg:grid-cols-2 gap-16 items-center">
@@ -73,7 +120,7 @@ export default function Hero() {
 
             <motion.h1
               variants={itemVariants}
-              className="font-sora font-bold text-3xl sm:text-4xl lg:text-5xl xl:text-6xl text-white leading-tight tracking-tight mb-2"
+              className="font-sora font-bold text-4xl sm:text-5xl lg:text-6xl xl:text-7xl 2xl:text-8xl text-white leading-tight tracking-tighter mb-2"
             >
               Tu operación,{' '}
               <span className="text-azul">digitalizada.</span>
@@ -81,7 +128,7 @@ export default function Hero() {
 
             <motion.p
               variants={itemVariants}
-              className="font-sora text-xl lg:text-2xl text-white/60 font-medium mb-8 max-w-lg"
+              className="font-sora text-xl lg:text-2xl xl:text-3xl text-white/60 font-medium mb-8 max-w-lg"
             >
               Sin consultoras, sin intermediarios.
             </motion.p>
@@ -122,12 +169,16 @@ export default function Hero() {
             {/* Stats row */}
             <motion.div variants={itemVariants} className="flex gap-6 mt-10 pt-8 border-t border-white/10">
               <div className="flex flex-col">
-                <span className="font-sora font-bold text-2xl text-white">30+</span>
+                <span className="font-sora font-bold text-2xl text-white">
+                  <CountUp target={30} suffix="+" />
+                </span>
                 <span className="font-sora text-xs text-white/50">Empresas activas</span>
               </div>
               <div className="w-px h-8 bg-white/10 self-center" />
               <div className="flex flex-col">
-                <span className="font-sora font-bold text-2xl text-white">18+</span>
+                <span className="font-sora font-bold text-2xl text-white">
+                  <CountUp target={18} suffix="+" />
+                </span>
                 <span className="font-sora text-xs text-white/50">Módulos en Ksmart360</span>
               </div>
               <div className="w-px h-8 bg-white/10 self-center" />

@@ -70,7 +70,7 @@ export default function Services() {
           </motion.span>
           <motion.h2
             variants={itemVariants}
-            className="font-sora font-bold text-3xl lg:text-4xl xl:text-5xl text-grafito dark:text-white leading-tight tracking-tight"
+            className="font-sora font-bold text-4xl lg:text-5xl xl:text-6xl text-grafito dark:text-white leading-tight tracking-tight"
           >
             Nuestros Servicios
           </motion.h2>
@@ -122,7 +122,7 @@ export default function Services() {
                 className="mt-auto inline-flex items-center gap-1.5 text-sm font-semibold text-azulStack font-sora hover:gap-3 transition-all duration-200"
               >
                 Solicitar información
-                <svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
+                <svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5} aria-hidden="true">
                   <path strokeLinecap="round" strokeLinejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
                 </svg>
               </a>
@@ -172,7 +172,7 @@ export default function Services() {
               className="inline-flex items-center gap-2 bg-azulStack hover:bg-azulStack/90 text-white font-sora font-semibold text-sm px-6 py-3.5 rounded-xl transition-all duration-200 shadow-lg shadow-azulStack/30 hover:shadow-azulStack/50 whitespace-nowrap"
             >
               Quiero mi página web
-              <svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
+              <svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5} aria-hidden="true">
                 <path strokeLinecap="round" strokeLinejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
               </svg>
             </a>
