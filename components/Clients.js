@@ -60,7 +60,7 @@ export default function Clients() {
           transition={{ duration: 0.5 }}
           className="font-mono text-[11px] font-medium text-acero/50 tracking-widest uppercase"
         >
-          Empresas que confían en Ksmart360
+          Empresas que confían en Tech Stack Colombia
         </motion.p>
       </div>
 
