@@ -149,7 +149,7 @@ export default function Ksmart360Feature() {
                   {/* Bar chart */}
                   <div className="flex items-end gap-1.5 h-16">
                     {[40, 65, 48, 72, 55, 80, 62, 90, 70, 85, 60, 95].map((h, i) => (
-                      <div key={i} className="flex-1 rounded-sm bg-azul/30 relative overflow-hidden">
+                      <div key={i} className="flex-1 h-full rounded-sm bg-azul/20 relative overflow-hidden">
                         <div
                           className="absolute bottom-0 left-0 right-0 bg-azul rounded-sm"
                           style={{ height: `${h}%` }}
