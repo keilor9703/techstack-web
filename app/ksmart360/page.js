@@ -1600,9 +1600,9 @@ function TechView() {
 
           <Section className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5 mb-16">
             {techIntegrations.map((t, i) => (
-              <motion.div key={i} variants={fadeUp} className="bg-papel border border-gray-100 rounded-2xl p-6 hover:border-azulStack/30 hover:shadow-lg hover:shadow-azulStack/5 transition-all duration-300">
+              <motion.div key={i} variants={fadeUp} className="bg-papel border border-gray-100 dark:border-white/10 rounded-2xl p-6 hover:border-azulStack/30 hover:shadow-lg hover:shadow-azulStack/5 transition-all duration-300">
                 <div className="text-3xl mb-3">{t.icon}</div>
-                <h3 className="font-sora font-bold text-sm text-grafito mb-2">{t.name}</h3>
+                <h3 className="font-sora font-bold text-sm text-grafito dark:text-white mb-2">{t.name}</h3>
                 <p className="font-sora text-xs text-acero leading-relaxed">{t.desc}</p>
               </motion.div>
             ))}
