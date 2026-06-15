@@ -1302,37 +1302,58 @@ function TechView() {
 
           {/* Device diagram */}
           <Section>
-            <motion.div variants={fadeUp} className="flex justify-center mb-10">
-              <svg viewBox="0 0 560 220" fill="none" className="w-full max-w-2xl" xmlns="http://www.w3.org/2000/svg">
-                {/* Center cloud */}
-                <rect x="200" y="30" width="160" height="80" rx="18" fill="#2E68E6" fillOpacity="0.12" stroke="#2E68E6" strokeWidth="1.5" strokeOpacity="0.5"/>
-                <text x="280" y="62" textAnchor="middle" fontSize="22" fill="#1ec8e0">☁</text>
-                <text x="280" y="82" textAnchor="middle" fontSize="11" fontWeight="700" fill="white" fontFamily="sans-serif">Ksmart360</text>
-                <text x="280" y="97" textAnchor="middle" fontSize="9" fill="#6A6F7E" fontFamily="monospace">Cloud · Oracle OCI</text>
+            {/* Device mockups — laptop + phone with real screenshots */}
+            <motion.div variants={fadeUp} className="relative flex justify-center items-end mb-10" style={{ minHeight: '420px' }}>
 
-                {/* Lines */}
-                <line x1="200" y1="70" x2="118" y2="120" stroke="#2E68E6" strokeWidth="1" strokeDasharray="5 4" strokeOpacity="0.4"/>
-                <line x1="280" y1="110" x2="280" y2="145" stroke="#2E68E6" strokeWidth="1" strokeDasharray="5 4" strokeOpacity="0.4"/>
-                <line x1="360" y1="70" x2="442" y2="120" stroke="#2E68E6" strokeWidth="1" strokeDasharray="5 4" strokeOpacity="0.4"/>
+              {/* Laptop mockup */}
+              <div className="relative w-full max-w-2xl">
+                {/* Screen */}
+                <div className="rounded-t-2xl overflow-hidden border-[6px] border-[#1a1d27] shadow-2xl shadow-black/70">
+                  {/* Browser bar */}
+                  <div className="flex items-center gap-1.5 px-4 py-2.5 bg-[#0A0C12] border-b border-white/5">
+                    <span className="w-2.5 h-2.5 rounded-full bg-red-500/80" />
+                    <span className="w-2.5 h-2.5 rounded-full bg-yellow-400/80" />
+                    <span className="w-2.5 h-2.5 rounded-full bg-green-500/80" />
+                    <span className="ml-3 flex-1 bg-white/5 rounded px-2 py-0.5 text-xs font-mono text-white/30 truncate">
+                      app.ksmart360.com · Ventas (POS)
+                    </span>
+                  </div>
+                  <img src="/screenshots/pos-ventas.png" alt="Ksmart360 en computador — Módulo POS" className="w-full block" />
+                </div>
+                {/* Base */}
+                <div className="h-3 bg-[#1a1d27] rounded-b-sm mx-6" />
+                <div className="h-2 bg-[#141620] rounded-b-xl mx-2 shadow-lg" />
+                <p className="text-center font-sora text-xs text-white/30 mt-3">Computador · POS clásico</p>
+              </div>
 
-                {/* Phone */}
-                <rect x="78" y="120" width="40" height="68" rx="7" fill="#0D0F16" stroke="#6A6F7E" strokeWidth="1.2"/>
-                <rect x="84" y="128" width="28" height="44" rx="3" fill="#2E68E6" fillOpacity="0.15"/>
-                <rect x="90" y="192" width="16" height="3" rx="1.5" fill="#6A6F7E" fillOpacity="0.5"/>
-                <text x="98" y="215" textAnchor="middle" fontSize="10" fill="#6A6F7E" fontFamily="sans-serif">Celular</text>
+              {/* Phone mockup — overlapping bottom-right */}
+              <motion.div
+                initial={{ opacity: 0, x: 20, y: 10 }}
+                whileInView={{ opacity: 1, x: 0, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, delay: 0.35, ease: [0.22, 1, 0.36, 1] }}
+                className="absolute right-0 lg:-right-4 bottom-10 w-36 sm:w-44"
+              >
+                {/* Phone frame */}
+                <div className="rounded-[2rem] overflow-hidden border-[5px] border-[#1a1d27] shadow-2xl shadow-black/70">
+                  {/* Notch */}
+                  <div className="bg-[#0A0C12] flex justify-center py-2">
+                    <div className="w-16 h-1.5 bg-white/10 rounded-full" />
+                  </div>
+                  <img
+                    src="/screenshots/registro.png"
+                    alt="Ksmart360 en celular — Registro"
+                    className="w-full block"
+                    style={{ objectFit: 'cover', objectPosition: 'right center', maxHeight: '280px' }}
+                  />
+                  {/* Home bar */}
+                  <div className="bg-[#0A0C12] flex justify-center py-2">
+                    <div className="w-20 h-1 bg-white/20 rounded-full" />
+                  </div>
+                </div>
+                <p className="text-center font-sora text-xs text-white/30 mt-2">Celular · Touch</p>
+              </motion.div>
 
-                {/* Tablet */}
-                <rect x="230" y="145" width="100" height="68" rx="8" fill="#0D0F16" stroke="#6A6F7E" strokeWidth="1.2"/>
-                <rect x="238" y="152" width="84" height="48" rx="3" fill="#2E68E6" fillOpacity="0.15"/>
-                <circle cx="280" cy="207" r="3" fill="#6A6F7E" fillOpacity="0.5"/>
-                <text x="280" y="225" textAnchor="middle" fontSize="10" fill="#6A6F7E" fontFamily="sans-serif">Tablet</text>
-
-                {/* Laptop */}
-                <rect x="402" y="120" width="100" height="64" rx="6" fill="#0D0F16" stroke="#6A6F7E" strokeWidth="1.2"/>
-                <rect x="410" y="127" width="84" height="44" rx="3" fill="#2E68E6" fillOpacity="0.15"/>
-                <rect x="388" y="184" width="128" height="6" rx="3" fill="#6A6F7E" fillOpacity="0.4"/>
-                <text x="452" y="207" textAnchor="middle" fontSize="10" fill="#6A6F7E" fontFamily="sans-serif">Computador</text>
-              </svg>
             </motion.div>
 
             <motion.div variants={fadeUp} className="grid sm:grid-cols-3 gap-4">
