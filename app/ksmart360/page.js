@@ -829,6 +829,47 @@ function PymeView() {
               </div>
             </motion.div>
           </Section>
+
+          {/* ── Catálogo screenshots ── */}
+          <Section className="mt-14">
+            <div className="grid lg:grid-cols-2 gap-6">
+              <motion.div
+                initial={{ opacity: 0, y: 24 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
+              >
+                <p className="font-sora text-xs text-white/40 uppercase tracking-wider font-medium mb-3 text-center">Catálogo real — Calzado EYA</p>
+                <div className="rounded-2xl overflow-hidden shadow-2xl shadow-black/60 border border-white/10">
+                  <div className="flex items-center gap-1.5 px-4 py-3 bg-[#0A0C12] border-b border-white/5">
+                    <span className="w-3 h-3 rounded-full bg-red-500" />
+                    <span className="w-3 h-3 rounded-full bg-yellow-400" />
+                    <span className="w-3 h-3 rounded-full bg-green-500" />
+                    <span className="ml-3 text-white/30 text-xs font-mono">appjeylor.com/calzadoeya</span>
+                  </div>
+                  <img src="/screenshots/catalogo-eya.png" alt="Catálogo virtual Calzado EYA en Ksmart360" className="w-full block" />
+                </div>
+              </motion.div>
+
+              <motion.div
+                initial={{ opacity: 0, y: 24 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.7, delay: 0.12, ease: [0.22, 1, 0.36, 1] }}
+              >
+                <p className="font-sora text-xs text-white/40 uppercase tracking-wider font-medium mb-3 text-center">Checkout por WhatsApp</p>
+                <div className="rounded-2xl overflow-hidden shadow-2xl shadow-black/60 border border-white/10">
+                  <div className="flex items-center gap-1.5 px-4 py-3 bg-[#0A0C12] border-b border-white/5">
+                    <span className="w-3 h-3 rounded-full bg-red-500" />
+                    <span className="w-3 h-3 rounded-full bg-yellow-400" />
+                    <span className="w-3 h-3 rounded-full bg-green-500" />
+                    <span className="ml-3 text-white/30 text-xs font-mono">appjeylor.com/calzadoeya · Pedido</span>
+                  </div>
+                  <img src="/screenshots/catalogo-pedido.png" alt="Checkout y pedido por WhatsApp en catálogo Ksmart360" className="w-full block" />
+                </div>
+              </motion.div>
+            </div>
+          </Section>
         </div>
       </section>
 
@@ -1197,6 +1238,47 @@ function TechView() {
               </div>
             </motion.div>
           </AnimatePresence>
+        </div>
+      </section>
+
+      {/* ── Reportes screenshot ── */}
+      <section className="py-24 lg:py-32 bg-grafito overflow-hidden relative">
+        <div className="absolute inset-0 opacity-15 pointer-events-none" style={{ backgroundImage: 'radial-gradient(circle, #6A6F7E 1px, transparent 1px)', backgroundSize: '32px 32px' }} />
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[400px] bg-azul/10 rounded-full blur-3xl pointer-events-none" />
+        <div className="relative max-w-5xl mx-auto px-6 lg:px-8">
+          <Section className="text-center mb-12">
+            <motion.span variants={fadeUp} className="inline-block text-xs font-mono font-medium text-azul bg-azul/15 border border-azul/25 px-3 py-1.5 rounded-full mb-4 tracking-wider uppercase">
+              Reportes financieros
+            </motion.span>
+            <motion.h2 variants={fadeUp} className="font-sora font-bold text-3xl lg:text-5xl text-white leading-tight tracking-tight">
+              Tu negocio, de un vistazo.<br />
+              <span className="text-azul">Sin abrir Excel.</span>
+            </motion.h2>
+            <motion.p variants={fadeUp} className="font-sora text-base text-white/50 mt-4 max-w-2xl mx-auto leading-relaxed">
+              Dashboard financiero en tiempo real: ventas, rentabilidad, IVA neto, P&amp;L simplificado, kardex, CxC aging y más — exportables a Excel y PDF en un clic.
+            </motion.p>
+          </Section>
+
+          <Section>
+            <motion.div
+              initial={{ opacity: 0, y: 24 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
+              className="relative"
+            >
+              <div className="absolute -inset-4 bg-azul/15 rounded-3xl blur-2xl pointer-events-none" />
+              <div className="relative rounded-2xl overflow-hidden shadow-2xl shadow-black/60 border border-white/10">
+                <div className="flex items-center gap-1.5 px-4 py-3 bg-[#0A0C12] border-b border-white/5">
+                  <span className="w-3 h-3 rounded-full bg-red-500" />
+                  <span className="w-3 h-3 rounded-full bg-yellow-400" />
+                  <span className="w-3 h-3 rounded-full bg-green-500" />
+                  <span className="ml-3 text-white/30 text-xs font-mono">appjeylor.com · Dashboard de Reportes Financieros</span>
+                </div>
+                <img src="/screenshots/reportes.png" alt="Ksmart360 — Dashboard de reportes financieros" className="w-full block" />
+              </div>
+            </motion.div>
+          </Section>
         </div>
       </section>
 
@@ -1779,6 +1861,28 @@ export default function Ksmart360Page() {
                   <div className="font-sora text-xs text-white/35 uppercase tracking-widest">{s.label}</div>
                 </div>
               ))}
+            </motion.div>
+
+            {/* ── Hero screenshot showcase ── */}
+            <motion.div
+              initial={{ opacity: 0, y: 24 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
+              className="w-full max-w-5xl mx-auto mt-16"
+            >
+              <div className="relative">
+                <div className="absolute -inset-4 bg-azul/20 rounded-3xl blur-2xl pointer-events-none" />
+                <div className="relative rounded-2xl overflow-hidden shadow-2xl shadow-black/60 border border-white/10">
+                  <div className="flex items-center gap-1.5 px-4 py-3 bg-[#0A0C12] border-b border-white/5">
+                    <span className="w-3 h-3 rounded-full bg-red-500" />
+                    <span className="w-3 h-3 rounded-full bg-yellow-400" />
+                    <span className="w-3 h-3 rounded-full bg-green-500" />
+                    <span className="ml-3 text-white/30 text-xs font-mono">appjeylor.com · Módulo POS — Punto de Venta</span>
+                  </div>
+                  <img src="/screenshots/pos-ventas.png" alt="Ksmart360 — Módulo POS Punto de Venta" className="w-full block" />
+                </div>
+              </div>
             </motion.div>
           </motion.div>
         </div>
