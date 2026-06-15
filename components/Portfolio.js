@@ -4,47 +4,51 @@ import { motion } from 'framer-motion';
 
 const projects = [
   {
-    title: 'Ksmart360',
-    description: 'Sistema ERP/POS SaaS multi-módulo desplegado en Oracle Cloud. Gestión completa para empresas colombianas con facturación electrónica DIAN integrada.',
+    title: 'Ksmart360 — POS & ERP',
+    description: 'Sistema ERP/POS SaaS multi-módulo desplegado en Oracle Cloud. Facturación electrónica DIAN, inventario, reportes financieros y más de 18 módulos integrados.',
     tags: ['SaaS', 'FastAPI', 'React', 'Oracle Cloud'],
     gradient: 'from-azul to-blue-400',
-    accentColor: '#2E68E6',
+    screenshot: '/screenshots/pos-ventas.png',
+    screenshotAlt: 'Módulo Ventas POS de Ksmart360',
     ctaLabel: 'Probar gratis',
     ctaHref: 'https://www.appjeylor.com/',
     ctaExternal: true,
     badge: { text: 'Producto propio', style: 'azul' },
   },
   {
-    title: 'Sistema de Lavadero',
-    description: 'Gestión de órdenes, trabajadores y reportes para lavaderos de vehículos. Seguimiento en tiempo real del estado de cada vehículo.',
+    title: 'Catálogo Virtual — Calzado EYA',
+    description: 'Tienda online en vivo con catálogo de productos, carrito, checkout por WhatsApp y "Powered by Ksmart360". Operando en appjeylor.com/calzadoeya.',
+    tags: ['Catálogo Virtual', 'WhatsApp Checkout', 'Ksmart360'],
+    gradient: 'from-pink-500 to-rose-400',
+    screenshot: '/screenshots/catalogo-eya.png',
+    screenshotAlt: 'Catálogo virtual de Calzado EYA en Ksmart360',
+    ctaLabel: 'Ver catálogo en vivo',
+    ctaHref: 'https://www.appjeylor.com/calzadoeya',
+    ctaExternal: true,
+    badge: { text: 'Caso real', style: 'azul' },
+  },
+  {
+    title: 'Reportes Financieros',
+    description: 'Dashboard analítico con flujo de caja, rendimiento comercial, eficiencia de cobranza, distribución de ventas y más de 10 vistas de análisis.',
     tags: ['React', 'FastAPI', 'PostgreSQL'],
     gradient: 'from-indigo-500 to-azul',
-    accentColor: '#6366F1',
+    screenshot: '/screenshots/reportes.png',
+    screenshotAlt: 'Módulo de Reportes Financieros de Ksmart360',
     ctaLabel: 'Solicitar información',
     ctaHref: '#contacto',
     ctaExternal: false,
     badge: { text: 'Módulo de Ksmart360', style: 'gray' },
   },
   {
-    title: 'POS Restaurante',
-    description: 'Punto de venta con pantalla de cocina en tiempo real, gestión de mesas, comandas digitales y sistema de reservas integrado.',
-    tags: ['React', 'WebSocket', 'FastAPI'],
-    gradient: 'from-blue-500 to-cyan-400',
-    accentColor: '#3B82F6',
-    ctaLabel: 'Solicitar información',
-    ctaHref: '#contacto',
-    ctaExternal: false,
-    badge: { text: 'Módulo de Ksmart360', style: 'gray' },
-  },
-  {
-    title: 'Facturación Electrónica DIAN',
-    description: 'Integración completa con la DIAN para emisión de facturas electrónicas en formato UBL 2.1. Validación en tiempo real y gestión de notas crédito.',
-    tags: ['DIAN API', 'Python', 'XML'],
+    title: 'Onboarding en 2 minutos',
+    description: 'Registro guiado por tipo de negocio, tamaño de equipo y datos fiscales. 14 días gratis, sin tarjeta. El negocio queda listo para operar de inmediato.',
+    tags: ['UX', 'React', 'FastAPI'],
     gradient: 'from-sky-500 to-azul',
-    accentColor: '#0EA5E9',
-    ctaLabel: 'Solicitar información',
-    ctaHref: '#contacto',
-    ctaExternal: false,
+    screenshot: '/screenshots/registro.png',
+    screenshotAlt: 'Formulario de registro de Ksmart360',
+    ctaLabel: 'Crear cuenta gratis',
+    ctaHref: 'https://www.appjeylor.com/',
+    ctaExternal: true,
     badge: { text: 'Módulo de Ksmart360', style: 'gray' },
   },
 ];
@@ -97,10 +101,20 @@ export default function Portfolio() {
               key={i}
               variants={itemVariants}
               whileHover={{ y: -6, transition: { duration: 0.25 } }}
-              className="group bg-white dark:bg-[#13161F] border border-gray-100 dark:border-white/10 rounded-2xl overflow-hidden hover:border-gray-200 hover:shadow-xl hover:shadow-gray-200/60 transition-all duration-300 cursor-default flex flex-col"
+              className="group bg-white dark:bg-[#13161F] border border-gray-100 dark:border-white/10 rounded-2xl overflow-hidden hover:border-gray-200 dark:hover:border-white/20 hover:shadow-xl hover:shadow-gray-200/60 dark:hover:shadow-black/40 transition-all duration-300 cursor-default flex flex-col"
             >
-              {/* Gradient accent bar */}
-              <div className={`h-1.5 w-full bg-gradient-to-r ${project.gradient}`} />
+              {/* Screenshot preview */}
+              {project.screenshot && (
+                <div className="relative overflow-hidden bg-[#0A0C12] border-b border-white/5" style={{ height: '200px' }}>
+                  <div className={`absolute inset-x-0 top-0 h-0.5 bg-gradient-to-r ${project.gradient}`} />
+                  <img
+                    src={project.screenshot}
+                    alt={project.screenshotAlt}
+                    className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent" />
+                </div>
+              )}
 
               <div className="p-8 flex flex-col flex-1">
                 <div className="flex items-start justify-between mb-4">
