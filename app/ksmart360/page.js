@@ -1,8 +1,9 @@
 'use client';
 
-import { useState, useRef } from 'react';
+import { useState, useRef, useEffect } from 'react';
 import { motion, useInView, AnimatePresence } from 'framer-motion';
 import Link from 'next/link';
+import Footer from '@/components/Footer';
 import Clients from '@/components/Clients';
 // ─── Shared data ──────────────────────────────────────────────────────────────
 
@@ -74,14 +75,14 @@ const plans = [
     icon: '♾️',
     price: 'Pago único',
     period: 'sin vencimiento',
-    description: 'Para alianzas estratégicas y casos especiales.',
+    description: 'Acceso permanente sin pagos recurrentes. Para alianzas y casos especiales — contáctanos para evaluar tu caso.',
     features: [
       { text: 'Todos los beneficios del plan Pro', ok: true },
-      { text: 'Sin pagos recurrentes', ok: true },
+      { text: 'Sin pagos recurrentes nunca', ok: true },
       { text: 'Asignación por SuperAdmin', ok: true },
       { text: 'Ideal para integradores o aliados', ok: true },
     ],
-    cta: 'Hablar con nosotros',
+    cta: 'Solicitar cotización',
     highlight: false,
     ctaHref: '/#contacto',
   },
@@ -1595,6 +1596,18 @@ function TechView() {
 export default function Ksmart360Page() {
   const [view, setView] = useState('pymes');
 
+  useEffect(() => {
+    const params = new URLSearchParams(window.location.search);
+    if (params.get('view') === 'tech') setView('tech');
+  }, []);
+
+  const handleViewChange = (newView) => {
+    setView(newView);
+    const url = new URL(window.location.href);
+    url.searchParams.set('view', newView);
+    window.history.replaceState({}, '', url.toString());
+  };
+
   return (
     <div className="min-h-screen bg-papel text-grafito">
 
@@ -1621,7 +1634,7 @@ export default function Ksmart360Page() {
           {/* Center toggle — desktop only */}
           <div className="hidden sm:flex items-center gap-1 bg-white/8 border border-white/10 rounded-xl p-1">
             <button
-              onClick={() => setView('pymes')}
+              onClick={() => handleViewChange('pymes')}
               className={`px-3 py-1.5 rounded-lg text-xs font-semibold font-sora transition-all duration-200 whitespace-nowrap cursor-pointer ${
                 view === 'pymes' ? 'bg-white text-grafito shadow-sm' : 'text-white/50 hover:text-white/80'
               }`}
@@ -1629,7 +1642,7 @@ export default function Ksmart360Page() {
               Para mi negocio
             </button>
             <button
-              onClick={() => setView('tech')}
+              onClick={() => handleViewChange('tech')}
               className={`px-3 py-1.5 rounded-lg text-xs font-semibold font-sora transition-all duration-200 whitespace-nowrap cursor-pointer ${
                 view === 'tech' ? 'bg-white text-grafito shadow-sm' : 'text-white/50 hover:text-white/80'
               }`}
@@ -1654,7 +1667,7 @@ export default function Ksmart360Page() {
         <div className="sm:hidden px-4 pb-2">
           <div className="flex items-center gap-1 bg-white/8 border border-white/10 rounded-xl p-1 w-full">
             <button
-              onClick={() => setView('pymes')}
+              onClick={() => handleViewChange('pymes')}
               className={`flex-1 py-1.5 rounded-lg text-xs font-semibold font-sora transition-all duration-200 cursor-pointer ${
                 view === 'pymes' ? 'bg-white text-grafito shadow-sm' : 'text-white/50'
               }`}
@@ -1662,7 +1675,7 @@ export default function Ksmart360Page() {
               Para mi negocio
             </button>
             <button
-              onClick={() => setView('tech')}
+              onClick={() => handleViewChange('tech')}
               className={`flex-1 py-1.5 rounded-lg text-xs font-semibold font-sora transition-all duration-200 cursor-pointer ${
                 view === 'tech' ? 'bg-white text-grafito shadow-sm' : 'text-white/50'
               }`}
@@ -1751,6 +1764,12 @@ export default function Ksmart360Page() {
               >
                 {view === 'pymes' ? 'Conocer más' : 'Ver módulos'}
               </button>
+            </motion.div>
+
+            <motion.div variants={fadeUp} className="mb-10">
+              <span className="inline-flex items-center gap-2 px-4 py-2 bg-white/5 border border-white/10 rounded-full text-sm font-sora text-white/70">
+                Desde <strong className="text-white font-bold">$29.900</strong>/mes &nbsp;·&nbsp; 14 días gratis sin tarjeta
+              </span>
             </motion.div>
 
             <motion.div variants={fadeUp} className="grid grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-12">
@@ -1907,6 +1926,10 @@ export default function Ksmart360Page() {
             ))}
           </Section>
 
+          <p className="text-center font-sora text-xs text-acero/60 mt-6">
+            Sin permanencia · Cancela cuando quieras · Sin tarjeta de crédito para el período de prueba
+          </p>
+
           {/* ¿Por qué Pro? */}
           <Section className="mt-10">
             <motion.div variants={fadeUp} className="max-w-2xl mx-auto bg-white border border-gray-100 rounded-2xl p-6 text-center shadow-sm">
@@ -1960,24 +1983,7 @@ export default function Ksmart360Page() {
       </section>
 
       {/* ── Footer ── */}
-      <footer className="bg-grafito border-t border-white/5 py-8">
-        <div className="max-w-7xl mx-auto px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-4">
-          <div className="flex items-center gap-3">
-            <svg width="28" height="28" viewBox="0 0 100 100" fill="none">
-              <rect width="100" height="100" rx="22" fill="#2E68E6"/>
-              <rect x="20" y="22" width="60" height="14" rx="7" fill="white"/>
-              <rect x="20" y="43" width="47" height="14" rx="7" fill="rgba(255,255,255,0.75)"/>
-              <rect x="20" y="64" width="34" height="14" rx="7" fill="rgba(255,255,255,0.5)"/>
-            </svg>
-            <span className="font-sora text-sm text-white/40">Tech Stack Colombia S.A.S.</span>
-          </div>
-          <div className="flex items-center gap-6">
-            <Link href="/" className="font-sora text-xs text-white/30 hover:text-white/60 transition-colors">Inicio</Link>
-            <a href="/#contacto" className="font-sora text-xs text-white/30 hover:text-white/60 transition-colors">Contacto</a>
-            <a href="https://www.appjeylor.com/" target="_blank" rel="noopener noreferrer" className="font-sora text-xs text-azul hover:text-blue-400 transition-colors font-medium">appjeylor.com ↗</a>
-          </div>
-        </div>
-      </footer>
+      <Footer />
     </div>
   );
 }
