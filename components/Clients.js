@@ -53,15 +53,15 @@ export default function Clients({ label = 'Empresas que confían en Tech Stack C
   return (
     <section className="py-14 bg-papel border-y border-gray-100/80 overflow-hidden">
       <div className="max-w-7xl mx-auto px-6 lg:px-8 mb-8 text-center">
-        <motion.p
+        <motion.span
           initial={{ opacity: 0, y: 12 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
-          className="font-mono text-[11px] font-medium text-acero/50 tracking-widest uppercase"
+          className="inline-block text-xs font-mono font-medium text-azulStack bg-azulTinte px-3 py-1.5 rounded-full tracking-wider uppercase"
         >
           {label}
-        </motion.p>
+        </motion.span>
       </div>
 
       <div className="relative">
