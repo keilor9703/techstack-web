@@ -910,8 +910,8 @@ function PymeView() {
                     ))}
                   </div>
                   {/* Modal QR */}
-                  <div className="bg-white dark:bg-[#13161F] rounded-2xl p-5">
-                    <p className="text-center font-sora text-xs text-gray-400 dark:text-white/40 mb-4 uppercase tracking-wider font-medium">Escanea para pagar</p>
+                  <div className="bg-[#13161F] rounded-2xl p-5">
+                    <p className="text-center font-sora text-xs text-white/40 mb-4 uppercase tracking-wider font-medium">Escanea para pagar</p>
                     <div className="flex items-center justify-center mb-4">
                       <div className="w-32 h-32 bg-grafito rounded-xl flex items-center justify-center">
                         <svg viewBox="0 0 80 80" className="w-24 h-24">
@@ -929,15 +929,15 @@ function PymeView() {
                         </svg>
                       </div>
                     </div>
-                    <p className="text-center font-sora text-xs text-gray-400 dark:text-white/40 mb-4">Nequi empresa · <span className="text-grafito dark:text-white font-semibold">$45.000</span></p>
+                    <p className="text-center font-sora text-xs text-white/40 mb-4">Nequi empresa · <span className="text-white font-semibold">$45.000</span></p>
                     <div className="grid grid-cols-2 gap-2 mb-3">
-                      <button className="flex items-center justify-center gap-2 py-2.5 bg-green-50 dark:bg-green-900/20 border border-green-200 dark:border-green-500/30 rounded-xl font-sora text-xs font-semibold text-green-700 dark:text-green-400">
+                      <button className="flex items-center justify-center gap-2 py-2.5 bg-green-900/30 border border-green-500/30 rounded-xl font-sora text-xs font-semibold text-green-400">
                         <svg className="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413z"/></svg>
                         Enviar por WhatsApp
                       </button>
                       <button className="py-2.5 bg-azul rounded-xl font-sora text-xs font-semibold text-white">✅ Pago confirmado</button>
                     </div>
-                    <p className="text-center font-sora text-[10px] text-gray-400 dark:text-white/40">El cliente puede pagar con Nequi, Daviplata, Bold, PSE o cualquier app bancaria</p>
+                    <p className="text-center font-sora text-[10px] text-white/40">El cliente puede pagar con Nequi, Daviplata, Bold, PSE o cualquier app bancaria</p>
                   </div>
                 </div>
               </div>
@@ -1012,7 +1012,7 @@ function PymeView() {
             <motion.span variants={fadeUp} className="inline-block text-xs font-mono font-medium text-azulStack bg-azulTinte px-3 py-1.5 rounded-full mb-4 tracking-wider uppercase">
               Todo incluido
             </motion.span>
-            <motion.h2 variants={fadeUp} className="font-sora font-bold text-3xl lg:text-5xl text-grafito leading-tight tracking-tight">
+            <motion.h2 variants={fadeUp} className="font-sora font-bold text-3xl lg:text-5xl text-grafito dark:text-white leading-tight tracking-tight">
               60+ funcionalidades.<br className="hidden lg:block" />
               <span className="text-azulStack"> Un solo sistema.</span>
             </motion.h2>
@@ -1151,7 +1151,7 @@ function TechView() {
             <motion.span variants={fadeUp} className="inline-block text-xs font-mono font-medium text-azulStack bg-azulTinte px-3 py-1.5 rounded-full mb-4 tracking-wider uppercase">
               Funcionalidades
             </motion.span>
-            <motion.h2 variants={fadeUp} className="font-sora font-bold text-3xl lg:text-5xl text-grafito leading-tight tracking-tight">
+            <motion.h2 variants={fadeUp} className="font-sora font-bold text-3xl lg:text-5xl text-grafito dark:text-white leading-tight tracking-tight">
               Todo lo que tu empresa necesita.<br className="hidden lg:block" />
               <span className="text-azulStack"> Un solo sistema.</span>
             </motion.h2>
@@ -1165,10 +1165,10 @@ function TechView() {
               <motion.div
                 key={i}
                 variants={fadeUp}
-                className="group bg-white border border-gray-100 rounded-2xl p-6 hover:border-azulStack/30 hover:shadow-lg hover:shadow-azulStack/5 transition-all duration-300"
+                className="group bg-white dark:bg-[#13161F] border border-gray-100 dark:border-white/10 rounded-2xl p-6 hover:border-azulStack/30 hover:shadow-lg hover:shadow-azulStack/5 transition-all duration-300"
               >
                 <div className="text-3xl mb-4">{f.emoji}</div>
-                <h3 className="font-sora font-semibold text-base text-grafito mb-2 tracking-tight">{f.title}</h3>
+                <h3 className="font-sora font-semibold text-base text-grafito dark:text-white mb-2 tracking-tight">{f.title}</h3>
                 <p className="font-sora text-xs text-acero leading-relaxed">{f.description}</p>
               </motion.div>
             ))}
@@ -1177,13 +1177,13 @@ function TechView() {
       </section>
 
       {/* ── Industries ── */}
-      <section className="py-24 lg:py-32 bg-white">
+      <section className="py-24 lg:py-32 bg-white dark:bg-[#0C0E15]">
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
           <Section className="text-center mb-12">
             <motion.span variants={fadeUp} className="inline-block text-xs font-mono font-medium text-azulStack bg-azulTinte px-3 py-1.5 rounded-full mb-4 tracking-wider uppercase">
               Mercado objetivo
             </motion.span>
-            <motion.h2 variants={fadeUp} className="font-sora font-bold text-3xl lg:text-5xl text-grafito leading-tight tracking-tight">
+            <motion.h2 variants={fadeUp} className="font-sora font-bold text-3xl lg:text-5xl text-grafito dark:text-white leading-tight tracking-tight">
               Un sistema. <span className="text-azulStack">Cinco industrias.</span>
             </motion.h2>
             <motion.p variants={fadeUp} className="font-sora text-base text-acero mt-4 max-w-xl mx-auto leading-relaxed">
@@ -1199,7 +1199,7 @@ function TechView() {
                 className={`flex items-center gap-2 px-4 py-2.5 rounded-xl text-sm font-semibold font-sora transition-all duration-200 ${
                   activeIndustry === i
                     ? 'bg-azulStack text-white shadow-md shadow-azulStack/25'
-                    : 'bg-gray-50 text-acero hover:bg-gray-100'
+                    : 'bg-gray-50 dark:bg-white/5 text-acero hover:bg-gray-100 dark:hover:bg-white/10'
                 }`}
               >
                 <span>{ind.icon}</span>
@@ -1215,24 +1215,24 @@ function TechView() {
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -16 }}
               transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
-              className="bg-papel border border-gray-100 rounded-2xl p-8 lg:p-10"
+              className="bg-papel border border-gray-100 dark:border-white/10 rounded-2xl p-8 lg:p-10"
             >
               <div className="flex items-start gap-5 mb-8">
                 <div className="text-5xl">{techIndustries[activeIndustry].icon}</div>
                 <div>
-                  <h3 className="font-sora font-bold text-2xl text-grafito tracking-tight">{techIndustries[activeIndustry].name}</h3>
+                  <h3 className="font-sora font-bold text-2xl text-grafito dark:text-white tracking-tight">{techIndustries[activeIndustry].name}</h3>
                   <p className="font-sora text-sm text-acero mt-1">{techIndustries[activeIndustry].subtitle}</p>
                 </div>
               </div>
               <div className="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-3">
                 {techIndustries[activeIndustry].modules.map((mod, i) => (
-                  <div key={i} className="flex items-center gap-3 bg-white border border-gray-100 rounded-xl px-4 py-3">
+                  <div key={i} className="flex items-center gap-3 bg-white dark:bg-[#13161F] border border-gray-100 dark:border-white/10 rounded-xl px-4 py-3">
                     <span className="w-5 h-5 bg-azulTinte rounded-full flex items-center justify-center flex-shrink-0">
                       <svg width="10" height="10" fill="none" viewBox="0 0 24 24" stroke="#2E68E6" strokeWidth={3}>
                         <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 12.75l6 6 9-13.5" />
                       </svg>
                     </span>
-                    <span className="font-sora text-sm text-grafito leading-tight">{mod}</span>
+                    <span className="font-sora text-sm text-grafito dark:text-white leading-tight">{mod}</span>
                   </div>
                 ))}
               </div>
@@ -1380,7 +1380,7 @@ function TechView() {
             <motion.span variants={fadeUp} className="inline-block text-xs font-mono font-medium text-azulStack bg-azulTinte px-3 py-1.5 rounded-full mb-4 tracking-wider uppercase">
               Stack técnico
             </motion.span>
-            <motion.h2 variants={fadeUp} className="font-sora font-bold text-3xl lg:text-5xl text-grafito leading-tight tracking-tight">
+            <motion.h2 variants={fadeUp} className="font-sora font-bold text-3xl lg:text-5xl text-grafito dark:text-white leading-tight tracking-tight">
               Ingeniería de <span className="text-azulStack">nivel enterprise</span>
             </motion.h2>
             <motion.p variants={fadeUp} className="font-sora text-base text-acero mt-4 max-w-xl mx-auto leading-relaxed">
@@ -1402,13 +1402,13 @@ function TechView() {
             </Section> */}
 
             <Section>
-              <motion.h3 variants={fadeUp} className="font-sora font-semibold text-grafito text-lg mb-6">Stack tecnológico</motion.h3>
+              <motion.h3 variants={fadeUp} className="font-sora font-semibold text-grafito dark:text-white text-lg mb-6">Stack tecnológico</motion.h3>
               <motion.div variants={stagger} className="grid grid-cols-2 sm:grid-cols-3 gap-3">
                 {techStack.map((t, i) => (
                   <motion.div
                     key={i}
                     variants={fadeUp}
-                    className="bg-white border border-gray-100 rounded-xl px-4 py-3 hover:border-azulStack/30 hover:shadow-sm transition-all duration-300 flex items-center gap-3"
+                    className="bg-white dark:bg-[#13161F] border border-gray-100 dark:border-white/10 rounded-xl px-4 py-3 hover:border-azulStack/30 hover:shadow-sm transition-all duration-300 flex items-center gap-3"
                   >
                     <div
                       className="w-9 h-9 rounded-lg flex-shrink-0 flex items-center justify-center"
@@ -1417,7 +1417,7 @@ function TechView() {
                       {t.svg}
                     </div>
                     <div>
-                      <div className="font-sora font-semibold text-grafito text-sm leading-tight">{t.label}</div>
+                      <div className="font-sora font-semibold text-grafito dark:text-white text-sm leading-tight">{t.label}</div>
                       <div className="font-sora text-xs text-acero mt-0.5">{t.desc}</div>
                     </div>
                   </motion.div>
@@ -1426,13 +1426,13 @@ function TechView() {
             </Section>
 
             <Section>
-              <motion.h3 variants={fadeUp} className="font-sora font-semibold text-grafito text-lg mb-6">Seguridad en capas</motion.h3>
+              <motion.h3 variants={fadeUp} className="font-sora font-semibold text-grafito dark:text-white text-lg mb-6">Seguridad en capas</motion.h3>
               <motion.div variants={stagger} className="flex flex-col gap-3">
                 {security.map((s, i) => (
-                  <motion.div key={i} variants={fadeUp} className="flex items-start gap-4 bg-white border border-gray-100 rounded-xl px-4 py-3">
+                  <motion.div key={i} variants={fadeUp} className="flex items-start gap-4 bg-white dark:bg-[#13161F] border border-gray-100 dark:border-white/10 rounded-xl px-4 py-3">
                     <span className="text-xl flex-shrink-0">{s.icon}</span>
                     <div>
-                      <div className="font-sora font-semibold text-grafito text-sm">{s.title}</div>
+                      <div className="font-sora font-semibold text-grafito dark:text-white text-sm">{s.title}</div>
                       <div className="font-sora text-xs text-acero leading-relaxed mt-0.5">{s.desc}</div>
                     </div>
                   </motion.div>
@@ -1516,14 +1516,14 @@ function TechView() {
 
               {/* Right: three auth pillars */}
               <div className="flex flex-col gap-5">
-                <div className="bg-white border border-gray-100 rounded-2xl p-6 hover:border-azulStack/30 hover:shadow-lg hover:shadow-azulStack/5 transition-all duration-300">
+                <div className="bg-white dark:bg-[#13161F] border border-gray-100 dark:border-white/10 rounded-2xl p-6 hover:border-azulStack/30 hover:shadow-lg hover:shadow-azulStack/5 transition-all duration-300">
                   <div className="flex items-center gap-3 mb-3">
                     <div className="w-9 h-9 rounded-xl bg-azulTinte flex items-center justify-center text-azulStack flex-shrink-0">
                       <svg width="18" height="18" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.8}>
                         <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 5.25a3 3 0 013 3m3 0a6 6 0 01-7.029 5.912c-.563-.097-1.159.026-1.563.43L10.5 17.25H8.25v2.25H6v2.25H2.25v-2.818c0-.597.237-1.17.659-1.591l6.499-6.499c.404-.404.527-1 .43-1.563A6 6 0 1121.75 8.25z" />
                       </svg>
                     </div>
-                    <h3 className="font-sora font-bold text-sm text-grafito">Autenticación JWT</h3>
+                    <h3 className="font-sora font-bold text-sm text-grafito dark:text-white">Autenticación JWT</h3>
                   </div>
                   <p className="font-sora text-xs text-acero leading-relaxed">
                     Cada sesión usa un token de acceso firmado criptográficamente con HMAC-SHA256 y expiración configurable.
@@ -1531,29 +1531,29 @@ function TechView() {
                   </p>
                 </div>
 
-                <div className="bg-white border border-gray-100 rounded-2xl p-6 hover:border-azulStack/30 hover:shadow-lg hover:shadow-azulStack/5 transition-all duration-300">
+                <div className="bg-white dark:bg-[#13161F] border border-gray-100 dark:border-white/10 rounded-2xl p-6 hover:border-azulStack/30 hover:shadow-lg hover:shadow-azulStack/5 transition-all duration-300">
                   <div className="flex items-center gap-3 mb-3">
                     <div className="w-9 h-9 rounded-xl bg-azulTinte flex items-center justify-center text-azulStack flex-shrink-0">
                       <svg width="18" height="18" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.8}>
                         <path strokeLinecap="round" strokeLinejoin="round" d="M7.864 4.243A7.5 7.5 0 0119.5 10.5c0 2.92-.556 5.709-1.568 8.268M5.742 6.364A7.465 7.465 0 004.5 10.5a7.464 7.464 0 01-1.15 3.993m1.989 3.559A11.209 11.209 0 008.25 10.5a3.75 3.75 0 117.5 0c0 .527-.021 1.049-.064 1.565M12 10.5a14.94 14.94 0 01-3.6 9.75m6.633-4.596a18.666 18.666 0 01-2.485 5.33" />
                       </svg>
                     </div>
-                    <h3 className="font-sora font-bold text-sm text-grafito">WebAuthn / FIDO2</h3>
+                    <h3 className="font-sora font-bold text-sm text-grafito dark:text-white">WebAuthn / FIDO2</h3>
                   </div>
                   <p className="font-sora text-xs text-acero leading-relaxed">
-                    Acceso biométrico disponible con estándar WebAuthn / FIDO2. El dato biométrico <strong className="text-grafito font-semibold">nunca sale del dispositivo</strong> del usuario —
+                    Acceso biométrico disponible con estándar WebAuthn / FIDO2. El dato biométrico <strong className="text-grafito dark:text-white font-semibold">nunca sale del dispositivo</strong> del usuario —
                     solo se transmite una firma criptográfica verificable.
                   </p>
                 </div>
 
-                <div className="bg-white border border-gray-100 rounded-2xl p-6 hover:border-azulStack/30 hover:shadow-lg hover:shadow-azulStack/5 transition-all duration-300">
+                <div className="bg-white dark:bg-[#13161F] border border-gray-100 dark:border-white/10 rounded-2xl p-6 hover:border-azulStack/30 hover:shadow-lg hover:shadow-azulStack/5 transition-all duration-300">
                   <div className="flex items-center gap-3 mb-3">
                     <div className="w-9 h-9 rounded-xl bg-azulTinte flex items-center justify-center text-azulStack flex-shrink-0">
                       <svg width="18" height="18" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.8}>
                         <path strokeLinecap="round" strokeLinejoin="round" d="M18 18.72a9.094 9.094 0 003.741-.479 3 3 0 00-4.682-2.72m.94 3.198l.001.031c0 .225-.012.447-.037.666A11.944 11.944 0 0112 21c-2.17 0-4.207-.576-5.963-1.584A6.062 6.062 0 016 18.719m12 0a5.971 5.971 0 00-.941-3.197m0 0A5.995 5.995 0 0012 12.75a5.995 5.995 0 00-5.058 2.772m0 0a3 3 0 00-4.681 2.72 8.986 8.986 0 003.74.477m.94-3.197a5.971 5.971 0 00-.94 3.197M15 6.75a3 3 0 11-6 0 3 3 0 016 0zm6 3a2.25 2.25 0 11-4.5 0 2.25 2.25 0 014.5 0zm-13.5 0a2.25 2.25 0 11-4.5 0 2.25 2.25 0 014.5 0z" />
                       </svg>
                     </div>
-                    <h3 className="font-sora font-bold text-sm text-grafito">Aislamiento multi-tenant</h3>
+                    <h3 className="font-sora font-bold text-sm text-grafito dark:text-white">Aislamiento multi-tenant</h3>
                   </div>
                   <p className="font-sora text-xs text-acero leading-relaxed">
                     Cada empresa opera en un contexto de datos completamente aislado. El aislamiento es por diseño de arquitectura,
@@ -1571,9 +1571,9 @@ function TechView() {
                 { label: 'Rate limiting', desc: 'Protección contra fuerza bruta', icon: '⚡' },
                 { label: 'Zero trust DB', desc: 'Base de datos sin acceso externo', icon: '🗄️' },
               ].map((s, i) => (
-                <div key={i} className="bg-white border border-gray-100 rounded-xl px-4 py-4 flex flex-col gap-1.5">
+                <div key={i} className="bg-white dark:bg-[#13161F] border border-gray-100 dark:border-white/10 rounded-xl px-4 py-4 flex flex-col gap-1.5">
                   <span className="text-xl">{s.icon}</span>
-                  <span className="font-sora font-semibold text-xs text-grafito">{s.label}</span>
+                  <span className="font-sora font-semibold text-xs text-grafito dark:text-white">{s.label}</span>
                   <span className="font-sora text-[11px] text-acero leading-snug">{s.desc}</span>
                 </div>
               ))}
@@ -1583,13 +1583,13 @@ function TechView() {
       </section>
 
       {/* ── Integraciones nativas ── */}
-      <section className="py-24 lg:py-32 bg-white">
+      <section className="py-24 lg:py-32 bg-white dark:bg-[#0C0E15]">
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
           <Section className="text-center mb-16">
             <motion.span variants={fadeUp} className="inline-block text-xs font-mono font-medium text-azulStack bg-azulTinte px-3 py-1.5 rounded-full mb-4 tracking-wider uppercase">
               Integraciones
             </motion.span>
-            <motion.h2 variants={fadeUp} className="font-sora font-bold text-3xl lg:text-5xl text-grafito leading-tight tracking-tight">
+            <motion.h2 variants={fadeUp} className="font-sora font-bold text-3xl lg:text-5xl text-grafito dark:text-white leading-tight tracking-tight">
               Conectado con el<br className="hidden lg:block" />
               <span className="text-azulStack"> ecosistema colombiano.</span>
             </motion.h2>
@@ -1959,26 +1959,26 @@ export default function Ksmart360Page() {
                   <span className="font-bold text-azulStack">Filosofía:</span> todas las funcionalidades del sistema están disponibles en ambos planes. La diferencia es el volumen de operación y la <strong>facturación electrónica DIAN</strong>.
                 </p>
               </div>
-              <div className="bg-white border border-gray-100 rounded-2xl overflow-hidden shadow-sm">
-                <div className="grid grid-cols-3 text-center text-xs font-sora font-semibold bg-gray-50 border-b border-gray-100">
+              <div className="bg-white dark:bg-[#13161F] border border-gray-100 dark:border-white/10 rounded-2xl overflow-hidden shadow-sm">
+                <div className="grid grid-cols-3 text-center text-xs font-sora font-semibold bg-gray-50 dark:bg-white/5 border-b border-gray-100 dark:border-white/10">
                   <div className="py-3 px-4 text-left text-acero">Período</div>
                   <div className="py-3 px-4 text-azulStack">Básico</div>
                   <div className="py-3 px-4 text-azulStack">Pro</div>
                 </div>
-                <div className="grid grid-cols-3 text-center text-sm font-sora border-b border-gray-50">
+                <div className="grid grid-cols-3 text-center text-sm font-sora border-b border-gray-50 dark:border-white/5">
                   <div className="py-3 px-4 text-left text-acero text-xs">Mensual</div>
-                  <div className="py-3 px-4 font-semibold text-grafito">$29.900<span className="text-acero font-normal text-xs">/mes</span></div>
-                  <div className="py-3 px-4 font-semibold text-grafito">$49.900<span className="text-acero font-normal text-xs">/mes</span></div>
+                  <div className="py-3 px-4 font-semibold text-grafito dark:text-white">$29.900<span className="text-acero font-normal text-xs">/mes</span></div>
+                  <div className="py-3 px-4 font-semibold text-grafito dark:text-white">$49.900<span className="text-acero font-normal text-xs">/mes</span></div>
                 </div>
-                <div className="grid grid-cols-3 text-center text-sm font-sora border-b border-gray-50 bg-gray-50/50">
+                <div className="grid grid-cols-3 text-center text-sm font-sora border-b border-gray-50 dark:border-white/5 bg-gray-50/50 dark:bg-white/5">
                   <div className="py-3 px-4 text-left text-acero text-xs">Trimestral <span className="text-green-600 font-medium">−10%</span></div>
-                  <div className="py-3 px-4 font-semibold text-grafito">$26.910<span className="text-acero font-normal text-xs">/mes</span></div>
-                  <div className="py-3 px-4 font-semibold text-grafito">$44.910<span className="text-acero font-normal text-xs">/mes</span></div>
+                  <div className="py-3 px-4 font-semibold text-grafito dark:text-white">$26.910<span className="text-acero font-normal text-xs">/mes</span></div>
+                  <div className="py-3 px-4 font-semibold text-grafito dark:text-white">$44.910<span className="text-acero font-normal text-xs">/mes</span></div>
                 </div>
                 <div className="grid grid-cols-3 text-center text-sm font-sora">
                   <div className="py-3 px-4 text-left text-acero text-xs">Anual <span className="text-green-600 font-medium">−20%</span></div>
-                  <div className="py-3 px-4 font-semibold text-grafito">$23.920<span className="text-acero font-normal text-xs">/mes</span></div>
-                  <div className="py-3 px-4 font-semibold text-grafito">$39.920<span className="text-acero font-normal text-xs">/mes</span></div>
+                  <div className="py-3 px-4 font-semibold text-grafito dark:text-white">$23.920<span className="text-acero font-normal text-xs">/mes</span></div>
+                  <div className="py-3 px-4 font-semibold text-grafito dark:text-white">$39.920<span className="text-acero font-normal text-xs">/mes</span></div>
                 </div>
               </div>
             </motion.div>
@@ -1992,7 +1992,7 @@ export default function Ksmart360Page() {
                 className={`relative rounded-2xl p-7 flex flex-col ${
                   plan.highlight
                     ? 'bg-azulStack text-white shadow-2xl shadow-azulStack/25 lg:scale-105'
-                    : 'bg-white border border-gray-100'
+                    : 'bg-white dark:bg-[#13161F] border border-gray-100 dark:border-white/10'
                 }`}
               >
                 {plan.highlight && (
@@ -2003,8 +2003,8 @@ export default function Ksmart360Page() {
                   </div>
                 )}
                 <div className="text-3xl mb-3">{plan.icon}</div>
-                <h3 className={`font-sora font-bold text-lg mb-1 ${plan.highlight ? 'text-white' : 'text-grafito'}`}>{plan.name}</h3>
-                <div className={`font-sora font-black text-2xl mb-0.5 ${plan.highlight ? 'text-white' : 'text-grafito'}`}>{plan.price}</div>
+                <h3 className={`font-sora font-bold text-lg mb-1 ${plan.highlight ? 'text-white' : 'text-grafito dark:text-white'}`}>{plan.name}</h3>
+                <div className={`font-sora font-black text-2xl mb-0.5 ${plan.highlight ? 'text-white' : 'text-grafito dark:text-white'}`}>{plan.price}</div>
                 <div className={`font-sora text-xs font-medium mb-1 ${plan.highlight ? 'text-white/60' : 'text-acero'}`}>{plan.period}</div>
                 {plan.priceNote && (
                   <div className={`font-sora text-[10px] mb-3 ${plan.highlight ? 'text-white/50' : 'text-green-600'}`}>{plan.priceNote}</div>
@@ -2027,7 +2027,7 @@ export default function Ksmart360Page() {
                           </svg>
                         </span>
                       )}
-                      <span className={`font-sora text-xs leading-tight ${f.ok ? (plan.highlight ? 'text-white/80' : 'text-grafito') : 'text-acero line-through'}`}>{f.text}</span>
+                      <span className={`font-sora text-xs leading-tight ${f.ok ? (plan.highlight ? 'text-white/80' : 'text-grafito dark:text-white') : 'text-acero line-through'}`}>{f.text}</span>
                     </li>
                   ))}
                 </ul>
@@ -2057,8 +2057,8 @@ export default function Ksmart360Page() {
 
           {/* ¿Por qué Pro? */}
           <Section className="mt-10">
-            <motion.div variants={fadeUp} className="max-w-2xl mx-auto bg-white border border-gray-100 rounded-2xl p-6 text-center shadow-sm">
-              <p className="font-sora text-sm text-grafito leading-relaxed">
+            <motion.div variants={fadeUp} className="max-w-2xl mx-auto bg-white dark:bg-[#13161F] border border-gray-100 dark:border-white/10 rounded-2xl p-6 text-center shadow-sm">
+              <p className="font-sora text-sm text-grafito dark:text-white leading-relaxed">
                 <span className="font-bold">¿Por qué Pro?</span> Solo si tu negocio está obligado a emitir factura electrónica ante la DIAN. Si no, el plan Básico tiene <strong>todo lo que necesitas</strong> — sin restricciones.{' '}
                 <span className="text-azulStack font-medium">¿Facturas electrónicamente? Sí → Pro. No → Básico.</span>
               </p>
