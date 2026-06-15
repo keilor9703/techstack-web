@@ -16,10 +16,10 @@ export default function Home() {
     <main>
       <Navbar />
       <Hero />
-      <Clients />
       <About />
       <Services />
       <Ksmart360Feature />
+      <Clients />
       <Portfolio />
       <FAQ />
       <Contact />

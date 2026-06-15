@@ -73,11 +73,18 @@ export default function Hero() {
 
             <motion.h1
               variants={itemVariants}
-              className="font-sora font-bold text-3xl sm:text-4xl lg:text-5xl xl:text-6xl text-white leading-tight tracking-tight mb-6"
+              className="font-sora font-bold text-3xl sm:text-4xl lg:text-5xl xl:text-6xl text-white leading-tight tracking-tight mb-2"
             >
-              Tu operación, digitalizada.{' '}
-              <span className="block text-azul">Sin consultoras, sin intermediarios.</span>
+              Tu operación,{' '}
+              <span className="text-azul">digitalizada.</span>
             </motion.h1>
+
+            <motion.p
+              variants={itemVariants}
+              className="font-sora text-xl lg:text-2xl text-white/60 font-medium mb-8 max-w-lg"
+            >
+              Sin consultoras, sin intermediarios.
+            </motion.p>
 
             <motion.p
               variants={itemVariants}

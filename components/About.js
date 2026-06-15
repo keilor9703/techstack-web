@@ -60,22 +60,22 @@ export default function About() {
             variants={itemVariants}
             className="inline-block text-xs font-mono font-medium text-azulStack bg-azulTinte px-3 py-1.5 rounded-full mb-4 tracking-wider uppercase"
           >
-            Quiénes somos
+            Nuestra filosofía
           </motion.span>
           <motion.h2
             variants={itemVariants}
             className="font-sora font-bold text-3xl lg:text-4xl xl:text-5xl text-grafito leading-tight tracking-tight mb-6"
           >
-            Tecnología que entiende tu negocio
+            Construimos. No consultamos.
           </motion.h2>
           <motion.p
             variants={itemVariants}
             className="font-sora text-base lg:text-lg text-acero leading-relaxed"
           >
-            Tech Stack Colombia S.A.S. es una empresa de desarrollo de software con sede en Colombia,
-            especializada en crear soluciones tecnológicas que resuelven problemas reales de negocio.
-            Combinamos ingeniería de software de alto nivel con un profundo entendimiento del mercado
-            latinoamericano para entregar productos que generan valor desde el primer día.
+            No somos una agencia que subcontrata ni una consultora que cobra por hora. Somos un equipo
+            de ingenieros colombianos con producto propio en producción — Ksmart360 — que además
+            construye software a medida para empresas que necesitan soluciones reales, no presentaciones
+            en PowerPoint.
           </motion.p>
         </motion.div>
 

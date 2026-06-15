@@ -199,9 +199,6 @@ export default function Footer() {
           <p className="text-white/30 text-xs font-sora text-center sm:text-left">
             © 2026 Tech Stack Colombia S.A.S. Todos los derechos reservados.
           </p>
-          <p className="text-white/20 text-xs font-mono">
-            Construido con Next.js · Oracle Cloud · ❤️ desde Colombia
-          </p>
         </div>
       </div>
     </footer>
