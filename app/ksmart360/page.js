@@ -1361,54 +1361,6 @@ function TechView() {
         </div>
       </section>
 
-      {/* ── Integraciones nativas ── */}
-      <section className="py-24 lg:py-32 bg-white">
-        <div className="max-w-7xl mx-auto px-6 lg:px-8">
-          <Section className="text-center mb-16">
-            <motion.span variants={fadeUp} className="inline-block text-xs font-mono font-medium text-azulStack bg-azulTinte px-3 py-1.5 rounded-full mb-4 tracking-wider uppercase">
-              Integraciones
-            </motion.span>
-            <motion.h2 variants={fadeUp} className="font-sora font-bold text-3xl lg:text-5xl text-grafito leading-tight tracking-tight">
-              Conectado con el<br className="hidden lg:block" />
-              <span className="text-azulStack"> ecosistema colombiano.</span>
-            </motion.h2>
-            <motion.p variants={fadeUp} className="font-sora text-base text-acero mt-4 max-w-xl mx-auto leading-relaxed">
-              Ksmart360 no vive en una burbuja. Está integrado de forma nativa con los servicios que ya usa tu negocio y con las entidades que lo regulan.
-            </motion.p>
-          </Section>
-
-          <Section className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5 mb-16">
-            {techIntegrations.map((t, i) => (
-              <motion.div key={i} variants={fadeUp} className="bg-papel border border-gray-100 rounded-2xl p-6 hover:border-azulStack/30 hover:shadow-lg hover:shadow-azulStack/5 transition-all duration-300">
-                <div className="text-3xl mb-3">{t.icon}</div>
-                <h3 className="font-sora font-bold text-sm text-grafito mb-2">{t.name}</h3>
-                <p className="font-sora text-xs text-acero leading-relaxed">{t.desc}</p>
-              </motion.div>
-            ))}
-          </Section>
-
-          {/* API metrics */}
-          <Section>
-            <motion.div variants={fadeUp} className="bg-grafito rounded-2xl p-8 lg:p-10">
-              <div className="mb-6">
-                <h3 className="font-sora font-bold text-white text-xl mb-2">Una API robusta detrás de cada acción</h3>
-                <p className="font-sora text-sm text-white/50 leading-relaxed max-w-2xl">
-                  Cada función que ves en pantalla es el resultado de una API RESTful versionada, documentada automáticamente y diseñada para responder en milisegundos. Más de 200 endpoints organizados por dominio de negocio, con esquemas de validación estrictos y respuestas predecibles.
-                </p>
-              </div>
-              <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3">
-                {techApiMetrics.map((m, i) => (
-                  <div key={i} className="bg-white/5 border border-white/10 rounded-xl px-3 py-4 text-center">
-                    <div className="font-mono font-bold text-azul text-sm mb-1">{m.label}</div>
-                    <div className="font-sora text-xs text-white/35 leading-tight">{m.desc}</div>
-                  </div>
-                ))}
-              </div>
-            </motion.div>
-          </Section>
-        </div>
-      </section>
-
       {/* ── Seguridad ── */}
       <section className="py-24 lg:py-32 bg-papel overflow-hidden relative">
         <div className="pointer-events-none absolute -top-32 -right-32 w-96 h-96 bg-azulStack/5 rounded-full blur-3xl" />
@@ -1522,6 +1474,54 @@ function TechView() {
                   <span className="font-sora text-[11px] text-acero leading-snug">{s.desc}</span>
                 </div>
               ))}
+            </motion.div>
+          </Section>
+        </div>
+      </section>
+
+      {/* ── Integraciones nativas ── */}
+      <section className="py-24 lg:py-32 bg-white">
+        <div className="max-w-7xl mx-auto px-6 lg:px-8">
+          <Section className="text-center mb-16">
+            <motion.span variants={fadeUp} className="inline-block text-xs font-mono font-medium text-azulStack bg-azulTinte px-3 py-1.5 rounded-full mb-4 tracking-wider uppercase">
+              Integraciones
+            </motion.span>
+            <motion.h2 variants={fadeUp} className="font-sora font-bold text-3xl lg:text-5xl text-grafito leading-tight tracking-tight">
+              Conectado con el<br className="hidden lg:block" />
+              <span className="text-azulStack"> ecosistema colombiano.</span>
+            </motion.h2>
+            <motion.p variants={fadeUp} className="font-sora text-base text-acero mt-4 max-w-xl mx-auto leading-relaxed">
+              Ksmart360 no vive en una burbuja. Está integrado de forma nativa con los servicios que ya usa tu negocio y con las entidades que lo regulan.
+            </motion.p>
+          </Section>
+
+          <Section className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5 mb-16">
+            {techIntegrations.map((t, i) => (
+              <motion.div key={i} variants={fadeUp} className="bg-papel border border-gray-100 rounded-2xl p-6 hover:border-azulStack/30 hover:shadow-lg hover:shadow-azulStack/5 transition-all duration-300">
+                <div className="text-3xl mb-3">{t.icon}</div>
+                <h3 className="font-sora font-bold text-sm text-grafito mb-2">{t.name}</h3>
+                <p className="font-sora text-xs text-acero leading-relaxed">{t.desc}</p>
+              </motion.div>
+            ))}
+          </Section>
+
+          {/* API metrics */}
+          <Section>
+            <motion.div variants={fadeUp} className="bg-grafito rounded-2xl p-8 lg:p-10">
+              <div className="mb-6">
+                <h3 className="font-sora font-bold text-white text-xl mb-2">Una API robusta detrás de cada acción</h3>
+                <p className="font-sora text-sm text-white/50 leading-relaxed max-w-2xl">
+                  Cada función que ves en pantalla es el resultado de una API RESTful versionada, documentada automáticamente y diseñada para responder en milisegundos. Más de 200 endpoints organizados por dominio de negocio, con esquemas de validación estrictos y respuestas predecibles.
+                </p>
+              </div>
+              <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3">
+                {techApiMetrics.map((m, i) => (
+                  <div key={i} className="bg-white/5 border border-white/10 rounded-xl px-3 py-4 text-center">
+                    <div className="font-mono font-bold text-azul text-sm mb-1">{m.label}</div>
+                    <div className="font-sora text-xs text-white/35 leading-tight">{m.desc}</div>
+                  </div>
+                ))}
+              </div>
             </motion.div>
           </Section>
         </div>
