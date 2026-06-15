@@ -12,6 +12,7 @@ const projects = [
     ctaLabel: 'Probar gratis',
     ctaHref: 'https://www.appjeylor.com/',
     ctaExternal: true,
+    badge: { text: 'Producto propio', style: 'azul' },
   },
   {
     title: 'Sistema de Lavadero',
@@ -22,6 +23,7 @@ const projects = [
     ctaLabel: 'Solicitar información',
     ctaHref: '#contacto',
     ctaExternal: false,
+    badge: { text: 'Módulo de Ksmart360', style: 'gray' },
   },
   {
     title: 'POS Restaurante',
@@ -32,6 +34,7 @@ const projects = [
     ctaLabel: 'Solicitar información',
     ctaHref: '#contacto',
     ctaExternal: false,
+    badge: { text: 'Módulo de Ksmart360', style: 'gray' },
   },
   {
     title: 'Facturación Electrónica DIAN',
@@ -42,6 +45,7 @@ const projects = [
     ctaLabel: 'Solicitar información',
     ctaHref: '#contacto',
     ctaExternal: false,
+    badge: { text: 'Módulo de Ksmart360', style: 'gray' },
   },
 ];
 
@@ -76,8 +80,9 @@ export default function Portfolio() {
             variants={itemVariants}
             className="font-sora font-bold text-3xl lg:text-4xl xl:text-5xl text-grafito leading-tight tracking-tight"
           >
-            Portafolio de Proyectos
+            Ksmart360 y sus capacidades
           </motion.h2>
+          <motion.p variants={itemVariants} className="font-sora text-base text-acero mt-4 max-w-2xl mx-auto leading-relaxed">Ksmart360 concentra años de desarrollo especializado. Sus módulos no son productos separados — son capacidades integradas de un mismo sistema construido para el mercado colombiano.</motion.p>
         </motion.div>
 
         <motion.div
@@ -102,10 +107,15 @@ export default function Portfolio() {
                   <h3 className="font-sora font-bold text-xl text-grafito tracking-tight">
                     {project.title}
                   </h3>
-                  <span className="flex items-center gap-1.5 text-xs font-mono text-green-600 bg-green-50 border border-green-200 px-2.5 py-1 rounded-full ml-3 flex-shrink-0">
-                    <span className="w-1.5 h-1.5 bg-green-500 rounded-full" />
-                    En producción
-                  </span>
+                  {project.badge.style === 'azul' ? (
+                    <span className="flex items-center gap-1.5 text-xs font-mono text-azulStack bg-azulTinte border border-azulStack/20 px-2.5 py-1 rounded-full ml-3 flex-shrink-0">
+                      {project.badge.text}
+                    </span>
+                  ) : (
+                    <span className="flex items-center gap-1.5 text-xs font-mono text-acero bg-gray-50 border border-gray-200 px-2.5 py-1 rounded-full ml-3 flex-shrink-0">
+                      {project.badge.text}
+                    </span>
+                  )}
                 </div>
 
                 <p className="font-sora text-sm text-acero leading-relaxed mb-6 flex-1">

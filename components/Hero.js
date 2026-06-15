@@ -67,7 +67,7 @@ export default function Hero() {
             <motion.div variants={itemVariants}>
               <span className="inline-flex items-center gap-2 px-3 py-1.5 bg-azul/20 border border-azul/30 rounded-full text-xs font-mono text-azul font-medium mb-6">
                 <span className="w-1.5 h-1.5 bg-azul rounded-full animate-pulse" />
-                Desarrollo de software · Colombia
+                Empresa colombiana de software · Desde 2023
               </span>
             </motion.div>
 
@@ -75,17 +75,15 @@ export default function Hero() {
               variants={itemVariants}
               className="font-sora font-bold text-3xl sm:text-4xl lg:text-5xl xl:text-6xl text-white leading-tight tracking-tight mb-6"
             >
-              Construimos el software que{' '}
-              <span className="text-azul">impulsa tu negocio</span>
+              Tu operación, digitalizada.{' '}
+              <span className="block text-azul">Sin consultoras, sin intermediarios.</span>
             </motion.h1>
 
             <motion.p
               variants={itemVariants}
               className="font-sora text-base lg:text-lg text-white/60 leading-relaxed mb-10 max-w-xl"
             >
-              Soluciones tecnológicas a medida para empresas colombianas. Desde
-              sistemas ERP hasta plataformas digitales, transformamos procesos en
-              ventajas competitivas.
+              Construimos software a medida y Ksmart360, nuestro ERP &amp; POS propio. Más de 30 empresas colombianas ya digitalizaron su operación con nosotros.
             </motion.p>
 
             <motion.div variants={itemVariants} className="flex flex-wrap gap-4">
@@ -112,6 +110,24 @@ export default function Hero() {
               >
                 Ver servicios
               </a>
+            </motion.div>
+
+            {/* Stats row */}
+            <motion.div variants={itemVariants} className="flex gap-6 mt-10 pt-8 border-t border-white/10">
+              <div className="flex flex-col">
+                <span className="font-sora font-bold text-2xl text-white">30+</span>
+                <span className="font-sora text-xs text-white/50">Empresas activas</span>
+              </div>
+              <div className="w-px h-8 bg-white/10 self-center" />
+              <div className="flex flex-col">
+                <span className="font-sora font-bold text-2xl text-white">18+</span>
+                <span className="font-sora text-xs text-white/50">Módulos en Ksmart360</span>
+              </div>
+              <div className="w-px h-8 bg-white/10 self-center" />
+              <div className="flex flex-col">
+                <span className="font-sora font-bold text-2xl text-white">99.9%</span>
+                <span className="font-sora text-xs text-white/50">Uptime garantizado</span>
+              </div>
             </motion.div>
           </motion.div>
 

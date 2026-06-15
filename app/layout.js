@@ -26,13 +26,32 @@ export const metadata = {
     'facturación electrónica DIAN',
     'Ksmart360',
     'Tech Stack Colombia',
+    'software a medida Cali',
+    'ERP Cali Colombia',
   ],
   authors: [{ name: 'Tech Stack Colombia S.A.S.' }],
+  metadataBase: new URL('https://www.techstackcol.com'),
   openGraph: {
-    title: 'Tech Stack Colombia S.A.S.',
-    description: 'Soluciones tecnológicas a medida para empresas colombianas.',
+    title: 'Tech Stack Colombia S.A.S. — Software que impulsa tu negocio',
+    description: 'Construimos software a medida y Ksmart360, nuestro ERP & POS. Más de 30 empresas colombianas ya digitalizaron su operación con nosotros.',
     type: 'website',
     locale: 'es_CO',
+    url: 'https://www.techstackcol.com',
+    siteName: 'Tech Stack Colombia',
+    images: [
+      {
+        url: '/opengraph-image',
+        width: 1200,
+        height: 630,
+        alt: 'Tech Stack Colombia S.A.S. — Software a medida para empresas colombianas',
+      },
+    ],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Tech Stack Colombia S.A.S. — Software que impulsa tu negocio',
+    description: 'Construimos software a medida y Ksmart360, nuestro ERP & POS. Más de 30 empresas colombianas ya digitalizaron su operación con nosotros.',
+    images: ['/opengraph-image'],
   },
 };
 

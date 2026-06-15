@@ -35,6 +35,7 @@ function InputField({ label, id, type = 'text', placeholder, value, onChange, re
 
 export default function Contact() {
   const [form, setForm] = useState({
+    servicio: '',
     nombre: '',
     empresa: '',
     email: '',
@@ -180,7 +181,7 @@ export default function Contact() {
                 </div>
                 <div>
                   <p className="text-xs text-acero font-mono mb-0.5">Ubicación</p>
-                  <p className="text-grafito font-sora font-medium text-sm">Colombia</p>
+                  <p className="text-grafito font-sora font-medium text-sm">Cali, Colombia</p>
                 </div>
               </motion.div>
             </motion.div>
@@ -193,6 +194,10 @@ export default function Contact() {
             viewport={{ once: true, margin: '-80px' }}
             transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
           >
+            <div className="flex items-center gap-2 mb-5">
+              <span className="w-2 h-2 bg-green-400 rounded-full animate-pulse flex-shrink-0" />
+              <span className="font-sora text-xs text-acero">Respondemos en menos de <strong className="text-grafito">24 horas</strong> · Lunes a sábado</span>
+            </div>
             {submitted ? (
               <div className="bg-azulTinte border border-azulStack/20 rounded-2xl p-10 text-center">
                 <div className="w-16 h-16 bg-azulStack rounded-2xl flex items-center justify-center mx-auto mb-5">
@@ -223,6 +228,25 @@ export default function Contact() {
                 onSubmit={handleSubmit}
                 className="bg-white border border-gray-100 rounded-2xl p-8 shadow-sm space-y-5"
               >
+                <div>
+                  <label htmlFor="servicio" className="block text-sm font-medium text-grafito mb-1.5 font-sora">
+                    ¿Qué necesitas? <span className="text-azulStack">*</span>
+                  </label>
+                  <select
+                    id="servicio"
+                    value={form.servicio}
+                    onChange={handleChange('servicio')}
+                    required
+                    className="w-full px-4 py-3 rounded-xl border border-gray-200 bg-white text-grafito font-sora text-sm outline-none focus:border-azulStack focus:ring-2 focus:ring-azulStack/20 transition-all duration-200"
+                  >
+                    <option value="">Selecciona una opción...</option>
+                    <option value="ksmart360">Ksmart360 — ERP & POS</option>
+                    <option value="software-medida">Desarrollo de software a medida</option>
+                    <option value="pagina-web">Diseño y construcción de página web</option>
+                    <option value="consultoria">Consultoría tecnológica</option>
+                    <option value="otro">Otro</option>
+                  </select>
+                </div>
                 <div className="grid sm:grid-cols-2 gap-5">
                   <InputField
                     label="Nombre"
