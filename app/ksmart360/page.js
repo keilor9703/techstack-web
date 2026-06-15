@@ -1472,7 +1472,7 @@ function TechView() {
             <motion.span variants={fadeUp} className="inline-block text-xs font-mono font-medium text-azulStack bg-azulTinte px-3 py-1.5 rounded-full mb-4 tracking-wider uppercase">
               Seguridad
             </motion.span>
-            <motion.h2 variants={fadeUp} className="font-sora font-bold text-3xl lg:text-5xl text-grafito leading-tight tracking-tight">
+            <motion.h2 variants={fadeUp} className="font-sora font-bold text-3xl lg:text-5xl text-grafito dark:text-white leading-tight tracking-tight">
               7 capas de seguridad.<br className="hidden lg:block" />
               <span className="text-azulStack"> Ningún punto único de fallo.</span>
             </motion.h2>
@@ -1943,7 +1943,7 @@ export default function Ksmart360Page() {
             <motion.span variants={fadeUp} className="inline-block text-xs font-mono font-medium text-azulStack bg-azulTinte px-3 py-1.5 rounded-full mb-4 tracking-wider uppercase">
               Planes
             </motion.span>
-            <motion.h2 variants={fadeUp} className="font-sora font-bold text-3xl lg:text-5xl text-grafito leading-tight tracking-tight">
+            <motion.h2 variants={fadeUp} className="font-sora font-bold text-3xl lg:text-5xl text-grafito dark:text-white leading-tight tracking-tight">
               Empieza gratis. <span className="text-azulStack">Crece sin límites.</span>
             </motion.h2>
             <motion.p variants={fadeUp} className="font-sora text-base text-acero mt-4 max-w-lg mx-auto leading-relaxed">
