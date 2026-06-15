@@ -1955,7 +1955,7 @@ export default function Ksmart360Page() {
           <Section className="mb-12">
             <motion.div variants={fadeUp} className="max-w-3xl mx-auto">
               <div className="bg-azulTinte border border-azulStack/20 rounded-2xl p-6 mb-6 text-center">
-                <p className="font-sora text-sm text-grafito leading-relaxed">
+                <p className="font-sora text-sm text-grafito dark:text-white/80 leading-relaxed">
                   <span className="font-bold text-azulStack">Filosofía:</span> todas las funcionalidades del sistema están disponibles en ambos planes. La diferencia es el volumen de operación y la <strong>facturación electrónica DIAN</strong>.
                 </p>
               </div>
