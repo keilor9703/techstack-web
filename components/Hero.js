@@ -128,7 +128,7 @@ export default function Hero() {
 
             <motion.p
               variants={itemVariants}
-              className="font-sora text-xl lg:text-2xl xl:text-3xl text-white/60 font-medium mb-8 max-w-lg"
+              className="font-sora text-lg sm:text-xl lg:text-2xl xl:text-3xl text-white/60 font-medium mb-8 max-w-lg"
             >
               Sin consultoras, sin intermediarios.
             </motion.p>
@@ -167,7 +167,7 @@ export default function Hero() {
             </motion.div>
 
             {/* Stats row */}
-            <motion.div variants={itemVariants} className="flex gap-6 mt-10 pt-8 border-t border-white/10">
+            <motion.div variants={itemVariants} className="flex flex-wrap gap-y-4 gap-x-6 mt-10 pt-8 border-t border-white/10">
               <div className="flex flex-col">
                 <span className="font-sora font-bold text-2xl text-white">
                   <CountUp target={30} suffix="+" />
@@ -189,12 +189,12 @@ export default function Hero() {
             </motion.div>
           </motion.div>
 
-          {/* Right: Code card */}
+          {/* Right: Code card — hidden on mobile to avoid overflow */}
           <motion.div
             initial={{ opacity: 0, x: 40 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8, delay: 0.3, ease: [0.22, 1, 0.36, 1] }}
-            className="flex justify-center lg:justify-end"
+            className="hidden lg:flex justify-end"
           >
             <motion.div
               variants={floatVariants}
