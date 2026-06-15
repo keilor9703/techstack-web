@@ -21,9 +21,9 @@ const track = [...clients, ...clients, ...clients, ...clients];
 
 function ClientCard({ client }) {
   return (
-    <div className="group flex-shrink-0 flex items-center gap-4 mx-4 px-7 py-5 bg-white border border-gray-100 rounded-2xl hover:border-azulStack/30 hover:shadow-xl hover:shadow-azulStack/8 transition-all duration-300 cursor-default select-none">
+    <div className="group flex-shrink-0 flex items-center gap-5 mx-4 px-8 py-6 bg-white border border-gray-100 rounded-2xl hover:border-azulStack/30 hover:shadow-xl hover:shadow-azulStack/8 transition-all duration-300 cursor-default select-none">
       {client.logo ? (
-        <div className="w-16 h-16 rounded-xl overflow-hidden flex-shrink-0 bg-gray-50 flex items-center justify-center">
+        <div className="w-24 h-24 rounded-2xl overflow-hidden flex-shrink-0 bg-gray-50 flex items-center justify-center">
           <img
             src={client.logo}
             alt={client.name}
@@ -31,8 +31,8 @@ function ClientCard({ client }) {
           />
         </div>
       ) : (
-        <div className="w-16 h-16 rounded-xl bg-azulTinte flex items-center justify-center flex-shrink-0">
-          <span className="font-sora font-bold text-azulStack text-xl">
+        <div className="w-24 h-24 rounded-2xl bg-azulTinte flex items-center justify-center flex-shrink-0">
+          <span className="font-sora font-bold text-azulStack text-2xl">
             {client.name.charAt(0)}
           </span>
         </div>
