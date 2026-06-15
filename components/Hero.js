@@ -189,18 +189,18 @@ export default function Hero() {
             </motion.div>
           </motion.div>
 
-          {/* Right: Code card — hidden on mobile to avoid overflow */}
+          {/* Right: Code card */}
           <motion.div
             initial={{ opacity: 0, x: 40 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8, delay: 0.3, ease: [0.22, 1, 0.36, 1] }}
-            className="hidden lg:flex justify-end"
+            className="flex justify-center lg:justify-end w-full min-w-0"
           >
             <motion.div
               variants={floatVariants}
               initial="initial"
               animate="animate"
-              className="w-full max-w-md"
+              className="w-full max-w-md min-w-0"
             >
               {/* Card */}
               <div className="bg-[#0D0F16] border border-white/10 rounded-2xl overflow-hidden shadow-2xl shadow-black/40">
@@ -214,7 +214,7 @@ export default function Hero() {
 
                 {/* Code */}
                 <div className="p-6">
-                  <pre className="font-mono text-sm leading-7">
+                  <pre className="font-mono text-xs sm:text-sm leading-7 overflow-x-auto">
                     {codeLines.map((line, li) => (
                       <div key={li} className="flex">
                         <span className="select-none text-white/20 w-8 text-right mr-4 text-xs pt-0.5">
