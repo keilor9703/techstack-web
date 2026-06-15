@@ -14,6 +14,11 @@ const clients = [
     sector: 'Retail · Calzado',
     logo: '/clients/eya.webp',
   },
+  {
+    name: 'Peletería Jeylor',
+    sector: 'Retail · Peletería',
+    logo: '/clients/jeylor.jpg',
+  },
 ];
 // ──────────────────────────────────────────────────────────────────────────────
 
