@@ -46,7 +46,7 @@ function ClientCard({ client }) {
         <span className="font-sora font-bold text-base text-grafito dark:text-white whitespace-nowrap">
           {client.name}
         </span>
-        <span className="font-sora text-sm text-acero/70 whitespace-nowrap mt-0.5">
+        <span className="font-sora text-sm text-acero dark:text-white/50 whitespace-nowrap mt-0.5">
           {client.sector}
         </span>
       </div>
