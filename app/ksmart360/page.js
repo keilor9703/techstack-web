@@ -556,49 +556,6 @@ function PymeView() {
         </div>
       </section>
 
-      {/* ── Deep features ── */}
-      <section className="py-24 lg:py-32 bg-grafito overflow-hidden relative">
-        <div className="absolute inset-0 opacity-10 pointer-events-none" style={{ backgroundImage: 'radial-gradient(circle, #6A6F7E 1px, transparent 1px)', backgroundSize: '40px 40px' }} />
-        <div className="relative max-w-5xl mx-auto px-6 lg:px-8">
-          <Section className="text-center mb-16">
-            <motion.span variants={fadeUp} className="inline-block text-xs font-mono font-medium text-azul bg-azul/10 border border-azul/20 px-3 py-1.5 rounded-full mb-4 tracking-wider uppercase">
-              En detalle
-            </motion.span>
-            <motion.h2 variants={fadeUp} className="font-sora font-bold text-3xl lg:text-5xl text-white leading-tight tracking-tight">
-              Diseñado para el mundo real.<br className="hidden lg:block" />
-              <span className="text-azul"> No para un manual.</span>
-            </motion.h2>
-          </Section>
-
-          <Section className="flex flex-col gap-10">
-            {pymeDeepFeatures.map((f, i) => (
-              <motion.div
-                key={i}
-                variants={fadeUp}
-                className="bg-white/5 border border-white/10 rounded-2xl p-8 lg:p-10"
-              >
-                <div className="flex items-center gap-4 mb-6">
-                  <span className="text-4xl">{f.icon}</span>
-                  <h3 className="font-sora font-bold text-xl lg:text-2xl text-white tracking-tight leading-snug">{f.title}</h3>
-                </div>
-                <div className="flex flex-col gap-4">
-                  {f.body.map((paragraph, j) => {
-                    const formatted = paragraph.replace(/\*\*(.*?)\*\*/g, '<strong class="text-white font-semibold">$1</strong>');
-                    return (
-                      <p
-                        key={j}
-                        className="font-sora text-sm lg:text-base text-white/55 leading-relaxed"
-                        dangerouslySetInnerHTML={{ __html: formatted }}
-                      />
-                    );
-                  })}
-                </div>
-              </motion.div>
-            ))}
-          </Section>
-        </div>
-      </section>
-
       {/* ── Tu tipo de negocio ── */}
       <section className="py-24 lg:py-32 bg-white dark:bg-[#0C0E15]">
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
