@@ -61,6 +61,9 @@ export default function RootLayout({ children }) {
       <head>
         {/* Anti-flash: apply dark class before first paint */}
         <script dangerouslySetInnerHTML={{ __html: `try{var t=localStorage.getItem('theme');if(t==='dark'||(t===null&&window.matchMedia('(prefers-color-scheme: dark)').matches))document.documentElement.classList.add('dark')}catch(e){}` }} />
+        {/* Google Analytics */}
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-1CMDLYZF46" />
+        <script dangerouslySetInnerHTML={{ __html: `window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date());gtag('config','G-1CMDLYZF46');` }} />
       </head>
       <body className="font-sora antialiased bg-papel text-grafito dark:text-white">{children}</body>
     </html>
