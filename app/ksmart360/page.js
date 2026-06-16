@@ -1062,7 +1062,6 @@ function PymeView() {
         </div>
       </section>
 
-      <Clients label="Empresas que usan Ksmart360" />
     </>
   );
 }
@@ -1646,7 +1645,6 @@ function TechView() {
         </div>
       </section>
 
-      <Clients label="Empresas que usan Ksmart360" />
     </>
   );
 }
@@ -1892,6 +1890,8 @@ export default function Ksmart360Page() {
           </motion.div>
         )}
       </AnimatePresence>
+
+      <Clients label="Empresas que usan Ksmart360" />
 
       {/* ── Plans (shared) ── */}
       <section id="diferenciales" className="py-24 lg:py-32 bg-papel">

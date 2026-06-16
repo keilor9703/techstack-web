@@ -11,7 +11,7 @@ const projects = [
     screenshot: '/screenshots/pos-ventas.png',
     screenshotAlt: 'Módulo Ventas POS de Ksmart360',
     ctaLabel: 'Probar gratis',
-    ctaHref: 'https://www.appjeylor.com/',
+    ctaHref: 'https://www.techstackcol.com/ksmart360',
     ctaExternal: true,
     badge: { text: 'Producto propio', style: 'azul' },
   },

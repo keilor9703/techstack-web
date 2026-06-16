@@ -64,10 +64,10 @@ export default function Navbar() {
           >
             {/* Icon mark */}
             <svg width="34" height="34" viewBox="0 0 100 100" fill="none" className="flex-shrink-0">
-              <rect width="100" height="100" rx="22" fill={scrolled ? '#2E68E6' : 'rgba(255,255,255,0.15)'}/>
+              <rect width="100" height="100" rx="22" fill="#2E68E6"/>
               <rect x="20" y="22" width="60" height="14" rx="7" fill="white"/>
-              <rect x="20" y="43" width="47" height="14" rx="7" fill={scrolled ? 'rgba(255,255,255,0.75)' : 'rgba(255,255,255,0.75)'}/>
-              <rect x="20" y="64" width="34" height="14" rx="7" fill={scrolled ? 'rgba(255,255,255,0.5)' : 'rgba(255,255,255,0.5)'}/>
+              <rect x="20" y="43" width="47" height="14" rx="7" fill="rgba(255,255,255,0.75)"/>
+              <rect x="20" y="64" width="34" height="14" rx="7" fill="rgba(255,255,255,0.5)"/>
             </svg>
             <div className="flex flex-col leading-none">
               <span className={`font-sora font-bold text-base tracking-tight transition-colors duration-300 ${scrolled ? 'text-grafito dark:text-white' : 'text-white'}`}>

@@ -7,6 +7,7 @@ const navLinks = [
   { label: 'Servicios', href: '#servicios' },
   { label: 'Ksmart360', href: '#ksmart360' },
   { label: 'Portafolio', href: '#portafolio' },
+  { label: 'FAQ', href: '#faq' },
   { label: 'Contacto', href: '#contacto' },
 ];
 
