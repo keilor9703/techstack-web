@@ -135,7 +135,7 @@ export default function Contact() {
               {/* WhatsApp */}
               <motion.a
                 variants={itemVariants}
-                href="https://wa.me/573000000000?text=Hola,%20me%20interesa%20conocer%20más%20sobre%20sus%20servicios"
+                href="https://wa.me/573132354086?text=Hola,%20me%20interesa%20conocer%20más%20sobre%20sus%20servicios"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-center gap-4 group"
