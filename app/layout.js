@@ -31,6 +31,14 @@ export const metadata = {
   ],
   authors: [{ name: 'Tech Stack Colombia S.A.S.' }],
   metadataBase: new URL('https://www.techstackcol.com'),
+  icons: {
+    icon: [
+      { url: '/icon-512.png', sizes: '512x512', type: 'image/png' },
+      { url: '/icon-192.png', sizes: '192x192', type: 'image/png' },
+      { url: '/favicon-32.png', sizes: '32x32', type: 'image/png' },
+    ],
+    apple: [{ url: '/icon-192.png', sizes: '192x192', type: 'image/png' }],
+  },
   openGraph: {
     title: 'Tech Stack Colombia S.A.S. — Software que impulsa tu negocio',
     description: 'Construimos software a medida y Ksmart360, nuestro ERP & POS. Más de 30 empresas colombianas ya digitalizaron su operación con nosotros.',
