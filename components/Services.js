@@ -53,8 +53,14 @@ const itemVariants = {
 
 export default function Services() {
   return (
-    <section id="servicios" className="py-24 lg:py-32 bg-white dark:bg-[#0C0E15]">
-      <div className="max-w-7xl mx-auto px-6 lg:px-8">
+    <section id="servicios" className="py-24 lg:py-32 bg-grafito relative overflow-hidden">
+      {/* Background decorations */}
+      <div className="absolute top-0 left-0 w-[500px] h-[500px] rounded-full blur-3xl opacity-10 pointer-events-none" style={{ background: 'radial-gradient(circle, #7C3AED 0%, transparent 70%)' }} />
+      <div className="absolute bottom-0 right-0 w-[400px] h-[400px] rounded-full blur-3xl opacity-10 pointer-events-none" style={{ background: 'radial-gradient(circle, #2E68E6 0%, transparent 70%)' }} />
+      {/* Dot grid */}
+      <div className="absolute inset-0 opacity-10 pointer-events-none" style={{ backgroundImage: 'radial-gradient(circle, #6A6F7E 1px, transparent 1px)', backgroundSize: '32px 32px' }} />
+
+      <div className="relative max-w-7xl mx-auto px-6 lg:px-8">
         <motion.div
           variants={containerVariants}
           initial="hidden"
@@ -64,13 +70,13 @@ export default function Services() {
         >
           <motion.span
             variants={itemVariants}
-            className="inline-block text-xs font-mono font-medium text-azulStack bg-azulTinte px-3 py-1.5 rounded-full mb-4 tracking-wider uppercase"
+            className="inline-block text-xs font-mono font-medium text-azul bg-azul/15 border border-azul/20 px-3 py-1.5 rounded-full mb-4 tracking-wider uppercase"
           >
             Lo que hacemos
           </motion.span>
           <motion.h2
             variants={itemVariants}
-            className="font-sora font-bold text-4xl lg:text-5xl xl:text-6xl text-grafito dark:text-white leading-tight tracking-tight"
+            className="font-sora font-bold text-4xl lg:text-5xl xl:text-6xl text-white leading-tight tracking-tight"
           >
             Nuestros Servicios
           </motion.h2>
@@ -88,20 +94,20 @@ export default function Services() {
               key={i}
               variants={itemVariants}
               whileHover={{ y: -6, transition: { duration: 0.25 } }}
-              className="group relative bg-papel border border-gray-100 dark:border-white/10 rounded-2xl p-8 hover:border-azulStack/40 hover:shadow-xl hover:shadow-azulStack/8 transition-all duration-300 cursor-default flex flex-col"
+              className="group relative bg-white/5 border border-white/10 rounded-2xl p-8 hover:border-azul/40 hover:bg-white/8 hover:shadow-2xl hover:shadow-azul/10 transition-all duration-300 cursor-default flex flex-col card-gradient-border"
             >
               {service.badge && (
-                <span className="absolute top-6 right-6 text-xs font-semibold font-sora text-azulStack bg-azulTinte px-2.5 py-1 rounded-full">
+                <span className="absolute top-6 right-6 text-xs font-semibold font-sora text-azul bg-azul/15 border border-azul/20 px-2.5 py-1 rounded-full">
                   {service.badge}
                 </span>
               )}
-              <div className="w-12 h-12 bg-azulTinte rounded-xl flex items-center justify-center text-azulStack mb-6 group-hover:bg-azulStack group-hover:text-white transition-all duration-300">
+              <div className="w-12 h-12 rounded-xl flex items-center justify-center text-white mb-6 transition-all duration-300 group-hover:scale-110" style={{ background: 'linear-gradient(135deg, #2E68E6 0%, #7C3AED 100%)' }}>
                 {service.icon}
               </div>
-              <h3 className="font-sora font-semibold text-xl text-grafito dark:text-white mb-3 tracking-tight">
+              <h3 className="font-sora font-semibold text-xl text-white mb-3 tracking-tight">
                 {service.title}
               </h3>
-              <p className="font-sora text-sm text-acero leading-relaxed mb-6 flex-1">
+              <p className="font-sora text-sm text-white/55 leading-relaxed mb-6 flex-1">
                 {service.description}
               </p>
               {service.tags.length > 0 && (
@@ -109,7 +115,7 @@ export default function Services() {
                   {service.tags.map((tag) => (
                     <span
                       key={tag}
-                      className="text-xs font-mono text-acero bg-gray-100 dark:bg-white/10 px-2.5 py-1 rounded-md"
+                      className="text-xs font-mono text-white/50 bg-white/10 px-2.5 py-1 rounded-md"
                     >
                       {tag}
                     </span>
@@ -119,7 +125,7 @@ export default function Services() {
               <a
                 href="#contacto"
                 onClick={(e) => { e.preventDefault(); setTimeout(() => document.querySelector('#contacto')?.scrollIntoView({ behavior: 'smooth' }), 50); }}
-                className="mt-auto inline-flex items-center gap-1.5 text-sm font-semibold text-azulStack font-sora hover:gap-3 transition-all duration-200"
+                className="mt-auto inline-flex items-center gap-1.5 text-sm font-semibold text-azul font-sora hover:gap-3 transition-all duration-200"
               >
                 Solicitar información
                 <svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5} aria-hidden="true">
@@ -139,8 +145,8 @@ export default function Services() {
           className="mt-8 lg:mt-10 relative overflow-hidden rounded-2xl bg-grafito px-8 py-10 lg:px-14 lg:py-12 flex flex-col lg:flex-row items-center lg:items-center gap-8"
         >
           {/* decorative glow */}
-          <div className="pointer-events-none absolute -top-20 -left-20 w-72 h-72 rounded-full bg-azulStack/20 blur-3xl" />
-          <div className="pointer-events-none absolute -bottom-20 -right-20 w-64 h-64 rounded-full bg-azulStack/10 blur-3xl" />
+          <div className="pointer-events-none absolute -top-20 -left-20 w-72 h-72 rounded-full blur-3xl" style={{ background: 'radial-gradient(circle, rgba(46,104,230,0.3) 0%, transparent 70%)' }} />
+          <div className="pointer-events-none absolute -bottom-20 -right-20 w-64 h-64 rounded-full blur-3xl" style={{ background: 'radial-gradient(circle, rgba(124,58,237,0.2) 0%, transparent 70%)' }} />
 
           {/* icon */}
           <div className="relative flex-shrink-0 w-16 h-16 rounded-2xl bg-azulStack/15 border border-azulStack/30 flex items-center justify-center text-azulStack">

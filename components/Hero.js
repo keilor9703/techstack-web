@@ -91,11 +91,17 @@ export default function Hero() {
         }}
       />
 
+      {/* Static violet blob — top right */}
+      <div
+        className="absolute top-0 right-0 w-[600px] h-[600px] rounded-full blur-3xl pointer-events-none opacity-20"
+        style={{ background: 'radial-gradient(circle, #7C3AED 0%, transparent 70%)' }}
+      />
+
       {/* Cursor-reactive gradient blob */}
       <div
         className="absolute w-[700px] h-[700px] rounded-full blur-3xl pointer-events-none transition-all duration-700 ease-out"
         style={{
-          background: 'radial-gradient(circle, rgba(46,104,230,0.15) 0%, transparent 70%)',
+          background: 'radial-gradient(circle, rgba(46,104,230,0.18) 0%, rgba(124,58,237,0.08) 60%, transparent 70%)',
           left: `${mousePos.x}%`,
           top: `${mousePos.y}%`,
           transform: 'translate(-50%, -50%)',
@@ -123,7 +129,7 @@ export default function Hero() {
               className="font-sora font-bold text-4xl sm:text-5xl lg:text-6xl xl:text-7xl 2xl:text-8xl text-white leading-tight tracking-tighter mb-2"
             >
               Tu operación,{' '}
-              <span className="text-azul">digitalizada.</span>
+              <span className="text-gradient">digitalizada.</span>
             </motion.h1>
 
             <motion.p
@@ -203,7 +209,7 @@ export default function Hero() {
               className="w-full max-w-md min-w-0"
             >
               {/* Card */}
-              <div className="bg-[#0D0F16] border border-white/10 rounded-2xl overflow-hidden shadow-2xl shadow-black/40">
+              <div className="bg-[#0D0F16] border border-white/10 rounded-2xl overflow-hidden shadow-2xl shadow-black/40" style={{ boxShadow: '0 0 0 1px rgba(124,58,237,0.15), 0 25px 60px -10px rgba(0,0,0,0.6), 0 0 80px -20px rgba(46,104,230,0.3)' }}>
                 {/* Window bar */}
                 <div className="flex items-center gap-2 px-4 py-3 bg-[#0A0C12] border-b border-white/5">
                   <span className="w-3 h-3 rounded-full bg-red-500/70" />
@@ -248,7 +254,7 @@ export default function Hero() {
       </div>
 
       {/* Bottom fade */}
-      <div className="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-papel to-transparent" />
+      <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-papel to-transparent" />
     </section>
   );
 }

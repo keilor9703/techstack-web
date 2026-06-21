@@ -66,7 +66,8 @@ export default function About() {
             variants={itemVariants}
             className="font-sora font-bold text-4xl lg:text-6xl xl:text-7xl text-grafito dark:text-white leading-tight tracking-tighter mb-6"
           >
-            Construimos. No consultamos.
+            Construimos.{' '}
+            <span className="text-gradient">No consultamos.</span>
           </motion.h2>
           <motion.p
             variants={itemVariants}
@@ -92,7 +93,7 @@ export default function About() {
               variants={itemVariants}
               className="group bg-white dark:bg-[#13161F] border border-gray-100 dark:border-white/10 rounded-2xl p-8 hover:border-azulStack/30 hover:shadow-lg hover:shadow-azulStack/5 transition-all duration-300"
             >
-              <div className="w-12 h-12 bg-azulTinte rounded-xl flex items-center justify-center text-azulStack mb-6 group-hover:bg-azulStack group-hover:text-white transition-all duration-300">
+              <div className="w-12 h-12 rounded-xl flex items-center justify-center text-white mb-6 transition-all duration-300 group-hover:scale-110" style={{ background: 'linear-gradient(135deg, #2E68E6 0%, #7C3AED 100%)' }}>
                 {pillar.icon}
               </div>
               <h3 className="font-sora font-semibold text-lg text-grafito dark:text-white mb-3 tracking-tight">

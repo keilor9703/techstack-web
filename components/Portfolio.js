@@ -84,7 +84,8 @@ export default function Portfolio() {
             variants={itemVariants}
             className="font-sora font-bold text-4xl lg:text-5xl xl:text-6xl text-grafito dark:text-white leading-tight tracking-tight"
           >
-            Ksmart360 y sus capacidades
+            Ksmart360{' '}
+            <span className="text-gradient">y sus capacidades</span>
           </motion.h2>
           <motion.p variants={itemVariants} className="font-sora text-base text-acero mt-4 max-w-2xl mx-auto leading-relaxed">Ksmart360 concentra años de desarrollo especializado. Sus módulos no son productos separados — son capacidades integradas de un mismo sistema construido para el mercado colombiano.</motion.p>
         </motion.div>

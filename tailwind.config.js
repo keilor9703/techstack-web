@@ -16,6 +16,7 @@ module.exports = {
         grafito: '#16181F',
         azul: '#2E68E6',
         azulStack: '#2E68E6',
+        violeta: '#7C3AED',
         acero: 'var(--text-muted)',
         tinte: 'var(--surface-tinte)',
         azulTinte: 'var(--surface-tinte)',
