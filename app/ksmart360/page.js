@@ -118,6 +118,149 @@ const plans = [
   },
 ];
 
+// ─── Plan Cards interactive component ────────────────────────────────────────
+
+function PlanCards({ plans }) {
+  const [selected, setSelected] = useState(null);
+
+  return (
+    <div className="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-5 lg:gap-4 mt-2">
+      {plans.map((plan, i) => {
+        const isSelected = selected === i;
+        const isHighlight = plan.highlight;
+        const isOther = selected !== null && !isSelected && !isHighlight;
+
+        return (
+          <motion.div
+            key={i}
+            initial={{ opacity: 0, y: 32 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5, delay: i * 0.08, ease: [0.22, 1, 0.36, 1] }}
+            whileHover={{ y: -8, scale: isHighlight ? 1.08 : 1.03, transition: { duration: 0.22, ease: 'easeOut' } }}
+            whileTap={{ scale: 0.97 }}
+            onClick={() => setSelected(isSelected ? null : i)}
+            style={
+              isSelected && !isHighlight
+                ? { boxShadow: '0 0 0 2px #2E68E6, 0 20px 40px -8px rgba(46,104,230,0.25)' }
+                : isHighlight
+                ? { boxShadow: '0 20px 50px -10px rgba(46,104,230,0.4)' }
+                : {}
+            }
+            className={`relative rounded-2xl p-6 flex flex-col cursor-pointer select-none transition-opacity duration-300 ${
+              isHighlight
+                ? 'bg-azulStack text-white lg:scale-105'
+                : isSelected
+                ? 'bg-white dark:bg-[#13161F] border-2 border-azulStack'
+                : 'bg-white dark:bg-[#13161F] border border-gray-100 dark:border-white/10'
+            } ${isOther ? 'opacity-50' : 'opacity-100'}`}
+          >
+            {/* Selected checkmark */}
+            <AnimatePresence>
+              {isSelected && !isHighlight && (
+                <motion.div
+                  initial={{ scale: 0, opacity: 0 }}
+                  animate={{ scale: 1, opacity: 1 }}
+                  exit={{ scale: 0, opacity: 0 }}
+                  transition={{ duration: 0.2, ease: 'backOut' }}
+                  className="absolute top-3 right-3 w-6 h-6 bg-azulStack rounded-full flex items-center justify-center"
+                >
+                  <svg width="10" height="10" fill="none" viewBox="0 0 24 24" stroke="white" strokeWidth={3}>
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 12.75l6 6 9-13.5" />
+                  </svg>
+                </motion.div>
+              )}
+            </AnimatePresence>
+
+            {isHighlight && (
+              <div className="absolute -top-3 left-1/2 -translate-x-1/2">
+                <span className="bg-grafito text-white text-xs font-semibold font-sora px-4 py-1.5 rounded-full whitespace-nowrap">
+                  Más elegido
+                </span>
+              </div>
+            )}
+
+            <div className="text-2xl mb-3">{plan.icon}</div>
+            <h3 className={`font-sora font-bold text-base mb-1 ${isHighlight ? 'text-white' : 'text-grafito dark:text-white'}`}>{plan.name}</h3>
+            <div className={`font-sora font-black text-xl mb-0.5 ${isHighlight ? 'text-white' : isSelected ? 'text-azulStack' : 'text-grafito dark:text-white'}`}>{plan.price}</div>
+            <div className={`font-sora text-xs font-medium mb-1 ${isHighlight ? 'text-white/60' : 'text-acero'}`}>{plan.period}</div>
+            {plan.priceNote && (
+              <div className={`font-sora text-[10px] mb-2 ${isHighlight ? 'text-white/50' : 'text-green-600'}`}>{plan.priceNote}</div>
+            )}
+            {!plan.priceNote && <div className="mb-2" />}
+
+            {/* FE badge */}
+            {plan.hasFE ? (
+              <div className={`text-[10px] font-mono font-semibold px-2 py-1 rounded-lg mb-3 text-center ${isHighlight ? 'bg-white/20 text-white' : 'bg-orange-50 dark:bg-orange-500/10 text-orange-600 dark:text-orange-400'}`}>
+                ✅ FE DIAN · {plan.feDocs} docs/mes
+              </div>
+            ) : (
+              <div className={`text-[10px] font-mono font-semibold px-2 py-1 rounded-lg mb-3 text-center ${isHighlight ? 'bg-white/10 text-white/50' : 'bg-gray-50 dark:bg-white/5 text-acero'}`}>
+                Sin FE DIAN
+              </div>
+            )}
+
+            <p className={`font-sora text-xs leading-relaxed mb-4 ${isHighlight ? 'text-white/70' : 'text-acero'}`}>{plan.description}</p>
+
+            <ul className="flex flex-col gap-2 mb-5 flex-1">
+              {plan.features.map((f, j) => (
+                <li key={j} className="flex items-start gap-2">
+                  {f.ok ? (
+                    <span className={`w-4 h-4 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5 ${isHighlight ? 'bg-white/20' : 'bg-azulTinte'}`}>
+                      <svg width="8" height="8" fill="none" viewBox="0 0 24 24" stroke={isHighlight ? 'white' : '#2E68E6'} strokeWidth={3}>
+                        <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 12.75l6 6 9-13.5" />
+                      </svg>
+                    </span>
+                  ) : (
+                    <span className="w-4 h-4 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5 bg-red-50 dark:bg-red-500/10">
+                      <svg width="8" height="8" fill="none" viewBox="0 0 24 24" stroke="#ef4444" strokeWidth={3}>
+                        <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
+                      </svg>
+                    </span>
+                  )}
+                  <span className={`font-sora text-xs leading-tight ${f.ok ? (isHighlight ? 'text-white/80' : 'text-grafito dark:text-white') : 'text-acero line-through'}`}>{f.text}</span>
+                </li>
+              ))}
+            </ul>
+
+            {plan.hasFE && (
+              <div className={`rounded-lg p-2.5 mb-4 text-[10px] font-sora leading-snug ${
+                isHighlight
+                  ? 'bg-white/15 text-white/80'
+                  : 'bg-orange-50 dark:bg-orange-500/10 border border-orange-200 dark:border-orange-500/20 text-orange-700 dark:text-orange-400'
+              }`}>
+                ⚠️ Requiere resolución DIAN y firma digital
+              </div>
+            )}
+
+            <motion.button
+              whileHover={{ scale: 1.03 }}
+              whileTap={{ scale: 0.97 }}
+              onClick={(e) => {
+                e.stopPropagation();
+                if (plan.ctaHref.startsWith('http')) {
+                  window.open(plan.ctaHref, '_blank', 'noopener,noreferrer');
+                } else {
+                  window.location.href = plan.ctaHref;
+                }
+              }}
+              className={`w-full text-center py-2.5 rounded-xl font-sora font-semibold text-sm transition-colors duration-200 cursor-pointer ${
+                isHighlight
+                  ? 'bg-white text-azulStack hover:bg-gray-50'
+                  : isSelected
+                  ? 'bg-azulStack text-white hover:bg-blue-600 shadow-lg shadow-azulStack/30'
+                  : 'bg-azulStack text-white hover:bg-blue-600'
+              }`}
+            >
+              {isSelected && !isHighlight ? '→ Continuar con ' + plan.name : plan.cta}
+            </motion.button>
+          </motion.div>
+        );
+      })}
+    </div>
+  );
+}
+
 // ─── PyME view data ───────────────────────────────────────────────────────────
 
 const pymeDifferentials = [
@@ -2067,121 +2210,47 @@ export default function Ksmart360Page() {
                 </p>
               </div>
               <div className="bg-white dark:bg-[#13161F] border border-gray-100 dark:border-white/10 rounded-2xl overflow-hidden shadow-sm overflow-x-auto">
-                <div className="grid grid-cols-6 text-center text-xs font-sora font-semibold bg-gray-50 dark:bg-white/5 border-b border-gray-100 dark:border-white/10 min-w-[560px]">
-                  <div className="py-3 px-3 text-left text-acero">Período</div>
-                  <div className="py-3 px-2 text-acero">Básico</div>
-                  <div className="py-3 px-2 text-azulStack">Emprendedor</div>
-                  <div className="py-3 px-2 text-azulStack">Comercio ⭐</div>
-                  <div className="py-3 px-2 text-azulStack">Empresarial</div>
-                  <div className="py-3 px-2 text-orange-500">FE docs/mes</div>
-                </div>
-                {[
-                  { label: 'Mensual', discount: null, prices: ['$29.900', '$49.900', '$69.900', '$89.900'], docs: ['—', '100', '200', '350'] },
-                  { label: 'Trimestral', discount: '−10%', prices: ['$26.910', '$44.910', '$62.910', '$80.910'], docs: ['—', '100', '200', '350'] },
-                  { label: 'Anual', discount: '−20%', prices: ['$23.920', '$39.920', '$55.920', '$71.920'], docs: ['—', '100', '200', '350'] },
-                ].map((row, i) => (
-                  <div key={i} className={`grid grid-cols-6 text-center text-sm font-sora border-b border-gray-50 dark:border-white/5 last:border-0 min-w-[560px] ${i % 2 === 1 ? 'bg-gray-50/50 dark:bg-white/5' : ''}`}>
-                    <div className="py-3 px-3 text-left text-acero text-xs">
-                      {row.label}{row.discount && <span className="ml-1 text-green-600 font-medium">{row.discount}</span>}
-                    </div>
-                    {row.prices.map((p, j) => (
-                      <div key={j} className="py-3 px-2 font-semibold text-xs text-grafito dark:text-white">{p}<span className="text-acero font-normal">/mes</span></div>
-                    ))}
-                    {row.docs.map((d, j) => (
-                      <div key={j} className={`py-3 px-2 text-xs font-medium ${d === '—' ? 'text-acero' : 'text-orange-500'}`}>{d}</div>
-                    ))}
+                {/* Header */}
+                <div className="min-w-[560px]">
+                  <div className="grid grid-cols-5 text-center text-xs font-sora font-semibold bg-gray-50 dark:bg-white/5 border-b border-gray-100 dark:border-white/10">
+                    <div className="py-3 px-4 text-left text-acero">Período</div>
+                    <div className="py-3 px-2 text-acero">Básico</div>
+                    <div className="py-3 px-2 text-azulStack">Emprendedor</div>
+                    <div className="py-3 px-2 text-azulStack font-bold">Comercio ⭐</div>
+                    <div className="py-3 px-2 text-azulStack">Empresarial</div>
                   </div>
-                ))}
+                  {/* FE docs sub-header */}
+                  <div className="grid grid-cols-5 text-center text-[10px] font-mono bg-gray-50/60 dark:bg-white/3 border-b border-gray-100 dark:border-white/10">
+                    <div className="py-1.5 px-4 text-left text-acero/50">FE docs/mes</div>
+                    <div className="py-1.5 px-2 text-acero/50">—</div>
+                    <div className="py-1.5 px-2 text-orange-500 font-medium">100 docs</div>
+                    <div className="py-1.5 px-2 text-orange-500 font-bold">200 docs</div>
+                    <div className="py-1.5 px-2 text-orange-500 font-medium">350 docs</div>
+                  </div>
+                  {/* Price rows */}
+                  {[
+                    { label: 'Mensual', discount: null, prices: ['$29.900', '$49.900', '$69.900', '$89.900'] },
+                    { label: 'Trimestral', discount: '−10%', prices: ['$26.910', '$44.910', '$62.910', '$80.910'] },
+                    { label: 'Anual', discount: '−20%', prices: ['$23.920', '$39.920', '$55.920', '$71.920'] },
+                  ].map((row, i) => (
+                    <div key={i} className={`grid grid-cols-5 text-center text-xs font-sora border-b border-gray-50 dark:border-white/5 last:border-0 ${i % 2 === 1 ? 'bg-gray-50/50 dark:bg-white/5' : ''}`}>
+                      <div className="py-3 px-4 text-left text-acero text-xs">
+                        {row.label}{row.discount && <span className="ml-1 text-green-600 font-medium">{row.discount}</span>}
+                      </div>
+                      {row.prices.map((p, j) => (
+                        <div key={j} className={`py-3 px-2 font-semibold text-grafito dark:text-white ${j === 2 ? 'font-bold text-azulStack' : ''}`}>
+                          {p}<span className={`font-normal text-[10px] ${j === 2 ? 'text-azulStack/60' : 'text-acero'}`}>/mes</span>
+                        </div>
+                      ))}
+                    </div>
+                  ))}
+                </div>
               </div>
             </motion.div>
           </Section>
 
-          <Section className="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-5 lg:gap-4">
-            {plans.map((plan, i) => (
-              <motion.div
-                key={i}
-                variants={fadeUp}
-                className={`relative rounded-2xl p-6 flex flex-col ${
-                  plan.highlight
-                    ? 'bg-azulStack text-white shadow-2xl shadow-azulStack/25 lg:scale-105'
-                    : 'bg-white dark:bg-[#13161F] border border-gray-100 dark:border-white/10'
-                }`}
-              >
-                {plan.highlight && (
-                  <div className="absolute -top-3 left-1/2 -translate-x-1/2">
-                    <span className="bg-grafito text-white text-xs font-semibold font-sora px-4 py-1.5 rounded-full whitespace-nowrap">
-                      Más elegido
-                    </span>
-                  </div>
-                )}
-                <div className="text-2xl mb-3">{plan.icon}</div>
-                <h3 className={`font-sora font-bold text-base mb-1 ${plan.highlight ? 'text-white' : 'text-grafito dark:text-white'}`}>{plan.name}</h3>
-                <div className={`font-sora font-black text-xl mb-0.5 ${plan.highlight ? 'text-white' : 'text-grafito dark:text-white'}`}>{plan.price}</div>
-                <div className={`font-sora text-xs font-medium mb-1 ${plan.highlight ? 'text-white/60' : 'text-acero'}`}>{plan.period}</div>
-                {plan.priceNote && (
-                  <div className={`font-sora text-[10px] mb-2 ${plan.highlight ? 'text-white/50' : 'text-green-600'}`}>{plan.priceNote}</div>
-                )}
-                {!plan.priceNote && <div className="mb-2" />}
-                {/* FE badge */}
-                {plan.hasFE ? (
-                  <div className={`text-[10px] font-mono font-semibold px-2 py-1 rounded-lg mb-3 text-center ${plan.highlight ? 'bg-white/20 text-white' : 'bg-orange-50 dark:bg-orange-500/10 text-orange-600 dark:text-orange-400'}`}>
-                    ✅ FE DIAN · {plan.feDocs} docs/mes
-                  </div>
-                ) : (
-                  <div className={`text-[10px] font-mono font-semibold px-2 py-1 rounded-lg mb-3 text-center ${plan.highlight ? 'bg-white/10 text-white/50' : 'bg-gray-50 dark:bg-white/5 text-acero'}`}>
-                    Sin FE DIAN
-                  </div>
-                )}
-                <p className={`font-sora text-xs leading-relaxed mb-4 ${plan.highlight ? 'text-white/70' : 'text-acero'}`}>{plan.description}</p>
-                <ul className="flex flex-col gap-2 mb-5 flex-1">
-                  {plan.features.map((f, j) => (
-                    <li key={j} className="flex items-start gap-2">
-                      {f.ok ? (
-                        <span className={`w-4 h-4 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5 ${plan.highlight ? 'bg-white/20' : 'bg-azulTinte'}`}>
-                          <svg width="8" height="8" fill="none" viewBox="0 0 24 24" stroke={plan.highlight ? 'white' : '#2E68E6'} strokeWidth={3}>
-                            <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 12.75l6 6 9-13.5" />
-                          </svg>
-                        </span>
-                      ) : (
-                        <span className="w-4 h-4 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5 bg-red-50 dark:bg-red-500/10">
-                          <svg width="8" height="8" fill="none" viewBox="0 0 24 24" stroke="#ef4444" strokeWidth={3}>
-                            <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
-                          </svg>
-                        </span>
-                      )}
-                      <span className={`font-sora text-xs leading-tight ${f.ok ? (plan.highlight ? 'text-white/80' : 'text-grafito dark:text-white') : 'text-acero line-through'}`}>{f.text}</span>
-                    </li>
-                  ))}
-                </ul>
-                {/* FE alert for plans with FE */}
-                {plan.hasFE && !plan.highlight && (
-                  <div className="bg-orange-50 dark:bg-orange-500/10 border border-orange-200 dark:border-orange-500/20 rounded-lg p-2.5 mb-4 text-[10px] font-sora text-orange-700 dark:text-orange-400 leading-snug">
-                    ⚠️ Requiere resolución DIAN y firma digital
-                  </div>
-                )}
-                {plan.hasFE && plan.highlight && (
-                  <div className="bg-white/15 rounded-lg p-2.5 mb-4 text-[10px] font-sora text-white/80 leading-snug">
-                    ⚠️ Requiere resolución DIAN y firma digital
-                  </div>
-                )}
-                <button
-                  onClick={() => {
-                    if (plan.ctaHref.startsWith('http')) {
-                      window.open(plan.ctaHref, '_blank', 'noopener,noreferrer');
-                    } else {
-                      window.location.href = plan.ctaHref;
-                    }
-                  }}
-                  className={`w-full text-center py-2.5 rounded-xl font-sora font-semibold text-sm transition-all duration-200 cursor-pointer ${
-                    plan.highlight
-                      ? 'bg-white text-azulStack hover:bg-gray-50'
-                      : 'bg-azulStack text-white hover:bg-blue-600'
-                  }`}
-                >
-                  {plan.cta}
-                </button>
-              </motion.div>
-            ))}
+          <Section>
+            <PlanCards plans={plans} />
           </Section>
 
           <p className="text-center font-sora text-xs text-acero/60 mt-6">
