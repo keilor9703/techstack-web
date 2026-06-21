@@ -22,12 +22,14 @@ const plans = [
     price: 'Gratis',
     period: '14 días',
     description: 'Empieza sin compromiso. Sin tarjeta de crédito.',
+    hasFE: false,
     features: [
       { text: 'Acceso completo a todos los módulos', ok: true },
       { text: 'Sin tarjeta de crédito requerida', ok: true },
       { text: 'Expira automáticamente a los 14 días', ok: true },
       { text: 'Wizard de configuración guiado', ok: true },
       { text: 'Soporte incluido', ok: true },
+      { text: 'Facturación electrónica DIAN', ok: false },
     ],
     cta: 'Empezar gratis',
     highlight: false,
@@ -40,8 +42,9 @@ const plans = [
     period: '/mes',
     priceNote: 'Hasta −20% pagando anual',
     description: 'Todo el sistema. Sin restricciones de módulos.',
+    hasFE: false,
     features: [
-      { text: 'Todos los módulos habilitados según tu negocio', ok: true },
+      { text: 'Todos los módulos según tu negocio', ok: true },
       { text: 'POS clásico y touch, inventario, compras', ok: true },
       { text: 'Contabilidad automática en partida doble', ok: true },
       { text: 'Programa de puntos y fidelización', ok: true },
@@ -54,37 +57,64 @@ const plans = [
     ctaHref: 'https://www.appjeylor.com/',
   },
   {
-    name: 'Pro',
+    name: 'Emprendedor',
     icon: '✨',
     price: '$49.900',
     period: '/mes',
     priceNote: 'Hasta −20% pagando anual',
-    description: 'Para el negocio que ya factura electrónicamente.',
+    description: 'Para el negocio que comienza a facturar electrónicamente.',
+    hasFE: true,
+    feDocs: 100,
     features: [
       { text: 'Todo lo del plan Básico incluido', ok: true },
-      { text: 'Facturación electrónica DIAN (UBL 2.1, CUFE, QR)', ok: true },
-      { text: 'Gestión de resoluciones con alertas de vencimiento', ok: true },
-      { text: 'Soporte prioritario', ok: true },
+      { text: 'Facturación electrónica DIAN (CUFE, QR)', ok: true },
+      { text: 'Hasta 100 documentos FE por mes', ok: true },
+      { text: 'Gestión de resoluciones DIAN', ok: true },
+      { text: 'Soporte estándar', ok: true },
     ],
-    cta: 'Empezar con Pro',
+    cta: 'Empezar con Emprendedor',
+    highlight: false,
+    ctaHref: 'https://www.appjeylor.com/',
+  },
+  {
+    name: 'Comercio',
+    icon: '🏆',
+    price: '$69.900',
+    period: '/mes',
+    priceNote: 'Hasta −20% pagando anual',
+    description: 'El plan más elegido. Ideal para negocios en pleno crecimiento.',
+    hasFE: true,
+    feDocs: 200,
+    features: [
+      { text: 'Todo lo del plan Emprendedor incluido', ok: true },
+      { text: 'Hasta 200 documentos FE por mes', ok: true },
+      { text: 'Alertas de vencimiento de resoluciones', ok: true },
+      { text: 'Soporte prioritario', ok: true },
+      { text: 'Reportes financieros avanzados', ok: true },
+    ],
+    cta: 'Empezar con Comercio',
     highlight: true,
     ctaHref: 'https://www.appjeylor.com/',
   },
   {
-    name: 'Vitalicio',
-    icon: '♾️',
-    price: 'Pago único',
-    period: 'sin vencimiento',
-    description: 'Acceso permanente sin pagos recurrentes. Para alianzas y casos especiales — contáctanos para evaluar tu caso.',
+    name: 'Empresarial',
+    icon: '🏢',
+    price: '$89.900',
+    period: '/mes',
+    priceNote: 'Hasta −20% pagando anual',
+    description: 'Para operaciones de alto volumen con máxima capacidad FE.',
+    hasFE: true,
+    feDocs: 350,
     features: [
-      { text: 'Todos los beneficios del plan Pro', ok: true },
-      { text: 'Sin pagos recurrentes nunca', ok: true },
-      { text: 'Asignación por SuperAdmin', ok: true },
-      { text: 'Ideal para integradores o aliados', ok: true },
+      { text: 'Todo lo del plan Comercio incluido', ok: true },
+      { text: 'Hasta 350 documentos FE por mes', ok: true },
+      { text: 'Onboarding personalizado', ok: true },
+      { text: 'Soporte dedicado', ok: true },
+      { text: 'Acceso anticipado a nuevas funciones', ok: true },
     ],
-    cta: 'Solicitar cotización',
+    cta: 'Empezar con Empresarial',
     highlight: false,
-    ctaHref: '/#contacto',
+    ctaHref: 'https://www.appjeylor.com/',
   },
 ];
 
@@ -1893,6 +1923,126 @@ export default function Ksmart360Page() {
 
       <Clients label="Empresas que usan Ksmart360" />
 
+      {/* ── Factura Electrónica educativa (shared) ── */}
+      <section className="py-20 lg:py-28 bg-white dark:bg-[#0C0E15]">
+        <div className="max-w-7xl mx-auto px-6 lg:px-8">
+          <Section className="text-center mb-12">
+            <motion.span variants={fadeUp} className="inline-block text-xs font-mono font-medium text-orange-600 bg-orange-50 dark:bg-orange-500/10 px-3 py-1.5 rounded-full mb-4 tracking-wider uppercase">
+              Obligatoriedad DIAN
+            </motion.span>
+            <motion.h2 variants={fadeUp} className="font-sora font-bold text-3xl lg:text-5xl text-grafito dark:text-white leading-tight tracking-tight">
+              ¿Por qué la Factura Electrónica<br className="hidden lg:block" /> es obligatoria en Colombia?
+            </motion.h2>
+            <motion.p variants={fadeUp} className="font-sora text-base text-acero mt-4 max-w-2xl mx-auto leading-relaxed">
+              Desde 2019, la DIAN exige que todas las empresas y personas naturales con actividad económica emitan sus facturas en formato electrónico validado. No es una opción — es un requisito legal.
+            </motion.p>
+          </Section>
+
+          {/* Normativa cards */}
+          <Section className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5 mb-12">
+            {[
+              {
+                label: 'Ley 1943 / 2018',
+                icon: '📜',
+                desc: 'Ley de Financiamiento que estableció la obligatoriedad de la factura electrónica como instrumento de control fiscal para todos los obligados a facturar.',
+              },
+              {
+                label: 'Decreto 2242 / 2015',
+                icon: '⚖️',
+                desc: 'Reglamentó las condiciones técnicas de la factura electrónica: formato UBL 2.1, firma digital, código CUFE y transmisión al sistema de la DIAN.',
+              },
+              {
+                label: 'Resolución 000165 / 2023',
+                icon: '📋',
+                desc: 'Actualización más reciente de la DIAN con los requisitos técnicos vigentes para la validación previa de documentos electrónicos equivalentes (DEE).',
+              },
+              {
+                label: 'Regla de 5 UVT',
+                icon: '💰',
+                desc: 'Ventas de menos de 5 UVT ($261.030 COP en 2024) pueden emitirse como Tiquete POS (DEE con CUDE) en lugar de factura electrónica con CUFE.',
+              },
+            ].map((item, i) => (
+              <motion.div key={i} variants={fadeUp} className="bg-papel dark:bg-[#13161F] border border-gray-100 dark:border-white/10 rounded-2xl p-6">
+                <div className="text-3xl mb-3">{item.icon}</div>
+                <h3 className="font-sora font-bold text-sm text-grafito dark:text-white mb-2">{item.label}</h3>
+                <p className="font-sora text-xs text-acero leading-relaxed">{item.desc}</p>
+              </motion.div>
+            ))}
+          </Section>
+
+          {/* FE vs Tiquete POS */}
+          <Section className="mb-12">
+            <motion.div variants={fadeUp} className="max-w-3xl mx-auto">
+              <div className="bg-papel dark:bg-[#13161F] border border-gray-100 dark:border-white/10 rounded-2xl overflow-hidden shadow-sm">
+                <div className="grid grid-cols-3 text-center text-xs font-sora font-semibold bg-gray-50 dark:bg-white/5 border-b border-gray-100 dark:border-white/10">
+                  <div className="py-3 px-4 text-left text-acero">Documento</div>
+                  <div className="py-3 px-4 text-azulStack">Factura Electrónica</div>
+                  <div className="py-3 px-4 text-orange-500">Tiquete POS (DEE)</div>
+                </div>
+                {[
+                  ['Código', 'CUFE', 'CUDE'],
+                  ['Cuándo usarla', 'Toda venta ≥ 5 UVT', 'Ventas < 5 UVT ($261.030)'],
+                  ['Resolución DIAN', 'Requerida', 'Requerida'],
+                  ['Firma digital', 'Sí', 'Sí'],
+                ].map(([label, fe, pos], i) => (
+                  <div key={i} className={`grid grid-cols-3 text-center text-sm font-sora ${i % 2 === 1 ? 'bg-gray-50/50 dark:bg-white/5' : ''} border-b border-gray-50 dark:border-white/5 last:border-0`}>
+                    <div className="py-3 px-4 text-left text-acero text-xs">{label}</div>
+                    <div className="py-3 px-4 text-xs font-medium text-grafito dark:text-white">{fe}</div>
+                    <div className="py-3 px-4 text-xs font-medium text-grafito dark:text-white">{pos}</div>
+                  </div>
+                ))}
+              </div>
+            </motion.div>
+          </Section>
+
+          {/* Requisitos para activar FE en Ksmart360 */}
+          <Section className="mb-12">
+            <motion.div variants={fadeUp} className="max-w-3xl mx-auto">
+              <h3 className="font-sora font-bold text-lg text-grafito dark:text-white text-center mb-6">
+                Requisitos para activar FE en Ksmart360
+              </h3>
+              <div className="grid sm:grid-cols-2 gap-4">
+                {[
+                  { icon: '🏢', title: 'RUT activo con actividad económica', desc: 'Tu empresa o persona natural debe estar inscrita en el RUT con la actividad que corresponde.' },
+                  { icon: '📄', title: 'Resolución de facturación DIAN', desc: 'Número de resolución habilitante, prefijo y rango de numeración autorizado por la DIAN.' },
+                  { icon: '🔑', title: 'Firma digital (certificado)', desc: 'Certificado de firma electrónica vigente emitido por una entidad certificadora habilitada por la ONAC.' },
+                  { icon: '🧾', title: 'Set de pruebas DIAN aprobado', desc: 'Antes de operar en producción, la DIAN exige enviar y aprobar un set de documentos de prueba.' },
+                ].map((req, i) => (
+                  <div key={i} className="flex gap-4 bg-papel dark:bg-[#13161F] border border-gray-100 dark:border-white/10 rounded-xl p-4">
+                    <div className="text-2xl flex-shrink-0">{req.icon}</div>
+                    <div>
+                      <p className="font-sora font-semibold text-sm text-grafito dark:text-white mb-1">{req.title}</p>
+                      <p className="font-sora text-xs text-acero leading-relaxed">{req.desc}</p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </motion.div>
+          </Section>
+
+          {/* CTA verde */}
+          <Section>
+            <motion.div variants={fadeUp} className="max-w-2xl mx-auto bg-green-50 dark:bg-green-500/10 border border-green-200 dark:border-green-500/20 rounded-2xl p-8 text-center">
+              <div className="text-3xl mb-3">✅</div>
+              <h3 className="font-sora font-bold text-lg text-grafito dark:text-white mb-2">Ksmart360 lo hace automáticamente</h3>
+              <p className="font-sora text-sm text-acero leading-relaxed mb-6">
+                Una vez tienes tu resolución DIAN y tu firma digital, Ksmart360 genera, firma y transmite cada documento electrónico en segundos — sin software adicional, sin procesos manuales.
+              </p>
+              <a
+                href="#diferenciales"
+                onClick={(e) => { e.preventDefault(); document.querySelector('#diferenciales')?.scrollIntoView({ behavior: 'smooth' }); }}
+                className="inline-flex items-center gap-2 bg-azulStack text-white font-sora font-semibold text-sm px-6 py-3 rounded-xl hover:bg-blue-600 transition-colors duration-200"
+              >
+                Ver planes con FE incluida
+                <svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
+                </svg>
+              </a>
+            </motion.div>
+          </Section>
+        </div>
+      </section>
+
       {/* ── Plans (shared) ── */}
       <section id="diferenciales" className="py-24 lg:py-32 bg-papel">
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
@@ -1910,43 +2060,48 @@ export default function Ksmart360Page() {
 
           {/* Filosofía + tabla de precios */}
           <Section className="mb-12">
-            <motion.div variants={fadeUp} className="max-w-3xl mx-auto">
+            <motion.div variants={fadeUp} className="max-w-4xl mx-auto">
               <div className="bg-azulTinte border border-azulStack/20 rounded-2xl p-6 mb-6 text-center">
                 <p className="font-sora text-sm text-grafito dark:text-white/80 leading-relaxed">
-                  <span className="font-bold text-azulStack">Filosofía:</span> todas las funcionalidades del sistema están disponibles en ambos planes. La diferencia es el volumen de operación y la <strong>facturación electrónica DIAN</strong>.
+                  <span className="font-bold text-azulStack">Filosofía:</span> todos los módulos del sistema están disponibles en todos los planes. La diferencia es la <strong>facturación electrónica DIAN</strong> y el volumen de documentos mensuales.
                 </p>
               </div>
-              <div className="bg-white dark:bg-[#13161F] border border-gray-100 dark:border-white/10 rounded-2xl overflow-hidden shadow-sm">
-                <div className="grid grid-cols-3 text-center text-xs font-sora font-semibold bg-gray-50 dark:bg-white/5 border-b border-gray-100 dark:border-white/10">
-                  <div className="py-3 px-4 text-left text-acero">Período</div>
-                  <div className="py-3 px-4 text-azulStack">Básico</div>
-                  <div className="py-3 px-4 text-azulStack">Pro</div>
+              <div className="bg-white dark:bg-[#13161F] border border-gray-100 dark:border-white/10 rounded-2xl overflow-hidden shadow-sm overflow-x-auto">
+                <div className="grid grid-cols-6 text-center text-xs font-sora font-semibold bg-gray-50 dark:bg-white/5 border-b border-gray-100 dark:border-white/10 min-w-[560px]">
+                  <div className="py-3 px-3 text-left text-acero">Período</div>
+                  <div className="py-3 px-2 text-acero">Básico</div>
+                  <div className="py-3 px-2 text-azulStack">Emprendedor</div>
+                  <div className="py-3 px-2 text-azulStack">Comercio ⭐</div>
+                  <div className="py-3 px-2 text-azulStack">Empresarial</div>
+                  <div className="py-3 px-2 text-orange-500">FE docs/mes</div>
                 </div>
-                <div className="grid grid-cols-3 text-center text-sm font-sora border-b border-gray-50 dark:border-white/5">
-                  <div className="py-3 px-4 text-left text-acero text-xs">Mensual</div>
-                  <div className="py-3 px-4 font-semibold text-grafito dark:text-white">$29.900<span className="text-acero font-normal text-xs">/mes</span></div>
-                  <div className="py-3 px-4 font-semibold text-grafito dark:text-white">$49.900<span className="text-acero font-normal text-xs">/mes</span></div>
-                </div>
-                <div className="grid grid-cols-3 text-center text-sm font-sora border-b border-gray-50 dark:border-white/5 bg-gray-50/50 dark:bg-white/5">
-                  <div className="py-3 px-4 text-left text-acero text-xs">Trimestral <span className="text-green-600 font-medium">−10%</span></div>
-                  <div className="py-3 px-4 font-semibold text-grafito dark:text-white">$26.910<span className="text-acero font-normal text-xs">/mes</span></div>
-                  <div className="py-3 px-4 font-semibold text-grafito dark:text-white">$44.910<span className="text-acero font-normal text-xs">/mes</span></div>
-                </div>
-                <div className="grid grid-cols-3 text-center text-sm font-sora">
-                  <div className="py-3 px-4 text-left text-acero text-xs">Anual <span className="text-green-600 font-medium">−20%</span></div>
-                  <div className="py-3 px-4 font-semibold text-grafito dark:text-white">$23.920<span className="text-acero font-normal text-xs">/mes</span></div>
-                  <div className="py-3 px-4 font-semibold text-grafito dark:text-white">$39.920<span className="text-acero font-normal text-xs">/mes</span></div>
-                </div>
+                {[
+                  { label: 'Mensual', discount: null, prices: ['$29.900', '$49.900', '$69.900', '$89.900'], docs: ['—', '100', '200', '350'] },
+                  { label: 'Trimestral', discount: '−10%', prices: ['$26.910', '$44.910', '$62.910', '$80.910'], docs: ['—', '100', '200', '350'] },
+                  { label: 'Anual', discount: '−20%', prices: ['$23.920', '$39.920', '$55.920', '$71.920'], docs: ['—', '100', '200', '350'] },
+                ].map((row, i) => (
+                  <div key={i} className={`grid grid-cols-6 text-center text-sm font-sora border-b border-gray-50 dark:border-white/5 last:border-0 min-w-[560px] ${i % 2 === 1 ? 'bg-gray-50/50 dark:bg-white/5' : ''}`}>
+                    <div className="py-3 px-3 text-left text-acero text-xs">
+                      {row.label}{row.discount && <span className="ml-1 text-green-600 font-medium">{row.discount}</span>}
+                    </div>
+                    {row.prices.map((p, j) => (
+                      <div key={j} className="py-3 px-2 font-semibold text-xs text-grafito dark:text-white">{p}<span className="text-acero font-normal">/mes</span></div>
+                    ))}
+                    {row.docs.map((d, j) => (
+                      <div key={j} className={`py-3 px-2 text-xs font-medium ${d === '—' ? 'text-acero' : 'text-orange-500'}`}>{d}</div>
+                    ))}
+                  </div>
+                ))}
               </div>
             </motion.div>
           </Section>
 
-          <Section className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5 lg:gap-6">
+          <Section className="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-5 lg:gap-4">
             {plans.map((plan, i) => (
               <motion.div
                 key={i}
                 variants={fadeUp}
-                className={`relative rounded-2xl p-7 flex flex-col ${
+                className={`relative rounded-2xl p-6 flex flex-col ${
                   plan.highlight
                     ? 'bg-azulStack text-white shadow-2xl shadow-azulStack/25 lg:scale-105'
                     : 'bg-white dark:bg-[#13161F] border border-gray-100 dark:border-white/10'
@@ -1959,16 +2114,26 @@ export default function Ksmart360Page() {
                     </span>
                   </div>
                 )}
-                <div className="text-3xl mb-3">{plan.icon}</div>
-                <h3 className={`font-sora font-bold text-lg mb-1 ${plan.highlight ? 'text-white' : 'text-grafito dark:text-white'}`}>{plan.name}</h3>
-                <div className={`font-sora font-black text-2xl mb-0.5 ${plan.highlight ? 'text-white' : 'text-grafito dark:text-white'}`}>{plan.price}</div>
+                <div className="text-2xl mb-3">{plan.icon}</div>
+                <h3 className={`font-sora font-bold text-base mb-1 ${plan.highlight ? 'text-white' : 'text-grafito dark:text-white'}`}>{plan.name}</h3>
+                <div className={`font-sora font-black text-xl mb-0.5 ${plan.highlight ? 'text-white' : 'text-grafito dark:text-white'}`}>{plan.price}</div>
                 <div className={`font-sora text-xs font-medium mb-1 ${plan.highlight ? 'text-white/60' : 'text-acero'}`}>{plan.period}</div>
                 {plan.priceNote && (
-                  <div className={`font-sora text-[10px] mb-3 ${plan.highlight ? 'text-white/50' : 'text-green-600'}`}>{plan.priceNote}</div>
+                  <div className={`font-sora text-[10px] mb-2 ${plan.highlight ? 'text-white/50' : 'text-green-600'}`}>{plan.priceNote}</div>
                 )}
-                {!plan.priceNote && <div className="mb-3" />}
-                <p className={`font-sora text-xs leading-relaxed mb-5 ${plan.highlight ? 'text-white/70' : 'text-acero'}`}>{plan.description}</p>
-                <ul className="flex flex-col gap-2 mb-7 flex-1">
+                {!plan.priceNote && <div className="mb-2" />}
+                {/* FE badge */}
+                {plan.hasFE ? (
+                  <div className={`text-[10px] font-mono font-semibold px-2 py-1 rounded-lg mb-3 text-center ${plan.highlight ? 'bg-white/20 text-white' : 'bg-orange-50 dark:bg-orange-500/10 text-orange-600 dark:text-orange-400'}`}>
+                    ✅ FE DIAN · {plan.feDocs} docs/mes
+                  </div>
+                ) : (
+                  <div className={`text-[10px] font-mono font-semibold px-2 py-1 rounded-lg mb-3 text-center ${plan.highlight ? 'bg-white/10 text-white/50' : 'bg-gray-50 dark:bg-white/5 text-acero'}`}>
+                    Sin FE DIAN
+                  </div>
+                )}
+                <p className={`font-sora text-xs leading-relaxed mb-4 ${plan.highlight ? 'text-white/70' : 'text-acero'}`}>{plan.description}</p>
+                <ul className="flex flex-col gap-2 mb-5 flex-1">
                   {plan.features.map((f, j) => (
                     <li key={j} className="flex items-start gap-2">
                       {f.ok ? (
@@ -1978,7 +2143,7 @@ export default function Ksmart360Page() {
                           </svg>
                         </span>
                       ) : (
-                        <span className="w-4 h-4 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5 bg-red-50">
+                        <span className="w-4 h-4 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5 bg-red-50 dark:bg-red-500/10">
                           <svg width="8" height="8" fill="none" viewBox="0 0 24 24" stroke="#ef4444" strokeWidth={3}>
                             <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
                           </svg>
@@ -1988,6 +2153,17 @@ export default function Ksmart360Page() {
                     </li>
                   ))}
                 </ul>
+                {/* FE alert for plans with FE */}
+                {plan.hasFE && !plan.highlight && (
+                  <div className="bg-orange-50 dark:bg-orange-500/10 border border-orange-200 dark:border-orange-500/20 rounded-lg p-2.5 mb-4 text-[10px] font-sora text-orange-700 dark:text-orange-400 leading-snug">
+                    ⚠️ Requiere resolución DIAN y firma digital
+                  </div>
+                )}
+                {plan.hasFE && plan.highlight && (
+                  <div className="bg-white/15 rounded-lg p-2.5 mb-4 text-[10px] font-sora text-white/80 leading-snug">
+                    ⚠️ Requiere resolución DIAN y firma digital
+                  </div>
+                )}
                 <button
                   onClick={() => {
                     if (plan.ctaHref.startsWith('http')) {
@@ -1996,7 +2172,7 @@ export default function Ksmart360Page() {
                       window.location.href = plan.ctaHref;
                     }
                   }}
-                  className={`w-full text-center py-3 rounded-xl font-sora font-semibold text-sm transition-all duration-200 cursor-pointer ${
+                  className={`w-full text-center py-2.5 rounded-xl font-sora font-semibold text-sm transition-all duration-200 cursor-pointer ${
                     plan.highlight
                       ? 'bg-white text-azulStack hover:bg-gray-50'
                       : 'bg-azulStack text-white hover:bg-blue-600'
@@ -2012,12 +2188,11 @@ export default function Ksmart360Page() {
             Sin permanencia · Cancela cuando quieras · Sin tarjeta de crédito para el período de prueba
           </p>
 
-          {/* ¿Por qué Pro? */}
+          {/* ¿Cuál plan elegir? */}
           <Section className="mt-10">
             <motion.div variants={fadeUp} className="max-w-2xl mx-auto bg-white dark:bg-[#13161F] border border-gray-100 dark:border-white/10 rounded-2xl p-6 text-center shadow-sm">
               <p className="font-sora text-sm text-grafito dark:text-white leading-relaxed">
-                <span className="font-bold">¿Por qué Pro?</span> Solo si tu negocio está obligado a emitir factura electrónica ante la DIAN. Si no, el plan Básico tiene <strong>todo lo que necesitas</strong> — sin restricciones.{' '}
-                <span className="text-azulStack font-medium">¿Facturas electrónicamente? Sí → Pro. No → Básico.</span>
+                <span className="font-bold">¿Cuál plan elegir?</span> Si no necesitas factura electrónica, el plan <strong>Básico</strong> tiene todo. Si facturas electrónicamente, elige según tu volumen mensual: <span className="text-azulStack font-medium">Emprendedor (100), Comercio (200) o Empresarial (350 docs/mes)</span>.
               </p>
             </motion.div>
           </Section>
