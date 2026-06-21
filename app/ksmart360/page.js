@@ -120,6 +120,179 @@ const plans = [
 
 // ─── Plan Cards interactive component ────────────────────────────────────────
 
+const pricingData = {
+  mensual: {
+    label: 'Mensual',
+    multiplier: 1,
+    suffix: '/mes',
+    totalLabel: null,
+    savings: null,
+    cols: [
+      { plan: 'Básico', fe: false, docs: null, monthly: 29900 },
+      { plan: 'Emprendedor', fe: true, docs: 100, monthly: 49900 },
+      { plan: 'Comercio', fe: true, docs: 200, monthly: 69900, highlight: true },
+      { plan: 'Empresarial', fe: true, docs: 350, monthly: 89900 },
+    ],
+  },
+  trimestral: {
+    label: 'Trimestral',
+    multiplier: 3,
+    discount: 0.1,
+    suffix: '/mes',
+    totalLabel: 'Total cada 3 meses',
+    cols: [
+      { plan: 'Básico', fe: false, docs: null, monthly: 29900 },
+      { plan: 'Emprendedor', fe: true, docs: 100, monthly: 49900 },
+      { plan: 'Comercio', fe: true, docs: 200, monthly: 69900, highlight: true },
+      { plan: 'Empresarial', fe: true, docs: 350, monthly: 89900 },
+    ],
+  },
+  anual: {
+    label: 'Anual',
+    multiplier: 12,
+    discount: 0.2,
+    suffix: '/mes',
+    totalLabel: 'Total al año (1 pago)',
+    cols: [
+      { plan: 'Básico', fe: false, docs: null, monthly: 29900 },
+      { plan: 'Emprendedor', fe: true, docs: 100, monthly: 49900 },
+      { plan: 'Comercio', fe: true, docs: 200, monthly: 69900, highlight: true },
+      { plan: 'Empresarial', fe: true, docs: 350, monthly: 89900 },
+    ],
+  },
+};
+
+function fmt(n) {
+  return '$' + Math.round(n).toLocaleString('es-CO').replace(/\./g, '.');
+}
+
+function PricingTable() {
+  const [tab, setTab] = useState('mensual');
+  const period = pricingData[tab];
+  const disc = period.discount ?? 0;
+
+  const tabs = [
+    { key: 'mensual', label: 'Mensual' },
+    { key: 'trimestral', label: 'Trimestral', badge: '−10%' },
+    { key: 'anual', label: 'Anual', badge: '−20%' },
+  ];
+
+  return (
+    <div className="bg-white dark:bg-[#13161F] border border-gray-100 dark:border-white/10 rounded-2xl overflow-hidden shadow-sm">
+      {/* Tabs */}
+      <div className="flex items-center gap-1 p-2 bg-gray-50 dark:bg-white/5 border-b border-gray-100 dark:border-white/10">
+        {tabs.map((t) => (
+          <button
+            key={t.key}
+            onClick={() => setTab(t.key)}
+            className={`flex items-center gap-1.5 px-4 py-2 rounded-lg text-xs font-sora font-semibold transition-all duration-200 ${
+              tab === t.key
+                ? 'bg-azulStack text-white shadow-sm'
+                : 'text-acero hover:text-grafito dark:hover:text-white hover:bg-gray-100 dark:hover:bg-white/10'
+            }`}
+          >
+            {t.label}
+            {t.badge && (
+              <span className={`text-[10px] font-mono px-1.5 py-0.5 rounded-full ${
+                tab === t.key ? 'bg-white/20 text-white' : 'bg-green-100 dark:bg-green-500/20 text-green-600 dark:text-green-400'
+              }`}>
+                {t.badge}
+              </span>
+            )}
+          </button>
+        ))}
+      </div>
+
+      {/* Table */}
+      <div className="overflow-x-auto">
+        <div className="min-w-[500px]">
+          {/* Plan headers */}
+          <div className="grid grid-cols-5 text-center text-xs font-sora font-semibold border-b border-gray-100 dark:border-white/10">
+            <div className="py-3 px-4 text-left text-acero"></div>
+            {period.cols.map((col, i) => (
+              <div key={i} className={`py-3 px-2 ${col.highlight ? 'text-azulStack font-bold' : 'text-acero'}`}>
+                {col.plan}
+                {col.highlight && <span className="ml-1">⭐</span>}
+              </div>
+            ))}
+          </div>
+
+          {/* FE docs row */}
+          <div className="grid grid-cols-5 text-center text-[10px] font-mono bg-gray-50/40 dark:bg-white/3 border-b border-gray-100 dark:border-white/10">
+            <div className="py-2 px-4 text-left text-acero/60 font-sora">FE docs/mes</div>
+            {period.cols.map((col, i) => (
+              <div key={i} className={col.fe ? 'py-2 px-2 text-orange-500 font-medium' : 'py-2 px-2 text-acero/40'}>
+                {col.fe ? `${col.docs} docs` : '—'}
+              </div>
+            ))}
+          </div>
+
+          {/* Price per month row */}
+          <div className="grid grid-cols-5 text-center text-xs font-sora border-b border-gray-100 dark:border-white/10">
+            <div className="py-4 px-4 text-left">
+              <div className="text-acero text-xs font-medium">Precio/mes</div>
+              {disc > 0 && <div className="text-green-600 text-[10px] font-mono">con {Math.round(disc * 100)}% dto.</div>}
+            </div>
+            {period.cols.map((col, i) => {
+              const monthly = col.monthly * (1 - disc);
+              return (
+                <div key={i} className={`py-4 px-2 ${col.highlight ? 'bg-azulStack/5 dark:bg-azulStack/10' : ''}`}>
+                  <div className={`font-black text-lg leading-none ${col.highlight ? 'text-azulStack' : 'text-grafito dark:text-white'}`}>
+                    {fmt(monthly)}
+                  </div>
+                  <div className="text-acero text-[10px] mt-0.5">/mes</div>
+                </div>
+              );
+            })}
+          </div>
+
+          {/* Total to pay row */}
+          {period.totalLabel && (
+            <div className="grid grid-cols-5 text-center text-xs font-sora">
+              <div className="py-4 px-4 text-left">
+                <div className="text-grafito dark:text-white font-semibold text-xs">{period.totalLabel}</div>
+                {disc > 0 && (
+                  <div className="text-green-600 text-[10px] font-mono mt-0.5">
+                    Ahorras {Math.round(disc * 100)}% vs mensual
+                  </div>
+                )}
+              </div>
+              {period.cols.map((col, i) => {
+                const total = col.monthly * (1 - disc) * period.multiplier;
+                const saved = col.monthly * disc * period.multiplier;
+                return (
+                  <div key={i} className={`py-4 px-2 ${col.highlight ? 'bg-azulStack/5 dark:bg-azulStack/10' : ''}`}>
+                    <div className={`font-bold text-base leading-none ${col.highlight ? 'text-azulStack' : 'text-grafito dark:text-white'}`}>
+                      {fmt(total)}
+                    </div>
+                    {saved > 0 && (
+                      <div className="text-green-600 text-[10px] font-mono mt-0.5">
+                        ahorras {fmt(saved)}
+                      </div>
+                    )}
+                  </div>
+                );
+              })}
+            </div>
+          )}
+
+          {/* Mensual — just show a note */}
+          {!period.totalLabel && (
+            <div className="grid grid-cols-5 text-center text-xs font-sora">
+              <div className="py-3 px-4 text-left text-acero text-[10px]">Pago mensual</div>
+              {period.cols.map((col, i) => (
+                <div key={i} className={`py-3 px-2 text-[10px] text-acero ${col.highlight ? 'bg-azulStack/5 dark:bg-azulStack/10' : ''}`}>
+                  cada mes
+                </div>
+              ))}
+            </div>
+          )}
+        </div>
+      </div>
+    </div>
+  );
+}
+
 function PlanCards({ plans }) {
   const [selected, setSelected] = useState(null);
 
@@ -2201,7 +2374,7 @@ export default function Ksmart360Page() {
             </motion.p>
           </Section>
 
-          {/* Filosofía + tabla de precios */}
+          {/* Filosofía + tabla de precios con tabs */}
           <Section className="mb-12">
             <motion.div variants={fadeUp} className="max-w-4xl mx-auto">
               <div className="bg-azulTinte border border-azulStack/20 rounded-2xl p-6 mb-6 text-center">
@@ -2209,43 +2382,7 @@ export default function Ksmart360Page() {
                   <span className="font-bold text-azulStack">Filosofía:</span> todos los módulos del sistema están disponibles en todos los planes. La diferencia es la <strong>facturación electrónica DIAN</strong> y el volumen de documentos mensuales.
                 </p>
               </div>
-              <div className="bg-white dark:bg-[#13161F] border border-gray-100 dark:border-white/10 rounded-2xl overflow-hidden shadow-sm overflow-x-auto">
-                {/* Header */}
-                <div className="min-w-[560px]">
-                  <div className="grid grid-cols-5 text-center text-xs font-sora font-semibold bg-gray-50 dark:bg-white/5 border-b border-gray-100 dark:border-white/10">
-                    <div className="py-3 px-4 text-left text-acero">Período</div>
-                    <div className="py-3 px-2 text-acero">Básico</div>
-                    <div className="py-3 px-2 text-azulStack">Emprendedor</div>
-                    <div className="py-3 px-2 text-azulStack font-bold">Comercio ⭐</div>
-                    <div className="py-3 px-2 text-azulStack">Empresarial</div>
-                  </div>
-                  {/* FE docs sub-header */}
-                  <div className="grid grid-cols-5 text-center text-[10px] font-mono bg-gray-50/60 dark:bg-white/3 border-b border-gray-100 dark:border-white/10">
-                    <div className="py-1.5 px-4 text-left text-acero/50">FE docs/mes</div>
-                    <div className="py-1.5 px-2 text-acero/50">—</div>
-                    <div className="py-1.5 px-2 text-orange-500 font-medium">100 docs</div>
-                    <div className="py-1.5 px-2 text-orange-500 font-bold">200 docs</div>
-                    <div className="py-1.5 px-2 text-orange-500 font-medium">350 docs</div>
-                  </div>
-                  {/* Price rows */}
-                  {[
-                    { label: 'Mensual', discount: null, prices: ['$29.900', '$49.900', '$69.900', '$89.900'] },
-                    { label: 'Trimestral', discount: '−10%', prices: ['$26.910', '$44.910', '$62.910', '$80.910'] },
-                    { label: 'Anual', discount: '−20%', prices: ['$23.920', '$39.920', '$55.920', '$71.920'] },
-                  ].map((row, i) => (
-                    <div key={i} className={`grid grid-cols-5 text-center text-xs font-sora border-b border-gray-50 dark:border-white/5 last:border-0 ${i % 2 === 1 ? 'bg-gray-50/50 dark:bg-white/5' : ''}`}>
-                      <div className="py-3 px-4 text-left text-acero text-xs">
-                        {row.label}{row.discount && <span className="ml-1 text-green-600 font-medium">{row.discount}</span>}
-                      </div>
-                      {row.prices.map((p, j) => (
-                        <div key={j} className={`py-3 px-2 font-semibold text-grafito dark:text-white ${j === 2 ? 'font-bold text-azulStack' : ''}`}>
-                          {p}<span className={`font-normal text-[10px] ${j === 2 ? 'text-azulStack/60' : 'text-acero'}`}>/mes</span>
-                        </div>
-                      ))}
-                    </div>
-                  ))}
-                </div>
-              </div>
+              <PricingTable />
             </motion.div>
           </Section>
 
