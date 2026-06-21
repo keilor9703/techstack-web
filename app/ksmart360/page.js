@@ -1150,7 +1150,7 @@ function PymeView() {
                     <span className="w-3 h-3 rounded-full bg-green-500" />
                     <span className="ml-3 text-white/30 text-xs font-mono">appjeylor.com/calzadoeya</span>
                   </div>
-                  <img src="/screenshots/catalogo-eya.png" alt="Catálogo virtual Calzado EYA en Ksmart360" className="w-full block" />
+                  <img src="/screenshots/catalogo-eya.webp" alt="Catálogo virtual Calzado EYA en Ksmart360" className="w-full block" />
                 </div>
               </motion.div>
 
@@ -1168,7 +1168,7 @@ function PymeView() {
                     <span className="w-3 h-3 rounded-full bg-green-500" />
                     <span className="ml-3 text-white/30 text-xs font-mono">appjeylor.com/calzadoeya · Pedido</span>
                   </div>
-                  <img src="/screenshots/catalogo-pedido.png" alt="Checkout y pedido por WhatsApp en catálogo Ksmart360" className="w-full block" />
+                  <img src="/screenshots/catalogo-pedido.webp" alt="Checkout y pedido por WhatsApp en catálogo Ksmart360" className="w-full block" />
                 </div>
               </motion.div>
             </div>
@@ -1577,7 +1577,7 @@ function TechView() {
                   <span className="w-3 h-3 rounded-full bg-green-500" />
                   <span className="ml-3 text-white/30 text-xs font-mono">appjeylor.com · Dashboard de Reportes Financieros</span>
                 </div>
-                <img src="/screenshots/reportes.png" alt="Ksmart360 — Dashboard de reportes financieros" className="w-full block" />
+                <img src="/screenshots/reportes.webp" alt="Ksmart360 — Dashboard de reportes financieros" className="w-full block" />
               </div>
             </motion.div>
           </Section>
@@ -1620,7 +1620,7 @@ function TechView() {
                       app.ksmart360.com · Ventas (POS)
                     </span>
                   </div>
-                  <img src="/screenshots/pos-ventas.png" alt="Ksmart360 en computador — Módulo POS" className="w-full block" />
+                  <img src="/screenshots/pos-ventas.webp" alt="Ksmart360 en computador — Módulo POS" className="w-full block" />
                 </div>
                 {/* Base */}
                 <div className="h-3 bg-[#1a1d27] rounded-b-sm mx-6" />
@@ -1643,7 +1643,7 @@ function TechView() {
                     <div className="w-16 h-1.5 bg-white/10 rounded-full" />
                   </div>
                   <img
-                    src="/screenshots/registro.png"
+                    src="/screenshots/registro.webp"
                     alt="Ksmart360 en celular — Registro"
                     className="w-full block"
                     style={{ objectFit: 'cover', objectPosition: 'right center', maxHeight: '280px' }}
@@ -2202,7 +2202,7 @@ export default function Ksmart360Page() {
                     <span className="w-3 h-3 rounded-full bg-green-500" />
                     <span className="ml-3 text-white/30 text-xs font-mono">appjeylor.com · Módulo POS — Punto de Venta</span>
                   </div>
-                  <img src="/screenshots/pos-ventas.png" alt="Ksmart360 — Módulo POS Punto de Venta" className="w-full block" />
+                  <img src="/screenshots/pos-ventas.webp" alt="Ksmart360 — Módulo POS Punto de Venta" className="w-full block" />
                 </div>
               </div>
             </motion.div>

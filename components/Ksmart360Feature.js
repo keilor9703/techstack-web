@@ -3,6 +3,7 @@
 import { useRef } from 'react';
 import { motion, useInView } from 'framer-motion';
 import Link from 'next/link';
+import Image from 'next/image';
 
 const features = [
   { text: 'Punto de Venta (POS) táctil y rápido' },
@@ -126,10 +127,13 @@ export default function Ksmart360Feature() {
                     app.ksmart360.com · Ventas (POS)
                   </span>
                 </div>
-                <img
-                  src="/screenshots/pos-ventas.png"
+                <Image
+                  src="/screenshots/pos-ventas.webp"
                   alt="Módulo de Ventas POS de Ksmart360"
+                  width={800}
+                  height={500}
                   className="w-full block"
+                  priority
                 />
               </div>
 
@@ -146,10 +150,13 @@ export default function Ksmart360Feature() {
                   <span className="w-2 h-2 rounded-full bg-green-500/70" />
                   <span className="ml-2 text-xs font-mono text-white/30">Reportes</span>
                 </div>
-                <img
-                  src="/screenshots/reportes.png"
+                <Image
+                  src="/screenshots/reportes.webp"
                   alt="Módulo de Reportes Financieros de Ksmart360"
+                  width={400}
+                  height={250}
                   className="w-full block"
+                  loading="lazy"
                 />
               </motion.div>
 

@@ -1,6 +1,7 @@
 'use client';
 
 import { motion } from 'framer-motion';
+import Image from 'next/image';
 
 const projects = [
   {
@@ -8,7 +9,7 @@ const projects = [
     description: 'Sistema ERP/POS SaaS multi-módulo desplegado en Oracle Cloud. Facturación electrónica DIAN, inventario, reportes financieros y más de 18 módulos integrados.',
     tags: ['SaaS', 'FastAPI', 'React', 'Oracle Cloud'],
     gradient: 'from-azul to-blue-400',
-    screenshot: '/screenshots/pos-ventas.png',
+    screenshot: '/screenshots/pos-ventas.webp',
     screenshotAlt: 'Módulo Ventas POS de Ksmart360',
     ctaLabel: 'Probar gratis',
     ctaHref: 'https://www.techstackcol.com/ksmart360',
@@ -20,7 +21,7 @@ const projects = [
     description: 'Tienda online en vivo con catálogo de productos, carrito, checkout por WhatsApp y "Powered by Ksmart360". Operando en appjeylor.com/calzadoeya.',
     tags: ['Catálogo Virtual', 'WhatsApp Checkout', 'Ksmart360'],
     gradient: 'from-pink-500 to-rose-400',
-    screenshot: '/screenshots/catalogo-eya.png',
+    screenshot: '/screenshots/catalogo-eya.webp',
     screenshotAlt: 'Catálogo virtual de Calzado EYA en Ksmart360',
     ctaLabel: 'Ver catálogo en vivo',
     ctaHref: 'https://www.appjeylor.com/calzadoeya',
@@ -32,7 +33,7 @@ const projects = [
     description: 'Dashboard analítico con flujo de caja, rendimiento comercial, eficiencia de cobranza, distribución de ventas y más de 10 vistas de análisis.',
     tags: ['React', 'FastAPI', 'PostgreSQL'],
     gradient: 'from-indigo-500 to-azul',
-    screenshot: '/screenshots/reportes.png',
+    screenshot: '/screenshots/reportes.webp',
     screenshotAlt: 'Módulo de Reportes Financieros de Ksmart360',
     ctaLabel: 'Solicitar información',
     ctaHref: '#contacto',
@@ -44,7 +45,7 @@ const projects = [
     description: 'Registro guiado por tipo de negocio, tamaño de equipo y datos fiscales. 14 días gratis, sin tarjeta. El negocio queda listo para operar de inmediato.',
     tags: ['UX', 'React', 'FastAPI'],
     gradient: 'from-sky-500 to-azul',
-    screenshot: '/screenshots/registro.png',
+    screenshot: '/screenshots/registro.webp',
     screenshotAlt: 'Formulario de registro de Ksmart360',
     ctaLabel: 'Crear cuenta gratis',
     ctaHref: 'https://www.appjeylor.com/',
@@ -108,10 +109,13 @@ export default function Portfolio() {
               {project.screenshot && (
                 <div className="relative overflow-hidden bg-[#0A0C12] border-b border-white/5" style={{ height: '200px' }}>
                   <div className={`absolute inset-x-0 top-0 h-0.5 bg-gradient-to-r ${project.gradient}`} />
-                  <img
+                  <Image
                     src={project.screenshot}
                     alt={project.screenshotAlt}
-                    className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500"
+                    fill
+                    sizes="(max-width: 768px) 100vw, 50vw"
+                    className="object-cover object-top group-hover:scale-105 transition-transform duration-500"
+                    loading="lazy"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent" />
                 </div>

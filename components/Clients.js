@@ -1,13 +1,14 @@
 'use client';
 
 import { motion } from 'framer-motion';
+import Image from 'next/image';
 
 // ─── Add new clients here ──────────────────────────────────────────────────────
 const clients = [
   {
     name: 'Vialmar Cacao',
     sector: 'Agroindustria · Colombia',
-    logo: '/clients/vialmar.jpg',
+    logo: '/clients/vialmar.webp',
   },
   {
     name: 'Calzado EYA',
@@ -17,7 +18,7 @@ const clients = [
   {
     name: 'Peletería Jeylor',
     sector: 'Retail · Peletería',
-    logo: '/clients/jeylor.jpg',
+    logo: '/clients/jeylor.webp',
   },
 ];
 // ──────────────────────────────────────────────────────────────────────────────
@@ -29,10 +30,13 @@ function ClientCard({ client }) {
     <div className="group flex-shrink-0 flex items-center gap-5 mx-4 px-8 py-6 bg-white dark:bg-[#13161F] border border-gray-100 dark:border-white/10 rounded-2xl hover:border-azulStack/30 hover:shadow-xl hover:shadow-azulStack/8 transition-all duration-300 cursor-default select-none">
       {client.logo ? (
         <div className="w-24 h-24 rounded-2xl overflow-hidden flex-shrink-0 bg-gray-50 dark:bg-white/5 flex items-center justify-center">
-          <img
+          <Image
             src={client.logo}
             alt={client.name}
+            width={96}
+            height={96}
             className="w-full h-full object-contain transition-transform duration-300 group-hover:scale-105"
+            loading="lazy"
           />
         </div>
       ) : (
