@@ -297,7 +297,7 @@ function PlanCards({ plans }) {
   const [selected, setSelected] = useState(null);
 
   return (
-    <div className="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-5 lg:gap-4 mt-2">
+    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-5 gap-5 mt-2">
       {plans.map((plan, i) => {
         const isSelected = selected === i;
         const isHighlight = plan.highlight;
@@ -322,7 +322,7 @@ function PlanCards({ plans }) {
             }
             className={`relative rounded-2xl p-6 flex flex-col cursor-pointer select-none transition-opacity duration-300 ${
               isHighlight
-                ? 'bg-azulStack text-white lg:scale-105'
+                ? 'bg-azulStack text-white'
                 : isSelected
                 ? 'bg-white dark:bg-[#13161F] border-2 border-azulStack'
                 : 'bg-white dark:bg-[#13161F] border border-gray-100 dark:border-white/10'
@@ -2386,7 +2386,7 @@ export default function Ksmart360Page() {
             </motion.div>
           </Section>
 
-          <Section>
+          <Section className="overflow-visible">
             <PlanCards plans={plans} />
           </Section>
 
