@@ -3,16 +3,8 @@
 import { useRef, useEffect, useState } from 'react';
 import { motion, useScroll, useTransform, useInView } from 'framer-motion';
 import { CinematicHeading } from '@/components/CinematicText';
-
-// Aurora blobs cycle opacity/scale only (GPU-compositable, no full-screen repaint)
-const auroraBlobVariants = (delay) => ({
-  initial: { opacity: 0.15, scale: 1 },
-  animate: {
-    opacity: [0.15, 0.35, 0.15],
-    scale: [1, 1.15, 1],
-    transition: { duration: 8, repeat: Infinity, ease: 'easeInOut', delay },
-  },
-});
+import { WebGLShader } from '@/components/ui/web-gl-shader';
+import { LiquidButton } from '@/components/ui/liquid-glass-button';
 
 const codeLines = [
   { tokens: [{ type: 'keyword', text: 'const' }, { type: 'plain', text: ' stack = {' }] },
@@ -81,31 +73,12 @@ export default function AuroraHero() {
       id="hero"
       className="relative min-h-screen flex items-center overflow-x-hidden bg-grafito"
     >
-      {/* Static base glow */}
-      <div
-        className="absolute inset-0 z-0 pointer-events-none"
-        style={{ background: 'radial-gradient(130% 130% at 50% 0%, #16181F 45%, #1E2433 100%)' }}
-      />
-
-      {/* Aurora blobs — opacity/scale only, GPU-compositable, no per-frame repaint */}
-      <motion.div
-        variants={auroraBlobVariants(0)}
-        initial="initial"
-        animate="animate"
-        className="absolute -top-40 left-1/4 w-[600px] h-[600px] rounded-full blur-3xl pointer-events-none z-0"
-        style={{ background: 'radial-gradient(circle, #2E68E6 0%, transparent 70%)' }}
-      />
-      <motion.div
-        variants={auroraBlobVariants(2.5)}
-        initial="initial"
-        animate="animate"
-        className="absolute -top-20 right-1/4 w-[550px] h-[550px] rounded-full blur-3xl pointer-events-none z-0"
-        style={{ background: 'radial-gradient(circle, #7C3AED 0%, transparent 70%)' }}
-      />
+      {/* WebGL animated shader background */}
+      <WebGLShader />
 
       {/* Dot grid overlay */}
       <div
-        className="absolute inset-0 opacity-10 pointer-events-none z-0"
+        className="absolute inset-0 opacity-[0.07] pointer-events-none z-[1]"
         style={{
           backgroundImage: 'radial-gradient(circle, #6A6F7E 1px, transparent 1px)',
           backgroundSize: '32px 32px',
@@ -159,35 +132,31 @@ export default function AuroraHero() {
             </motion.p>
 
             <motion.div variants={itemVariants} className="flex flex-wrap gap-4">
-              <motion.a
+              <LiquidButton
+                size="lg"
                 href="#contacto"
                 onClick={(e) => {
                   e.preventDefault();
                   document.querySelector('#contacto')?.scrollIntoView({ behavior: 'smooth' });
                 }}
-                style={{ boxShadow: "0px 4px 32px rgba(46,104,230,0.4)" }}
-                whileHover={{ scale: 1.015 }}
-                whileTap={{ scale: 0.985 }}
-                className="inline-flex items-center gap-2 px-6 py-3.5 bg-azul text-white font-semibold text-sm rounded-xl hover:bg-blue-600 transition-colors duration-200 font-sora"
+                className="text-white"
               >
                 Contáctanos
-                <svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                <svg width="15" height="15" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
                   <path strokeLinecap="round" strokeLinejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
                 </svg>
-              </motion.a>
-              <motion.a
+              </LiquidButton>
+              <LiquidButton
+                size="lg"
                 href="#servicios"
                 onClick={(e) => {
                   e.preventDefault();
                   document.querySelector('#servicios')?.scrollIntoView({ behavior: 'smooth' });
                 }}
-                style={{ border: "1px solid rgba(124,58,237,0.6)" }}
-                whileHover={{ scale: 1.015 }}
-                whileTap={{ scale: 0.985 }}
-                className="inline-flex items-center gap-2 px-6 py-3.5 text-white font-semibold text-sm rounded-xl hover:bg-white/5 transition-all duration-200 font-sora"
+                className="text-white/80"
               >
                 Ver servicios
-              </motion.a>
+              </LiquidButton>
             </motion.div>
 
             {/* Stats */}
