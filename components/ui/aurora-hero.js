@@ -1,14 +1,21 @@
 'use client';
 
 import dynamic from 'next/dynamic';
-import { useEffect, useRef, useState } from 'react';
-import { useMotionTemplate, useMotionValue, motion, animate, useScroll, useTransform, useInView } from 'framer-motion';
+import { useRef, useEffect, useState } from 'react';
+import { motion, useScroll, useTransform, useInView } from 'framer-motion';
 import { CinematicHeading } from '@/components/CinematicText';
 
 const StarsCanvas = dynamic(() => import('@/components/ui/stars-canvas'), { ssr: false });
 
-// Brand aurora colors: azul → violeta → azul oscuro → acento teal
-const AURORA_COLORS = ['#2E68E6', '#7C3AED', '#1E40AF', '#4F46E5'];
+// Aurora blobs cycle opacity/scale only (GPU-compositable, no full-screen repaint)
+const auroraBlobVariants = (delay) => ({
+  initial: { opacity: 0.15, scale: 1 },
+  animate: {
+    opacity: [0.15, 0.35, 0.15],
+    scale: [1, 1.15, 1],
+    transition: { duration: 8, repeat: Infinity, ease: 'easeInOut', delay },
+  },
+});
 
 const codeLines = [
   { tokens: [{ type: 'keyword', text: 'const' }, { type: 'plain', text: ' stack = {' }] },
@@ -67,32 +74,39 @@ function CountUp({ target, suffix = '', duration = 1500 }) {
 
 export default function AuroraHero() {
   const sectionRef = useRef(null);
-  const color = useMotionValue(AURORA_COLORS[0]);
   const { scrollYProgress } = useScroll({ target: sectionRef, offset: ['start start', 'end start'] });
   const textY = useTransform(scrollYProgress, [0, 1], ['0%', '18%']);
   const opacity = useTransform(scrollYProgress, [0, 0.7], [1, 0]);
 
-  const backgroundImage = useMotionTemplate`radial-gradient(130% 130% at 50% 0%, #16181F 45%, ${color}55)`;
-  const borderColor = useMotionTemplate`1px solid ${color}`;
-  const glowShadow = useMotionTemplate`0px 4px 32px ${color}66`;
-
-  useEffect(() => {
-    animate(color, AURORA_COLORS, {
-      ease: 'easeInOut',
-      duration: 10,
-      repeat: Infinity,
-      repeatType: 'mirror',
-    });
-  }, []);
-
   return (
-    <motion.section
+    <section
       ref={sectionRef}
       id="hero"
-      style={{ backgroundImage }}
-      className="relative min-h-screen flex items-center overflow-x-hidden"
+      className="relative min-h-screen flex items-center overflow-x-hidden bg-grafito"
     >
-      {/* Three.js Stars background */}
+      {/* Static base glow */}
+      <div
+        className="absolute inset-0 z-0 pointer-events-none"
+        style={{ background: 'radial-gradient(130% 130% at 50% 0%, #16181F 45%, #1E2433 100%)' }}
+      />
+
+      {/* Aurora blobs — opacity/scale only, GPU-compositable, no per-frame repaint */}
+      <motion.div
+        variants={auroraBlobVariants(0)}
+        initial="initial"
+        animate="animate"
+        className="absolute -top-40 left-1/4 w-[600px] h-[600px] rounded-full blur-3xl pointer-events-none z-0"
+        style={{ background: 'radial-gradient(circle, #2E68E6 0%, transparent 70%)' }}
+      />
+      <motion.div
+        variants={auroraBlobVariants(2.5)}
+        initial="initial"
+        animate="animate"
+        className="absolute -top-20 right-1/4 w-[550px] h-[550px] rounded-full blur-3xl pointer-events-none z-0"
+        style={{ background: 'radial-gradient(circle, #7C3AED 0%, transparent 70%)' }}
+      />
+
+      {/* Stars background */}
       <div className="absolute inset-0 z-0 pointer-events-none">
         <StarsCanvas />
       </div>
@@ -158,7 +172,7 @@ export default function AuroraHero() {
                   e.preventDefault();
                   document.querySelector('#contacto')?.scrollIntoView({ behavior: 'smooth' });
                 }}
-                style={{ boxShadow: glowShadow }}
+                style={{ boxShadow: "0px 4px 32px rgba(46,104,230,0.4)" }}
                 whileHover={{ scale: 1.015 }}
                 whileTap={{ scale: 0.985 }}
                 className="inline-flex items-center gap-2 px-6 py-3.5 bg-azul text-white font-semibold text-sm rounded-xl hover:bg-blue-600 transition-colors duration-200 font-sora"
@@ -174,7 +188,7 @@ export default function AuroraHero() {
                   e.preventDefault();
                   document.querySelector('#servicios')?.scrollIntoView({ behavior: 'smooth' });
                 }}
-                style={{ border: borderColor }}
+                style={{ border: "1px solid rgba(124,58,237,0.6)" }}
                 whileHover={{ scale: 1.015 }}
                 whileTap={{ scale: 0.985 }}
                 className="inline-flex items-center gap-2 px-6 py-3.5 text-white font-semibold text-sm rounded-xl hover:bg-white/5 transition-all duration-200 font-sora"
@@ -220,7 +234,7 @@ export default function AuroraHero() {
               className="w-full max-w-md min-w-0"
             >
               <motion.div
-                style={{ boxShadow: glowShadow }}
+                style={{ boxShadow: "0px 4px 32px rgba(46,104,230,0.4)" }}
                 className="bg-[#0D0F16] border border-white/10 rounded-2xl overflow-hidden shadow-2xl"
               >
                 {/* Window bar */}
@@ -268,6 +282,6 @@ export default function AuroraHero() {
 
       {/* Bottom fade */}
       <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-papel to-transparent z-10" />
-    </motion.section>
+    </section>
   );
 }
