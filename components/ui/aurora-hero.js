@@ -3,7 +3,6 @@
 import { useRef, useEffect, useState } from 'react';
 import { motion, useScroll, useTransform, useInView } from 'framer-motion';
 import { CinematicHeading } from '@/components/CinematicText';
-import { WebGLShader } from '@/components/ui/web-gl-shader';
 import { LiquidButton } from '@/components/ui/liquid-glass-button';
 
 const codeLines = [
@@ -73,17 +72,11 @@ export default function AuroraHero() {
       id="hero"
       className="relative min-h-screen flex items-center overflow-x-hidden bg-grafito"
     >
-      {/* WebGL animated shader background */}
-      <WebGLShader />
-
-      {/* Dot grid overlay */}
-      <div
-        className="absolute inset-0 opacity-[0.07] pointer-events-none z-[1]"
-        style={{
-          backgroundImage: 'radial-gradient(circle, #6A6F7E 1px, transparent 1px)',
-          backgroundSize: '32px 32px',
-        }}
-      />
+      {/* Background */}
+      <div className="absolute inset-0 z-0 pointer-events-none" style={{ background: 'radial-gradient(130% 130% at 50% 0%, #16181F 45%, #1E2433 100%)' }} />
+      <div className="absolute -top-40 left-1/4 w-[600px] h-[600px] rounded-full blur-3xl pointer-events-none z-0 opacity-20" style={{ background: 'radial-gradient(circle, #2E68E6 0%, transparent 70%)' }} />
+      <div className="absolute -top-20 right-1/4 w-[500px] h-[500px] rounded-full blur-3xl pointer-events-none z-0 opacity-15" style={{ background: 'radial-gradient(circle, #7C3AED 0%, transparent 70%)' }} />
+      <div className="absolute inset-0 opacity-[0.08] pointer-events-none z-0" style={{ backgroundImage: 'radial-gradient(circle, #6A6F7E 1px, transparent 1px)', backgroundSize: '32px 32px' }} />
 
       {/* Content */}
       <motion.div
