@@ -1,6 +1,7 @@
 'use client';
 
 import { motion } from 'framer-motion';
+import { CinematicHeading, CinematicReveal } from '@/components/CinematicText';
 
 const pillars = [
   {
@@ -62,13 +63,12 @@ export default function About() {
           >
             Nuestra filosofía
           </motion.span>
-          <motion.h2
-            variants={itemVariants}
+          <CinematicHeading
             className="font-sora font-bold text-4xl lg:text-6xl xl:text-7xl text-grafito dark:text-white leading-tight tracking-tighter mb-6"
+            delay={0.1}
           >
-            Construimos.{' '}
-            <span className="text-gradient">No consultamos.</span>
-          </motion.h2>
+            Construimos. No consultamos.
+          </CinematicHeading>
           <motion.p
             variants={itemVariants}
             className="font-sora text-base lg:text-lg text-acero leading-relaxed"
@@ -88,11 +88,7 @@ export default function About() {
           className="grid md:grid-cols-3 gap-6 lg:gap-8"
         >
           {pillars.map((pillar, i) => (
-            <motion.div
-              key={i}
-              variants={itemVariants}
-              className="group bg-white dark:bg-[#13161F] border border-gray-100 dark:border-white/10 rounded-2xl p-8 hover:border-azulStack/30 hover:shadow-lg hover:shadow-azulStack/5 transition-all duration-300"
-            >
+            <CinematicReveal key={i} delay={i * 0.12} className="group bg-white dark:bg-[#13161F] border border-gray-100 dark:border-white/10 rounded-2xl p-8 hover:border-azulStack/30 hover:shadow-lg hover:shadow-azulStack/5 transition-all duration-300">
               <div className="w-12 h-12 rounded-xl flex items-center justify-center text-white mb-6 transition-all duration-300 group-hover:scale-110" style={{ background: 'linear-gradient(135deg, #2E68E6 0%, #7C3AED 100%)' }}>
                 {pillar.icon}
               </div>
@@ -102,7 +98,7 @@ export default function About() {
               <p className="font-sora text-sm text-acero leading-relaxed">
                 {pillar.description}
               </p>
-            </motion.div>
+            </CinematicReveal>
           ))}
         </motion.div>
       </div>

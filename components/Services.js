@@ -1,6 +1,7 @@
 'use client';
 
 import { motion } from 'framer-motion';
+import { CinematicHeading, CinematicReveal } from '@/components/CinematicText';
 
 const services = [
   {
@@ -74,12 +75,12 @@ export default function Services() {
           >
             Lo que hacemos
           </motion.span>
-          <motion.h2
-            variants={itemVariants}
+          <CinematicHeading
             className="font-sora font-bold text-4xl lg:text-5xl xl:text-6xl text-white leading-tight tracking-tight"
+            delay={0.1}
           >
             Nuestros Servicios
-          </motion.h2>
+          </CinematicHeading>
         </motion.div>
 
         <motion.div

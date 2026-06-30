@@ -2,6 +2,7 @@
 
 import { motion } from 'framer-motion';
 import Image from 'next/image';
+import { CinematicHeading, CinematicImage } from '@/components/CinematicText';
 
 const projects = [
   {
@@ -81,13 +82,12 @@ export default function Portfolio() {
           >
             Lo que hemos construido
           </motion.span>
-          <motion.h2
-            variants={itemVariants}
+          <CinematicHeading
             className="font-sora font-bold text-4xl lg:text-5xl xl:text-6xl text-grafito dark:text-white leading-tight tracking-tight"
+            delay={0.1}
           >
-            Ksmart360{' '}
-            <span className="text-gradient">y sus capacidades</span>
-          </motion.h2>
+            Ksmart360 y sus capacidades
+          </CinematicHeading>
           <motion.p variants={itemVariants} className="font-sora text-base text-acero mt-4 max-w-2xl mx-auto leading-relaxed">Ksmart360 concentra años de desarrollo especializado. Sus módulos no son productos separados — son capacidades integradas de un mismo sistema construido para el mercado colombiano.</motion.p>
         </motion.div>
 
@@ -107,17 +107,19 @@ export default function Portfolio() {
             >
               {/* Screenshot preview */}
               {project.screenshot && (
-                <div className="relative overflow-hidden bg-[#0A0C12] border-b border-white/5" style={{ height: '200px' }}>
-                  <div className={`absolute inset-x-0 top-0 h-0.5 bg-gradient-to-r ${project.gradient}`} />
-                  <Image
-                    src={project.screenshot}
-                    alt={project.screenshotAlt}
-                    fill
-                    sizes="(max-width: 768px) 100vw, 50vw"
-                    className="object-cover object-top group-hover:scale-105 transition-transform duration-500"
-                    loading="lazy"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent" />
+                <div className="relative bg-[#0A0C12] border-b border-white/5" style={{ height: '200px' }}>
+                  <div className={`absolute inset-x-0 top-0 h-0.5 bg-gradient-to-r ${project.gradient} z-10`} />
+                  <CinematicImage className="absolute inset-0" delay={i * 0.1}>
+                    <Image
+                      src={project.screenshot}
+                      alt={project.screenshotAlt}
+                      fill
+                      sizes="(max-width: 768px) 100vw, 50vw"
+                      className="object-cover object-top group-hover:scale-105 transition-transform duration-500"
+                      loading="lazy"
+                    />
+                  </CinematicImage>
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent z-10" />
                 </div>
               )}
 

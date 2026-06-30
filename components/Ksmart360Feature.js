@@ -4,6 +4,7 @@ import { useRef } from 'react';
 import { motion, useInView } from 'framer-motion';
 import Link from 'next/link';
 import Image from 'next/image';
+import { CinematicHeading, CinematicImage } from '@/components/CinematicText';
 
 const features = [
   { text: 'Punto de Venta (POS) táctil y rápido' },
@@ -127,14 +128,16 @@ export default function Ksmart360Feature() {
                     app.ksmart360.com · Ventas (POS)
                   </span>
                 </div>
-                <Image
-                  src="/screenshots/pos-ventas.webp"
-                  alt="Módulo de Ventas POS de Ksmart360"
-                  width={800}
-                  height={500}
-                  className="w-full block"
-                  priority
-                />
+                <CinematicImage delay={0.3}>
+                  <Image
+                    src="/screenshots/pos-ventas.webp"
+                    alt="Módulo de Ventas POS de Ksmart360"
+                    width={800}
+                    height={500}
+                    className="w-full block"
+                    priority
+                  />
+                </CinematicImage>
               </div>
 
               {/* Floating secondary screenshot — Reportes */}

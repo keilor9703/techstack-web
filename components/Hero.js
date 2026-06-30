@@ -1,7 +1,8 @@
 'use client';
 
 import { useRef, useEffect, useState } from 'react';
-import { motion, useInView } from 'framer-motion';
+import { motion, useInView, useScroll, useTransform } from 'framer-motion';
+import { CinematicHeading } from '@/components/CinematicText';
 
 const codeLines = [
   { tokens: [{ type: 'keyword', text: 'const' }, { type: 'plain', text: ' stack = {' }] },
@@ -61,6 +62,10 @@ function CountUp({ target, suffix = '', duration = 1500 }) {
 export default function Hero() {
   const sectionRef = useRef(null);
   const [mousePos, setMousePos] = useState({ x: 50, y: 35 });
+  const { scrollYProgress } = useScroll({ target: sectionRef, offset: ['start start', 'end start'] });
+  const blobY = useTransform(scrollYProgress, [0, 1], ['0%', '35%']);
+  const textY = useTransform(scrollYProgress, [0, 1], ['0%', '18%']);
+  const opacity = useTransform(scrollYProgress, [0, 0.7], [1, 0]);
 
   useEffect(() => {
     const section = sectionRef.current;
@@ -91,24 +96,27 @@ export default function Hero() {
         }}
       />
 
-      {/* Static violet blob — top right */}
-      <div
+      {/* Static violet blob — top right, parallax */}
+      <motion.div
+        style={{ y: blobY }}
         className="absolute top-0 right-0 w-[600px] h-[600px] rounded-full blur-3xl pointer-events-none opacity-20"
-        style={{ background: 'radial-gradient(circle, #7C3AED 0%, transparent 70%)' }}
+        style={{ background: 'radial-gradient(circle, #7C3AED 0%, transparent 70%)', y: blobY }}
       />
 
       {/* Cursor-reactive gradient blob */}
-      <div
-        className="absolute w-[700px] h-[700px] rounded-full blur-3xl pointer-events-none transition-all duration-700 ease-out"
+      <motion.div
+        style={{ y: blobY }}
+        className="absolute w-[700px] h-[700px] rounded-full blur-3xl pointer-events-none transition-[left,top] duration-700 ease-out"
         style={{
           background: 'radial-gradient(circle, rgba(46,104,230,0.18) 0%, rgba(124,58,237,0.08) 60%, transparent 70%)',
           left: `${mousePos.x}%`,
           top: `${mousePos.y}%`,
           transform: 'translate(-50%, -50%)',
+          y: blobY,
         }}
       />
 
-      <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-8 w-full pt-24 pb-16">
+      <motion.div style={{ y: textY, opacity }} className="relative z-10 max-w-7xl mx-auto px-6 lg:px-8 w-full pt-24 pb-16">
         <div className="grid lg:grid-cols-2 gap-16 items-center">
           {/* Left: Text */}
           <motion.div
@@ -124,13 +132,15 @@ export default function Hero() {
               </span>
             </motion.div>
 
-            <motion.h1
-              variants={itemVariants}
-              className="font-sora font-bold text-4xl sm:text-5xl lg:text-6xl xl:text-7xl 2xl:text-8xl text-white leading-tight tracking-tighter mb-2"
-            >
-              Tu operación,{' '}
-              <span className="text-gradient">digitalizada.</span>
-            </motion.h1>
+            <motion.div variants={itemVariants}>
+              <CinematicHeading
+                as="h1"
+                className="font-sora font-bold text-4xl sm:text-5xl lg:text-6xl xl:text-7xl 2xl:text-8xl text-white leading-tight tracking-tighter mb-2"
+                delay={0.1}
+              >
+                Tu operación, digitalizada.
+              </CinematicHeading>
+            </motion.div>
 
             <motion.p
               variants={itemVariants}
@@ -251,7 +261,7 @@ export default function Hero() {
             </motion.div>
           </motion.div>
         </div>
-      </div>
+      </motion.div>
 
       {/* Bottom fade */}
       <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-papel to-transparent" />
