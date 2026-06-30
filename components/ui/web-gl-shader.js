@@ -31,48 +31,46 @@ vec3 spectral(float t) {
 void main() {
   vec2 uv = gl_FragCoord.xy / u_resolution;
 
-  float T = u_time * 0.14;
+  float T = u_time * 0.10;
 
-  // Beam path: sits in the LOWER third of the screen so it never covers text
+  // Beam sits near the very bottom (y≈0.88), barely visible
   float bx = uv.x;
-  float by = 0.82
-           - bx * 0.22
-           + 0.018 * sin(bx * 4.5 + T)
-           + 0.008 * sin(bx * 10.0 - T * 1.2);
+  float by = 0.88
+           - bx * 0.18
+           + 0.010 * sin(bx * 4.0 + T)
+           + 0.005 * sin(bx * 9.0 - T * 1.1);
 
-  // Signed distance from beam (positive = above beam / toward top)
-  float d = by - uv.y;   // positive above the line, negative below
+  float d = by - uv.y;   // positive = above beam, negative = below
 
-  // ── Core white beam — much thinner ───────────────────────────
-  float core = exp(-abs(d) * 220.0) * 2.8;
+  // ── Hairline white core ──────────────────────────────────────
+  float core = exp(-abs(d) * 420.0) * 1.6;
 
-  // ── Soft glow halo ───────────────────────────────────────────
-  float halo = exp(-abs(d) * 55.0) * 0.35;
+  // ── Very faint halo ──────────────────────────────────────────
+  float halo = exp(-abs(d) * 90.0) * 0.18;
 
-  // ── Chromatic / spectral dispersion BELOW the beam ───────────
-  float below  = clamp(-d * 22.0, 0.0, 1.0);
-  float spread = exp(-max(-d, 0.0) * 9.0) * (1.0 - exp(-max(-d, 0.0) * 200.0));
-  vec3  spec   = spectral(below) * spread * 1.5;
+  // ── Minimal spectral spread below beam ───────────────────────
+  float below  = clamp(-d * 30.0, 0.0, 1.0);
+  float spread = exp(-max(-d, 0.0) * 16.0) * (1.0 - exp(-max(-d, 0.0) * 400.0));
+  vec3  spec   = spectral(below) * spread * 0.7;
 
-  // ── Faint warm flare ABOVE the beam ──────────────────────────
-  float above = clamp(d * 35.0, 0.0, 1.0) * exp(-d * 18.0) * 0.25;
+  // ── Barely-there warm flare above ────────────────────────────
+  float above = clamp(d * 40.0, 0.0, 1.0) * exp(-d * 28.0) * 0.12;
   vec3  flare = vec3(1.0, 0.88, 0.65) * above;
 
   // ── Compose ─────────────────────────────────────────────────
-  vec3 col = vec3(0.018, 0.018, 0.030);   // near-black base
+  vec3 col = vec3(0.015, 0.015, 0.025);  // near-black base
   col += spec;
   col += flare;
-  col += vec3(halo * 0.55, halo * 0.62, halo);
+  col += vec3(halo * 0.5, halo * 0.58, halo);
   col += vec3(core);
 
-  // Vignette — keep corners very dark so beam is the focal point
+  // Strong vignette so the effect is mostly invisible except the beam line
   vec2  vig  = uv - vec2(0.5, 0.5);
-  float vign = 1.0 - smoothstep(0.30, 0.95, dot(vig * vec2(1.0, 1.5), vig * vec2(1.0, 1.5)));
-  col *= max(vign, 0.06);
+  float vign = 1.0 - smoothstep(0.25, 0.90, dot(vig * vec2(1.0, 1.6), vig * vec2(1.0, 1.6)));
+  col *= max(vign, 0.04);
 
-  // Horizontal edge fade
-  float xFade = smoothstep(0.0, 0.05, uv.x) * smoothstep(1.0, 0.95, uv.x);
-  col *= mix(0.05, 1.0, xFade);
+  float xFade = smoothstep(0.0, 0.04, uv.x) * smoothstep(1.0, 0.96, uv.x);
+  col *= mix(0.03, 1.0, xFade);
 
   gl_FragColor = vec4(clamp(col, 0.0, 1.0), 1.0);
 }
