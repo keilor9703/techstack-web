@@ -4,76 +4,81 @@ import { useEffect, useRef } from 'react';
 
 const VERT = `
 attribute vec2 a_position;
-void main() {
-  gl_Position = vec4(a_position, 0.0, 1.0);
-}
+void main() { gl_Position = vec4(a_position, 0.0, 1.0); }
 `;
 
+// Prismatic light-beam shader: bright white core + chromatic dispersion on dark bg
 const FRAG = `
 precision mediump float;
 uniform float u_time;
 uniform vec2  u_resolution;
 
-// Smooth pseudo-noise using sin harmonics
-float hash(vec2 p) {
-  return fract(sin(dot(p, vec2(127.1, 311.7))) * 43758.5453);
-}
-
-float noise(vec2 p) {
-  vec2 i = floor(p);
-  vec2 f = fract(p);
-  vec2 u = f * f * (3.0 - 2.0 * f);
-  return mix(
-    mix(hash(i),           hash(i + vec2(1.0, 0.0)), u.x),
-    mix(hash(i + vec2(0.0, 1.0)), hash(i + vec2(1.0, 1.0)), u.x),
-    u.y
-  );
-}
-
-float fbm(vec2 p) {
-  float v = 0.0, a = 0.5;
-  for (int i = 0; i < 5; i++) {
-    v += a * noise(p);
-    p  = p * 2.0 + vec2(1.7, 9.2);
-    a *= 0.5;
-  }
-  return v;
-}
-
-// Brand palette: grafito → azul (#2E68E6) → violeta (#7C3AED)
-vec3 brandColor(float t) {
-  vec3 dark    = vec3(0.086, 0.094, 0.122); // #16181F grafito
-  vec3 azul    = vec3(0.180, 0.408, 0.902); // #2E68E6
-  vec3 violeta = vec3(0.486, 0.227, 0.929); // #7C3AED
-  vec3 mid     = vec3(0.120, 0.150, 0.260); // deep navy
-
+// Smooth spectral palette: maps 0→1 to violet→cyan→white→yellow→red
+vec3 spectral(float t) {
   t = clamp(t, 0.0, 1.0);
-  if (t < 0.33) return mix(dark, mid,     t * 3.0);
-  if (t < 0.66) return mix(mid,  azul,   (t - 0.33) * 3.0);
-  return              mix(azul,  violeta,(t - 0.66) * 3.0);
+  vec3 a = vec3(0.10, 0.00, 0.30);
+  vec3 b = vec3(0.00, 0.50, 0.80);
+  vec3 c = vec3(1.00, 1.00, 1.00);
+  vec3 d = vec3(1.00, 0.60, 0.00);
+  vec3 e = vec3(0.90, 0.10, 0.00);
+
+  if (t < 0.25) return mix(a, b, t * 4.0);
+  if (t < 0.50) return mix(b, c, (t - 0.25) * 4.0);
+  if (t < 0.75) return mix(c, d, (t - 0.50) * 4.0);
+  return            mix(d, e, (t - 0.75) * 4.0);
 }
 
 void main() {
   vec2 uv = gl_FragCoord.xy / u_resolution;
-  uv.y    = 1.0 - uv.y; // flip Y
 
-  float t = u_time * 0.12;
+  float T = u_time * 0.18;
 
-  // Two layers of warped fbm for organic motion
-  vec2 warp = vec2(
-    fbm(uv * 2.3 + vec2(t * 0.4,  t * 0.3)),
-    fbm(uv * 2.3 + vec2(t * 0.35, t * 0.45 + 5.2))
-  );
-  float c = fbm(uv * 1.8 + warp * 0.9 + t * 0.15);
+  // Beam path: diagonal S-curve sweeping slowly from bottom-left
+  float bx = uv.x;
+  float by = 0.62
+           - bx * 0.35
+           + 0.04 * sin(bx * 5.0 + T)
+           + 0.02 * sin(bx * 11.0 - T * 1.3);
 
-  // Radial vignette — keep centre bright, edges dark
-  float vignette = 1.0 - smoothstep(0.4, 1.1,
-    length((uv - 0.5) * vec2(1.0, 1.2)));
+  // Signed distance from beam (positive = below beam)
+  float d = uv.y - by;
 
-  c = c * 0.7 + 0.15;          // clamp range so it never goes full-white
-  c = clamp(c * vignette, 0.0, 1.0);
+  // ── Core white beam ──────────────────────────────────────────
+  float core = exp(-abs(d) * 120.0) * 3.5;
 
-  gl_FragColor = vec4(brandColor(c), 1.0);
+  // ── Soft glow halo ───────────────────────────────────────────
+  float halo = exp(-abs(d) * 28.0) * 0.55;
+
+  // ── Chromatic / spectral dispersion ─────────────────────────
+  // Below the beam: spectrum fans out (t=0 near beam → t=1 far below)
+  float below  = clamp(-d * 18.0, 0.0, 1.0);
+  // dispersion falloff — bright near the beam, fading further out
+  float spread = exp(-max(-d, 0.0) * 7.0) * (1.0 - exp(-max(-d, 0.0) * 120.0));
+
+  vec3 spec = spectral(below) * spread * 1.8;
+
+  // Above the beam: faint warm flare
+  float above  = clamp(d * 30.0, 0.0, 1.0) * exp(-d * 14.0) * 0.4;
+  vec3  flare  = vec3(1.0, 0.85, 0.6) * above;
+
+  // ── Compose ─────────────────────────────────────────────────
+  // Near-black base
+  vec3 col = vec3(0.025, 0.025, 0.04);
+  col += spec;
+  col += flare;
+  col += vec3(halo * 0.6, halo * 0.65, halo);   // slight blue tint on halo
+  col += vec3(core);                              // white core on top
+
+  // Vignette: fade corners to black
+  vec2  vig  = uv - 0.5;
+  float vign = 1.0 - smoothstep(0.35, 1.0, dot(vig * vec2(1.0, 1.4), vig * vec2(1.0, 1.4)));
+  col *= max(vign, 0.12);
+
+  // Slight horizontal fade at left/right edges so beam doesn't clip hard
+  float xFade = smoothstep(0.0, 0.06, uv.x) * smoothstep(1.0, 0.94, uv.x);
+  col *= mix(0.1, 1.0, xFade);
+
+  gl_FragColor = vec4(clamp(col, 0.0, 1.0), 1.0);
 }
 `;
 
@@ -89,7 +94,7 @@ function initGL(canvas) {
   };
 
   const prog = gl.createProgram();
-  gl.attachShader(prog, compile(gl.VERTEX_SHADER,   VERT));
+  gl.attachShader(prog, compile(gl.VERTEX_SHADER, VERT));
   gl.attachShader(prog, compile(gl.FRAGMENT_SHADER, FRAG));
   gl.linkProgram(prog);
   gl.useProgram(prog);
@@ -97,7 +102,7 @@ function initGL(canvas) {
   const buf = gl.createBuffer();
   gl.bindBuffer(gl.ARRAY_BUFFER, buf);
   gl.bufferData(gl.ARRAY_BUFFER,
-    new Float32Array([-1,-1, 1,-1, -1,1, 1,1]), gl.STATIC_DRAW);
+    new Float32Array([-1, -1, 1, -1, -1, 1, 1, 1]), gl.STATIC_DRAW);
 
   const loc = gl.getAttribLocation(prog, 'a_position');
   gl.enableVertexAttribArray(loc);
@@ -122,7 +127,7 @@ export function WebGLShader({ className = '' }) {
     const { gl, uTime, uRes } = ctx;
 
     let animId;
-    let start = performance.now();
+    const start = performance.now();
 
     const resize = () => {
       const w = canvas.clientWidth;
@@ -137,7 +142,7 @@ export function WebGLShader({ className = '' }) {
     const frame = (now) => {
       resize();
       gl.uniform1f(uTime, (now - start) / 1000);
-      gl.uniform2f(uRes, canvas.width, canvas.height);
+      gl.uniform2f(uRes,  canvas.width, canvas.height);
       gl.drawArrays(gl.TRIANGLE_STRIP, 0, 4);
       animId = requestAnimationFrame(frame);
     };
