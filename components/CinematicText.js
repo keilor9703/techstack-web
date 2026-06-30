@@ -3,15 +3,16 @@
 import { useRef } from 'react';
 import { motion, useInView } from 'framer-motion';
 
-export function CinematicHeading({ children, className = '', as: Tag = 'h2', delay = 0 }) {
+export function CinematicHeading({ children, className = '', as: Tag = 'h2', delay = 0, align = 'center' }) {
   const ref = useRef(null);
   const inView = useInView(ref, { once: true, margin: '-60px' });
 
   const words = String(children).split(' ');
+  const justify = align === 'center' ? 'justify-center' : align === 'right' ? 'justify-end' : 'justify-start';
 
   return (
     <Tag ref={ref} className={`overflow-hidden ${className}`} aria-label={String(children)}>
-      <span className="flex flex-wrap gap-x-[0.28em] gap-y-0">
+      <span className={`flex flex-wrap ${justify} gap-x-[0.28em] gap-y-0`}>
         {words.map((word, i) => (
           <span key={i} className="overflow-hidden inline-block">
             <motion.span

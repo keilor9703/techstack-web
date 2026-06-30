@@ -1,4 +1,5 @@
 import { Sora, JetBrains_Mono } from 'next/font/google';
+import GlobalStars from '@/components/ui/global-stars';
 import './globals.css';
 
 const sora = Sora({
@@ -73,7 +74,10 @@ export default function RootLayout({ children }) {
         <script async src="https://www.googletagmanager.com/gtag/js?id=G-1CMDLYZF46" />
         <script dangerouslySetInnerHTML={{ __html: `window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date());gtag('config','G-1CMDLYZF46');` }} />
       </head>
-      <body className="font-sora antialiased bg-papel text-grafito dark:text-white">{children}</body>
+      <body className="font-sora antialiased bg-papel text-grafito dark:text-white">
+        <GlobalStars />
+        {children}
+      </body>
     </html>
   );
 }

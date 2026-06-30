@@ -135,6 +135,7 @@ export default function Hero() {
             <motion.div variants={itemVariants}>
               <CinematicHeading
                 as="h1"
+                align="left"
                 className="font-sora font-bold text-4xl sm:text-5xl lg:text-6xl xl:text-7xl 2xl:text-8xl text-white leading-tight tracking-tighter mb-2"
                 delay={0.1}
               >

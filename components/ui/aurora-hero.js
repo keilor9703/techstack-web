@@ -1,11 +1,8 @@
 'use client';
 
-import dynamic from 'next/dynamic';
 import { useRef, useEffect, useState } from 'react';
 import { motion, useScroll, useTransform, useInView } from 'framer-motion';
 import { CinematicHeading } from '@/components/CinematicText';
-
-const StarsCanvas = dynamic(() => import('@/components/ui/stars-canvas'), { ssr: false });
 
 // Aurora blobs cycle opacity/scale only (GPU-compositable, no full-screen repaint)
 const auroraBlobVariants = (delay) => ({
@@ -106,11 +103,6 @@ export default function AuroraHero() {
         style={{ background: 'radial-gradient(circle, #7C3AED 0%, transparent 70%)' }}
       />
 
-      {/* Stars background */}
-      <div className="absolute inset-0 z-0 pointer-events-none">
-        <StarsCanvas />
-      </div>
-
       {/* Dot grid overlay */}
       <div
         className="absolute inset-0 opacity-10 pointer-events-none z-0"
@@ -144,6 +136,7 @@ export default function AuroraHero() {
             <motion.div variants={itemVariants}>
               <CinematicHeading
                 as="h1"
+                align="left"
                 className="font-sora font-bold text-4xl sm:text-5xl lg:text-6xl xl:text-7xl text-white leading-tight tracking-tighter mb-2"
                 delay={0.1}
               >
