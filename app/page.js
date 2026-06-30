@@ -1,7 +1,7 @@
 import dynamic from 'next/dynamic';
 
 const Navbar = dynamic(() => import('@/components/Navbar'), { ssr: false });
-const Hero = dynamic(() => import('@/components/Hero'), { ssr: false });
+const Hero = dynamic(() => import('@/components/ui/aurora-hero'), { ssr: false });
 const Clients = dynamic(() => import('@/components/Clients'), { ssr: false });
 const About = dynamic(() => import('@/components/About'), { ssr: false });
 const Services = dynamic(() => import('@/components/Services'), { ssr: false });
