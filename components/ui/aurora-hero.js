@@ -1,10 +1,11 @@
 'use client';
 
-import { Stars } from '@react-three/drei';
-import { Canvas } from '@react-three/fiber';
+import dynamic from 'next/dynamic';
 import { useEffect, useRef, useState } from 'react';
 import { useMotionTemplate, useMotionValue, motion, animate, useScroll, useTransform, useInView } from 'framer-motion';
 import { CinematicHeading } from '@/components/CinematicText';
+
+const StarsCanvas = dynamic(() => import('@/components/ui/stars-canvas'), { ssr: false });
 
 // Brand aurora colors: azul → violeta → azul oscuro → acento teal
 const AURORA_COLORS = ['#2E68E6', '#7C3AED', '#1E40AF', '#4F46E5'];
@@ -93,9 +94,7 @@ export default function AuroraHero() {
     >
       {/* Three.js Stars background */}
       <div className="absolute inset-0 z-0 pointer-events-none">
-        <Canvas camera={{ position: [0, 0, 1] }}>
-          <Stars radius={80} count={3000} factor={4} fade speed={1.5} />
-        </Canvas>
+        <StarsCanvas />
       </div>
 
       {/* Dot grid overlay */}
