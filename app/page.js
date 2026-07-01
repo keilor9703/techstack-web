@@ -4,6 +4,7 @@ const Navbar = dynamic(() => import('@/components/Navbar'), { ssr: false });
 const Hero = dynamic(() => import('@/components/ui/aurora-hero'), { ssr: false });
 const Clients = dynamic(() => import('@/components/Clients'), { ssr: false });
 const About = dynamic(() => import('@/components/About'), { ssr: false });
+const FeatureCarousel = dynamic(() => import('@/components/ui/feature-carousel'), { ssr: false });
 const Services = dynamic(() => import('@/components/Services'), { ssr: false });
 const Ksmart360Feature = dynamic(() => import('@/components/Ksmart360Feature'), { ssr: false });
 const Portfolio = dynamic(() => import('@/components/Portfolio'), { ssr: false });
@@ -17,6 +18,7 @@ export default function Home() {
       <Navbar />
       <Hero />
       <About />
+      <FeatureCarousel />
       <Services />
       <Ksmart360Feature />
       <Clients />
