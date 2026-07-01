@@ -4,6 +4,7 @@ import { useRef, useEffect, useState } from 'react';
 import { motion, useScroll, useTransform, useInView } from 'framer-motion';
 import { CinematicHeading } from '@/components/CinematicText';
 import { LiquidMetalButton } from '@/components/ui/liquid-metal-button';
+import { DottedSurface } from '@/components/ui/dotted-surface';
 
 const codeLines = [
   { tokens: [{ type: 'keyword', text: 'const' }, { type: 'plain', text: ' stack = {' }] },
@@ -84,29 +85,26 @@ export default function AuroraHero() {
   const opacity = isMobile ? 1 : opacityDesktop;
 
   return (
-    <section
-      ref={sectionRef}
-      id="hero"
-      className="relative flex items-center overflow-x-hidden bg-grafito"
-      /* Use 100dvh so mobile browser chrome doesn't collapse the section */
-      style={{ minHeight: '100dvh' }}
+    <div ref={sectionRef} id="hero">
+    <DottedSurface
+      className="relative flex items-center overflow-x-hidden"
+      dotColor="rgba(255,255,255,0.18)"
+      dotSize={1.5}
+      dotSpacing={28}
+      style={{ minHeight: '100dvh', backgroundColor: '#16181F' }}
     >
-      {/* Background */}
+      {/* Radial gradient overlays on top of dots */}
       <div
         className="absolute inset-0 z-0 pointer-events-none"
-        style={{ background: 'radial-gradient(130% 130% at 50% 0%, #16181F 45%, #1E2433 100%)' }}
+        style={{ background: 'radial-gradient(130% 130% at 50% 0%, rgba(22,24,31,0.6) 35%, rgba(30,36,51,0.5) 100%)' }}
       />
       <div
-        className="absolute -top-40 left-1/4 w-[600px] h-[600px] rounded-full blur-3xl pointer-events-none z-0 opacity-20"
+        className="absolute -top-40 left-1/4 w-[600px] h-[600px] rounded-full blur-3xl pointer-events-none z-0 opacity-30"
         style={{ background: 'radial-gradient(circle, #2E68E6 0%, transparent 70%)' }}
       />
       <div
-        className="absolute -top-20 right-1/4 w-[500px] h-[500px] rounded-full blur-3xl pointer-events-none z-0 opacity-15"
+        className="absolute -top-20 right-1/4 w-[500px] h-[500px] rounded-full blur-3xl pointer-events-none z-0 opacity-20"
         style={{ background: 'radial-gradient(circle, #7C3AED 0%, transparent 70%)' }}
-      />
-      <div
-        className="absolute inset-0 opacity-[0.08] pointer-events-none z-0"
-        style={{ backgroundImage: 'radial-gradient(circle, #6A6F7E 1px, transparent 1px)', backgroundSize: '32px 32px' }}
       />
 
       {/* Content — no parallax on mobile */}
@@ -252,10 +250,12 @@ export default function AuroraHero() {
         </div>
       </motion.div>
 
-      {/* Bottom fade — matches grafito to transparent so it blends correctly */}
-      <div className="absolute bottom-0 left-0 right-0 h-24 pointer-events-none z-10"
+      {/* Bottom fade */}
+      <div
+        className="absolute bottom-0 left-0 right-0 h-24 pointer-events-none z-10"
         style={{ background: 'linear-gradient(to top, #16181F, transparent)' }}
       />
-    </section>
+    </DottedSurface>
+    </div>
   );
 }
