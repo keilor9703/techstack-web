@@ -87,11 +87,11 @@ export default function AuroraHero() {
   return (
     <div ref={sectionRef} id="hero">
     <DottedSurface
-      className="relative overflow-x-hidden"
+      className="relative overflow-x-hidden lg:min-h-[100dvh]"
       dotColor="rgba(255,255,255,0.22)"
       dotSize={1.5}
       dotSpacing={28}
-      style={{ minHeight: '100dvh', backgroundColor: '#16181F', display: 'flex', alignItems: 'flex-start' }}
+      style={{ backgroundColor: '#16181F', display: 'flex', alignItems: 'flex-start' }}
     >
       {/* Subtle dark vignette so dots fade toward edges */}
       <div
@@ -111,7 +111,7 @@ export default function AuroraHero() {
       {/* Content — no parallax on mobile */}
       <motion.div
         style={{ y: textY, opacity }}
-        className="relative z-10 max-w-7xl mx-auto px-6 lg:px-8 w-full pt-28 pb-20 lg:pt-36 lg:pb-24"
+        className="relative z-10 max-w-7xl mx-auto px-6 lg:px-8 w-full pt-20 pb-14 lg:pt-36 lg:pb-24"
       >
         <div className="grid lg:grid-cols-2 gap-10 lg:gap-16 items-center">
 
