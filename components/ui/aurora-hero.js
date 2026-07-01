@@ -16,41 +16,41 @@ const codeLines = [
 
 const tokenColors = {
   keyword: 'text-blue-400',
-  string: 'text-green-400',
-  amber: 'text-amber-400',
-  plain: 'text-gray-300',
+  string:  'text-green-400',
+  amber:   'text-amber-400',
+  plain:   'text-gray-300',
 };
 
 const containerVariants = {
-  hidden: {},
+  hidden:  {},
   visible: { transition: { staggerChildren: 0.12 } },
 };
 
 const itemVariants = {
-  hidden: { opacity: 0, y: 24 },
+  hidden:  { opacity: 0, y: 24 },
   visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: [0.22, 1, 0.36, 1] } },
 };
 
 const floatVariants = {
   initial: { y: 0 },
   animate: {
-    y: [-10, 10, -10],
+    y: [-8, 8, -8],
     transition: { duration: 5, repeat: Infinity, ease: 'easeInOut' },
   },
 };
 
 function CountUp({ target, suffix = '', duration = 1500 }) {
   const [count, setCount] = useState(0);
-  const ref = useRef(null);
+  const ref    = useRef(null);
   const inView = useInView(ref, { once: true });
 
   useEffect(() => {
     if (!inView) return;
     const start = Date.now();
-    const tick = () => {
-      const elapsed = Date.now() - start;
+    const tick  = () => {
+      const elapsed  = Date.now() - start;
       const progress = Math.min(elapsed / duration, 1);
-      const eased = 1 - Math.pow(1 - progress, 3);
+      const eased    = 1 - Math.pow(1 - progress, 3);
       setCount(Math.floor(eased * target));
       if (progress < 1) requestAnimationFrame(tick);
     };
@@ -62,28 +62,59 @@ function CountUp({ target, suffix = '', duration = 1500 }) {
 
 export default function AuroraHero() {
   const sectionRef = useRef(null);
-  const { scrollYProgress } = useScroll({ target: sectionRef, offset: ['start start', 'end start'] });
-  const textY = useTransform(scrollYProgress, [0, 1], ['0%', '18%']);
-  const opacity = useTransform(scrollYProgress, [0, 0.7], [1, 0]);
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const check = () => setIsMobile(window.innerWidth < 1024);
+    check();
+    window.addEventListener('resize', check);
+    return () => window.removeEventListener('resize', check);
+  }, []);
+
+  const { scrollYProgress } = useScroll({
+    target:  sectionRef,
+    offset: ['start start', 'end start'],
+  });
+
+  // Only apply parallax on desktop — on mobile it causes layout jank
+  const textYDesktop = useTransform(scrollYProgress, [0, 1], ['0%', '18%']);
+  const opacityDesktop = useTransform(scrollYProgress, [0, 0.7], [1, 0]);
+
+  const textY   = isMobile ? 0 : textYDesktop;
+  const opacity = isMobile ? 1 : opacityDesktop;
 
   return (
     <section
       ref={sectionRef}
       id="hero"
-      className="relative min-h-screen flex items-center overflow-x-hidden bg-grafito"
+      className="relative flex items-center overflow-x-hidden bg-grafito"
+      /* Use 100dvh so mobile browser chrome doesn't collapse the section */
+      style={{ minHeight: '100dvh' }}
     >
       {/* Background */}
-      <div className="absolute inset-0 z-0 pointer-events-none" style={{ background: 'radial-gradient(130% 130% at 50% 0%, #16181F 45%, #1E2433 100%)' }} />
-      <div className="absolute -top-40 left-1/4 w-[600px] h-[600px] rounded-full blur-3xl pointer-events-none z-0 opacity-20" style={{ background: 'radial-gradient(circle, #2E68E6 0%, transparent 70%)' }} />
-      <div className="absolute -top-20 right-1/4 w-[500px] h-[500px] rounded-full blur-3xl pointer-events-none z-0 opacity-15" style={{ background: 'radial-gradient(circle, #7C3AED 0%, transparent 70%)' }} />
-      <div className="absolute inset-0 opacity-[0.08] pointer-events-none z-0" style={{ backgroundImage: 'radial-gradient(circle, #6A6F7E 1px, transparent 1px)', backgroundSize: '32px 32px' }} />
+      <div
+        className="absolute inset-0 z-0 pointer-events-none"
+        style={{ background: 'radial-gradient(130% 130% at 50% 0%, #16181F 45%, #1E2433 100%)' }}
+      />
+      <div
+        className="absolute -top-40 left-1/4 w-[600px] h-[600px] rounded-full blur-3xl pointer-events-none z-0 opacity-20"
+        style={{ background: 'radial-gradient(circle, #2E68E6 0%, transparent 70%)' }}
+      />
+      <div
+        className="absolute -top-20 right-1/4 w-[500px] h-[500px] rounded-full blur-3xl pointer-events-none z-0 opacity-15"
+        style={{ background: 'radial-gradient(circle, #7C3AED 0%, transparent 70%)' }}
+      />
+      <div
+        className="absolute inset-0 opacity-[0.08] pointer-events-none z-0"
+        style={{ backgroundImage: 'radial-gradient(circle, #6A6F7E 1px, transparent 1px)', backgroundSize: '32px 32px' }}
+      />
 
-      {/* Content */}
+      {/* Content — no parallax on mobile */}
       <motion.div
         style={{ y: textY, opacity }}
-        className="relative z-10 max-w-7xl mx-auto px-6 lg:px-8 w-full pt-24 pb-16"
+        className="relative z-10 max-w-7xl mx-auto px-6 lg:px-8 w-full pt-24 pb-20 lg:pb-16"
       >
-        <div className="grid lg:grid-cols-2 gap-16 items-center">
+        <div className="grid lg:grid-cols-2 gap-10 lg:gap-16 items-center">
 
           {/* Left: Text */}
           <motion.div
@@ -112,14 +143,14 @@ export default function AuroraHero() {
 
             <motion.p
               variants={itemVariants}
-              className="font-sora text-lg sm:text-xl lg:text-2xl text-white/60 font-medium mb-8 max-w-lg"
+              className="font-sora text-lg sm:text-xl lg:text-2xl text-white/60 font-medium mb-6 max-w-lg"
             >
               Sin consultoras, sin intermediarios.
             </motion.p>
 
             <motion.p
               variants={itemVariants}
-              className="font-sora text-base lg:text-lg text-white/60 leading-relaxed mb-10 max-w-xl"
+              className="font-sora text-base lg:text-lg text-white/60 leading-relaxed mb-8 max-w-xl"
             >
               Construimos software a medida y Ksmart360, nuestro ERP &amp; POS propio. Más de 30 empresas colombianas ya digitalizaron su operación con nosotros.
             </motion.p>
@@ -136,7 +167,10 @@ export default function AuroraHero() {
             </motion.div>
 
             {/* Stats */}
-            <motion.div variants={itemVariants} className="flex flex-wrap gap-y-4 gap-x-6 mt-10 pt-8 border-t border-white/10">
+            <motion.div
+              variants={itemVariants}
+              className="flex flex-wrap gap-y-4 gap-x-6 mt-8 pt-8 border-t border-white/10"
+            >
               <div className="flex flex-col">
                 <span className="font-sora font-light text-2xl text-white">
                   <CountUp target={30} suffix="+" />
@@ -158,12 +192,12 @@ export default function AuroraHero() {
             </motion.div>
           </motion.div>
 
-          {/* Right: Code card */}
+          {/* Right: Code card — hidden on mobile to avoid overflow/layout issues */}
           <motion.div
             initial={{ opacity: 0, x: 40 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8, delay: 0.3, ease: [0.22, 1, 0.36, 1] }}
-            className="flex justify-center lg:justify-end w-full min-w-0"
+            className="hidden lg:flex justify-end w-full min-w-0"
           >
             <motion.div
               variants={floatVariants}
@@ -172,8 +206,8 @@ export default function AuroraHero() {
               className="w-full max-w-md min-w-0"
             >
               <motion.div
-                style={{ boxShadow: "0px 4px 32px rgba(46,104,230,0.4)" }}
-                className="bg-[#0D0F16] border border-white/10 rounded-2xl overflow-hidden shadow-2xl"
+                style={{ boxShadow: '0px 4px 32px rgba(46,104,230,0.4)' }}
+                className="bg-[#0D0F16] border border-white/10 rounded-2xl overflow-hidden"
               >
                 {/* Window bar */}
                 <div className="flex items-center gap-2 px-4 py-3 bg-[#0A0C12] border-b border-white/5">
@@ -218,8 +252,10 @@ export default function AuroraHero() {
         </div>
       </motion.div>
 
-      {/* Bottom fade */}
-      <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-papel to-transparent z-10" />
+      {/* Bottom fade — matches grafito to transparent so it blends correctly */}
+      <div className="absolute bottom-0 left-0 right-0 h-24 pointer-events-none z-10"
+        style={{ background: 'linear-gradient(to top, #16181F, transparent)' }}
+      />
     </section>
   );
 }
