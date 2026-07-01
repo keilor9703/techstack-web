@@ -3,7 +3,7 @@
 import { useRef, useEffect, useState } from 'react';
 import { motion, useScroll, useTransform, useInView } from 'framer-motion';
 import { CinematicHeading } from '@/components/CinematicText';
-import { LiquidButton } from '@/components/ui/liquid-glass-button';
+import { LiquidMetalButton } from '@/components/ui/liquid-metal-button';
 
 const codeLines = [
   { tokens: [{ type: 'keyword', text: 'const' }, { type: 'plain', text: ' stack = {' }] },
@@ -124,27 +124,15 @@ export default function AuroraHero() {
               Construimos software a medida y Ksmart360, nuestro ERP &amp; POS propio. Más de 30 empresas colombianas ya digitalizaron su operación con nosotros.
             </motion.p>
 
-            <motion.div variants={itemVariants} className="flex flex-wrap gap-4">
-              <motion.a
-                href="#contacto"
-                onClick={(e) => { e.preventDefault(); document.querySelector('#contacto')?.scrollIntoView({ behavior: 'smooth' }); }}
-                whileHover={{ scale: 1.03 }}
-                whileTap={{ scale: 0.97 }}
-                className="inline-flex items-center gap-2 px-6 py-3.5 bg-azul text-white font-semibold text-sm rounded-xl hover:bg-blue-600 transition-colors duration-200 font-sora shadow-lg shadow-azul/30"
-              >
-                Contáctanos
-                <svg width="15" height="15" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                </svg>
-              </motion.a>
-              <LiquidButton
-                size="lg"
-                href="#servicios"
-                onClick={(e) => { e.preventDefault(); document.querySelector('#servicios')?.scrollIntoView({ behavior: 'smooth' }); }}
-                className="text-white"
-              >
-                Ver servicios
-              </LiquidButton>
+            <motion.div variants={itemVariants} className="flex flex-wrap gap-4 items-center">
+              <LiquidMetalButton
+                label="Contáctanos"
+                onClick={() => document.querySelector('#contacto')?.scrollIntoView({ behavior: 'smooth' })}
+              />
+              <LiquidMetalButton
+                label="Ver servicios"
+                onClick={() => document.querySelector('#servicios')?.scrollIntoView({ behavior: 'smooth' })}
+              />
             </motion.div>
 
             {/* Stats */}
