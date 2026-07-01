@@ -87,31 +87,26 @@ export default function AuroraHero() {
   return (
     <div ref={sectionRef} id="hero">
     <DottedSurface
-      className="relative overflow-x-hidden lg:min-h-[100dvh]"
-      dotColor="rgba(255,255,255,0.22)"
+      className="relative overflow-x-hidden"
+      dotColor="rgba(255,255,255,0.5)"
       dotSize={1.5}
       dotSpacing={28}
       style={{ backgroundColor: '#16181F', display: 'flex', alignItems: 'flex-start' }}
     >
-      {/* Subtle dark vignette so dots fade toward edges */}
+      {/* Colored glows — sit on top of dots */}
       <div
-        className="absolute inset-0 z-0 pointer-events-none"
-        style={{ background: 'radial-gradient(ellipse 80% 60% at 50% 30%, transparent 40%, rgba(22,24,31,0.85) 100%)' }}
-      />
-      {/* Colored glows */}
-      <div
-        className="absolute top-0 left-1/4 w-[500px] h-[500px] rounded-full blur-3xl pointer-events-none z-0 opacity-25"
+        className="absolute top-0 left-1/4 w-[500px] h-[500px] rounded-full blur-3xl pointer-events-none z-0 opacity-20"
         style={{ background: 'radial-gradient(circle, #2E68E6 0%, transparent 70%)' }}
       />
       <div
-        className="absolute top-10 right-1/4 w-[400px] h-[400px] rounded-full blur-3xl pointer-events-none z-0 opacity-15"
+        className="absolute top-10 right-1/4 w-[400px] h-[400px] rounded-full blur-3xl pointer-events-none z-0 opacity-12"
         style={{ background: 'radial-gradient(circle, #7C3AED 0%, transparent 70%)' }}
       />
 
       {/* Content — no parallax on mobile */}
       <motion.div
         style={{ y: textY, opacity }}
-        className="relative z-10 max-w-7xl mx-auto px-6 lg:px-8 w-full pt-20 pb-14 lg:pt-36 lg:pb-24"
+        className="relative z-10 max-w-7xl mx-auto px-6 lg:px-8 w-full pt-20 pb-16 lg:pt-40 lg:pb-28"
       >
         <div className="grid lg:grid-cols-2 gap-10 lg:gap-16 items-center">
 
