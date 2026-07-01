@@ -35,7 +35,7 @@ const FEATURES = [
     id: "erp",
     label: "ERP Ksmart360",
     icon: DashboardSquare01Icon,
-    image: "https://images.unsplash.com/photo-1551288049-bbda38a10ad5?q=80&w=1200",
+    image: "/screenshots/pos-ventas.webp",
     description: "Gestiona toda tu operación desde un solo sistema integrado.",
   },
   {
