@@ -10,7 +10,7 @@ import {
   DatabaseIcon,
   DashboardSquare01Icon,
   SmartPhone01Icon,
-  ShieldCheckIcon,
+  ShieldKeyIcon,
   ChartLineData01Icon,
 } from "@hugeicons/core-free-icons";
 import { cn } from "@/lib/utils";
@@ -69,7 +69,7 @@ const FEATURES = [
   {
     id: "seguridad",
     label: "Seguridad enterprise",
-    icon: ShieldCheckIcon,
+    icon: ShieldKeyIcon,
     image: "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?q=80&w=1200",
     description: "Protección bancaria para los datos de tu empresa.",
   },
