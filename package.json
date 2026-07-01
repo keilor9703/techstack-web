@@ -9,12 +9,16 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@paper-design/shaders": "^0.0.76",
+    "clsx": "^2.1.1",
     "framer-motion": "^11.3.8",
+    "lucide-react": "^1.22.0",
     "next": "^14.2.5",
     "react": "^18",
     "react-dom": "^18",
     "react-icons": "^5.6.0",
-    "resend": "^6.12.4"
+    "resend": "^6.12.4",
+    "tailwind-merge": "^3.6.0"
   },
   "devDependencies": {
     "autoprefixer": "^10.0.1",
