@@ -87,30 +87,31 @@ export default function AuroraHero() {
   return (
     <div ref={sectionRef} id="hero">
     <DottedSurface
-      className="relative flex items-center overflow-x-hidden"
-      dotColor="rgba(255,255,255,0.18)"
+      className="relative overflow-x-hidden"
+      dotColor="rgba(255,255,255,0.22)"
       dotSize={1.5}
       dotSpacing={28}
-      style={{ minHeight: '100dvh', backgroundColor: '#16181F' }}
+      style={{ minHeight: '100dvh', backgroundColor: '#16181F', display: 'flex', alignItems: 'flex-start' }}
     >
-      {/* Radial gradient overlays on top of dots */}
+      {/* Subtle dark vignette so dots fade toward edges */}
       <div
         className="absolute inset-0 z-0 pointer-events-none"
-        style={{ background: 'radial-gradient(130% 130% at 50% 0%, rgba(22,24,31,0.6) 35%, rgba(30,36,51,0.5) 100%)' }}
+        style={{ background: 'radial-gradient(ellipse 80% 60% at 50% 30%, transparent 40%, rgba(22,24,31,0.85) 100%)' }}
       />
+      {/* Colored glows */}
       <div
-        className="absolute -top-40 left-1/4 w-[600px] h-[600px] rounded-full blur-3xl pointer-events-none z-0 opacity-30"
+        className="absolute top-0 left-1/4 w-[500px] h-[500px] rounded-full blur-3xl pointer-events-none z-0 opacity-25"
         style={{ background: 'radial-gradient(circle, #2E68E6 0%, transparent 70%)' }}
       />
       <div
-        className="absolute -top-20 right-1/4 w-[500px] h-[500px] rounded-full blur-3xl pointer-events-none z-0 opacity-20"
+        className="absolute top-10 right-1/4 w-[400px] h-[400px] rounded-full blur-3xl pointer-events-none z-0 opacity-15"
         style={{ background: 'radial-gradient(circle, #7C3AED 0%, transparent 70%)' }}
       />
 
       {/* Content — no parallax on mobile */}
       <motion.div
         style={{ y: textY, opacity }}
-        className="relative z-10 max-w-7xl mx-auto px-6 lg:px-8 w-full pt-24 pb-20 lg:pb-16"
+        className="relative z-10 max-w-7xl mx-auto px-6 lg:px-8 w-full pt-28 pb-20 lg:pt-36 lg:pb-24"
       >
         <div className="grid lg:grid-cols-2 gap-10 lg:gap-16 items-center">
 
