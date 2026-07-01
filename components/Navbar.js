@@ -3,6 +3,7 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import ThemeToggle from '@/components/ThemeToggle';
+import { LiquidMetalButton } from '@/components/ui/liquid-metal-button';
 
 const navLinks = [
   { label: 'Nosotros', href: '#nosotros' },
@@ -135,17 +136,14 @@ export default function Navbar() {
             </div>
 
             <ThemeToggle className={scrolled ? 'text-grafito hover:bg-gray-100 dark:text-white dark:hover:bg-white/10' : 'text-white hover:bg-white/10'} />
-            <a
-              href="https://www.appjeylor.com/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="hidden lg:inline-flex items-center px-5 py-2.5 text-white text-sm font-semibold rounded-lg transition-all duration-200 font-sora"
-              style={{ background: 'linear-gradient(135deg, #2E68E6 0%, #7C3AED 100%)', boxShadow: '0 0 20px rgba(46,104,230,0.25)' }}
-              onMouseEnter={e => e.currentTarget.style.boxShadow = '0 0 28px rgba(124,58,237,0.4)'}
-              onMouseLeave={e => e.currentTarget.style.boxShadow = '0 0 20px rgba(46,104,230,0.25)'}
-            >
-              Probar Ksmart360
-            </a>
+            <div className="hidden lg:block">
+              <LiquidMetalButton
+                label="Probar Ksmart360"
+                href="https://www.appjeylor.com/"
+                target="_blank"
+                width={180}
+              />
+            </div>
 
             {/* Hamburger */}
             <button
@@ -198,14 +196,14 @@ export default function Navbar() {
                   {link.label}
                 </motion.a>
               ))}
-              <a
-                href="https://www.appjeylor.com/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="mt-3 inline-flex justify-center items-center px-5 py-3 bg-azul text-white text-sm font-semibold rounded-lg hover:bg-blue-600 transition-colors font-sora"
-              >
-                Probar Ksmart360
-              </a>
+              <div className="mt-3 flex justify-center">
+                <LiquidMetalButton
+                  label="Probar Ksmart360"
+                  href="https://www.appjeylor.com/"
+                  target="_blank"
+                  width={180}
+                />
+              </div>
             </nav>
           </motion.div>
         )}

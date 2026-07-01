@@ -5,6 +5,7 @@ import { motion, useInView, AnimatePresence } from 'framer-motion';
 import Link from 'next/link';
 import Footer from '@/components/Footer';
 import Clients from '@/components/Clients';
+import { LiquidMetalButton } from '@/components/ui/liquid-metal-button';
 // ─── Shared data ──────────────────────────────────────────────────────────────
 
 
@@ -406,27 +407,14 @@ function PlanCards({ plans }) {
               </div>
             )}
 
-            <motion.button
-              whileHover={{ scale: 1.03 }}
-              whileTap={{ scale: 0.97 }}
-              onClick={(e) => {
-                e.stopPropagation();
-                if (plan.ctaHref.startsWith('http')) {
-                  window.open(plan.ctaHref, '_blank', 'noopener,noreferrer');
-                } else {
-                  window.location.href = plan.ctaHref;
-                }
-              }}
-              className={`w-full text-center py-2.5 rounded-xl font-sora font-semibold text-sm transition-colors duration-200 cursor-pointer ${
-                isHighlight
-                  ? 'bg-white text-azulStack hover:bg-gray-50'
-                  : isSelected
-                  ? 'bg-azulStack text-white hover:bg-blue-600 shadow-lg shadow-azulStack/30'
-                  : 'bg-azulStack text-white hover:bg-blue-600'
-              }`}
-            >
-              {isSelected && !isHighlight ? '→ Continuar con ' + plan.name : plan.cta}
-            </motion.button>
+            <div className="flex justify-center">
+              <LiquidMetalButton
+                label={isSelected && !isHighlight ? '→ Continuar con ' + plan.name : plan.cta}
+                href={plan.ctaHref}
+                target="_blank"
+                width={220}
+              />
+            </div>
           </motion.div>
         );
       })}
@@ -985,13 +973,13 @@ function PymeView() {
                     <span key={i} className={`font-sora text-xs px-3 py-1.5 rounded-lg text-center ${i < 4 ? 'bg-azul/20 text-azul border border-azul/30' : 'bg-white/5 text-white/35 border border-white/10 border-dashed'}`}>{item}</span>
                   ))}
                 </div>
-                <a
-                  href="/#contacto"
-                  className="inline-flex items-center gap-2 px-6 py-3 bg-azul text-white font-semibold text-sm rounded-xl hover:bg-blue-600 transition-colors font-sora cursor-pointer w-full justify-center"
-                >
-                  Hablemos de tu negocio
-                  <svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}><path strokeLinecap="round" strokeLinejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg>
-                </a>
+                <div className="flex justify-center">
+                  <LiquidMetalButton
+                    label="Hablemos de tu negocio"
+                    href="/#contacto"
+                    width={220}
+                  />
+                </div>
               </div>
             </motion.div>
           </Section>
@@ -1393,15 +1381,12 @@ function PymeView() {
 
           <Section className="mt-12 text-center">
             <motion.div variants={fadeUp}>
-              <button
-                onClick={() => window.open('https://www.appjeylor.com/', '_blank', 'noopener,noreferrer')}
-                className="inline-flex items-center gap-2 px-8 py-4 bg-azul text-white font-semibold text-sm rounded-xl hover:bg-blue-600 transition-colors font-sora shadow-lg shadow-azul/30 cursor-pointer"
-              >
-                Empezar gratis ahora
-                <svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                </svg>
-              </button>
+              <LiquidMetalButton
+                label="Empezar gratis ahora"
+                href="https://www.appjeylor.com/"
+                target="_blank"
+                width={210}
+              />
               <p className="font-sora text-xs text-white/30 mt-3">14 días gratis · Sin tarjeta · Cancela cuando quieras</p>
             </motion.div>
           </Section>
@@ -2056,15 +2041,12 @@ export default function Ksmart360Page() {
           </div>
 
           {/* Right: CTA */}
-          <button
-            onClick={() => window.open('https://www.appjeylor.com/', '_blank', 'noopener,noreferrer')}
-            className="inline-flex items-center gap-1.5 px-3 py-2 bg-azul text-white text-xs font-semibold rounded-lg hover:bg-blue-600 transition-colors font-sora flex-shrink-0 cursor-pointer"
-          >
-            Probar gratis
-            <svg width="12" height="12" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
-              <path strokeLinecap="round" strokeLinejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
-            </svg>
-          </button>
+          <LiquidMetalButton
+            label="Probar gratis"
+            href="https://www.appjeylor.com/"
+            target="_blank"
+            width={150}
+          />
         </div>
 
         {/* Toggle row — mobile only */}
@@ -2150,24 +2132,20 @@ export default function Ksmart360Page() {
             </AnimatePresence>
 
             <motion.div variants={fadeUp} className="flex flex-wrap items-center justify-center gap-4 mb-16">
-              <button
-                onClick={() => window.open('https://www.appjeylor.com/', '_blank', 'noopener,noreferrer')}
-                className="inline-flex items-center gap-2 px-7 py-4 bg-azul text-white font-semibold text-sm rounded-xl hover:bg-blue-600 transition-colors duration-200 font-sora shadow-lg shadow-azul/30 cursor-pointer"
-              >
-                Probar gratis 14 días
-                <svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                </svg>
-              </button>
-              <button
+              <LiquidMetalButton
+                label="Probar gratis 14 días"
+                href="https://www.appjeylor.com/"
+                target="_blank"
+                width={200}
+              />
+              <LiquidMetalButton
+                label={view === 'pymes' ? 'Conocer más' : 'Ver módulos'}
                 onClick={() => {
                   const id = view === 'tech' ? 'modulos' : 'diferenciales';
                   document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' });
                 }}
-                className="inline-flex items-center gap-2 px-7 py-4 border border-white/20 text-white font-semibold text-sm rounded-xl hover:border-white/40 hover:bg-white/5 transition-all duration-200 font-sora cursor-pointer"
-              >
-                {view === 'pymes' ? 'Conocer más' : 'Ver módulos'}
-              </button>
+                width={175}
+              />
             </motion.div>
 
             <motion.div variants={fadeUp} className="mb-10">
