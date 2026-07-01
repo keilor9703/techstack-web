@@ -83,7 +83,7 @@ export default function Portfolio() {
             Lo que hemos construido
           </motion.span>
           <CinematicHeading
-            className="font-sora font-bold text-4xl lg:text-5xl xl:text-6xl text-grafito dark:text-white leading-tight tracking-tight"
+            className="font-sora font-light text-4xl lg:text-5xl xl:text-6xl text-grafito dark:text-white leading-tight tracking-tight"
             delay={0.1}
           >
             Ksmart360 y sus capacidades

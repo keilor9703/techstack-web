@@ -860,7 +860,7 @@ function PymeView() {
             <motion.span variants={fadeUp} className="inline-block text-xs font-mono font-medium text-azulStack bg-azulTinte px-3 py-1.5 rounded-full mb-4 tracking-wider uppercase">
               Por qué Ksmart360
             </motion.span>
-            <motion.h2 variants={fadeUp} className="font-sora font-bold text-3xl lg:text-5xl text-grafito dark:text-white leading-tight tracking-tight">
+            <motion.h2 variants={fadeUp} className="font-sora font-light text-3xl lg:text-5xl text-grafito dark:text-white leading-tight tracking-tight">
               Funcionalidades que<br className="hidden lg:block" />
               <span className="text-azulStack"> realmente importan.</span>
             </motion.h2>
@@ -897,7 +897,7 @@ function PymeView() {
             <motion.span variants={fadeUp} className="inline-block text-xs font-mono font-medium text-azulStack bg-azulTinte px-3 py-1.5 rounded-full mb-4 tracking-wider uppercase">
               Elige tu negocio
             </motion.span>
-            <motion.h2 variants={fadeUp} className="font-sora font-bold text-3xl lg:text-5xl text-grafito dark:text-white leading-tight tracking-tight">
+            <motion.h2 variants={fadeUp} className="font-sora font-light text-3xl lg:text-5xl text-grafito dark:text-white leading-tight tracking-tight">
               Un sistema adaptado <span className="text-azulStack">a lo que haces.</span>
             </motion.h2>
             <motion.p variants={fadeUp} className="font-sora text-base text-acero mt-4 max-w-xl mx-auto leading-relaxed">
@@ -934,7 +934,7 @@ function PymeView() {
               <div className="flex items-start gap-5 mb-3">
                 <div className="text-5xl">{pymeIndustries[activeIndustry].icon}</div>
                 <div>
-                  <h3 className="font-sora font-bold text-2xl text-grafito dark:text-white tracking-tight">{pymeIndustries[activeIndustry].name}</h3>
+                  <h3 className="font-sora font-normal text-2xl text-grafito dark:text-white tracking-tight">{pymeIndustries[activeIndustry].name}</h3>
                   <p className="font-sora text-sm text-acero mt-0.5">{pymeIndustries[activeIndustry].subtitle}</p>
                 </div>
               </div>
@@ -960,7 +960,7 @@ function PymeView() {
                 <span className="inline-block text-xs font-mono font-medium text-azul bg-azul/15 border border-azul/25 px-3 py-1.5 rounded-full mb-4 tracking-wider uppercase">
                   Sin límites
                 </span>
-                <h3 className="font-sora font-bold text-2xl lg:text-3xl text-white leading-tight mb-3">
+                <h3 className="font-sora font-light text-2xl lg:text-3xl text-white leading-tight mb-3">
                   ¿Tu modelo de negocio no está aquí?
                 </h3>
                 <p className="font-sora text-sm text-white/60 leading-relaxed max-w-xl">
@@ -995,7 +995,7 @@ function PymeView() {
             <motion.span variants={fadeUp} className="inline-block text-xs font-mono font-medium text-azul bg-azul/15 border border-azul/25 px-3 py-1.5 rounded-full mb-4 tracking-wider uppercase">
               Catálogo Virtual · Diferencial exclusivo
             </motion.span>
-            <motion.h2 variants={fadeUp} className="font-sora font-bold text-3xl lg:text-5xl text-white leading-tight tracking-tight">
+            <motion.h2 variants={fadeUp} className="font-sora font-light text-3xl lg:text-5xl text-white leading-tight tracking-tight">
               Tu tienda online.<br />
               <span className="text-azul">Incluida en todos los planes.</span>
             </motion.h2>
@@ -1171,7 +1171,7 @@ function PymeView() {
             <motion.span variants={fadeUp} className="inline-block text-xs font-mono font-medium text-azulStack bg-azulTinte px-3 py-1.5 rounded-full mb-4 tracking-wider uppercase">
               Link de Pago & QR · En todos los planes
             </motion.span>
-            <motion.h2 variants={fadeUp} className="font-sora font-bold text-3xl lg:text-5xl text-grafito dark:text-white leading-tight tracking-tight">
+            <motion.h2 variants={fadeUp} className="font-sora font-light text-3xl lg:text-5xl text-grafito dark:text-white leading-tight tracking-tight">
               Cobra en segundos.<br />
               <span className="text-azulStack">Sin datafono. Sin complicaciones.</span>
             </motion.h2>
@@ -1303,7 +1303,7 @@ function PymeView() {
             <motion.span variants={fadeUp} className="inline-block text-xs font-mono font-medium text-azulStack bg-azulTinte px-3 py-1.5 rounded-full mb-4 tracking-wider uppercase">
               Todo incluido
             </motion.span>
-            <motion.h2 variants={fadeUp} className="font-sora font-bold text-3xl lg:text-5xl text-grafito dark:text-white leading-tight tracking-tight">
+            <motion.h2 variants={fadeUp} className="font-sora font-light text-3xl lg:text-5xl text-grafito dark:text-white leading-tight tracking-tight">
               60+ funcionalidades.<br className="hidden lg:block" />
               <span className="text-azulStack"> Un solo sistema.</span>
             </motion.h2>
@@ -1355,7 +1355,7 @@ function PymeView() {
             <motion.span variants={fadeUp} className="inline-block text-xs font-mono font-medium text-azul bg-azul/10 border border-azul/20 px-3 py-1.5 rounded-full mb-4 tracking-wider uppercase">
               Así de fácil
             </motion.span>
-            <motion.h2 variants={fadeUp} className="font-sora font-bold text-3xl lg:text-5xl text-white leading-tight tracking-tight">
+            <motion.h2 variants={fadeUp} className="font-sora font-light text-3xl lg:text-5xl text-white leading-tight tracking-tight">
               Listo para operar<br className="hidden lg:block" />
               <span className="text-azul"> en el mismo día.</span>
             </motion.h2>
@@ -1438,7 +1438,7 @@ function TechView() {
             <motion.span variants={fadeUp} className="inline-block text-xs font-mono font-medium text-azulStack bg-azulTinte px-3 py-1.5 rounded-full mb-4 tracking-wider uppercase">
               Funcionalidades
             </motion.span>
-            <motion.h2 variants={fadeUp} className="font-sora font-bold text-3xl lg:text-5xl text-grafito dark:text-white leading-tight tracking-tight">
+            <motion.h2 variants={fadeUp} className="font-sora font-light text-3xl lg:text-5xl text-grafito dark:text-white leading-tight tracking-tight">
               Todo lo que tu empresa necesita.<br className="hidden lg:block" />
               <span className="text-azulStack"> Un solo sistema.</span>
             </motion.h2>
@@ -1470,7 +1470,7 @@ function TechView() {
             <motion.span variants={fadeUp} className="inline-block text-xs font-mono font-medium text-azulStack bg-azulTinte px-3 py-1.5 rounded-full mb-4 tracking-wider uppercase">
               Mercado objetivo
             </motion.span>
-            <motion.h2 variants={fadeUp} className="font-sora font-bold text-3xl lg:text-5xl text-grafito dark:text-white leading-tight tracking-tight">
+            <motion.h2 variants={fadeUp} className="font-sora font-light text-3xl lg:text-5xl text-grafito dark:text-white leading-tight tracking-tight">
               Un sistema. <span className="text-azulStack">Cinco industrias.</span>
             </motion.h2>
             <motion.p variants={fadeUp} className="font-sora text-base text-acero mt-4 max-w-xl mx-auto leading-relaxed">
@@ -1507,7 +1507,7 @@ function TechView() {
               <div className="flex items-start gap-5 mb-8">
                 <div className="text-5xl">{techIndustries[activeIndustry].icon}</div>
                 <div>
-                  <h3 className="font-sora font-bold text-2xl text-grafito dark:text-white tracking-tight">{techIndustries[activeIndustry].name}</h3>
+                  <h3 className="font-sora font-normal text-2xl text-grafito dark:text-white tracking-tight">{techIndustries[activeIndustry].name}</h3>
                   <p className="font-sora text-sm text-acero mt-1">{techIndustries[activeIndustry].subtitle}</p>
                 </div>
               </div>
@@ -1537,7 +1537,7 @@ function TechView() {
             <motion.span variants={fadeUp} className="inline-block text-xs font-mono font-medium text-azul bg-azul/15 border border-azul/25 px-3 py-1.5 rounded-full mb-4 tracking-wider uppercase">
               Reportes financieros
             </motion.span>
-            <motion.h2 variants={fadeUp} className="font-sora font-bold text-3xl lg:text-5xl text-white leading-tight tracking-tight">
+            <motion.h2 variants={fadeUp} className="font-sora font-light text-3xl lg:text-5xl text-white leading-tight tracking-tight">
               Tu negocio, de un vistazo.<br />
               <span className="text-azul">Sin abrir Excel.</span>
             </motion.h2>
@@ -1578,7 +1578,7 @@ function TechView() {
             <motion.span variants={fadeUp} className="inline-block text-xs font-mono font-medium text-azul bg-azul/10 border border-azul/20 px-3 py-1.5 rounded-full mb-4 tracking-wider uppercase">
               SaaS · En la nube
             </motion.span>
-            <motion.h2 variants={fadeUp} className="font-sora font-bold text-3xl lg:text-5xl text-white leading-tight tracking-tight">
+            <motion.h2 variants={fadeUp} className="font-sora font-light text-3xl lg:text-5xl text-white leading-tight tracking-tight">
               Sin servidores propios.<br className="hidden lg:block" />
               <span className="text-azul"> Sin instalaciones. Sin límites.</span>
             </motion.h2>
@@ -1667,7 +1667,7 @@ function TechView() {
             <motion.span variants={fadeUp} className="inline-block text-xs font-mono font-medium text-azulStack bg-azulTinte px-3 py-1.5 rounded-full mb-4 tracking-wider uppercase">
               Stack técnico
             </motion.span>
-            <motion.h2 variants={fadeUp} className="font-sora font-bold text-3xl lg:text-5xl text-grafito dark:text-white leading-tight tracking-tight">
+            <motion.h2 variants={fadeUp} className="font-sora font-light text-3xl lg:text-5xl text-grafito dark:text-white leading-tight tracking-tight">
               Ingeniería de <span className="text-azulStack">nivel enterprise</span>
             </motion.h2>
             <motion.p variants={fadeUp} className="font-sora text-base text-acero mt-4 max-w-xl mx-auto leading-relaxed">
@@ -1759,7 +1759,7 @@ function TechView() {
             <motion.span variants={fadeUp} className="inline-block text-xs font-mono font-medium text-azulStack bg-azulTinte px-3 py-1.5 rounded-full mb-4 tracking-wider uppercase">
               Seguridad
             </motion.span>
-            <motion.h2 variants={fadeUp} className="font-sora font-bold text-3xl lg:text-5xl text-grafito dark:text-white leading-tight tracking-tight">
+            <motion.h2 variants={fadeUp} className="font-sora font-light text-3xl lg:text-5xl text-grafito dark:text-white leading-tight tracking-tight">
               7 capas de seguridad.<br className="hidden lg:block" />
               <span className="text-azulStack"> Ningún punto único de fallo.</span>
             </motion.h2>
@@ -1876,7 +1876,7 @@ function TechView() {
             <motion.span variants={fadeUp} className="inline-block text-xs font-mono font-medium text-azulStack bg-azulTinte px-3 py-1.5 rounded-full mb-4 tracking-wider uppercase">
               Integraciones
             </motion.span>
-            <motion.h2 variants={fadeUp} className="font-sora font-bold text-3xl lg:text-5xl text-grafito dark:text-white leading-tight tracking-tight">
+            <motion.h2 variants={fadeUp} className="font-sora font-light text-3xl lg:text-5xl text-grafito dark:text-white leading-tight tracking-tight">
               Conectado con el<br className="hidden lg:block" />
               <span className="text-azulStack"> ecosistema colombiano.</span>
             </motion.h2>
@@ -1925,7 +1925,7 @@ function TechView() {
             <motion.span variants={fadeUp} className="inline-block text-xs font-mono font-medium text-azul bg-azul/10 border border-azul/20 px-3 py-1.5 rounded-full mb-4 tracking-wider uppercase">
               Normativa
             </motion.span>
-            <motion.h2 variants={fadeUp} className="font-sora font-bold text-3xl lg:text-5xl text-white leading-tight tracking-tight">
+            <motion.h2 variants={fadeUp} className="font-sora font-light text-3xl lg:text-5xl text-white leading-tight tracking-tight">
               Construido para<br className="hidden lg:block" />
               <span className="text-azul"> el mercado colombiano.</span>
             </motion.h2>
@@ -2224,7 +2224,7 @@ export default function Ksmart360Page() {
             <motion.span variants={fadeUp} className="inline-block text-xs font-mono font-medium text-orange-600 bg-orange-50 dark:bg-orange-500/10 px-3 py-1.5 rounded-full mb-4 tracking-wider uppercase">
               Obligatoriedad DIAN
             </motion.span>
-            <motion.h2 variants={fadeUp} className="font-sora font-bold text-3xl lg:text-5xl text-grafito dark:text-white leading-tight tracking-tight">
+            <motion.h2 variants={fadeUp} className="font-sora font-light text-3xl lg:text-5xl text-grafito dark:text-white leading-tight tracking-tight">
               ¿Por qué la Factura Electrónica<br className="hidden lg:block" /> es obligatoria en Colombia?
             </motion.h2>
             <motion.p variants={fadeUp} className="font-sora text-base text-acero mt-4 max-w-2xl mx-auto leading-relaxed">
@@ -2292,7 +2292,7 @@ export default function Ksmart360Page() {
           {/* Requisitos para activar FE en Ksmart360 */}
           <Section className="mb-12">
             <motion.div variants={fadeUp} className="max-w-3xl mx-auto">
-              <h3 className="font-sora font-bold text-lg text-grafito dark:text-white text-center mb-6">
+              <h3 className="font-sora font-normal text-lg text-grafito dark:text-white text-center mb-6">
                 Requisitos para activar FE en Ksmart360
               </h3>
               <div className="grid sm:grid-cols-2 gap-4">
@@ -2318,7 +2318,7 @@ export default function Ksmart360Page() {
           <Section>
             <motion.div variants={fadeUp} className="max-w-2xl mx-auto bg-green-50 dark:bg-green-500/10 border border-green-200 dark:border-green-500/20 rounded-2xl p-8 text-center">
               <div className="text-3xl mb-3">✅</div>
-              <h3 className="font-sora font-bold text-lg text-grafito dark:text-white mb-2">Ksmart360 lo hace automáticamente</h3>
+              <h3 className="font-sora font-normal text-lg text-grafito dark:text-white mb-2">Ksmart360 lo hace automáticamente</h3>
               <p className="font-sora text-sm text-acero leading-relaxed mb-6">
                 Una vez tienes tu resolución DIAN y tu firma digital, Ksmart360 genera, firma y transmite cada documento electrónico en segundos — sin software adicional, sin procesos manuales.
               </p>
@@ -2344,7 +2344,7 @@ export default function Ksmart360Page() {
             <motion.span variants={fadeUp} className="inline-block text-xs font-mono font-medium text-azulStack bg-azulTinte px-3 py-1.5 rounded-full mb-4 tracking-wider uppercase">
               Planes
             </motion.span>
-            <motion.h2 variants={fadeUp} className="font-sora font-bold text-3xl lg:text-5xl text-grafito dark:text-white leading-tight tracking-tight">
+            <motion.h2 variants={fadeUp} className="font-sora font-light text-3xl lg:text-5xl text-grafito dark:text-white leading-tight tracking-tight">
               Empieza gratis. <span className="text-azulStack">Crece sin límites.</span>
             </motion.h2>
             <motion.p variants={fadeUp} className="font-sora text-base text-acero mt-4 max-w-lg mx-auto leading-relaxed">
@@ -2398,7 +2398,7 @@ export default function Ksmart360Page() {
             <motion.div variants={fadeUp} className="mb-6">
               <img src="/ksmart360-logo.svg" alt="Ksmart360" className="w-16 h-16 mx-auto drop-shadow-xl" />
             </motion.div>
-            <motion.h2 variants={fadeUp} className="font-sora font-bold text-3xl lg:text-5xl text-white leading-tight tracking-tight mb-5">
+            <motion.h2 variants={fadeUp} className="font-sora font-light text-3xl lg:text-5xl text-white leading-tight tracking-tight mb-5">
               Empieza hoy.<br />
               <span className="text-azul">Sin tarjeta de crédito.</span>
             </motion.h2>

@@ -77,7 +77,7 @@ export default function Services() {
             Lo que hacemos
           </motion.span>
           <CinematicHeading
-            className="font-sora font-bold text-4xl lg:text-5xl xl:text-6xl text-white leading-tight tracking-tight"
+            className="font-sora font-light text-4xl lg:text-5xl xl:text-6xl text-white leading-tight tracking-tight"
             delay={0.1}
           >
             Nuestros Servicios
@@ -106,7 +106,7 @@ export default function Services() {
               <div className="w-12 h-12 rounded-xl flex items-center justify-center text-white mb-6 transition-all duration-300 group-hover:scale-110" style={{ background: 'linear-gradient(135deg, #2E68E6 0%, #7C3AED 100%)' }}>
                 {service.icon}
               </div>
-              <h3 className="font-sora font-semibold text-xl text-white mb-3 tracking-tight">
+              <h3 className="font-sora font-normal text-xl text-white mb-3 tracking-normal">
                 {service.title}
               </h3>
               <p className="font-sora text-sm text-white/55 leading-relaxed mb-6 flex-1">
@@ -162,7 +162,7 @@ export default function Services() {
             <p className="text-xs font-mono font-medium text-azulStack tracking-widest uppercase mb-2">
               Diseño &amp; Construcción Web
             </p>
-            <h3 className="font-sora font-bold text-2xl lg:text-3xl text-white leading-snug tracking-tight mb-3">
+            <h3 className="font-sora font-light text-2xl lg:text-3xl text-white leading-snug tracking-normal mb-3">
               ¿Tu empresa todavía no tiene página web?
             </h3>
             <p className="font-sora text-sm text-white/55 leading-relaxed max-w-xl">

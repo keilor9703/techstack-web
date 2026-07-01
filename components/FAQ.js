@@ -54,7 +54,7 @@ export default function FAQ() {
           <span className="inline-block text-xs font-mono font-medium text-azulStack bg-azulTinte px-3 py-1.5 rounded-full mb-4 tracking-wider uppercase">
             Preguntas frecuentes
           </span>
-          <h2 className="font-sora font-bold text-3xl lg:text-5xl xl:text-6xl text-grafito dark:text-white leading-tight tracking-tight">
+          <h2 className="font-sora font-light text-3xl lg:text-5xl xl:text-6xl text-grafito dark:text-white leading-tight tracking-tight">
             Resolvemos tus dudas
           </h2>
           <p className="font-sora text-base text-acero mt-4 leading-relaxed">

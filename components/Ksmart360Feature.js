@@ -62,7 +62,7 @@ export default function Ksmart360Feature() {
                   Producto estrella · v2.2.0
                 </span>
               </div>
-              <h2 className="font-sora font-bold text-3xl lg:text-4xl xl:text-5xl text-white leading-tight mb-4">
+              <h2 className="font-sora font-light text-3xl lg:text-4xl xl:text-5xl text-white leading-tight mb-4">
                 Ksmart360
               </h2>
               <p className="font-sora text-lg text-white/60 leading-relaxed mb-3">

@@ -89,7 +89,7 @@ export default function Contact() {
             </motion.span>
             <motion.h2
               variants={itemVariants}
-              className="font-sora font-bold text-4xl lg:text-5xl xl:text-6xl text-grafito dark:text-white leading-tight tracking-tight mb-5"
+              className="font-sora font-light text-4xl lg:text-5xl xl:text-6xl text-grafito dark:text-white leading-tight tracking-tight mb-5"
             >
               ¿Listo para transformar tu negocio con tecnología?
             </motion.h2>
@@ -219,7 +219,7 @@ export default function Contact() {
                     />
                   </svg>
                 </div>
-                <h3 className="font-sora font-bold text-xl text-grafito dark:text-white mb-2">
+                <h3 className="font-sora font-normal text-xl text-grafito dark:text-white mb-2">
                   ¡Mensaje enviado!
                 </h3>
                 <p className="text-acero text-sm leading-relaxed">

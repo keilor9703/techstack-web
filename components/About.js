@@ -64,7 +64,7 @@ export default function About() {
             Nuestra filosofía
           </motion.span>
           <CinematicHeading
-            className="font-sora font-bold text-4xl lg:text-6xl xl:text-7xl text-grafito dark:text-white leading-tight tracking-tighter mb-6"
+            className="font-sora font-light text-4xl lg:text-6xl xl:text-7xl text-grafito dark:text-white leading-tight tracking-tight mb-6"
             delay={0.1}
           >
             Construimos. No consultamos.
