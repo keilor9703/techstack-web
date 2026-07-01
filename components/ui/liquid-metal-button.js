@@ -8,6 +8,11 @@ export function LiquidMetalButton({
   label = 'Get Started',
   onClick,
   viewMode = 'text',
+  width,
+  href,
+  target,
+  disabled = false,
+  type = 'button',
 }) {
   const [isHovered, setIsHovered]   = useState(false);
   const [isPressed, setIsPressed]   = useState(false);
@@ -21,8 +26,9 @@ export function LiquidMetalButton({
     if (viewMode === 'icon') {
       return { width: 46, height: 46, innerWidth: 42, innerHeight: 42, shaderWidth: 46, shaderHeight: 46 };
     }
-    return { width: 160, height: 46, innerWidth: 156, innerHeight: 42, shaderWidth: 160, shaderHeight: 46 };
-  }, [viewMode]);
+    const w = width ?? 160;
+    return { width: w, height: 46, innerWidth: w - 4, innerHeight: 42, shaderWidth: w, shaderHeight: 46 };
+  }, [viewMode, width]);
 
   useEffect(() => {
     const styleId = 'shader-canvas-style-lmb';
@@ -64,10 +70,11 @@ export function LiquidMetalButton({
     return () => { shaderMount.current?.destroy?.(); shaderMount.current = null; };
   }, []);
 
-  const handleMouseEnter = () => { setIsHovered(true);  shaderMount.current?.setSpeed?.(1); };
-  const handleMouseLeave = () => { setIsHovered(false); setIsPressed(false); shaderMount.current?.setSpeed?.(0.6); };
+  const handleMouseEnter = () => { if (disabled) return; setIsHovered(true);  shaderMount.current?.setSpeed?.(1); };
+  const handleMouseLeave = () => { if (disabled) return; setIsHovered(false); setIsPressed(false); shaderMount.current?.setSpeed?.(0.6); };
 
   const handleClick = (e) => {
+    if (disabled) return;
     shaderMount.current?.setSpeed?.(2.4);
     setTimeout(() => shaderMount.current?.setSpeed?.(isHovered ? 1 : 0.6), 300);
 
@@ -76,6 +83,14 @@ export function LiquidMetalButton({
       const ripple = { x: e.clientX - rect.left, y: e.clientY - rect.top, id: rippleId.current++ };
       setRipples(prev => [...prev, ripple]);
       setTimeout(() => setRipples(prev => prev.filter(r => r.id !== ripple.id)), 600);
+    }
+
+    if (href) {
+      if (target === '_blank') {
+        window.open(href, '_blank', 'noopener,noreferrer');
+      } else {
+        window.location.href = href;
+      }
     }
     onClick?.();
   };
@@ -89,7 +104,7 @@ export function LiquidMetalButton({
   const pressed = `translateY(${isPressed ? '1px' : '0'}) scale(${isPressed ? '0.98' : '1'})`;
 
   return (
-    <div className="relative inline-block" style={{ perspective: '1000px', perspectiveOrigin: '50% 50%' }}>
+    <div className="relative inline-block" style={{ perspective: '1000px', perspectiveOrigin: '50% 50%', opacity: disabled ? 0.5 : 1 }}>
       <div style={{ position: 'relative', width: dimensions.width, height: dimensions.height, transformStyle: 'preserve-3d', transition: 'all 0.8s cubic-bezier(0.34,1.56,0.64,1)' }}>
 
         {/* Label / icon layer */}
@@ -119,13 +134,15 @@ export function LiquidMetalButton({
         {/* Invisible click target */}
         <button
           ref={buttonRef}
+          type={type}
           onClick={handleClick}
           onMouseEnter={handleMouseEnter}
           onMouseLeave={handleMouseLeave}
-          onMouseDown={() => setIsPressed(true)}
-          onMouseUp={() => setIsPressed(false)}
+          onMouseDown={() => !disabled && setIsPressed(true)}
+          onMouseUp={() => !disabled && setIsPressed(false)}
+          disabled={disabled}
           aria-label={label}
-          style={{ position: 'absolute', inset: 0, background: 'transparent', border: 'none', cursor: 'pointer', zIndex: 40, transform: 'translateZ(25px)', borderRadius: 100, overflow: 'hidden' }}
+          style={{ position: 'absolute', inset: 0, background: 'transparent', border: 'none', cursor: disabled ? 'not-allowed' : 'pointer', zIndex: 40, transform: 'translateZ(25px)', borderRadius: 100, overflow: 'hidden' }}
         >
           {ripples.map(r => (
             <span key={r.id} style={{ position: 'absolute', left: r.x, top: r.y, width: 20, height: 20, borderRadius: '50%', background: 'radial-gradient(circle,rgba(255,255,255,0.4) 0%,transparent 70%)', pointerEvents: 'none', animation: 'lmb-ripple 0.6s ease-out' }} />

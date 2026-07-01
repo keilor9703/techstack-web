@@ -2,6 +2,7 @@
 
 import { useState } from 'react';
 import { motion } from 'framer-motion';
+import { LiquidMetalButton } from '@/components/ui/liquid-metal-button';
 
 const containerVariants = {
   hidden: {},
@@ -305,39 +306,14 @@ export default function Contact() {
                   />
                 </div>
 
-                <button
-                  type="submit"
-                  disabled={loading}
-                  className="w-full bg-azulStack text-white font-sora font-semibold py-3.5 px-8 rounded-xl hover:bg-blue-600 disabled:opacity-60 disabled:cursor-not-allowed transition-all duration-200 shadow-md shadow-azulStack/25 flex items-center justify-center gap-2"
-                >
-                  {loading ? (
-                    <>
-                      <svg
-                        className="w-4 h-4 animate-spin"
-                        fill="none"
-                        viewBox="0 0 24 24"
-                        aria-hidden="true"
-                      >
-                        <circle
-                          className="opacity-25"
-                          cx="12"
-                          cy="12"
-                          r="10"
-                          stroke="currentColor"
-                          strokeWidth="4"
-                        />
-                        <path
-                          className="opacity-75"
-                          fill="currentColor"
-                          d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z"
-                        />
-                      </svg>
-                      Enviando...
-                    </>
-                  ) : (
-                    'Enviar mensaje'
-                  )}
-                </button>
+                <div className="flex justify-center">
+                  <LiquidMetalButton
+                    type="submit"
+                    label={loading ? 'Enviando...' : 'Enviar mensaje'}
+                    disabled={loading}
+                    width={200}
+                  />
+                </div>
 
                 {error && (
                   <p role="alert" className="text-xs text-red-500 text-center font-sora">{error}</p>

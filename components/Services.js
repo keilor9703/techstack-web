@@ -2,6 +2,7 @@
 
 import { motion } from 'framer-motion';
 import { CinematicHeading, CinematicReveal } from '@/components/CinematicText';
+import { LiquidMetalButton } from '@/components/ui/liquid-metal-button';
 
 const services = [
   {
@@ -173,16 +174,11 @@ export default function Services() {
 
           {/* CTA */}
           <div className="relative flex-shrink-0">
-            <a
-              href="#contacto"
-              onClick={(e) => { e.preventDefault(); setTimeout(() => document.querySelector('#contacto')?.scrollIntoView({ behavior: 'smooth' }), 50); }}
-              className="inline-flex items-center gap-2 bg-azulStack hover:bg-azulStack/90 text-white font-sora font-semibold text-sm px-6 py-3.5 rounded-xl transition-all duration-200 shadow-lg shadow-azulStack/30 hover:shadow-azulStack/50 whitespace-nowrap"
-            >
-              Quiero mi página web
-              <svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5} aria-hidden="true">
-                <path strokeLinecap="round" strokeLinejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
-              </svg>
-            </a>
+            <LiquidMetalButton
+              label="Quiero mi página web"
+              onClick={() => document.querySelector('#contacto')?.scrollIntoView({ behavior: 'smooth' })}
+              width={210}
+            />
           </div>
         </motion.div>
       </div>
