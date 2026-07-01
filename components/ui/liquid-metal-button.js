@@ -95,10 +95,10 @@ export function LiquidMetalButton({
         {/* Label / icon layer */}
         <div style={{ position: 'absolute', inset: 0, display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 6, transform: 'translateZ(20px)', zIndex: 30, pointerEvents: 'none' }}>
           {viewMode === 'icon' && (
-            <Sparkles size={16} style={{ color: '#888', filter: 'drop-shadow(0px 1px 2px rgba(0,0,0,0.5))' }} />
+            <Sparkles size={16} style={{ color: '#e0e0e0', filter: 'drop-shadow(0px 1px 2px rgba(0,0,0,0.8))' }} />
           )}
           {viewMode === 'text' && (
-            <span style={{ fontSize: 14, color: '#888', fontWeight: 500, textShadow: '0px 1px 2px rgba(0,0,0,0.5)', whiteSpace: 'nowrap', fontFamily: 'Sora, sans-serif' }}>
+            <span style={{ fontSize: 14, color: '#e0e0e0', fontWeight: 600, textShadow: '0px 1px 3px rgba(0,0,0,0.8)', whiteSpace: 'nowrap', fontFamily: 'Sora, sans-serif' }}>
               {label}
             </span>
           )}
