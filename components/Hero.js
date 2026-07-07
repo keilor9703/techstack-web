@@ -128,7 +128,7 @@ export default function Hero() {
             <motion.div variants={itemVariants}>
               <span className="inline-flex items-center gap-2 px-3 py-1.5 bg-azul/20 border border-azul/30 rounded-full text-xs font-mono text-azul font-medium mb-6">
                 <span className="w-1.5 h-1.5 bg-azul rounded-full animate-pulse" />
-                Empresa colombiana de software · Desde 2023
+                Empresa colombiana de software · Desde 2025
               </span>
             </motion.div>
 
