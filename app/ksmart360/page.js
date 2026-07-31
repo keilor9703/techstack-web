@@ -34,7 +34,7 @@ const plans = [
     ],
     cta: 'Empezar gratis',
     highlight: false,
-    ctaHref: 'https://www.appjeylor.com/',
+    ctaHref: 'https://www.ksmart360.com/',
   },
   {
     name: 'Básico',
@@ -55,7 +55,7 @@ const plans = [
     ],
     cta: 'Empezar con Básico',
     highlight: false,
-    ctaHref: 'https://www.appjeylor.com/',
+    ctaHref: 'https://www.ksmart360.com/',
   },
   {
     name: 'Emprendedor',
@@ -75,7 +75,7 @@ const plans = [
     ],
     cta: 'Empezar con Emprendedor',
     highlight: false,
-    ctaHref: 'https://www.appjeylor.com/',
+    ctaHref: 'https://www.ksmart360.com/',
   },
   {
     name: 'Comercio',
@@ -95,7 +95,7 @@ const plans = [
     ],
     cta: 'Empezar con Comercio',
     highlight: true,
-    ctaHref: 'https://www.appjeylor.com/',
+    ctaHref: 'https://www.ksmart360.com/',
   },
   {
     name: 'Empresarial',
@@ -115,7 +115,7 @@ const plans = [
     ],
     cta: 'Empezar con Empresarial',
     highlight: false,
-    ctaHref: 'https://www.appjeylor.com/',
+    ctaHref: 'https://www.ksmart360.com/',
   },
 ];
 
@@ -1010,7 +1010,7 @@ function PymeView() {
               <div className="flex-1 text-center sm:text-left">
                 <p className="font-sora text-xs text-white/40 uppercase tracking-wider mb-2 font-medium">Tu URL personalizada</p>
                 <div className="font-mono text-sm text-white bg-white/8 border border-white/10 rounded-xl px-4 py-3 flex items-center gap-2">
-                  <span className="text-white/40">appjeylor.com/</span>
+                  <span className="text-white/40">ksmart360.com/</span>
                   <span className="text-azul font-bold">tunegocio</span>
                   <span className="ml-auto text-[10px] text-azul bg-azul/15 border border-azul/25 px-2 py-0.5 rounded-md">editable</span>
                 </div>
@@ -1136,7 +1136,7 @@ function PymeView() {
                     <span className="w-3 h-3 rounded-full bg-red-500" />
                     <span className="w-3 h-3 rounded-full bg-yellow-400" />
                     <span className="w-3 h-3 rounded-full bg-green-500" />
-                    <span className="ml-3 text-white/30 text-xs font-mono">appjeylor.com/calzadoeya</span>
+                    <span className="ml-3 text-white/30 text-xs font-mono">ksmart360.com/calzadoeya</span>
                   </div>
                   <img src="/screenshots/catalogo-eya.webp" alt="Catálogo virtual Calzado EYA en Ksmart360" className="w-full block" />
                 </div>
@@ -1154,7 +1154,7 @@ function PymeView() {
                     <span className="w-3 h-3 rounded-full bg-red-500" />
                     <span className="w-3 h-3 rounded-full bg-yellow-400" />
                     <span className="w-3 h-3 rounded-full bg-green-500" />
-                    <span className="ml-3 text-white/30 text-xs font-mono">appjeylor.com/calzadoeya · Pedido</span>
+                    <span className="ml-3 text-white/30 text-xs font-mono">ksmart360.com/calzadoeya · Pedido</span>
                   </div>
                   <img src="/screenshots/catalogo-pedido.webp" alt="Checkout y pedido por WhatsApp en catálogo Ksmart360" className="w-full block" />
                 </div>
@@ -1383,7 +1383,7 @@ function PymeView() {
             <motion.div variants={fadeUp}>
               <LiquidMetalButton
                 label="Empezar gratis ahora"
-                href="https://www.appjeylor.com/"
+                href="https://www.ksmart360.com/"
                 target="_blank"
                 width={210}
               />
@@ -1560,7 +1560,7 @@ function TechView() {
                   <span className="w-3 h-3 rounded-full bg-red-500" />
                   <span className="w-3 h-3 rounded-full bg-yellow-400" />
                   <span className="w-3 h-3 rounded-full bg-green-500" />
-                  <span className="ml-3 text-white/30 text-xs font-mono">appjeylor.com · Dashboard de Reportes Financieros</span>
+                  <span className="ml-3 text-white/30 text-xs font-mono">ksmart360.com · Dashboard de Reportes Financieros</span>
                 </div>
                 <img src="/screenshots/reportes.webp" alt="Ksmart360 — Dashboard de reportes financieros" className="w-full block" />
               </div>
@@ -2043,7 +2043,7 @@ export default function Ksmart360Page() {
           {/* Right: CTA */}
           <LiquidMetalButton
             label="Probar gratis"
-            href="https://www.appjeylor.com/"
+            href="https://www.ksmart360.com/"
             target="_blank"
             width={150}
           />
@@ -2134,7 +2134,7 @@ export default function Ksmart360Page() {
             <motion.div variants={fadeUp} className="flex flex-wrap items-center justify-center gap-4 mb-16">
               <LiquidMetalButton
                 label="Probar gratis 14 días"
-                href="https://www.appjeylor.com/"
+                href="https://www.ksmart360.com/"
                 target="_blank"
                 width={200}
               />
@@ -2178,7 +2178,7 @@ export default function Ksmart360Page() {
                     <span className="w-3 h-3 rounded-full bg-red-500" />
                     <span className="w-3 h-3 rounded-full bg-yellow-400" />
                     <span className="w-3 h-3 rounded-full bg-green-500" />
-                    <span className="ml-3 text-white/30 text-xs font-mono">appjeylor.com · Módulo POS — Punto de Venta</span>
+                    <span className="ml-3 text-white/30 text-xs font-mono">ksmart360.com · Módulo POS — Punto de Venta</span>
                   </div>
                   <img src="/screenshots/pos-ventas.webp" alt="Ksmart360 — Módulo POS Punto de Venta" className="w-full block" />
                 </div>
@@ -2407,7 +2407,7 @@ export default function Ksmart360Page() {
             </motion.p>
             <motion.div variants={fadeUp} className="flex flex-wrap items-center justify-center gap-4">
               <button
-                onClick={() => window.open('https://www.appjeylor.com/', '_blank', 'noopener,noreferrer')}
+                onClick={() => window.open('https://www.ksmart360.com/', '_blank', 'noopener,noreferrer')}
                 className="inline-flex items-center gap-2 px-8 py-4 bg-azul text-white font-semibold text-sm rounded-xl hover:bg-blue-600 transition-colors font-sora shadow-lg shadow-azul/30 cursor-pointer"
               >
                 Probar Ksmart360 gratis

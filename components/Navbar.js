@@ -210,7 +210,7 @@ export default function Navbar() {
               <div className="hidden lg:block">
                 <LiquidMetalButton
                   label="Probar Ksmart360"
-                  href="https://www.appjeylor.com/"
+                  href="https://www.ksmart360.com/"
                   target="_blank"
                   width={scrolled ? 160 : 180}
                 />
@@ -278,7 +278,7 @@ export default function Navbar() {
                 <div className="flex justify-center">
                   <LiquidMetalButton
                     label="Probar Ksmart360"
-                    href="https://www.appjeylor.com/"
+                    href="https://www.ksmart360.com/"
                     target="_blank"
                     width={200}
                   />
