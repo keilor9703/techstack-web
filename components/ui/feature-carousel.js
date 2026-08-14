@@ -87,6 +87,13 @@ const FEATURES = [
     image: "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?q=80&w=1200",
     description: "PostgreSQL enterprise-grade, backups automáticos diarios.",
   },
+  {
+    id: "whatsapp",
+    label: "Pedidos por WhatsApp",
+    icon: SmartPhone01Icon,
+    image: "https://images.unsplash.com/photo-1611746872915-64382b5c76da?q=80&w=1200",
+    description: "Agente IA recibe pedidos por WhatsApp, consulta tu catálogo y los registra en Ksmart360 automáticamente.",
+  },
 ];
 
 const AUTO_PLAY_INTERVAL = 3000;
