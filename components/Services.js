@@ -138,6 +138,46 @@ export default function Services() {
           ))}
         </motion.div>
 
+        {/* WhatsApp automation banner */}
+        <motion.div
+          initial={{ opacity: 0, y: 32 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: '-60px' }}
+          transition={{ duration: 0.65, ease: [0.22, 1, 0.36, 1] }}
+          className="mt-8 lg:mt-10 relative overflow-hidden rounded-2xl px-8 py-10 lg:px-14 lg:py-12 flex flex-col lg:flex-row items-center lg:items-center gap-8"
+          style={{ background: 'linear-gradient(135deg, rgba(37,211,102,0.08) 0%, rgba(18,140,126,0.12) 100%)', border: '1px solid rgba(37,211,102,0.2)' }}
+        >
+          <div className="pointer-events-none absolute -top-20 -left-20 w-72 h-72 rounded-full blur-3xl" style={{ background: 'radial-gradient(circle, rgba(37,211,102,0.15) 0%, transparent 70%)' }} />
+          <div className="pointer-events-none absolute -bottom-20 -right-20 w-64 h-64 rounded-full blur-3xl" style={{ background: 'radial-gradient(circle, rgba(18,140,126,0.12) 0%, transparent 70%)' }} />
+
+          <div className="relative flex-shrink-0 w-16 h-16 rounded-2xl flex items-center justify-center" style={{ background: 'rgba(37,211,102,0.15)', border: '1px solid rgba(37,211,102,0.3)' }}>
+            <svg width="30" height="30" viewBox="0 0 24 24" fill="none">
+              <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z" fill="#25D366"/>
+              <path d="M12 2C6.477 2 2 6.477 2 12c0 1.89.525 3.66 1.438 5.168L2 22l4.968-1.301A9.956 9.956 0 0012 22c5.523 0 10-4.477 10-10S17.523 2 12 2z" stroke="#25D366" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+            </svg>
+          </div>
+
+          <div className="relative flex-1 text-center lg:text-left">
+            <p className="text-xs font-mono font-medium tracking-widest uppercase mb-2" style={{ color: '#25D366' }}>
+              Automatización con IA · WhatsApp Business
+            </p>
+            <h3 className="font-sora font-light text-2xl lg:text-3xl text-white leading-snug tracking-normal mb-3">
+              Tu WhatsApp vende, responde y toma pedidos — solo
+            </h3>
+            <p className="font-sora text-sm text-white/55 leading-relaxed max-w-2xl">
+              Integramos un agente de IA a tu WhatsApp Business que atiende clientes 24/7: responde preguntas, muestra el catálogo, consulta stock, gestiona horarios y <strong className="text-white/80">registra pedidos automáticamente</strong> en Ksmart360, Excel, tu CRM o cualquier sistema. Para tiendas, restaurantes, clínicas, o cualquier negocio que quiera dejar de contestar lo mismo todo el día.
+            </p>
+          </div>
+
+          <div className="relative flex-shrink-0">
+            <LiquidMetalButton
+              label="Quiero automatizar mi WhatsApp"
+              onClick={() => document.querySelector('#contacto')?.scrollIntoView({ behavior: 'smooth' })}
+              width={260}
+            />
+          </div>
+        </motion.div>
+
         {/* Web design marketing banner */}
         <motion.div
           initial={{ opacity: 0, y: 32 }}

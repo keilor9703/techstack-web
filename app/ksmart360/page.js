@@ -536,6 +536,15 @@ const pymeDeepFeatures = [
       '**Ideal para ferreterías, distribuidoras, talleres y cualquier negocio que cotice antes de vender.** El historial de cotizaciones por cliente siempre disponible — sabes qué le cotizaste, cuándo y si terminó comprando. Cero trabajo duplicado.',
     ],
   },
+  {
+    icon: '💬',
+    title: 'Pedidos desde WhatsApp — con un agente de IA que entiende a tus clientes',
+    body: [
+      'Tu cliente le escribe a tu WhatsApp Business como siempre. Pero en lugar de que tú tengas que responder cada mensaje, un agente de IA entrenado con tu catálogo de Ksmart360 responde, identifica lo que quiere el cliente y crea el pedido directamente en el sistema. Sin intervención humana, sin demoras, sin errores de transcripción.',
+      '**El agente no solo toma pedidos.** Responde preguntas sobre horarios de atención, muestra el catálogo con precios actualizados en tiempo real, consulta disponibilidad de stock, gestiona quejas, registra clientes nuevos y transfiere al humano cuando la situación lo requiere — todo en el mismo hilo de conversación.',
+      '**¿Tu negocio no usa Ksmart360?** Esta automatización también la conectamos a cualquier sistema externo: Excel, Google Sheets, un CRM, una base de datos, o cualquier herramienta que ya uses. La información del pedido llega exactamente donde la necesitas, sin que nadie tenga que copiar nada a mano.',
+    ],
+  },
 ];
 
 const pymeSteps = [
