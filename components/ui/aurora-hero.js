@@ -103,6 +103,34 @@ export default function AuroraHero() {
         style={{ background: 'radial-gradient(circle, #7C3AED 0%, transparent 70%)' }}
       />
 
+      {/* Floating particles */}
+      {[
+        { size: 4, top: '15%', left: '8%', delay: 0, dur: 7 },
+        { size: 3, top: '30%', left: '18%', delay: 1.2, dur: 9 },
+        { size: 5, top: '60%', left: '5%', delay: 0.5, dur: 8 },
+        { size: 3, top: '80%', left: '22%', delay: 2, dur: 6 },
+        { size: 4, top: '20%', right: '10%', delay: 0.8, dur: 10 },
+        { size: 3, top: '50%', right: '6%', delay: 1.5, dur: 7.5 },
+        { size: 5, top: '70%', right: '18%', delay: 0.3, dur: 9 },
+        { size: 3, top: '40%', left: '45%', delay: 2.5, dur: 8 },
+      ].map((p, i) => (
+        <motion.div
+          key={i}
+          className="absolute rounded-full pointer-events-none z-0"
+          style={{
+            width: p.size,
+            height: p.size,
+            top: p.top,
+            left: p.left,
+            right: p.right,
+            background: i % 2 === 0 ? '#2E68E6' : '#7C3AED',
+            opacity: 0.35,
+          }}
+          animate={{ y: [0, -14, 0], opacity: [0.25, 0.5, 0.25] }}
+          transition={{ duration: p.dur, delay: p.delay, repeat: Infinity, ease: 'easeInOut' }}
+        />
+      ))}
+
       {/* Content — no parallax on mobile */}
       <motion.div
         style={{ y: textY, opacity }}

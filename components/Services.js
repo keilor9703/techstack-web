@@ -95,45 +95,82 @@ export default function Services() {
             <motion.div
               key={i}
               variants={itemVariants}
-              whileHover={{ y: -6, transition: { duration: 0.25 } }}
-              className="group relative bg-white/5 border border-white/10 rounded-2xl p-8 hover:border-azul/40 hover:bg-white/8 hover:shadow-2xl hover:shadow-azul/10 transition-all duration-300 cursor-default flex flex-col card-gradient-border"
+              className="group"
+              style={{ perspective: '1000px' }}
             >
-              {service.badge && (
-                <span className="absolute top-6 right-6 text-xs font-semibold font-sora text-azul bg-azul/15 border border-azul/20 px-2.5 py-1 rounded-full">
-                  {service.badge}
-                </span>
-              )}
-              <div className="w-12 h-12 rounded-xl flex items-center justify-center text-white mb-6 transition-all duration-300 group-hover:scale-110" style={{ background: 'linear-gradient(135deg, #2E68E6 0%, #7C3AED 100%)' }}>
-                {service.icon}
-              </div>
-              <h3 className="font-sora font-normal text-xl text-white mb-3 tracking-normal">
-                {service.title}
-              </h3>
-              <p className="font-sora text-sm text-white/55 leading-relaxed mb-6 flex-1">
-                {service.description}
-              </p>
-              {service.tags.length > 0 && (
-                <div className="flex flex-wrap gap-2 mb-6">
-                  {service.tags.map((tag) => (
-                    <span
-                      key={tag}
-                      className="text-xs font-mono text-white/50 bg-white/10 px-2.5 py-1 rounded-md"
-                    >
-                      {tag}
-                    </span>
-                  ))}
-                </div>
-              )}
-              <a
-                href="#contacto"
-                onClick={(e) => { e.preventDefault(); setTimeout(() => document.querySelector('#contacto')?.scrollIntoView({ behavior: 'smooth' }), 50); }}
-                className="mt-auto inline-flex items-center gap-1.5 text-sm font-semibold text-azul font-sora hover:gap-3 transition-all duration-200"
+              {/* Flip card container */}
+              <div
+                className="relative w-full transition-transform duration-700 ease-in-out"
+                style={{
+                  transformStyle: 'preserve-3d',
+                  minHeight: '320px',
+                  transform: 'rotateY(0deg)',
+                }}
+                onMouseEnter={(e) => { e.currentTarget.style.transform = 'rotateY(180deg)'; }}
+                onMouseLeave={(e) => { e.currentTarget.style.transform = 'rotateY(0deg)'; }}
               >
-                Solicitar información
-                <svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5} aria-hidden="true">
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                </svg>
-              </a>
+                {/* Front face */}
+                <div
+                  className="absolute inset-0 bg-white/5 border border-white/10 rounded-2xl p-8 flex flex-col"
+                  style={{ backfaceVisibility: 'hidden', WebkitBackfaceVisibility: 'hidden' }}
+                >
+                  {service.badge && (
+                    <span className="absolute top-6 right-6 text-xs font-semibold font-sora text-azul bg-azul/15 border border-azul/20 px-2.5 py-1 rounded-full">
+                      {service.badge}
+                    </span>
+                  )}
+                  <div className="w-12 h-12 rounded-xl flex items-center justify-center text-white mb-6" style={{ background: 'linear-gradient(135deg, #2E68E6 0%, #7C3AED 100%)' }}>
+                    {service.icon}
+                  </div>
+                  <h3 className="font-sora font-normal text-xl text-white mb-3 tracking-normal">
+                    {service.title}
+                  </h3>
+                  <p className="font-sora text-sm text-white/55 leading-relaxed flex-1">
+                    {service.description.substring(0, 80)}…
+                  </p>
+                  <p className="mt-4 font-sora text-xs text-azul/70 font-medium">Pasa el cursor para saber más →</p>
+                </div>
+
+                {/* Back face */}
+                <div
+                  className="absolute inset-0 rounded-2xl p-8 flex flex-col"
+                  style={{
+                    backfaceVisibility: 'hidden',
+                    WebkitBackfaceVisibility: 'hidden',
+                    transform: 'rotateY(180deg)',
+                    background: 'linear-gradient(135deg, #2E68E6 0%, #7C3AED 100%)',
+                  }}
+                >
+                  <h3 className="font-sora font-semibold text-lg text-white mb-4 tracking-tight">
+                    {service.title}
+                  </h3>
+                  <p className="font-sora text-sm text-white/85 leading-relaxed flex-1">
+                    {service.description}
+                  </p>
+                  {service.tags.length > 0 && (
+                    <div className="flex flex-wrap gap-2 mt-4 mb-5">
+                      {service.tags.map((tag) => (
+                        <span
+                          key={tag}
+                          className="text-xs font-mono text-white/80 bg-white/15 px-2.5 py-1 rounded-md"
+                        >
+                          {tag}
+                        </span>
+                      ))}
+                    </div>
+                  )}
+                  <a
+                    href="#contacto"
+                    onClick={(e) => { e.preventDefault(); setTimeout(() => document.querySelector('#contacto')?.scrollIntoView({ behavior: 'smooth' }), 50); }}
+                    className="mt-auto inline-flex items-center gap-1.5 text-sm font-bold text-white font-sora hover:gap-3 transition-all duration-200"
+                  >
+                    Solicitar información
+                    <svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5} aria-hidden="true">
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                    </svg>
+                  </a>
+                </div>
+              </div>
             </motion.div>
           ))}
         </motion.div>
