@@ -1,6 +1,7 @@
 'use client';
 
 import { motion } from 'framer-motion';
+import { useState, useEffect } from 'react';
 
 const navLinks = [
   { label: 'Nosotros', href: '#nosotros' },
@@ -22,8 +23,36 @@ function handleScrollTo(e, href) {
   }, 50);
 }
 
+function BackToTop() {
+  const [visible, setVisible] = useState(false);
+
+  useEffect(() => {
+    const onScroll = () => setVisible(window.scrollY > 300);
+    window.addEventListener('scroll', onScroll, { passive: true });
+    return () => window.removeEventListener('scroll', onScroll);
+  }, []);
+
+  return (
+    <motion.button
+      aria-label="Volver al inicio"
+      onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+      initial={{ opacity: 0, scale: 0.8 }}
+      animate={visible ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.8 }}
+      transition={{ duration: 0.25 }}
+      className="fixed bottom-6 right-6 z-50 w-11 h-11 rounded-full flex items-center justify-center shadow-lg pointer-events-auto"
+      style={{ background: 'linear-gradient(135deg, #2E68E6 0%, #7C3AED 100%)', pointerEvents: visible ? 'auto' : 'none' }}
+    >
+      <svg width="18" height="18" fill="none" viewBox="0 0 24 24" stroke="white" strokeWidth={2.5}>
+        <path strokeLinecap="round" strokeLinejoin="round" d="M5 15l7-7 7 7" />
+      </svg>
+    </motion.button>
+  );
+}
+
 export default function Footer() {
   return (
+    <>
+    <BackToTop />
     <footer className="bg-grafito text-white">
       <div className="max-w-7xl mx-auto px-6 lg:px-8 pt-16 pb-8">
         {/* Main footer grid */}
@@ -204,5 +233,6 @@ export default function Footer() {
         </div>
       </div>
     </footer>
+    </>
   );
 }
