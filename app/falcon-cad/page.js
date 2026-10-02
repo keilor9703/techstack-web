@@ -9,7 +9,7 @@ import { LiquidMetalButton } from '@/components/ui/liquid-metal-button';
 
 // ─── Stats ─────────────────────────────────────────────────────────────────
 const stats = [
-  { value: 'Multi-tenant', label: 'Un sistema, N municipios' },
+  { value: 'Multi-tenant', label: 'Un sistema, N centrales' },
   { value: '99.9%', label: 'Uptime Oracle Cloud' },
   { value: 'On-premise', label: 'Respaldo local incluido' },
   { value: 'Tiempo real', label: 'Despacho y seguimiento' },
@@ -17,7 +17,7 @@ const stats = [
 
 // ─── Canales de recepción ───────────────────────────────────────────────────
 const channels = [
-  { icon: '📞', label: 'Línea 123', desc: 'Integración directa con la planta telefónica (PBX) del municipio. Screen-pop automático al timbrar.' },
+  { icon: '📞', label: 'Línea 123', desc: 'Integración directa con la planta telefónica (PBX) de la central de emergencias. Screen-pop automático al timbrar.' },
   { icon: '💬', label: 'WhatsApp', desc: 'El ciudadano reporta por WhatsApp y el sistema crea el caso automáticamente con conversación adjunta.' },
   { icon: '🔗', label: 'API externa', desc: 'Alarmas monitoreadas, apps municipales y otras centrales pueden radicar casos por API REST con su propia credencial.' },
   { icon: '📹', label: 'Videollamada', desc: 'Streaming de video con el ciudadano en tiempo real para evaluar la emergencia antes del despacho.' },
@@ -50,7 +50,7 @@ const capabilities = [
   {
     icon: '🔐',
     title: 'RBAC dinámico por tenant',
-    desc: 'Cada municipio define sus propios roles y permisos. Superadmin global, admin de tenant, supervisor, operador. Permisos granulares configurables desde la matriz de administración.',
+    desc: 'Cada central define sus propios roles y permisos. Superadmin global, admin, supervisor, operador. Permisos granulares configurables desde la matriz de administración.',
   },
   {
     icon: '📊',
@@ -82,20 +82,20 @@ const modules = [
 // ─── Infraestructura ─────────────────────────────────────────────────────────
 const infra = [
   { icon: '☁️', title: 'Nube Oracle Cloud', desc: 'Región principal en Bogotá, Colombia. Infraestructura enterprise con SLA 99.9%, certificada y diseñada para datos públicos críticos.' },
-  { icon: '🖥️', title: 'Respaldo On-Premise', desc: 'Cada municipio puede tener su instancia de respaldo local. Operación garantizada incluso sin conectividad a internet.' },
-  { icon: '🏢', title: 'Multi-tenant aislado', desc: 'Todos los municipios en un solo sistema. Datos completamente aislados por `tenant`. Una sola actualización mejora todos los municipios a la vez.' },
+  { icon: '🖥️', title: 'Respaldo On-Premise', desc: 'La central puede tener su instancia de respaldo local. Operación garantizada incluso sin conectividad a internet.' },
+  { icon: '🏢', title: 'Multi-tenant aislado', desc: 'Todas las centrales en un solo sistema. Datos completamente aislados por tenant. Una sola actualización mejora todas las centrales a la vez.' },
   { icon: '🔒', title: 'Seguridad enterprise', desc: 'JWT firmados, RBAC granular, TLS terminado en el balanceador, API keys por entidad, logs de auditoría inmutables.' },
   { icon: '📈', title: 'Escalable sin límites', desc: 'Backend sin estado propio. Corre en N réplicas detrás de un balanceador. Crece con la demanda sin cambiar la arquitectura.' },
-  { icon: '🛠️', title: 'SaaS llave en mano', desc: 'Tech Stack Colombia opera la plataforma. El municipio paga el servicio y opera desde el primer día. Sin servidores propios que mantener.' },
+  { icon: '🛠️', title: 'Operado por Tech Stack Colombia', desc: 'Tech Stack Colombia opera la infraestructura. Las agencias se enfocan en atender emergencias, sin servidores propios que mantener.' },
 ];
 
-// ─── Modelo de negocio ────────────────────────────────────────────────────────
+// ─── Cómo opera ──────────────────────────────────────────────────────────────
 const saasModel = [
-  { step: '01', title: 'La entidad territorial contrata', desc: 'El municipio o departamento adquiere FALCON CAD como servicio SaaS. Tech Stack Colombia implementa y opera la plataforma.' },
-  { step: '02', title: 'Configuración del tenant', desc: 'Se crea el tenant del municipio con sus agencias, operadores, roles y catálogo operativo. Listo para operar en horas, no en semanas.' },
-  { step: '03', title: 'Integración con la infraestructura local', desc: 'Se conecta la planta telefónica (PBX), se configura WhatsApp Business y se vinculan las entidades externas que radicarán casos.' },
-  { step: '04', title: 'Capacitación y arranque', desc: 'Formación a operadores, supervisores y administradores. El equipo de Tech Stack Colombia acompaña el arranque en producción.' },
-  { step: '05', title: 'Operación continua + soporte', desc: 'Tech Stack Colombia mantiene la infraestructura, aplica mejoras y ofrece soporte técnico. El municipio se enfoca en atender emergencias.' },
+  { step: '01', title: 'Implementación para la central', desc: 'Tech Stack Colombia configura FALCON CAD para la central de emergencias: agencias, operadores, roles, catálogo operativo y canales de entrada.' },
+  { step: '02', title: 'Integración con la infraestructura local', desc: 'Se conecta la planta telefónica (PBX), se configura WhatsApp Business y se vinculan las agencias y entidades externas que radicarán casos.' },
+  { step: '03', title: 'Capacitación a los equipos', desc: 'Formación a operadores, supervisores y administradores de cada agencia. Tech Stack Colombia acompaña el arranque en producción.' },
+  { step: '04', title: 'Operación en tiempo real', desc: 'Policía Nacional, Bomberos, Defensa Civil, Ejército, Secretaría de Salud, Comisarías y demás agencias operan coordinadas desde un solo sistema.' },
+  { step: '05', title: 'Soporte continuo', desc: 'Tech Stack Colombia mantiene la infraestructura y aplica mejoras. Las agencias se enfocan en atender emergencias, no en servidores.' },
 ];
 
 // ─── Componente DeepFeature ───────────────────────────────────────────────────
@@ -159,7 +159,7 @@ const deepFeatures = [
     icon: '📞',
     title: 'Integración PBX con screen-pop: la llamada crea el caso sola',
     body: [
-      'La planta telefónica del municipio envía un webhook a FALCON CAD al instante en que suena una llamada al 123. El operador ve en su pantalla quién llama, desde qué número y en qué estado está el timbrado — antes de levantar el teléfono.',
+      'La planta telefónica de la central de emergencias envía un webhook a FALCON CAD al instante en que suena una llamada al 123. El operador ve en su pantalla quién llama, desde qué número y en qué estado está el timbrado — antes de levantar el teléfono.',
       '**Screen-pop automático:** si el ciudadano llamó antes, el sistema muestra su historial de casos. Si es primera vez, el operador abre el caso con un solo clic y el número queda vinculado.',
       'Con ACD (distribución automática de llamadas) configurado en la central, la llamada se dirige al operador asignado según su extensión. Solo esa sesión recibe el aviso — igual que en un teléfono de escritorio real.',
     ],
@@ -168,9 +168,9 @@ const deepFeatures = [
     icon: '💬',
     title: 'WhatsApp como canal oficial de emergencias',
     body: [
-      'El ciudadano escribe al número de WhatsApp Business del municipio. FALCON CAD recibe el mensaje, crea el caso automáticamente con canal `whatsapp` y toda la conversación queda adjunta al expediente.',
+      'El ciudadano escribe al número de WhatsApp Business de la central. FALCON CAD recibe el mensaje, crea el caso automáticamente con canal `whatsapp` y toda la conversación queda adjunta al expediente.',
       'El operador responde desde el detalle del caso — el mensaje sale por la API de Meta directamente al ciudadano. No hay que salir del sistema, no hay que abrir WhatsApp Web.',
-      'Cada municipio configura su propio número, token de Meta y verify token desde el módulo de Administración. Un tenant no interfiere con otro.',
+      'Cada central configura su propio número, token de Meta y verify token desde el módulo de Administración. Una central no interfiere con otra.',
     ],
   },
   {
@@ -196,7 +196,7 @@ const deepFeatures = [
     body: [
       'Centrales de alarmas monitoreadas, aplicaciones municipales, otras agencias o sistemas externos se registran como entidades en FALCON CAD y reciben una API key propia.',
       'Con esa key, la entidad puede radicar casos via REST (`POST /api/integracion/casos`) y consultar el estado de sus propios casos. Nunca accede a casos de otras entidades — aislamiento garantizado.',
-      '**Esto abre FALCON CAD a todo el ecosistema digital del municipio:** apps móviles ciudadanas, botones de pánico, sensores IoT, cámaras con detección de eventos — cualquier fuente que pueda hacer una llamada HTTP.',
+      '**Esto abre FALCON CAD a todo el ecosistema digital de la central:** apps móviles ciudadanas, botones de pánico, sensores IoT, cámaras con detección de eventos — cualquier fuente que pueda hacer una llamada HTTP.',
     ],
   },
   {
@@ -357,7 +357,7 @@ export default function FalconCadPage() {
               La tecnología al servicio<br />de quien más la necesita
             </h2>
             <p className="mt-4 font-sora text-base text-acero max-w-2xl mx-auto leading-relaxed">
-              FALCON CAD la opera la entidad territorial. Pero la beneficiada real es la ciudadanía.
+              FALCON CAD la operan las agencias de respuesta. Pero la beneficiada real es la ciudadanía.
               Una operación de emergencias bien gestionada salva vidas.
             </p>
           </motion.div>
@@ -560,7 +560,7 @@ export default function FalconCadPage() {
               Diseñada para datos públicos críticos
             </h2>
             <p className="mt-4 font-sora text-white/50 max-w-xl mx-auto">
-              Oracle Cloud región Bogotá como principal, respaldo on-premise en el municipio.
+              Oracle Cloud región Bogotá como principal, respaldo on-premise en la central.
               Datos soberanos, infraestructura colombiana.
             </p>
           </motion.div>
@@ -595,14 +595,14 @@ export default function FalconCadPage() {
             className="text-center mb-16"
           >
             <span className="inline-block text-xs font-mono font-medium text-azulStack bg-azulTinte border border-azulStack/20 px-3 py-1.5 rounded-full mb-4 tracking-wider uppercase">
-              Modelo SaaS
+              Modelo de operación
             </span>
             <h2 className="font-sora font-light text-4xl lg:text-5xl xl:text-6xl text-grafito dark:text-white leading-tight tracking-tight">
-              Del contrato a la operación<br className="hidden lg:block" /> en días
+              Implementación rápida,<br className="hidden lg:block" /> operación inmediata
             </h2>
             <p className="mt-4 font-sora text-base text-acero max-w-2xl mx-auto leading-relaxed">
-              La entidad territorial contrata el servicio. Tech Stack Colombia opera la plataforma.
-              Sin infraestructura propia que mantener.
+              Tech Stack Colombia implementa y mantiene la plataforma. Policía, Bomberos, Defensa Civil
+              y todas las agencias de respuesta operan coordinadas desde el primer día.
             </p>
           </motion.div>
 
@@ -646,15 +646,15 @@ export default function FalconCadPage() {
           >
             <span className="inline-flex items-center gap-2 text-xs font-mono font-medium text-emerald-400 bg-emerald-400/10 border border-emerald-400/20 px-3 py-1.5 rounded-full mb-6 tracking-wider uppercase">
               <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
-              Disponible ahora · SaaS para entidades territoriales
+              Disponible ahora · Para agencias de respuesta en Colombia
             </span>
 
             <h2 className="font-sora font-light text-4xl lg:text-5xl text-white leading-tight tracking-tight mb-6">
-              ¿Tu municipio necesita<br />una central de emergencias moderna?
+              ¿Tu agencia quiere operar<br />con una central de emergencias moderna?
             </h2>
             <p className="font-sora text-white/55 text-lg leading-relaxed mb-10">
-              Hablemos. Te mostramos FALCON CAD en funcionamiento real,
-              respondemos tus preguntas técnicas y te presentamos el modelo de contratación.
+              Hablemos. Te mostramos FALCON CAD en funcionamiento real
+              y respondemos tus preguntas técnicas y operativas.
             </p>
 
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
