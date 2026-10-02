@@ -7,6 +7,7 @@ const About = dynamic(() => import('@/components/About'), { ssr: false });
 const FeatureCarousel = dynamic(() => import('@/components/ui/feature-carousel'), { ssr: false });
 const Services = dynamic(() => import('@/components/Services'), { ssr: false });
 const Ksmart360Feature = dynamic(() => import('@/components/Ksmart360Feature'), { ssr: false });
+const FalconCadFeature = dynamic(() => import('@/components/FalconCadFeature'), { ssr: false });
 const Portfolio = dynamic(() => import('@/components/Portfolio'), { ssr: false });
 const Testimonials = dynamic(() => import('@/components/Testimonials'), { ssr: false });
 const FAQ = dynamic(() => import('@/components/FAQ'), { ssr: false });
@@ -22,6 +23,7 @@ export default function Home() {
       <FeatureCarousel />
       <Services />
       <Ksmart360Feature />
+      <FalconCadFeature />
       <Clients />
       <Portfolio />
       <Testimonials />
