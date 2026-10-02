@@ -6,12 +6,13 @@ import ThemeToggle from '@/components/ThemeToggle';
 import { LiquidMetalButton } from '@/components/ui/liquid-metal-button';
 
 const navLinks = [
-  { label: 'Nosotros',  href: '#nosotros'  },
-  { label: 'Servicios', href: '#servicios' },
-  { label: 'Ksmart360', href: '#ksmart360' },
-  { label: 'Portafolio',href: '#portafolio'},
-  { label: 'FAQ',       href: '#faq'       },
-  { label: 'Contacto',  href: '#contacto'  },
+  { label: 'Nosotros',    href: '#nosotros'   },
+  { label: 'Servicios',  href: '#servicios'  },
+  { label: 'Ksmart360',  href: '#ksmart360'  },
+  { label: 'FALCON CAD', href: '/falcon-cad', isPage: true },
+  { label: 'Portafolio', href: '#portafolio' },
+  { label: 'FAQ',        href: '#faq'        },
+  { label: 'Contacto',   href: '#contacto'   },
 ];
 
 const socialLinks = [
@@ -155,6 +156,18 @@ export default function Navbar() {
             {/* ── Desktop nav ── */}
             <nav className="hidden lg:flex items-center gap-1">
               {navLinks.map((link, i) => (
+                link.isPage ? (
+                  <motion.a
+                    key={link.href}
+                    href={link.href}
+                    initial={{ opacity: 0, y: -6 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: 0.05 + i * 0.04, duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
+                    className="relative px-3 py-1.5 font-sora text-sm font-light text-emerald-400 hover:text-emerald-300 transition-colors duration-200 rounded-lg hover:bg-white/5"
+                  >
+                    {link.label}
+                  </motion.a>
+                ) : (
                 <motion.a
                   key={link.href}
                   href={link.href}
@@ -173,6 +186,7 @@ export default function Navbar() {
                     />
                   )}
                 </motion.a>
+                )
               ))}
             </nav>
 
@@ -265,11 +279,11 @@ export default function Navbar() {
                 <motion.a
                   key={link.href}
                   href={link.href}
-                  onClick={(e) => handleNavClick(e, link.href)}
+                  onClick={link.isPage ? undefined : (e) => handleNavClick(e, link.href)}
                   initial={{ opacity: 0, x: -10 }}
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ delay: i * 0.04, duration: 0.3 }}
-                  className="font-sora text-white/80 hover:text-white text-sm font-light py-3 px-4 rounded-xl hover:bg-white/5 transition-colors border-b border-white/5 last:border-0"
+                  className={`font-sora text-sm font-light py-3 px-4 rounded-xl hover:bg-white/5 transition-colors border-b border-white/5 last:border-0 ${link.isPage ? 'text-emerald-400 hover:text-emerald-300' : 'text-white/80 hover:text-white'}`}
                 >
                   {link.label}
                 </motion.a>
