@@ -18,6 +18,18 @@ const projects = [
     badge: { text: 'Producto propio', style: 'azul' },
   },
   {
+    title: 'FALCON CAD — Gestión de Emergencias',
+    description: 'Plataforma nacional para la gestión integral del 123: recepción multicanal (llamada, WhatsApp, API), despacho de unidades, bitácora inmutable, RBAC dinámico y arquitectura multi-tenant. Construida sobre NestJS + Angular, lista para producción en cualquier orquestador.',
+    tags: ['NestJS', 'Angular', 'PostgreSQL', 'Multi-tenant', 'Socket.IO'],
+    gradient: 'from-emerald-500 to-teal-400',
+    screenshot: null,
+    screenshotAlt: '',
+    ctaLabel: 'Solicitar demostración',
+    ctaHref: '#contacto',
+    ctaExternal: false,
+    badge: { text: 'Producto propio', style: 'azul' },
+  },
+  {
     title: 'Catálogo Virtual — Calzado EYA',
     description: 'Tienda online en vivo con catálogo de productos, carrito, checkout por WhatsApp y "Powered by Ksmart360". Operando en ksmart360.com/calzadoeya.',
     tags: ['Catálogo Virtual', 'WhatsApp Checkout', 'Ksmart360'],
@@ -86,9 +98,9 @@ export default function Portfolio() {
             className="font-sora font-light text-4xl lg:text-5xl xl:text-6xl text-grafito dark:text-white leading-tight tracking-tight"
             delay={0.1}
           >
-            Ksmart360 y sus capacidades
+            Nuestros productos y soluciones
           </CinematicHeading>
-          <motion.p variants={itemVariants} className="font-sora text-base text-acero mt-4 max-w-2xl mx-auto leading-relaxed">Ksmart360 concentra años de desarrollo especializado. Sus módulos no son productos separados — son capacidades integradas de un mismo sistema construido para el mercado colombiano.</motion.p>
+          <motion.p variants={itemVariants} className="font-sora text-base text-acero mt-4 max-w-2xl mx-auto leading-relaxed">Desde ERP para comercios hasta plataformas de emergencias para municipios — construimos software que opera en producción.</motion.p>
         </motion.div>
 
         <motion.div
@@ -106,7 +118,7 @@ export default function Portfolio() {
               className="group bg-white dark:bg-[#13161F] border border-gray-100 dark:border-white/10 rounded-2xl overflow-hidden hover:border-gray-200 dark:hover:border-white/20 hover:shadow-xl hover:shadow-gray-200/60 dark:hover:shadow-black/40 transition-all duration-300 cursor-default flex flex-col"
             >
               {/* Screenshot preview */}
-              {project.screenshot && (
+              {project.screenshot ? (
                 <div className="relative bg-[#0A0C12] border-b border-white/5" style={{ height: '200px' }}>
                   <div className={`absolute inset-x-0 top-0 h-0.5 bg-gradient-to-r ${project.gradient} z-10`} />
                   <CinematicImage className="absolute inset-0" delay={i * 0.1}>
@@ -120,6 +132,17 @@ export default function Portfolio() {
                     />
                   </CinematicImage>
                   <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent z-10" />
+                </div>
+              ) : (
+                <div className={`relative bg-gradient-to-br ${project.gradient} border-b border-white/5 flex items-center justify-center`} style={{ height: '200px' }}>
+                  <div className="text-center text-white/90 select-none">
+                    <svg width="48" height="48" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.2} className="mx-auto mb-2 opacity-80">
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z" />
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z" />
+                    </svg>
+                    <p className="font-mono text-xs tracking-widest uppercase opacity-70">FALCON CAD</p>
+                  </div>
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent" />
                 </div>
               )}
 
