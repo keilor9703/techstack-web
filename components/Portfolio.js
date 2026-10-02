@@ -2,6 +2,7 @@
 
 import { motion } from 'framer-motion';
 import Image from 'next/image';
+import Link from 'next/link';
 import { CinematicHeading, CinematicImage } from '@/components/CinematicText';
 
 const projects = [
@@ -24,8 +25,8 @@ const projects = [
     gradient: 'from-emerald-500 to-teal-400',
     screenshot: null,
     screenshotAlt: '',
-    ctaLabel: 'Solicitar demostración',
-    ctaHref: '#contacto',
+    ctaLabel: 'Ver página de FALCON CAD',
+    ctaHref: '/falcon-cad',
     ctaExternal: false,
     badge: { text: 'Producto propio', style: 'azul' },
   },
@@ -176,19 +177,40 @@ export default function Portfolio() {
                     </span>
                   ))}
                 </div>
-                <a
-                  href={project.ctaHref}
-                  {...(project.ctaExternal
-                    ? { target: '_blank', rel: 'noopener noreferrer' }
-                    : { onClick: (e) => { e.preventDefault(); setTimeout(() => document.querySelector(project.ctaHref)?.scrollIntoView({ behavior: 'smooth' }), 50); } }
-                  )}
-                  className="mt-auto inline-flex items-center gap-1.5 text-sm font-semibold text-azulStack font-sora hover:gap-3 transition-all duration-200"
-                >
-                  {project.ctaLabel}
-                  <svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                  </svg>
-                </a>
+                {project.ctaExternal ? (
+                  <a
+                    href={project.ctaHref}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="mt-auto inline-flex items-center gap-1.5 text-sm font-semibold text-azulStack font-sora hover:gap-3 transition-all duration-200"
+                  >
+                    {project.ctaLabel}
+                    <svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                    </svg>
+                  </a>
+                ) : project.ctaHref.startsWith('/') ? (
+                  <Link
+                    href={project.ctaHref}
+                    className="mt-auto inline-flex items-center gap-1.5 text-sm font-semibold text-azulStack font-sora hover:gap-3 transition-all duration-200"
+                  >
+                    {project.ctaLabel}
+                    <svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                    </svg>
+                  </Link>
+                ) : (
+                  <a
+                    href={project.ctaHref}
+                    onClick={(e) => { e.preventDefault(); setTimeout(() => document.querySelector(project.ctaHref)?.scrollIntoView({ behavior: 'smooth' }), 50); }}
+                    className="mt-auto inline-flex items-center gap-1.5 text-sm font-semibold text-azulStack font-sora hover:gap-3 transition-all duration-200"
+                  >
+                    {project.ctaLabel}
+                    <svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                    </svg>
+                  </a>
+                )}
               </div>
             </motion.div>
           ))}
