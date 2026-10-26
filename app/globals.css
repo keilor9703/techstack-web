@@ -217,3 +217,7 @@ body::after {
 .glow-falcon::before {
   background: linear-gradient(135deg, rgba(34,211,238,0.9), rgba(56,189,248,0.5) 50%, rgba(20,184,166,0.9));
 }
+
+html, body {
+  overflow-x: clip;
+}

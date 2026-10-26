@@ -47,7 +47,7 @@ export default function Ksmart360Feature() {
       </div>
 
       <div className="relative max-w-7xl mx-auto px-6 lg:px-8">
-        <div ref={ref} className="grid lg:grid-cols-2 gap-16 lg:gap-24 items-center">
+        <div ref={ref} className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-center [&>*]:min-w-0">
           {/* Left: Text + features */}
           <div>
             <motion.div

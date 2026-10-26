@@ -39,7 +39,7 @@ export default function FalconCadFeature() {
       <div className="absolute top-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-falcon-cyan/50 to-transparent" />
 
       <div ref={ref} className="relative max-w-7xl mx-auto px-6 lg:px-8">
-        <div className="grid lg:grid-cols-[1.25fr_1fr] gap-14 lg:gap-16 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-[1.25fr_1fr] gap-14 lg:gap-16 items-center [&>*]:min-w-0">
           {/* Console */}
           <motion.div
             initial={{ opacity: 0, y: 40, rotateX: 12 }}
