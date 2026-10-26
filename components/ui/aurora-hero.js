@@ -156,8 +156,9 @@ export default function AuroraHero() {
               <CinematicHeading
                 as="h1"
                 align="left"
-                className="font-sora font-light text-4xl sm:text-5xl lg:text-6xl xl:text-7xl text-white leading-tight tracking-tight mb-2"
+                className="font-display font-semibold text-5xl sm:text-6xl lg:text-7xl xl:text-[5.5rem] text-white leading-[0.98] mb-3"
                 delay={0.1}
+                accent={1}
               >
                 Tu operación, digitalizada.
               </CinematicHeading>
@@ -194,21 +195,21 @@ export default function AuroraHero() {
               className="flex flex-wrap gap-y-4 gap-x-6 mt-8 pt-8 border-t border-white/10"
             >
               <div className="flex flex-col">
-                <span className="font-sora font-light text-2xl text-white">
+                <span className="font-display font-semibold text-2xl text-white">
                   <CountUp target={30} suffix="+" />
                 </span>
                 <span className="font-sora text-xs text-white/50">Empresas activas</span>
               </div>
               <div className="w-px h-8 bg-white/10 self-center" />
               <div className="flex flex-col">
-                <span className="font-sora font-light text-2xl text-white">
+                <span className="font-display font-semibold text-2xl text-white">
                   <CountUp target={18} suffix="+" />
                 </span>
                 <span className="font-sora text-xs text-white/50">Módulos en Ksmart360</span>
               </div>
               <div className="w-px h-8 bg-white/10 self-center" />
               <div className="flex flex-col">
-                <span className="font-sora font-light text-2xl text-white">99.9%</span>
+                <span className="font-display font-semibold text-2xl text-white">99.9%</span>
                 <span className="font-sora text-xs text-white/50">Uptime garantizado</span>
               </div>
             </motion.div>

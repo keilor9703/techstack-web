@@ -48,8 +48,9 @@ const itemVariants = {
 
 export default function About() {
   return (
-    <section id="nosotros" className="py-24 lg:py-32 bg-papel">
-      <div className="max-w-7xl mx-auto px-6 lg:px-8">
+    <section id="nosotros" className="relative overflow-hidden py-24 lg:py-32 bg-papel mesh-a">
+      <div className="absolute inset-0 grid-fade pointer-events-none" />
+      <div className="relative max-w-7xl mx-auto px-6 lg:px-8">
         <motion.div
           variants={containerVariants}
           initial="hidden"
@@ -64,8 +65,9 @@ export default function About() {
             Nuestra filosofía
           </motion.span>
           <CinematicHeading
-            className="font-sora font-light text-4xl lg:text-6xl xl:text-7xl text-grafito dark:text-white leading-tight tracking-tight mb-6"
+            className="font-display font-semibold text-4xl lg:text-6xl xl:text-7xl text-grafito dark:text-white leading-[1.02] mb-6"
             delay={0.1}
+            accent={2}
           >
             Construimos. No consultamos.
           </CinematicHeading>
@@ -88,7 +90,7 @@ export default function About() {
           className="grid md:grid-cols-3 gap-6 lg:gap-8"
         >
           {pillars.map((pillar, i) => (
-            <CinematicReveal key={i} delay={i * 0.12} className="group bg-white dark:bg-[#13161F] border border-gray-100 dark:border-white/10 rounded-2xl p-8 hover:border-azulStack/30 hover:shadow-lg hover:shadow-azulStack/5 transition-all duration-300">
+            <CinematicReveal key={i} delay={i * 0.12} className="glow-card group bg-white/80 dark:bg-white/[0.03] backdrop-blur-sm border border-gray-100 dark:border-white/10 rounded-2xl p-8 hover:border-azulStack/30 hover:shadow-lg hover:shadow-azulStack/5 transition-all duration-300">
               <div className="w-12 h-12 rounded-xl flex items-center justify-center text-white mb-6 transition-all duration-300 group-hover:scale-110" style={{ background: 'linear-gradient(135deg, #2E68E6 0%, #7C3AED 100%)' }}>
                 {pillar.icon}
               </div>

@@ -163,7 +163,7 @@ export default function Navbar() {
                     initial={{ opacity: 0, y: -6 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: 0.05 + i * 0.04, duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
-                    className="relative px-3 py-1.5 font-sora text-sm font-light text-emerald-400 hover:text-emerald-300 transition-colors duration-200 rounded-lg hover:bg-white/5"
+                    className="relative px-3 py-1.5 font-sora text-sm font-light text-cyan-400 hover:text-cyan-300 transition-colors duration-200 rounded-lg hover:bg-white/5"
                   >
                     {link.label}
                   </motion.a>
@@ -283,7 +283,7 @@ export default function Navbar() {
                   initial={{ opacity: 0, x: -10 }}
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ delay: i * 0.04, duration: 0.3 }}
-                  className={`font-sora text-sm font-light py-3 px-4 rounded-xl hover:bg-white/5 transition-colors border-b border-white/5 last:border-0 ${link.isPage ? 'text-emerald-400 hover:text-emerald-300' : 'text-white/80 hover:text-white'}`}
+                  className={`font-sora text-sm font-light py-3 px-4 rounded-xl hover:bg-white/5 transition-colors border-b border-white/5 last:border-0 ${link.isPage ? 'text-cyan-400 hover:text-cyan-300' : 'text-white/80 hover:text-white'}`}
                 >
                   {link.label}
                 </motion.a>

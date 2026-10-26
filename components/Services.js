@@ -60,7 +60,7 @@ export default function Services() {
       <div className="absolute top-0 left-0 w-[500px] h-[500px] rounded-full blur-3xl opacity-10 pointer-events-none" style={{ background: 'radial-gradient(circle, #7C3AED 0%, transparent 70%)' }} />
       <div className="absolute bottom-0 right-0 w-[400px] h-[400px] rounded-full blur-3xl opacity-10 pointer-events-none" style={{ background: 'radial-gradient(circle, #2E68E6 0%, transparent 70%)' }} />
       {/* Dot grid */}
-      <div className="absolute inset-0 opacity-10 pointer-events-none" style={{ backgroundImage: 'radial-gradient(circle, #6A6F7E 1px, transparent 1px)', backgroundSize: '32px 32px' }} />
+      <div className="absolute inset-0 grid-fade pointer-events-none" />
 
       <div className="relative max-w-7xl mx-auto px-6 lg:px-8">
         <motion.div
@@ -77,8 +77,9 @@ export default function Services() {
             Lo que hacemos
           </motion.span>
           <CinematicHeading
-            className="font-sora font-light text-4xl lg:text-5xl xl:text-6xl text-white leading-tight tracking-tight"
+            className="font-display font-semibold text-4xl lg:text-5xl xl:text-6xl text-white leading-[1.02]"
             delay={0.1}
+            accent={1}
           >
             Nuestros Servicios
           </CinematicHeading>
@@ -198,7 +199,7 @@ export default function Services() {
             <p className="text-xs font-mono font-medium tracking-widest uppercase mb-2" style={{ color: '#25D366' }}>
               Automatización con IA · WhatsApp Business
             </p>
-            <h3 className="font-sora font-light text-2xl lg:text-3xl text-white leading-snug tracking-normal mb-3">
+            <h3 className="font-display font-semibold text-2xl lg:text-3xl text-white leading-snug tracking-normal mb-3">
               Tu WhatsApp vende, responde y toma pedidos — solo
             </h3>
             <p className="font-sora text-sm text-white/55 leading-relaxed max-w-2xl">
@@ -239,7 +240,7 @@ export default function Services() {
             <p className="text-xs font-mono font-medium text-azulStack tracking-widest uppercase mb-2">
               Diseño &amp; Construcción Web
             </p>
-            <h3 className="font-sora font-light text-2xl lg:text-3xl text-white leading-snug tracking-normal mb-3">
+            <h3 className="font-display font-semibold text-2xl lg:text-3xl text-white leading-snug tracking-normal mb-3">
               ¿Tu empresa todavía no tiene página web?
             </h3>
             <p className="font-sora text-sm text-white/55 leading-relaxed max-w-xl">

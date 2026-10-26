@@ -22,7 +22,7 @@ const projects = [
     title: 'FALCON CAD — Gestión de Emergencias',
     description: 'Plataforma nacional para la gestión integral del 123: recepción multicanal (llamada, WhatsApp, API), despacho de unidades, bitácora inmutable, RBAC dinámico y arquitectura multi-tenant. Construida sobre NestJS + Angular, lista para producción en cualquier orquestador.',
     tags: ['NestJS', 'Angular', 'PostgreSQL', 'Multi-tenant', 'Socket.IO'],
-    gradient: 'from-emerald-500 to-teal-400',
+    gradient: 'from-cyan-500 to-blue-600',
     screenshot: null,
     screenshotAlt: '',
     ctaLabel: 'Ver página de FALCON CAD',
@@ -80,8 +80,8 @@ const itemVariants = {
 
 export default function Portfolio() {
   return (
-    <section id="portafolio" className="py-24 lg:py-32 bg-papel">
-      <div className="max-w-7xl mx-auto px-6 lg:px-8">
+    <section id="portafolio" className="relative overflow-hidden py-24 lg:py-32 bg-papel mesh-b">
+      <div className="relative max-w-7xl mx-auto px-6 lg:px-8">
         <motion.div
           variants={containerVariants}
           initial="hidden"
@@ -96,12 +96,13 @@ export default function Portfolio() {
             Lo que hemos construido
           </motion.span>
           <CinematicHeading
-            className="font-sora font-light text-4xl lg:text-5xl xl:text-6xl text-grafito dark:text-white leading-tight tracking-tight"
+            className="font-display font-semibold text-4xl lg:text-5xl xl:text-6xl text-grafito dark:text-white leading-[1.02]"
             delay={0.1}
+            accent={2}
           >
             Nuestros productos y soluciones
           </CinematicHeading>
-          <motion.p variants={itemVariants} className="font-sora text-base text-acero mt-4 max-w-2xl mx-auto leading-relaxed">Desde ERP para comercios hasta plataformas de emergencias para municipios — construimos software que opera en producción.</motion.p>
+          <motion.p variants={itemVariants} className="font-sora text-base text-acero mt-4 max-w-2xl mx-auto leading-relaxed">Desde ERP para comercios hasta plataformas de gestión de emergencias para las agencias de respuesta — construimos software que opera en producción.</motion.p>
         </motion.div>
 
         <motion.div
@@ -116,7 +117,7 @@ export default function Portfolio() {
               key={i}
               variants={itemVariants}
               whileHover={{ y: -6, transition: { duration: 0.25 } }}
-              className="group bg-white dark:bg-[#13161F] border border-gray-100 dark:border-white/10 rounded-2xl overflow-hidden hover:border-gray-200 dark:hover:border-white/20 hover:shadow-xl hover:shadow-gray-200/60 dark:hover:shadow-black/40 transition-all duration-300 cursor-default flex flex-col"
+              className="glow-card group bg-white dark:bg-[#11141D] border border-gray-100 dark:border-white/10 rounded-2xl overflow-hidden hover:border-gray-200 dark:hover:border-white/20 hover:shadow-xl hover:shadow-gray-200/60 dark:hover:shadow-black/40 transition-all duration-300 cursor-default flex flex-col"
             >
               {/* Screenshot preview */}
               {project.screenshot ? (
@@ -136,12 +137,14 @@ export default function Portfolio() {
                 </div>
               ) : (
                 <div className={`relative bg-gradient-to-br ${project.gradient} border-b border-white/5 flex items-center justify-center`} style={{ height: '200px' }}>
-                  <div className="text-center text-white/90 select-none">
-                    <svg width="48" height="48" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.2} className="mx-auto mb-2 opacity-80">
-                      <path strokeLinecap="round" strokeLinejoin="round" d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z" />
-                      <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z" />
-                    </svg>
-                    <p className="font-mono text-xs tracking-widest uppercase opacity-70">FALCON CAD</p>
+                  <div className="absolute inset-0 grid-fade opacity-60" />
+                  <div className="relative text-center text-white select-none">
+                    <span className="mx-auto mb-3 w-16 h-16 rounded-2xl bg-white flex items-center justify-center shadow-2xl group-hover:scale-110 transition-transform duration-500">
+                      {/* eslint-disable-next-line @next/next/no-img-element */}
+                      <img src="/falcon/falcon-mark.png" alt="" className="w-11 h-11 object-contain" />
+                    </span>
+                    <p className="font-display font-bold text-xl tracking-wide">FALCON CAD</p>
+                    <p className="font-mono text-[10px] tracking-widest uppercase opacity-70 mt-1">Gestión de emergencias</p>
                   </div>
                   <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent" />
                 </div>
