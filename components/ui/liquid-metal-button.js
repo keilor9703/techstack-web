@@ -113,7 +113,7 @@ export function LiquidMetalButton({
             <Sparkles size={16} style={{ color: '#e0e0e0', filter: 'drop-shadow(0px 1px 2px rgba(0,0,0,0.8))' }} />
           )}
           {viewMode === 'text' && (
-            <span style={{ fontSize: 14, color: '#e0e0e0', fontWeight: 600, textShadow: '0px 1px 3px rgba(0,0,0,0.8)', whiteSpace: 'nowrap', fontFamily: 'Sora, sans-serif' }}>
+            <span style={{ fontSize: 14, color: '#e0e0e0', fontWeight: 600, textShadow: '0px 1px 3px rgba(0,0,0,0.8)', whiteSpace: 'nowrap', fontFamily: 'var(--font-body), Inter, sans-serif' }}>
               {label}
             </span>
           )}

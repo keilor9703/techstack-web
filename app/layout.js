@@ -1,14 +1,14 @@
-import { Sora, JetBrains_Mono, Bricolage_Grotesque } from 'next/font/google';
+import { Inter, Outfit, JetBrains_Mono } from 'next/font/google';
 import './globals.css';
 
-const sora = Sora({
+const inter = Inter({
   subsets: ['latin'],
   weight: ['300', '400', '500', '600', '700', '800'],
-  variable: '--font-sora',
+  variable: '--font-body',
   display: 'swap',
 });
 
-const bricolage = Bricolage_Grotesque({
+const outfit = Outfit({
   subsets: ['latin'],
   weight: ['400', '500', '600', '700', '800'],
   variable: '--font-display',
@@ -72,7 +72,7 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="es" className={`${sora.variable} ${jetbrainsMono.variable} ${bricolage.variable}`} suppressHydrationWarning>
+    <html lang="es" className={`${inter.variable} ${jetbrainsMono.variable} ${outfit.variable}`} suppressHydrationWarning>
       <head>
         {/* Anti-flash: apply dark class before first paint */}
         <script dangerouslySetInnerHTML={{ __html: `try{var t=localStorage.getItem('theme');if(t==='dark'||(t===null&&window.matchMedia('(prefers-color-scheme: dark)').matches))document.documentElement.classList.add('dark')}catch(e){}` }} />

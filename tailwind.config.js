@@ -9,8 +9,8 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        sora: ['var(--font-sora)', 'Sora', 'sans-serif'],
-        display: ['var(--font-display)', 'Sora', 'sans-serif'],
+        sora: ['var(--font-body)', 'Inter', 'sans-serif'],
+        display: ['var(--font-display)', 'Outfit', 'sans-serif'],
         mono: ['var(--font-jetbrains)', '"JetBrains Mono"', 'monospace'],
       },
       colors: {

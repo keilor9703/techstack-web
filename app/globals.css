@@ -25,7 +25,7 @@ html {
 }
 
 body {
-  font-family: 'Sora', sans-serif;
+  font-family: var(--font-body), 'Inter', sans-serif;
   background-color: var(--surface-base);
   color: #16181F;
 }
@@ -118,8 +118,7 @@ body {
 
 /* ── Display headings ── */
 .font-display {
-  font-feature-settings: 'ss01', 'ss02';
-  letter-spacing: -0.035em;
+  letter-spacing: -0.03em;
 }
 
 /* ── Film grain over the whole page ── */
