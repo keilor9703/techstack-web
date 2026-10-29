@@ -47,7 +47,7 @@ export default function Ksmart360Feature() {
       </div>
 
       <div className="relative max-w-7xl mx-auto px-6 lg:px-8">
-        <div ref={ref} className="grid lg:grid-cols-2 gap-16 lg:gap-24 items-center">
+        <div ref={ref} className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-center [&>*]:min-w-0">
           {/* Left: Text + features */}
           <div>
             <motion.div
@@ -62,7 +62,7 @@ export default function Ksmart360Feature() {
                   Producto estrella · v2.2.0
                 </span>
               </div>
-              <h2 className="font-sora font-light text-3xl lg:text-4xl xl:text-5xl text-white leading-tight mb-4">
+              <h2 className="font-display font-semibold text-3xl lg:text-4xl xl:text-5xl text-white leading-tight mb-4">
                 Ksmart360
               </h2>
               <p className="font-sora text-lg text-white/60 leading-relaxed mb-3">

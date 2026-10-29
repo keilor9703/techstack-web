@@ -93,8 +93,8 @@ function TestimonialCard({ testimonial, delay }) {
 
 export default function Testimonials() {
   return (
-    <section className="py-24 lg:py-32 bg-grafito relative overflow-hidden">
-      <div className="absolute inset-0 opacity-10 pointer-events-none" style={{ backgroundImage: 'radial-gradient(circle, #6A6F7E 1px, transparent 1px)', backgroundSize: '32px 32px' }} />
+    <section className="py-24 lg:py-32 bg-grafito mesh-c relative overflow-hidden">
+      <div className="absolute inset-0 grid-fade pointer-events-none" />
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full blur-3xl opacity-5 pointer-events-none" style={{ background: 'radial-gradient(circle, #2E68E6 0%, transparent 70%)' }} />
 
       <div className="relative max-w-7xl mx-auto px-6 lg:px-8">
@@ -109,8 +109,8 @@ export default function Testimonials() {
           <span className="inline-block text-xs font-mono font-medium text-azul bg-azul/15 border border-azul/20 px-3 py-1.5 rounded-full mb-4 tracking-wider uppercase">
             Lo que dicen nuestros clientes
           </span>
-          <h2 className="font-sora font-light text-4xl lg:text-5xl xl:text-6xl text-white leading-tight tracking-tight">
-            Empresas que ya digitalizaron
+          <h2 className="font-display font-semibold text-4xl lg:text-5xl xl:text-6xl text-white leading-tight tracking-tight">
+            Empresas que ya <span className="text-gradient-brand">digitalizaron</span>
           </h2>
           <p className="mt-4 font-sora text-white/50 text-lg max-w-xl mx-auto">
             Resultados reales de negocios colombianos que confiaron en Tech Stack Colombia.
@@ -139,7 +139,7 @@ export default function Testimonials() {
             { value: '24h', label: 'Tiempo de respuesta' },
           ].map((stat, i) => (
             <div key={i} className="text-center">
-              <p className="font-sora font-light text-3xl text-white">{stat.value}</p>
+              <p className="font-display font-semibold text-3xl text-white">{stat.value}</p>
               <p className="font-sora text-xs text-white/40 mt-1">{stat.label}</p>
             </div>
           ))}

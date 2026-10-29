@@ -42,7 +42,7 @@ export default function FAQ() {
   const [open, setOpen] = useState(null);
 
   return (
-    <section id="faq" className="py-24 lg:py-32 bg-white dark:bg-[#0C0E15]">
+    <section id="faq" className="py-24 lg:py-32 bg-white dark:bg-[#0C0E15] mesh-a">
       <div className="max-w-3xl mx-auto px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 24 }}
@@ -54,8 +54,8 @@ export default function FAQ() {
           <span className="inline-block text-xs font-mono font-medium text-azulStack bg-azulTinte px-3 py-1.5 rounded-full mb-4 tracking-wider uppercase">
             Preguntas frecuentes
           </span>
-          <h2 className="font-sora font-light text-3xl lg:text-5xl xl:text-6xl text-grafito dark:text-white leading-tight tracking-tight">
-            Resolvemos tus dudas
+          <h2 className="font-display font-semibold text-3xl lg:text-5xl xl:text-6xl text-grafito dark:text-white leading-tight tracking-tight">
+            Resolvemos tus <span className="text-gradient-brand">dudas</span>
           </h2>
           <p className="font-sora text-base text-acero mt-4 leading-relaxed">
             Las preguntas más comunes sobre Ksmart360 y nuestros servicios.

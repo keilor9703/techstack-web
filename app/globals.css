@@ -25,7 +25,7 @@ html {
 }
 
 body {
-  font-family: 'Sora', sans-serif;
+  font-family: var(--font-body), 'Inter', sans-serif;
   background-color: var(--surface-base);
   color: #16181F;
 }
@@ -114,4 +114,109 @@ body {
 
 .animate-marquee:hover {
   animation-play-state: paused;
+}
+
+/* ── Display headings ── */
+.font-display {
+  letter-spacing: -0.03em;
+}
+
+/* ── Film grain over the whole page ── */
+body::after {
+  content: '';
+  position: fixed;
+  inset: 0;
+  z-index: 90;
+  pointer-events: none;
+  opacity: 0.045;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+.dark body::after { opacity: 0.06; }
+
+/* ── Animated brand gradient text ── */
+.text-gradient-brand {
+  background: linear-gradient(100deg, #2E68E6 0%, #7C3AED 35%, #22D3EE 70%, #2E68E6 100%);
+  background-size: 220% 100%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: gradient-x 8s ease infinite;
+}
+.text-gradient-falcon {
+  background: linear-gradient(100deg, #22D3EE 0%, #38BDF8 30%, #14B8A6 60%, #22D3EE 100%);
+  background-size: 220% 100%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: gradient-x 8s ease infinite;
+}
+@keyframes gradient-x {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
+
+/* ── Section mesh backgrounds (layered on top of the section's bg color) ── */
+.mesh-a {
+  background-image:
+    radial-gradient(55% 45% at 0% 0%, rgba(46,104,230,0.16), transparent 70%),
+    radial-gradient(45% 40% at 100% 20%, rgba(124,58,237,0.13), transparent 70%),
+    radial-gradient(40% 35% at 60% 100%, rgba(34,211,238,0.08), transparent 70%);
+}
+.mesh-b {
+  background-image:
+    radial-gradient(50% 45% at 100% 0%, rgba(124,58,237,0.16), transparent 70%),
+    radial-gradient(45% 45% at 0% 100%, rgba(46,104,230,0.16), transparent 70%);
+}
+.mesh-c {
+  background-image:
+    radial-gradient(60% 50% at 50% 0%, rgba(46,104,230,0.18), transparent 70%),
+    radial-gradient(35% 35% at 10% 80%, rgba(34,211,238,0.08), transparent 70%),
+    radial-gradient(35% 35% at 90% 80%, rgba(124,58,237,0.10), transparent 70%);
+}
+.grid-fade {
+  background-image:
+    linear-gradient(to right, rgba(128,140,170,0.09) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(128,140,170,0.09) 1px, transparent 1px);
+  background-size: 56px 56px;
+  -webkit-mask-image: radial-gradient(ellipse 70% 60% at 50% 40%, #000 30%, transparent 100%);
+  mask-image: radial-gradient(ellipse 70% 60% at 50% 40%, #000 30%, transparent 100%);
+}
+
+/* ── Gradient hairline between sections ── */
+.hairline {
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(46,104,230,0.5), rgba(124,58,237,0.5), transparent);
+}
+
+/* ── Card with glowing gradient border on hover ── */
+.glow-card {
+  position: relative;
+  isolation: isolate;
+}
+.glow-card::before {
+  content: '';
+  position: absolute;
+  inset: -1px;
+  border-radius: inherit;
+  padding: 1px;
+  background: linear-gradient(135deg, rgba(46,104,230,0.9), rgba(124,58,237,0.9) 50%, rgba(34,211,238,0.9));
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  opacity: 0;
+  transition: opacity 0.35s ease;
+  pointer-events: none;
+}
+.glow-card:hover::before { opacity: 1; }
+
+@keyframes marquee-rev {
+  from { transform: translateX(-50%); }
+  to   { transform: translateX(0); }
+}
+.glow-falcon::before {
+  background: linear-gradient(135deg, rgba(34,211,238,0.9), rgba(56,189,248,0.5) 50%, rgba(20,184,166,0.9));
+}
+
+html, body {
+  overflow-x: clip;
 }

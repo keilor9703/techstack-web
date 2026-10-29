@@ -71,9 +71,9 @@ export default function Contact() {
   };
 
   return (
-    <section id="contacto" className="py-24 lg:py-32 bg-white dark:bg-[#0C0E15]">
+    <section id="contacto" className="py-24 lg:py-32 bg-white dark:bg-[#0C0E15] mesh-b">
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
-        <div className="grid lg:grid-cols-2 gap-16 lg:gap-20 items-start">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-20 items-start [&>*]:min-w-0">
           {/* Left column */}
           <motion.div
             variants={containerVariants}
@@ -89,9 +89,9 @@ export default function Contact() {
             </motion.span>
             <motion.h2
               variants={itemVariants}
-              className="font-sora font-light text-4xl lg:text-5xl xl:text-6xl text-grafito dark:text-white leading-tight tracking-tight mb-5"
+              className="font-display font-semibold text-4xl lg:text-5xl xl:text-6xl text-grafito dark:text-white leading-tight tracking-tight mb-5"
             >
-              ¿Listo para transformar tu negocio con tecnología?
+              ¿Listo para transformar tu negocio con <span className="text-gradient-brand">tecnología?</span>
             </motion.h2>
             <motion.p
               variants={itemVariants}

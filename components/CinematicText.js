@@ -3,7 +3,7 @@
 import { useRef } from 'react';
 import { motion, useInView } from 'framer-motion';
 
-export function CinematicHeading({ children, className = '', as: Tag = 'h2', delay = 0, align = 'center' }) {
+export function CinematicHeading({ children, className = '', as: Tag = 'h2', delay = 0, align = 'center', accent = 0, accentClass = 'text-gradient-brand' }) {
   const ref = useRef(null);
   const inView = useInView(ref, { once: true, margin: '-60px' });
 
@@ -16,7 +16,7 @@ export function CinematicHeading({ children, className = '', as: Tag = 'h2', del
         {words.map((word, i) => (
           <span key={i} className="overflow-hidden inline-block">
             <motion.span
-              className="inline-block"
+              className={`inline-block pb-[0.08em] ${i >= words.length - accent ? accentClass : ''}`}
               initial={{ y: '110%', opacity: 0 }}
               animate={inView ? { y: 0, opacity: 1 } : { y: '110%', opacity: 0 }}
               transition={{
